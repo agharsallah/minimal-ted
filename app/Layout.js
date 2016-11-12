@@ -4,9 +4,9 @@ import {Link} from 'react-router'
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import counterpart  from 'counterpart';
+import Translate from 'react-translate-component';
 
 export default class Layout extends Component{
-	//constructor here
 	constructor(props) {
     super(props);
     this.state = {
@@ -34,6 +34,12 @@ export default class Layout extends Component{
 	};
 
 	render(){
+		const home = <Translate type="text" content="navbar.home"/>
+		const projects = <Translate type="text" content="navbar.projects"/>
+		const about = <Translate type="text" content="navbar.about"/>
+		const en = <Translate type="text" content="navbar.en"/>
+		const fr = <Translate type="text" content="navbar.fr"/>
+
 		return(
 			<div>
 
@@ -49,13 +55,13 @@ export default class Layout extends Component{
 		    </div>
 		    <div className="navbar-collapse collapse navbar-responsive-collapse">
 		      <ul className="nav navbar-nav">
-		        <li><Link to={'/'} 		 activeClassName="activeN">{this.state.home}</Link></li>
-		        <li ><Link to={'/Projects'}  activeClassName="activeN">{this.state.projects}</Link></li>
-		        <li ><Link to={'/About'} 	 activeClassName="activeN">{this.state.about}</Link></li>
+		        <li><Link to={'/'} 		 activeClassName="activeN">{home}</Link></li>
+		        <li ><Link to={'/Projects'}  activeClassName="activeN">{projects}</Link></li>
+		        <li ><Link to={'/About'} 	 activeClassName="activeN">{about}</Link></li>
 		        <li>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>
-			          <MenuItem value={'en'} primaryText="English" />
-			          <MenuItem value={'fr'} primaryText="French" />
+			          <MenuItem value={'en'} primaryText={en} />
+			          <MenuItem value={'fr'} primaryText={fr} />
 			        </DropDownMenu>
 			    </li>
 		      </ul>

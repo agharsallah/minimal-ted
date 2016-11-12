@@ -67,7 +67,9 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 .pull-left {
   float: left; }
 .w-full {
-  width: 100%; }
+  width: 100%;
+  height : 150px;
+}
   /* text of the widget */
   .p-a {
   padding: 1rem !important;
