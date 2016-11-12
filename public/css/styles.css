@@ -8,3 +8,7 @@ body {
 .tes{
 	color: red
 }
+.activeN{
+	background-color:  rgba(255, 255, 255, 0.3) !important
+}
+
