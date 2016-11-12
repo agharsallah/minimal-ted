@@ -1,47 +1,73 @@
-react-hot-boilerplate
+Important Update
+================
+
+Facebook released a tool to create React Apps with no need for configurations or boilerplates. If you're just begining to learn React, you might want to use create-react-app instead of using this boilerplate project.
+
+```sh
+npm install -g create-react-app
+
+create-react-app my-app
+cd my-app/
+npm start
+
+```
+
+Then open [http://localhost:3000/](http://localhost:3000/) to see your app.<br>
+When you’re ready to deploy to production, create a minified bundle with `npm run build`.
+
+<img src='https://camo.githubusercontent.com/506a5a0a33aebed2bf0d24d3999af7f582b31808/687474703a2f2f692e696d6775722e636f6d2f616d794e66434e2e706e67' width='600' alt='npm start'>
+
+For more information on create-react-app, take a look at [Dan Abramov's blog post ](https://facebook.github.io/react/blog/2016/07/22/create-apps-with-no-configuration.html) and the [Github repository](https://github.com/facebookincubator/create-react-app)
+
+Behind the scenes, create-react-app uses Webpack and Babel. 
+
+You might still want to use this boilerplate if you want to see how Webpack and Babel can be manually configured in a project.
+
+React App Boilerplate
 =====================
 
-The minimal dev environment to enable live-editing React components.
+Quickstart project template for learning React.
+
+### Objective
+
+This boilerplate is purposefully simple to show the minimal setup needed to create React projects with Webpack and Babel. It aims to be a starting point for learning React, with low cognitive load and as such avoids having many separate config files and advanced configuration options, while providing a solid foundation for new React projects.
 
 ### Usage
+**Clone this repository**
+```
+git clone git@github.com:pro-react/react-app-boilerplate.git
+```
 
+**Install**
 ```
 npm install
+```
+
+**Start the application in development mode**
+```
 npm start
-open http://localhost:3000
 ```
 
-Now edit `src/App.js`.  
-Your changes will appear without reloading the browser like in [this video](http://vimeo.com/100010922).
+Open http://localhost:8080 in your browser.
 
-### Linting
+Static files are served from the `public` folder, project JavaScript files are bundled from the `app` folder.
 
-This boilerplate project includes React-friendly ESLint configuration.
-
+**When ready, build for production**
 ```
-npm run lint
+npm run build
 ```
 
-### Using `0.0.0.0` as Host
+This will generate a minimized bundle.js file on the `public` folder.
 
-You may want to change the host in `server.js` and `webpack.config.js` from `localhost` to `0.0.0.0` to allow access from same WiFi network. This is not enabled by default because it is reported to cause problems on Windows. This may also be useful if you're using a VM.
 
 ### Missing Features
 
-This boilerplate is purposefully simple to show the minimal configuration for React Hot Loader. For a real project, you'll want to add a separate config for production with hot reloading disabled and minification enabled. You'll also want to add a router, styles and maybe combine dev server with an existing server. This is out of scope of this boilerplate, but you may want to look into [other starter kits](https://github.com/gaearon/react-hot-loader/blob/master/docs/README.md#starter-kits).
+This boilerplate focuses solely on transforming and bundling javascript files - all other static files are served directly from the public folder without any processing. While useful for learning React, this setup doesn't use Webpack and Babel in their full capabilities - which include transforming and bundling projects assets (such as stylesheets), modularizing CSS, hot reloading and etc. Please refer to [Pro React Appendix A](http://www.pro-react.com/materials/) to learn more about Webpack. If you are looking for a feature-rich bootstrap for React, take a look at [React App Advanced Boilerplate](//github.com/pro-react/react-app-advanced-boilerplate).
+
 
 ### Dependencies
 
-* React
-* Webpack
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
-* [babel-loader](https://github.com/babel/babel-loader)
-* [react-hot-loader](https://github.com/gaearon/react-hot-loader)
-
-### Resources
-
-* [Demo video](http://vimeo.com/100010922)
-* [react-hot-loader on Github](https://github.com/gaearon/react-hot-loader)
-* [Integrating JSX live reload into your workflow](http://gaearon.github.io/react-hot-loader/getstarted/)
-* [Troubleshooting guide](https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md)
-* Ping dan_abramov on Twitter or #reactjs IRC
+* React & React-DOM
+* Webpack & webpack-dev-server
+* Babel Core
+* Babel Loader (With "es2015" and "react" presets)
