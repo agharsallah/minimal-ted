@@ -9,8 +9,10 @@ module.exports = {
   	p2:' avec le support de  ',
   	p3:' et support technique de  '
   },
-  pred2014:{
-  		title1:'Resultats Totale',
-  		sub1:'Resultats par bureau de vote'
+  	pred2014:{
+  		Tfull:'Resultats Totale',
+  		Sfull:'Resultats par bureau de vote',
+  		TGender:'Resultas par sexe',
+  		SGender:"Visualization de taux de participation d'électeur selon le sexe par bureau de vote"
   	}
 };

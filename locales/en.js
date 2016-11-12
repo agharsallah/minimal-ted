@@ -11,8 +11,10 @@ module.exports = {
   },
   
   	pred2014:{
-  		title1:'Full Results',
-  		sub1:'Results By polling center'
+  		Tfull:'Full Results',
+  		Sfull:'Results By polling center',
+  		TGender:'Results By Gender',
+  		SGender:'Visualizing voter turnout by gender down to the polling center level'
   	}
   
 
