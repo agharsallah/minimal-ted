@@ -1,26 +1,16 @@
-import { AppContainer } from 'react-hot-loader';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import { render } from 'react-dom'
+import App from './App'
+import About from './About'
+import Projects from './Projects'
 
-const rootEl = document.getElementById('root');
-ReactDOM.render(
-  <AppContainer>
-    <App />
-  </AppContainer>,
-  rootEl
-);
+import { Router, Route, browserHistory } from 'react-router';
 
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    // If you use Webpack 2 in ES modules mode, you can
-    // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./App').default;
-    ReactDOM.render(
-      <AppContainer>
-         <NextApp />
-      </AppContainer>,
-      rootEl
-    );
-  });
-}
+render((
+    <Router history={ browserHistory }>
+        <Route path="/" component={App}/>
+        <Route path="/About" component={About}/>
+        <Route path="/Projects" component={Projects}/>
+
+    </Router>
+    ),document.querySelector('#root'));
