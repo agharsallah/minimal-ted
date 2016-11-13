@@ -1,0 +1,11 @@
+we have Index father of all Router .. who have these 3 childrens
+	
+	*App
+		+Layout (navbar)
+		
+	*Projects
+		+ Layout (navbar)
+		+ Widget (many widget components are called with differnt passed props (quite static)(most of 		the text props are getted from the Translation file) )
+		+
+	*About
+		+Layout (navbar)

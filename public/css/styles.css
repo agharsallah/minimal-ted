@@ -105,7 +105,13 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-color: rgba(120, 130, 140, 0.13);
   margin-left: 100px;
 }
-
+/* direction of text in widget */
+.right-to-left{
+  direction:rtl;
+}
+.left-toright{
+  direction:ltr;
+}
 
 
 

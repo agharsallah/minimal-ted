@@ -10,7 +10,8 @@ module.exports = {
     	projects:'Projects',
     	about:'About',
     	en: 'Anglais',
-      	fr: 'Français'
+      	fr: 'Français',
+      	ar: 'arabic'
    	},
   about:{
   	paragraph:'Tunisia Election Data browser – created to collect, open, visualize, and analyze election-related data on an ongoing basis – is a project implemented by : ',

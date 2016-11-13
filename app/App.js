@@ -13,6 +13,7 @@ import counterpart  from 'counterpart';
 import Translate    from 'react-translate-component';
 counterpart.registerTranslations('en',require('./../locales/en'));
 counterpart.registerTranslations('fr',require('./../locales/fr'));
+counterpart.registerTranslations('ar',require('./../locales/ar'));
 
 export default class App extends Component {
   render() {

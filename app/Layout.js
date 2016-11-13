@@ -10,11 +10,7 @@ export default class Layout extends Component{
 	constructor(props) {
     super(props);
     this.state = {
-    	value: 'en',
-    	home:'Home',
-    	projects:'Projects',
-    	about:'About'
-	
+    	value: 'en'
 	};
     this.handleChange = this.handleChange.bind(this);
   }
@@ -23,14 +19,8 @@ export default class Layout extends Component{
 	}
 	handleChange (event, index, value) {
 	   this.setState({value})
-	   if (value=='fr') {
-	   	this.setState({home:'Accueil',projects:'Projets',about:'A Propos'})
-	   }else if (value == 'ar') {
-	   	this.setState({home:'',projects:'',about:''})
-	   }else{
-	   	this.setState({home:'Home',projects:'Projects',about:'About'})
-	   }
 	   counterpart.setLocale(value);
+	   this.props.SendToFather(value)
 	};
 
 	render(){
@@ -39,6 +29,7 @@ export default class Layout extends Component{
 		const about = <Translate type="text" content="navbar.about"/>
 		const en = <Translate type="text" content="navbar.en"/>
 		const fr = <Translate type="text" content="navbar.fr"/>
+		const ar = <Translate type="text" content="navbar.ar"/>
 
 		return(
 			<div>
@@ -62,6 +53,7 @@ export default class Layout extends Component{
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>
 			          <MenuItem value={'en'} primaryText={en} />
 			          <MenuItem value={'fr'} primaryText={fr} />
+			          <MenuItem value={'ar'} primaryText={ar} />
 			        </DropDownMenu>
 			    </li>
 		      </ul>

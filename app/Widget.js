@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 export default class Widget extends Component{
 	
 	render(){
-		const imgsrc = 'img/' +this.props.imgsrc 
+		const imgsrc = 'img/' +this.props.imgsrc;
+		/*get the direction prop whether */
+		const direction = this.props.direction + ' p-a' 
 		return(
 			<div className="col-xs-6 col-sm-12 col-md-3 col-0">
 				<div className="box">
@@ -13,7 +15,7 @@ export default class Widget extends Component{
 						</div>
 						<img src={imgsrc} className="w-full"/>
 					</div>
-					<div className="p-a">
+					<div className={direction}>
 						<div className="m-b h-2x"><a href className="_800">{this.props.title}</a></div>
 						<p className="h-3x">{this.props.subtitle}</p>
 						<div><a href className="btn btn-xs white">Read More</a></div>
