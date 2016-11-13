@@ -1,3 +1,4 @@
+/*this component contains the layout and the widgets */
 import React, { Component } from 'react';
 import Layout from './Layout';
 import Paper from 'material-ui/Paper';

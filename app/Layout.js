@@ -1,5 +1,7 @@
+/*defining the navbar*/
+//and setting the language switcher here
 import React, { Component } from 'react';
-import {Link} from 'react-router'
+import {Link} from 'react-router';
 
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -24,6 +26,7 @@ export default class Layout extends Component{
 	};
 
 	render(){
+		/*this config is set to allow navbar language transtlation*/
 		const home = <Translate type="text" content="navbar.home"/>
 		const projects = <Translate type="text" content="navbar.projects"/>
 		const about = <Translate type="text" content="navbar.about"/>
