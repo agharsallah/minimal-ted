@@ -15,7 +15,7 @@ render((
         <Route path="/About" component={About}/>
         
         <Route path="/Projects" component={Projects}/>
-	   	    <Route path="/Projects/:mapId" component={MapComp}/>
+	   	    <Route path="/Projects/pre14/:mapId" component={MapComp}/>
 
 
     </Router>

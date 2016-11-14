@@ -6,7 +6,7 @@ export default class Widget extends Component{
 	render(){
 		const imgsrc = 'img/' +this.props.imgsrc;
 		/*get the map id*/
-		const linkk = '/Projects/'+ this.props.imgsrc.match(/.+?(?=\.)/g);
+		const linkk = '/Projects/pre14/'+ this.props.imgsrc.match(/.+?(?=\.)/g);
 		console.log(linkk)
 		
 		/*get the direction style as prop whether r-t-l or l-t-r*/

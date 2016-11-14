@@ -6,7 +6,9 @@ import LeafletMap from './LeafletMap';
 const MapComp = (props)=>{
   
   return(
+
    		<div style={{height:'auto'}}>
+
    			<Layout/>
    			<LeafletMap/>
    		</div>
