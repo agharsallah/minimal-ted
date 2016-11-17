@@ -22,33 +22,33 @@ class Parlamantary extends Component{
 		}
 	render(){
 		//we get the title nd subtitle of the widget from the localTranslate file
-		const Tfull = <Translate type="text" content="pred2014.Tfull"/>
-		const Sfull = <Translate type="text" content="pred2014.Sfull"/>
+		const Tfull = <Translate type="text" content="par2014.Tfull"/>
+		const Sfull = <Translate type="text" content="par2014.Sfull"/>
 
-		const TGender = <Translate type="text" content="pred2014.TGender"/>
-		const SGender = <Translate type="text" content="pred2014.SGender"/>
+		const TGender = <Translate type="text" content="par2014.TGender"/>
+		const SGender = <Translate type="text" content="par2014.SGender"/>
 
-		const TCandidate = <Translate type="text" content="pred2014.TCandidate"/>
-		const SComparing = <Translate type="text" content="pred2014.SComparing"/>
+		const TPartyNahdha = <Translate type="text" content="par2014.TPartyNahdha"/>
+		const SPartyNahdha = <Translate type="text" content="par2014.SPartyNahdha"/>
+		
+		const TPartyNida = <Translate type="text" content="par2014.TPartyNida"/>
+		const SPartyNida = <Translate type="text" content="par2014.SPartyNida"/>
+		
+		const TPartyUpl = <Translate type="text" content="par2014.TPartyUpl"/>
+		const SPartyUpl = <Translate type="text" content="par2014.SPartyUpl"/>
 
 		return(
 			<div>
-			<Layout SendToFather={this.handleSend}/>
+			<Layout SendToFather={this.handleSend} type='Parlamentary'/>
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
 					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"  />
-					<Widget title ={TCandidate} subtitle={SComparing} imgsrc='comparingM-Vs-B.png' direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="pre-by-gender.png"  direction={this.state.direction}/>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age.png"  direction={this.state.direction}/>					
+					<Widget title ={TGender} subtitle={SGender} imgsrc="par-by-gender.png"  direction={this.state.direction}/>
+					<Widget title ={TPartyNahdha} subtitle={SPartyNahdha} imgsrc='par-nahdha-res.png' direction={this.state.direction}/>					
+					<Widget title ={TPartyNida} subtitle={SPartyNida} imgsrc="par-nida-res.png"  direction={this.state.direction}/>					
 					</div>
 					<div className='col-md-12' >
-					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age2.png"  direction={this.state.direction}/>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="Beji-R2.png"  direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="marzouki-r2.png"  direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="marzouki-r1.png"  direction={this.state.direction}/>					
-					</div>
-					<div>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="beji-r1.png"  direction={this.state.direction}/>					
+					<Widget title ={TPartyUpl} subtitle={SPartyUpl} imgsrc="par-upl-res.png"  direction={this.state.direction}/>
 					</div>
 		</div>
 		);

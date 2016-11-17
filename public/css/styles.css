@@ -77,13 +77,13 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   ._800 {
   font-weight: 900 !important; }
   .h-2x {
-  height: 2.625rem;
+  height: 3.5rem;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical; }
 	.m-b {
-    margin-bottom: 1rem !important;
+    margin-bottom: 2.5rem !important;
 	}
   .h-3x {
   height: 3.93rem;
@@ -104,6 +104,9 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 .btn.btn-secondary {
   border-color: rgba(120, 130, 140, 0.13);
   margin-left: 100px;
+}
+.text{
+  margin-top: 10px;
 }
 /* direction of text in widget */
 .right-to-left{

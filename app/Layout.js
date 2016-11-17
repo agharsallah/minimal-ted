@@ -9,6 +9,7 @@ import counterpart  from 'counterpart';
 import Translate from 'react-translate-component';
 
 export default class Layout extends Component{
+
 	constructor(props) {
     super(props);
     this.state = {
@@ -57,12 +58,14 @@ export default class Layout extends Component{
 		      <ul className="nav navbar-nav">
 		        <li><Link to={'/'} 		 activeClassName="activeN">{home}</Link></li>
 		        <li>
-		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.state.projectValue} >
-			          <MenuItem value={'Presedential'} label={projects} primaryText={Presedential} containerElement={<Link to="/Projects" />}/>
+		        
+		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
+			          <MenuItem value={'Presedential'} label='projects' primaryText={Presedential} containerElement={<Link to="/Projects" />}/>
 			          <MenuItem value={'Parlamentary'} primaryText={Parlamentary} containerElement={<Link to="/Parlamantary" />}/>
 			          <MenuItem value={'NCA'} primaryText={NCA} containerElement={<Link to="/Nca" />}/>
 			    </DropDownMenu>
 		        </li>
+		        
 		        <li ><Link to={'/About'} activeClassName="activeN">{about}</Link></li>
 		        <li>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>
@@ -83,4 +86,6 @@ export default class Layout extends Component{
 		);
 	}
 };
-
+	Layout.defaultProps = {
+	  type: 'Presedential'
+	};

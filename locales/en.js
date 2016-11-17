@@ -32,7 +32,45 @@ module.exports = {
   		SGender:'Visualizing voter turnout by gender down to the polling center level',
   		TCandidate:'Result By Candidate',
   		SComparing:'Comparing Moncef Marzouki and Beji Caid Essebsi results'
-  	}
+  	},
+      par2014:{
+      Tfull:'Full Results',
+      Sfull:'Results By polling center',
+      TGender:'Results By Gender',
+      SGender:'Visualizing the total number of seats won by females candidates in each  electoral district and number of female representatives by party',
+      TPartyNahdha:'Result By Party',
+      SPartyNahdha:'Visualizing Nahdha results',
+       TPartyNida:'Visualizing Nidaa results',
+      SPartyNida:'Comparing Moncef Marzouki and Beji Caid Essebsi results',
+       TPartyUpl:'Result By Party',
+      SPartyUpl:'Visualizing UPL results'
+    },
+     nca2011:{
+      TNahdha:'Exploring Ennahdha Results in the 2011 Elections',
+      SNahdha:'Political party and coalition support',
+      TCPR:'Exploring CPR Results in the 2011 Elections',
+      SCPR:'Political party and coalition support',
+      TAridha:'Exploring Al Aridha Results in the 2011 Elections',
+      SAridha:'Political party and coalition support',
+      TTakatol:'Exploring Ettakatol Results in the 2011 Elections',
+      STakatol:'Political party and coalition support',
+      TPDP:'Exploring PDP Results in the 2011 Elections',
+      SPDP:'Political party and coalition support',
+      TAfek:'Exploring Afek Tounes Results in the 2011 Elections',
+      SAfek:'Political party and coalition support',
+      TTurnoutElg:'Visualizing the level of eligible voter turnout',
+      TSurnoutElg:'Voter eligibility and voter registration',
+      TRegistered:'Visualizing the proportion of actively registered voters vis-à-vis the eligible voting population',
+      SRegistered:'Voter eligibility and voter registration',
+      TTurnoutReg:'Visualizing the level of eligible voter turnout',
+      TSurnoutReg:'Voter eligibility and voter registration',
+      TPassive:'Highlighting the level of actively registered voter turnout',
+      SPassive:'Voter registration and voter turnout',
+      TCoalition:'Highlighting where local-level coalitions could have the greatest impact',
+      SCoalition:'The votes that did not count',
+      TBallots:'Visualizing the proportion of blank ballots cast',
+      SBallots:'Ballots cast and political representation'
+    }
   
 
 }

@@ -22,35 +22,54 @@ class Nca extends Component{
 		}
 	render(){
 		//we get the title nd subtitle of the widget from the localTranslate file
-		const Tfull = <Translate type="text" content="pred2014.Tfull"/>
-		const Sfull = <Translate type="text" content="pred2014.Sfull"/>
-
-		const TGender = <Translate type="text" content="pred2014.TGender"/>
-		const SGender = <Translate type="text" content="pred2014.SGender"/>
-
-		const TCandidate = <Translate type="text" content="pred2014.TCandidate"/>
-		const SComparing = <Translate type="text" content="pred2014.SComparing"/>
+		const TNahdha = <Translate type="text" content="nca2011.TNahdha"/>
+		const SNahdha = <Translate type="text" content="nca2011.SNahdha"/>
+		const TCPR = <Translate type="text" content="nca2011.TCPR"/>
+		const SCPR = <Translate type="text" content="nca2011.SCPR"/>
+		const TAridha = <Translate type="text" content="nca2011.TAridha"/>
+		const SAridha = <Translate type="text" content="nca2011.SAridha"/>
+		const TTakatol = <Translate type="text" content="nca2011.TTakatol"/>
+		const STakatol = <Translate type="text" content="nca2011.STakatol"/>
+		const TPDP = <Translate type="text" content="nca2011.TPDP"/>
+		const SPDP = <Translate type="text" content="nca2011.SPDP"/>
+		const TAfek = <Translate type="text" content="nca2011.TAfek"/>
+		const SAfek = <Translate type="text" content="nca2011.SAfek"/>	
+		const TTurnoutElg = <Translate type="text" content="nca2011.TTurnoutElg"/>
+		const TSurnoutElg = <Translate type="text" content="nca2011.TSurnoutElg"/>
+		const TRegistered = <Translate type="text" content="nca2011.TRegistered"/>
+		const SRegistered = <Translate type="text" content="nca2011.SRegistered"/>
+		const TTurnoutReg = <Translate type="text" content="nca2011.TTurnoutReg"/>
+		const TSurnoutReg = <Translate type="text" content="nca2011.TSurnoutReg"/>
+		const TPassive = <Translate type="text" content="nca2011.TPassive"/>
+		const SPassive = <Translate type="text" content="nca2011.SPassive"/>
+		const TCoalition = <Translate type="text" content="nca2011.TCoalition"/>
+		const SCoalition = <Translate type="text" content="nca2011.SCoalition"/>
+		const TBallots = <Translate type="text" content="nca2011.TBallots"/>
+		const SBallots = <Translate type="text" content="nca2011.SBallots"/>
 
 		return(
 			<div>
-			<Layout SendToFather={this.handleSend}/>
+			<Layout SendToFather={this.handleSend} type='NCA'/>
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
-					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"  />
-					<Widget title ={TCandidate} subtitle={SComparing} imgsrc='comparingM-Vs-B.png' direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="pre-by-gender.png"  direction={this.state.direction}/>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age.png"  direction={this.state.direction}/>					
+						<Widget title ={TNahdha} subtitle={SNahdha} imgsrc="nahdha.png"  />
+						<Widget title ={TCPR} subtitle={SCPR} imgsrc='cpr.png' direction={this.state.direction}/>					
+						<Widget title ={TAridha} subtitle={SAridha} imgsrc="aridaa.png"  direction={this.state.direction}/>
+						<Widget title ={TTakatol} subtitle={STakatol} imgsrc="ETTAKATOL.png"  direction={this.state.direction}/>					
 					</div>
 					<div className='col-md-12' >
-					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age2.png"  direction={this.state.direction}/>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="Beji-R2.png"  direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="marzouki-r2.png"  direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="marzouki-r1.png"  direction={this.state.direction}/>					
+						<Widget title ={TPDP} subtitle={SPDP} imgsrc="PDP.png"  direction={this.state.direction}/>
+						<Widget title ={TAfek} subtitle={SAfek} imgsrc="afek.png"  direction={this.state.direction}/>					
+						<Widget title ={TTurnoutElg} subtitle={TSurnoutElg} imgsrc="turnout.png"  direction={this.state.direction}/>					
+						<Widget title ={TRegistered} subtitle={SRegistered} imgsrc="eligible.png"  direction={this.state.direction}/>					
 					</div>
-					<div>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="beji-r1.png"  direction={this.state.direction}/>					
+					<div className='col-md-12'>
+						<Widget title ={TTurnoutReg} subtitle={TSurnoutReg} imgsrc="active.png"  direction={this.state.direction}/>					
+						<Widget title ={TPassive} subtitle={SPassive} imgsrc="passive.png"  direction={this.state.direction}/>
+						<Widget title ={TCoalition} subtitle={SCoalition} imgsrc="wasted.png"  direction={this.state.direction}/>					
+						<Widget title ={TBallots} subtitle={SBallots} imgsrc="blanc.png"  direction={this.state.direction}/>					
 					</div>
-		</div>
+			</div>
 		);
 	}
 };
