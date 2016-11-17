@@ -1,7 +1,6 @@
 /*this component contains the layout and the widgets */
 import React, { Component } from 'react';
 import Layout from './Layout';
-import Paper from 'material-ui/Paper';
 import Widget from './Widget'
 import Translate from 'react-translate-component';
 

@@ -4,8 +4,10 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import Layout from './Layout';
-import Counter from './Counter';
-import Greeter  from './Greeter';
+import ParallaxPic from './ParallaxPic'
+
+/*import Counter from './Counter';
+import Greeter  from './Greeter';*/
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //setting language support
@@ -18,12 +20,14 @@ counterpart.registerTranslations('ar',require('./../locales/ar'));
 export default class App extends Component {
   render() {
     return (
+      <div>
       <MuiThemeProvider>
-        <Layout>
-        	 <Greeter with={{ name: "Martin" }} component="h1" />
-          <Counter />
-        </Layout>
+        <Layout/>
       </MuiThemeProvider>
+      <ParallaxPic header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/MohamedMessaraEPA.jpg)"/>      
+      <ParallaxPic header="home.second" subheader="home.secondSub" classname="backgrGirl" url = "url(img/tunisias-first-presidentialPhotobyAPHasseneDridi.jpg)" />      
+
+     </div>
     );
   }
 }

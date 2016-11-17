@@ -73,7 +73,8 @@ class LeafletMap extends Component{
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight,
-	        click: zoomToFeature
+	        click: zoomToFeature,
+	        tap:highlightFeature
 	    });
 	}
 

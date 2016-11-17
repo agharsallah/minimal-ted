@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Translate from 'react-translate-component';
 import Layout from './Layout';
-import LeafletMap from './LeafletMap';
+import ChooseMap from './ChooseMap'
 
 const MapComp = (props)=>{
   
@@ -10,7 +10,7 @@ const MapComp = (props)=>{
    		<div style={{height:'auto'}}>
 
    			<Layout/>
-   			<LeafletMap/>
+   			<ChooseMap param={props.params}/>
    		</div>
   );
 

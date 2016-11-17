@@ -7,7 +7,7 @@ export default class Widget extends Component{
 		const imgsrc = 'img/' +this.props.imgsrc;
 		/*get the map id*/
 		const linkk = '/Projects/pre14/'+ this.props.imgsrc.match(/.+?(?=\.)/g);
-		console.log(linkk)
+		//console.log(linkk)
 		
 		/*get the direction style as prop whether r-t-l or l-t-r*/
 		const direction = this.props.direction + ' p-a' 
@@ -22,7 +22,7 @@ export default class Widget extends Component{
 						<img src={imgsrc} className="w-full"/>
 					</div>
 					<div className={direction}>
-						<div className="m-b h-2x"><a href className="_800">{this.props.title}</a></div>
+						<div className="m-b h-2x"><Link href className="_800" to={linkk}>{this.props.title}</Link></div>
 						<p className="h-3x">{this.props.subtitle}</p>
 						<div><Link className="btn btn-xs white" to={linkk}>Read More</Link></div>
 					</div>

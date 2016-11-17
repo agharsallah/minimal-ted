@@ -1,8 +1,11 @@
 module.exports = {
 
 
-  example: {
-    greeting: 'Hello %(name)s! How are you today?'
+  home: {
+    first: 'Bringing Data to the People',
+    firstSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across government.',
+    second: 'Bringing Data to the People',
+    secondSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across government.'
   },
 
    	navbar:{
