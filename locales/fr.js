@@ -1,8 +1,11 @@
 module.exports = {
 
 
-  example: {
-    greeting: 'bonjour, %(name)s! comment cava?'
+   home: {
+    first: 'Apporter Les donnés au Public ',
+    firstSub:' text in french',
+    second: 'un autre titre',
+    secondSub:' Soutitre ICI'
   },
        	navbar:{
    		home:'Accueil',

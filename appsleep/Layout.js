@@ -12,8 +12,7 @@ export default class Layout extends Component{
 	constructor(props) {
     super(props);
     this.state = {
-    	value: 'en',
-    	projectValue:'Presedential'
+    	value: 'en'
 	};
     this.handleChange = this.handleChange.bind(this);
   }
@@ -24,9 +23,7 @@ export default class Layout extends Component{
 	   this.setState({value})
 	   counterpart.setLocale(value);
 	   this.props.SendToFather(value)
-	};	
-
-
+	};
 
 	render(){
 		/*this config is set to allow navbar language transtlation*/
@@ -37,9 +34,6 @@ export default class Layout extends Component{
 		const fr = <Translate type="text" content="navbar.fr"/>
 		const ar = <Translate type="text" content="navbar.ar"/>
 
-		const Presedential = <Translate type="text" content="navbar.Presedential"/>
-		const Parlamentary = <Translate type="text" content="navbar.Parlamentary"/>
-		const NCA = <Translate type="text" content="navbar.NCA"/>
 		return(
 			<div>
 
@@ -55,15 +49,9 @@ export default class Layout extends Component{
 		    </div>
 		    <div className="navbar-collapse collapse navbar-responsive-collapse">
 		      <ul className="nav navbar-nav">
-		        <li><Link to={'/'} 		 activeClassName="activeN">{home}</Link></li>
-		        <li>
-		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.state.projectValue} >
-			          <MenuItem value={'Presedential'} label={projects} primaryText={Presedential} containerElement={<Link to="/Projects" />}/>
-			          <MenuItem value={'Parlamentary'} primaryText={Parlamentary} containerElement={<Link to="/Parlamantary" />}/>
-			          <MenuItem value={'NCA'} primaryText={NCA} containerElement={<Link to="/Nca" />}/>
-			    </DropDownMenu>
-		        </li>
-		        <li ><Link to={'/About'} activeClassName="activeN">{about}</Link></li>
+		        <li><Link to={'/ted/'} 		 activeClassName="activeN">{home}</Link></li>
+		        <li ><Link to={'/ted/Projects/'}  activeClassName="activeN">{projects}</Link></li>
+		        <li ><Link to={'/ted/About/'} 	 activeClassName="activeN">{about}</Link></li>
 		        <li>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>
 			          <MenuItem value={'en'} primaryText={en} />
