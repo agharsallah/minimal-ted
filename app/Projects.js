@@ -30,25 +30,27 @@ class Projects extends Component{
 
 		const TCandidate = <Translate type="text" content="pred2014.TCandidate"/>
 		const SComparing = <Translate type="text" content="pred2014.SComparing"/>
-
+		const elecType = 'Presedential'
+		const elecYear = '2014'
+		const link = '/Projects/par14/'
 		return(
 			<div>
 			<Layout SendToFather={this.handleSend} type='Presedential'/>
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
-					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"  />
-					<Widget title ={TCandidate} subtitle={SComparing} imgsrc='comparingM-Vs-B.png' direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="pre-by-gender.png"  direction={this.state.direction}/>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age.png"  direction={this.state.direction}/>					
+					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+					<Widget title ={TCandidate} subtitle={SComparing} imgsrc='comparingM-Vs-B.png' direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+					<Widget title ={TGender} subtitle={SGender} imgsrc="pre-by-gender.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
+					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					<div className='col-md-12' >
-					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age2.png"  direction={this.state.direction}/>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="Beji-R2.png"  direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="marzouki-r2.png"  direction={this.state.direction}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="marzouki-r1.png"  direction={this.state.direction}/>					
+					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
+					<Widget title ={TGender} subtitle={SGender} imgsrc="Beji-R2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+					<Widget title ={TGender} subtitle={SGender} imgsrc="marzouki-r2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+					<Widget title ={TGender} subtitle={SGender} imgsrc="marzouki-r1.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					<div>
-					<Widget title ={TGender} subtitle={SGender} imgsrc="beji-r1.png"  direction={this.state.direction}/>					
+					<Widget title ={TGender} subtitle={SGender} imgsrc="beji-r1.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 		</div>
 		);

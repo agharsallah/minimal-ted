@@ -34,6 +34,10 @@ export default class Layout extends Component{
 		const fr = <Translate type="text" content="navbar.fr"/>
 		const ar = <Translate type="text" content="navbar.ar"/>
 
+
+		const Presedential = <Translate type="text" content="navbar.Presedential"/>
+		const Parlamentary = <Translate type="text" content="navbar.Parlamentary"/>
+		const NCA = <Translate type="text" content="navbar.NCA"/>
 		return(
 			<div>
 
@@ -50,7 +54,13 @@ export default class Layout extends Component{
 		    <div className="navbar-collapse collapse navbar-responsive-collapse">
 		      <ul className="nav navbar-nav">
 		        <li><Link to={'/ted/'} 		 activeClassName="activeN">{home}</Link></li>
-		        <li ><Link to={'/ted/Projects/'}  activeClassName="activeN">{projects}</Link></li>
+		        <li>
+			        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
+				          <MenuItem value={'Presedential'} label='projects' primaryText={Presedential} containerElement={<Link to="/ted/Projects/" />}/>
+				          <MenuItem value={'Parlamentary'} primaryText={Parlamentary} containerElement={<Link to="/ted/Parlamantary/" />}/>
+				          <MenuItem value={'NCA'} primaryText={NCA} containerElement={<Link to="/ted/Nca/" />}/>
+				    </DropDownMenu>
+		        </li>
 		        <li ><Link to={'/ted/About/'} 	 activeClassName="activeN">{about}</Link></li>
 		        <li>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>
@@ -71,4 +81,6 @@ export default class Layout extends Component{
 		);
 	}
 };
-
+	Layout.defaultProps = {
+	  type: 'Presedential'
+	};

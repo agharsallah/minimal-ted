@@ -33,7 +33,7 @@ class Projects extends Component{
 
 		return(
 			<div>
-			<Layout SendToFather={this.handleSend}/>
+			<Layout SendToFather={this.handleSend} type='Presedential'/>
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
 					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"  />

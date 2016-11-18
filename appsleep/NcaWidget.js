@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 
-export default class ParlamantaryWidget extends Component{
+export default class NcaWidget extends Component{
 	
 	render(){
-		const imgsrc = 'img/' +this.props.imgsrc;
+		const imgsrc = '/ted/img/' +this.props.imgsrc;
 		/*get the map id*/
-		const linkk = '/Projects/par14/'+ this.props.imgsrc.match(/.+?(?=\.)/g);
+		const linkk = '/ted/Projects/nca11/'+ this.props.imgsrc.match(/.+?(?=\.)/g)+'/';
 		//console.log(linkk)
 		
 		/*get the direction style as prop whether r-t-l or l-t-r*/
@@ -17,8 +17,8 @@ export default class ParlamantaryWidget extends Component{
 				<div className="box">
 					<div className="item">
 						<div className="item-overlay active p-a">
-							<span className="pull-right label dark-white text-color"><i className="fa fa-envelope-open fa-fw"></i> 2014</span>
-							<a href className="pull-left text-u-c label label-md info">Parlamantary</a>
+							<span className="pull-right label dark-white text-color"><i className="fa fa-envelope-open fa-fw"></i> 2011</span>
+							<a href className="pull-left text-u-c label label-md info">NCA</a>
 						</div>
 						<img src={imgsrc} className="w-full"/>
 					</div>

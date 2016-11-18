@@ -13,8 +13,7 @@ export default class Layout extends Component{
 	constructor(props) {
     super(props);
     this.state = {
-    	value: 'en',
-    	projectValue:'Presedential'
+    	value: 'en'
 	};
     this.handleChange = this.handleChange.bind(this);
   }
@@ -58,7 +57,6 @@ export default class Layout extends Component{
 		      <ul className="nav navbar-nav">
 		        <li><Link to={'/'} 		 activeClassName="activeN">{home}</Link></li>
 		        <li>
-		        
 		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
 			          <MenuItem value={'Presedential'} label='projects' primaryText={Presedential} containerElement={<Link to="/Projects" />}/>
 			          <MenuItem value={'Parlamentary'} primaryText={Parlamentary} containerElement={<Link to="/Parlamantary" />}/>

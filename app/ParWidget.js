@@ -1,1 +1,0 @@
-ParWidget.js
