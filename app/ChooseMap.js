@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LeafletMap from './LeafletMap';
+import PreByGender from './presMap/PreByGender';
 import Layout from './Layout';
 import Highchart from './Highchart'
 
@@ -12,6 +13,9 @@ const ChooseMap = (props)=>{
     case "comparingM-Vs-B":
       	return <Highchart/> 
         break;
+    case "pre-by-gender":
+        return <PreByGender/> 
+        break;    
     
     default:
         return(<h1>{console.log('err')}</h1>)

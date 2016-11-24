@@ -55,7 +55,7 @@ export default class Layout extends Component{
 		    </div>
 		    <div className="navbar-collapse collapse navbar-responsive-collapse">
 		      <ul className="nav navbar-nav">
-		        <li><Link to={'/'} 		 activeClassName="activeN">{home}</Link></li>
+		        <li><Link to={'/'} activeClassName="activeN">{home}</Link></li>
 		        <li>
 		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
 			          <MenuItem value={'Presedential'} label='projects' primaryText={Presedential} containerElement={<Link to="/Projects" />}/>
