@@ -14,7 +14,7 @@ const ChooseMap = (props)=>{
       	return <Highchart/> 
         break;
     case "pre-by-gender":
-        return <PreByGender/> 
+        return <PreByGender test='maleTurnout'/> 
         break;    
     
     default:

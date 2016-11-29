@@ -83,7 +83,7 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical; }
 	.m-b {
-    margin-bottom: 2.5rem !important;
+    margin-bottom: 0.5rem !important;
 	}
   .h-3x {
   height: 3.93rem;

@@ -28,26 +28,37 @@ class Nca extends Component{
 		//we get the title nd subtitle of the widget from the localTranslate file
 		const TNahdha = <Translate type="text" content="nca2011.TNahdha"/>
 		const SNahdha = <Translate type="text" content="nca2011.SNahdha"/>
+		
 		const TCPR = <Translate type="text" content="nca2011.TCPR"/>
 		const SCPR = <Translate type="text" content="nca2011.SCPR"/>
+		
 		const TAridha = <Translate type="text" content="nca2011.TAridha"/>
 		const SAridha = <Translate type="text" content="nca2011.SAridha"/>
+		
 		const TTakatol = <Translate type="text" content="nca2011.TTakatol"/>
 		const STakatol = <Translate type="text" content="nca2011.STakatol"/>
+		
 		const TPDP = <Translate type="text" content="nca2011.TPDP"/>
 		const SPDP = <Translate type="text" content="nca2011.SPDP"/>
+		
 		const TAfek = <Translate type="text" content="nca2011.TAfek"/>
 		const SAfek = <Translate type="text" content="nca2011.SAfek"/>	
+		
 		const TTurnoutElg = <Translate type="text" content="nca2011.TTurnoutElg"/>
 		const TSurnoutElg = <Translate type="text" content="nca2011.TSurnoutElg"/>
+		
 		const TRegistered = <Translate type="text" content="nca2011.TRegistered"/>
 		const SRegistered = <Translate type="text" content="nca2011.SRegistered"/>
+		
 		const TTurnoutReg = <Translate type="text" content="nca2011.TTurnoutReg"/>
 		const TSurnoutReg = <Translate type="text" content="nca2011.TSurnoutReg"/>
+		
 		const TPassive = <Translate type="text" content="nca2011.TPassive"/>
 		const SPassive = <Translate type="text" content="nca2011.SPassive"/>
+		
 		const TCoalition = <Translate type="text" content="nca2011.TCoalition"/>
 		const SCoalition = <Translate type="text" content="nca2011.SCoalition"/>
+		
 		const TBallots = <Translate type="text" content="nca2011.TBallots"/>
 		const SBallots = <Translate type="text" content="nca2011.SBallots"/>
 
