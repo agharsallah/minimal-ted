@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LeafletMap from './LeafletMap';
 import PreByGender from './presMap/PreByGender';
+import TestBallot from './presMap/TestBallot';
 import Layout from './Layout';
 import Highchart from './Highchart'
 
@@ -15,6 +16,9 @@ const ChooseMap = (props)=>{
         break;
     case "pre-by-gender":
         return <PreByGender test='maleTurnout'/> 
+        break;
+    case "turnout-by-age":
+        return <TestBallot/> 
         break;    
     
     default:
