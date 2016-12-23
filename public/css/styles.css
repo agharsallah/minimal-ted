@@ -34,7 +34,7 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 .box-color {
   background-color: #fff;
   position: relative;
-  margin-bottom: 1.5rem; }
+  margin-bottom: 3rem; }
   /* small tag with fa */
   .text-color {
   color: rgba(0, 0, 0, 0.87); }
@@ -75,7 +75,10 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 1rem !important;
   }
   ._800 {
-  font-weight: 900 !important; }
+  font-weight: 900 !important;
+  color: #FF8F00 !important;
+  font-size: 20px;
+   }
   .h-2x {
   height: 3.5rem;
   overflow: hidden;
@@ -87,11 +90,13 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	}
   .h-3x {
   height: 3.93rem;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: -webkit-box;
   color: black;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical; }
+  -webkit-box-orient: vertical;
+ font-size: 15px; 
+   }
 .p{    margin-top: 0;
     margin-bottom: 1rem !important;
   -webkit-margin-before: 1em;

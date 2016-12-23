@@ -1,24 +1,36 @@
+var fs = require('fs');
+var obj={}
+var tab=[]
+var XcordReg = /=(.*)\//g // matches from beg till the /
+var YcordReg=/\/.*?=(.*?)\)/g //matches from / till )
+var log_file = fs.createWriteStream(__dirname + '/_Final_ezouhour-coord.log', {flags : 'w'});
 
-/*var fs = require('fs');
-var regex = /\(x[\s\S]*?\)/g; // get all string starts with "(x" ..... and ends with ")"
-var res ;
-var log_file = fs.createWriteStream(__dirname + '/ezouhour-coord.txt', {flags : 'w'});
-fs.readFile("ezouhour.txt", 'utf8', function(err, data) {
+
+
+eval(fs.readFileSync('./convert-functions.js')+'');
+
+fs.readFile("ezouhour-XY-coord.txt", 'utf8', function(err, data) {
   if (err) throw err;
+  
+    //retreive all the matches
+    do {
+      xres = XcordReg.exec(data);
+      yres = YcordReg.exec(data);
+      if (xres) {
+           /*remove all spaces*/
+          var x = xres[1].replace(/\s/g, '');
+          //console.log(x)
+          var y = yres[1].replace(/\s/g, '');
+          //console.log(y)
+          xy2utm(x,y);
+      }
+    } while (xres);  
+  
+  //console.log(res2)
 
-do {
-	var i = 0;
-    res = regex.exec(data);
-    if (res) {
-        log_file.write(res[i] +"\n");
-        i++
-    }
-} while (res);
+});
 
-});*/
 
-var proj4 = require('proj4');
-var FromProjXY = proj4.defs("EPSG:4326","+proj=longlat +datum=WGS84 +no_defs"); //	
-var ToProjLatLong = proj4.defs("EPSG:3857","+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs");
-var a=proj4(FromProjXY,ToProjLatLong,[-92336.468,99043.202]);
-console.log(a)
+//console.log(xy2utm(-92336.468, 99043.202))
+
+//console.log(a)

@@ -52,6 +52,9 @@ class Projects extends Component{
 		const TCandidate = <Translate type="text" content="pred2014.TCandidate"/>
 		const SComparing = <Translate type="text" content="pred2014.SComparing"/>
 		
+		const TBlankByDelegation = <Translate type="text" content="pred2014.TBlankByDelegation"/>
+		const SBlankByDelegation = <Translate type="text" content="pred2014.SBlankByDelegation"/>
+		
 		const elecType = 'Presedential'
 		const elecYear = '2014'
 		const link = '/Projects/par14/'
@@ -60,8 +63,10 @@ class Projects extends Component{
 			<Layout SendToFather={this.handleSend} type='Presedential'/>
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
+					<Widget title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+					</div>
+					<div className='col-md-12' >
 					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-					<Widget title ={Tstatistics} subtitle={Sstatistics} imgsrc="pre-by-gender.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
 					<Widget title ={Tturnoutbyage} subtitle={Sturnoutbyage} imgsrc="turnout-by-age.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
 					</div>
@@ -69,18 +74,20 @@ class Projects extends Component{
 					<Widget title ={Tbejir2} subtitle={Sbejir2} imgsrc="Beji-R2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					<Widget title ={Tmarzoukir2} subtitle={Smarzoukir2} imgsrc="marzouki-r2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					<Widget title ={Tbejir1} subtitle={Sbejir1} imgsrc="beji-r1.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-					<Widget title ={TCandidate} subtitle={SComparing} imgsrc='comparingM-Vs-B.png' direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>										
 					</div>
 					
 					<div className='col-md-12'>
+					<Widget title ={TCandidate} subtitle={SComparing} imgsrc='comparingM-Vs-B.png' direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>										
 					<Widget title ={TturnoutR1VsR2} subtitle={SturnoutR1VsR2} imgsrc="turnout-r1vr2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					<Widget title ={TturnoutR1} subtitle={SturnoutR1} imgsrc="turnout-r2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+					</div>
+					<div className='col-md-12'>
+					<Widget title ={TcanceledBallot} subtitle={ScanceledBallot} imgsrc="canceled-ballot.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					<Widget title ={Tmarzoukir1} subtitle={Smarzoukir1} imgsrc="marzouki-r1.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					<Widget title ={TnumberOfPollingcenter} subtitle={SnumberOfPollingcenter} imgsrc="Number-of-polling.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					<div className='col-md-12'>
-					<Widget title ={TcanceledBallot} subtitle={ScanceledBallot} imgsrc="canceled-ballot.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-
+					<Widget title ={Tstatistics} subtitle={Sstatistics} imgsrc="pre-by-gender.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
 					</div>
 		</div>
 		);

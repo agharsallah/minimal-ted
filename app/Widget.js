@@ -13,7 +13,7 @@ export default class Widget extends Component{
 		/*get the direction style as prop whether r-t-l or l-t-r*/
 		const direction = this.props.direction + ' p-a' 
 		return(
-			<div className="col-xs-6 col-sm-12 col-md-3 col-0">
+			<div className="col-xs-6 col-sm-12 col-md-4 col-0">
 				<div className="box">
 					<div className="item">
 						<div className="item-overlay active p-a">

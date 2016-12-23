@@ -9,6 +9,8 @@ we have Index father of all Router .. who have these 3 childrens
 	
 	* MapComp (called when user clicks on a readmore link from the widget component which is a dynamic link)
 		+Layout (navbar)
-		+LeafletMap
+		+ChooseMap (where I can choose on link changes than load map X )
+			-LeafletMap
+			-BlankBallotsDelegation (I will represent blank votes in a google maps choropleth map)
 	*About
 		+Layout (navbar)
