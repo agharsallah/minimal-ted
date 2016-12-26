@@ -6,14 +6,16 @@ class BlankBallotsDelegation extends Component{
 	shouldComponentUpdate() {
 			return false ;
 	}
-	
+	componentWillReceiveProps(nextProps) {
+		this.mymap.panTo({lat:nextProps.lat,lng:nextProps.lng})
+	}
 		componentDidMount() {
-		var mymap = L.map(this.refs.map).setView([35.00, 9.90], 7);
+		this.mymap = L.map(this.refs.map).setView([this.props.lat,this.props.lng], 7);
 
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhwOHJ5MDAzOTJ1cGtrZnRoa2NmdSJ9.o51MXiJLy8-6cE5InXp77A', {
     	maxZoom: 18,
 		id: 'mapbox.streets'
-	}).addTo(mymap);
+	}).addTo(this.mymap);
 
 	function getColor (d)  {
    		 return d < 1000 ? '#ffffcc' :
@@ -70,7 +72,7 @@ class BlankBallotsDelegation extends Component{
 	    });
 	}
 
-    var geojson = L.geoJson(OldDelegationData, {style: style,onEachFeature: onEachFeature}).addTo(mymap);
+    var geojson = L.geoJson(OldDelegationData, {style: style,onEachFeature: onEachFeature}).addTo(this.mymap);
     
     var info = L.control();
 
@@ -87,7 +89,7 @@ class BlankBallotsDelegation extends Component{
 		        : '<p>'+'Hover over a city'+'<p />');
 		};
 
-		info.addTo(mymap);
+		info.addTo(this.mymap);
 		var legend = L.control({position: 'bottomright'});
 
 		legend.onAdd = function (map) {
@@ -106,7 +108,7 @@ class BlankBallotsDelegation extends Component{
     return div;
 };
 
-legend.addTo(mymap);
+legend.addTo(this.mymap);
 	
 	}
 	render(){
