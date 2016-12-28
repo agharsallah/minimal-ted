@@ -7,7 +7,7 @@ class BlankBallotsDelegation extends Component{
 			return false ;
 	}
 	componentWillReceiveProps(nextProps) {
-		this.mymap.panTo({lat:nextProps.lat,lng:nextProps.lng})
+		this.mymap.flyTo({lat:nextProps.lat,lng:nextProps.lng},8)
 	}
 		componentDidMount() {
 		this.mymap = L.map(this.refs.map).setView([this.props.lat,this.props.lng], 7);
