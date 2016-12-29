@@ -26,6 +26,27 @@ class TestBallot extends Component{
 	                      '#FD8D3C';
 	}
 
+	//style applied when mouse hover
+	function highlightFeature(e) {
+	    var layer = e.target;
+	    layer.setStyle({
+	        weight: 5,
+	        color: '#666',
+	        dashArray: '',
+	        fillOpacity: 0.7
+	    });
+
+	    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+	        layer.bringToFront();
+	    }
+	}
+
+	//style applied when mouseout
+	function resetHighlight(e) {
+    	featuresLayer.resetStyle(e.target);
+	}
+
+	//Style of the map
 	function style(feature) {
 	    return {
 	        fillColor: getColor(feature.properties.canceled),
@@ -35,19 +56,22 @@ class TestBallot extends Component{
 	        dashArray: '3',
 	        fillOpacity: 0.5
 	    };
+	}	
+	
+	//onEachfeature
+	function onEachFeature(feature, layer) {
+		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties.canceled+' canceled ballot' );
+	    layer.on({
+	        mouseover: highlightFeature,
+	        mouseout: resetHighlight
+	    });
 	}
-
-    //var geojson = L.geoJson(OldDelegationData,{style: style}).addTo(this.mymap);
-    
     var featuresLayer = new L.GeoJSON(OldDelegationData, {
     		style: style,
-			onEachFeature: function(feature, marker) {
-				marker.bindPopup(feature.properties.NAME_EN +'</h4>');
-			}
+			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
-
-	//this.mymap.addLayer(featuresLayer);
     
+    //search feature
     var searchControl = new L.Control.Search({
     	layer:featuresLayer,
 		propertyName: 'NAME_EN',
@@ -61,7 +85,6 @@ class TestBallot extends Component{
 
 	searchControl.on('search:locationfound', function(e) {
 		
-		//e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
 		if(e.layer._popup)
 			e.layer.openPopup();
 
@@ -69,8 +92,27 @@ class TestBallot extends Component{
 	
 	this.mymap.addControl( searchControl );  //inizialize search control
     
+    var legend = L.control({position: 'bottomright'});
+		legend.onAdd = function (map) {
+
+	    var div = L.DomUtil.create('div', 'infoLeg legend'),
+	        grades = [0, 100, 200, 500, 1000],
+	        labels = [];
+
+	    div.innerHTML +='<p>Caneled ballots</p>'
+	    // loop through our canceled intervals and generate a label with a colored square for each interval
+	    for (var i = 0; i < grades.length; i++) {
+	        div.innerHTML +=
+	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+	            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+	    }
+
+	    return div;
+	};
+
+	legend.addTo(this.mymap);
 	
-	}
+	}//end component did mount
 	render(){
 		return(
 			<div>
