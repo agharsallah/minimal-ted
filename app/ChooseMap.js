@@ -5,7 +5,8 @@ import TestBallot from './presMap/TestBallot';
 import TestDraw from './presMap/TestDraw';
 import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
 import Layout from './Layout';
-import Highchart from './Highchart'
+import Highchart from './Highchart';
+import Select from 'grommet/components/Select';
 
 export default class ChooseMap extends Component{
   constructor(props) {
@@ -31,7 +32,18 @@ export default class ChooseMap extends Component{
         return <PreByGender test='maleTurnout'/> 
         break;
     case "turnout-by-age":
-        return <TestBallot/> 
+        return (<div>
+
+                     <Select onSearch={false}
+                    inline={false}
+                    multiple={false}
+                    options={["one", "two", "three", "four", "five", "six", "seven", "eight"]}
+                    value={undefined}
+                    onChange={undefined} />
+
+                <TestBallot/>
+
+                </div> )
         break;
     case "turnout-by-age2":
         return <TestDraw/> 

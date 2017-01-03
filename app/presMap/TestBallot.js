@@ -13,18 +13,18 @@ class TestBallot extends Component{
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map).setView([35.00, 9.90], 7);
 	
-	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
+	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 1000 ? '#800026' :
-	           d > 500  ? '#BD0026' :
-	           d > 200  ? '#E31A1C' :
-	           d > 100  ? '#FC4E2A' :
-	           d == 'inexistant'? '#EFEFEF' :
-	                      '#FD8D3C';
+	    return d > 1000 ? '#462066' :
+	           d > 500  ? '#FFB85F' :
+	           d > 200  ? '#FF7A5A' :
+	           d > 100  ? '#00AAA0' :
+	           d == 'inexistant'? '#FFFFFF' :
+	                      '#CC99CC';
 	}
 
 	//style applied when mouse hover

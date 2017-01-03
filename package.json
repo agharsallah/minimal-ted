@@ -16,11 +16,17 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "react-tap-event-plugin": "^1.0.0",
     "webpack": "~1.12.*",
-    "webpack-dev-server": "~1.14.*"
+    "webpack-dev-server": "~1.14.*",
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1"
   },
   "dependencies": {
     "@turf/turf": "^3.7.0",
+    "belle": "^3.0.0",
     "counterpart": "^0.17.6",
+    "grommet": "^1.1.0",
     "lodash": "^4.17.2",
     "material-ui": "^0.16.1",
     "proj4": "^2.3.15",
