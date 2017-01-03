@@ -23,6 +23,7 @@ class TestBallot extends Component{
 	           d > 500  ? '#BD0026' :
 	           d > 200  ? '#E31A1C' :
 	           d > 100  ? '#FC4E2A' :
+	           d == 'inexistant'? '#EFEFEF' :
 	                      '#FD8D3C';
 	}
 
@@ -60,7 +61,7 @@ class TestBallot extends Component{
 	
 	//onEachfeature
 	function onEachFeature(feature, layer) {
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties.canceled+' canceled ballot' );
+		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties.canceled+' canceled ballot'+'</br>'+feature.properties.canceledPercentage+'% canceled of total voters' );
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
@@ -82,16 +83,13 @@ class TestBallot extends Component{
   			map.setView(latlng, zoom); // access the zoom
 		}
 	});
-
 	searchControl.on('search:locationfound', function(e) {
-		
 		if(e.layer._popup)
 			e.layer.openPopup();
-
 	})
-	
 	this.mymap.addControl( searchControl );  //inizialize search control
     
+    //Legend control feature;
     var legend = L.control({position: 'bottomright'});
 		legend.onAdd = function (map) {
 
