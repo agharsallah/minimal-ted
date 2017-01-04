@@ -6,13 +6,22 @@ import TestDraw from './presMap/TestDraw';
 import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
 import Layout from './Layout';
 import Highchart from './Highchart';
-import Select from 'grommet/components/Select';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import ActionAndroid from 'material-ui/svg-icons/action/android';
+import {List, ListItem} from 'material-ui/List';
+import TextField from 'material-ui/TextField';
 
 export default class ChooseMap extends Component{
   constructor(props) {
     super(props);
-    this.state={lat:35.00,lng:9.90}
+    this.state={lat:35.00,lng:9.90,value:1} ;
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange (event, index, value){this.setState({value})};
+
   render(){
      switch(this.props.param.mapId) {
     case 'full':
@@ -33,15 +42,28 @@ export default class ChooseMap extends Component{
         break;
     case "turnout-by-age":
         return (<div>
+              
+                <div className="col-md-12" style = {{height:'20px'}}>
+                    <SelectField
+                    className = "col-md-5"
+                    floatingLabelText="choose parameter"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    style = {{width:"150px",height:'20px'}}
+                  >
+                      <MenuItem value={1} primaryText="canceled" />
+                      <MenuItem value={2} primaryText="blank" />
+                      <MenuItem value={3} primaryText="spoiled" />
+                  </SelectField>
 
-                     <Select onSearch={false}
-                    inline={false}
-                    multiple={false}
-                    options={["one", "two", "three", "four", "five", "six", "seven", "eight"]}
-                    value={undefined}
-                    onChange={undefined} />
+                  <List style = {{width:"150px",height:'20px'}} className = "col-md-7">
+                    <ListItem  disableKeyboardFocus = {true} disabled={true} rightIcon={<ActionAndroid  style ={{top:'10px', right:"-100px"}} />} ><TextField
+                    hintText="Hint Text" style = {{width:"250px"}}/>
+                    </ListItem>
+                  </List>
+                   </div> 
 
-                <TestBallot/>
+                <TestBallot  style = {{marginTop:'5px'}} />
 
                 </div> )
         break;

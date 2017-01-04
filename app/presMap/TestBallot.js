@@ -97,7 +97,7 @@ class TestBallot extends Component{
 	        grades = [0, 100, 200, 500, 1000],
 	        labels = [];
 
-	    div.innerHTML +='<p>Caneled ballots</p>'
+	    div.innerHTML +='<p>Canceled ballots</p>'
 	    // loop through our canceled intervals and generate a label with a colored square for each interval
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
