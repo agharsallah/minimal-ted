@@ -113,9 +113,7 @@ class TestBallot extends Component{
 	}//end component did mount
 	render(){
 		return(
-			<div>
-			<div id="mymap" ref="map" style ={{height:'550px'}} />
-			</div>
+			<div id="mymap" ref="map" style ={{height:'550px',zIndex: "1"}} />
 		);
 	}
 };

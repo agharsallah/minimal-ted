@@ -9,7 +9,7 @@ import Highchart from './Highchart';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import ActionAndroid from 'material-ui/svg-icons/action/android';
+import FindIcon from 'material-ui/svg-icons/action/find-in-page';
 import {List, ListItem} from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 
@@ -41,29 +41,32 @@ export default class ChooseMap extends Component{
         return <PreByGender test='maleTurnout'/> 
         break;
     case "turnout-by-age":
-        return (<div>
-              
-                <div className="col-md-12" style = {{height:'20px'}}>
+        return (<div style={{position:"relative"}}>
+                {/*<div style={{width: '800px',overflow: "hidden",height:"80px"}} >*/}
+                    
+                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",float:"right",width:"100%",marginLeft:"-11px"}}>
                     <SelectField
-                    className = "col-md-5"
                     floatingLabelText="choose parameter"
                     value={this.state.value}
                     onChange={this.handleChange}
-                    style = {{width:"150px",height:'20px'}}
+                    style = {{width:"150px",marginLeft:"10px",float:"right"}}
+                    floatingLabelStyle  ={{color:"#03a9f4"}}
+                    labelStyle = {{color:"#b53f6f"}}
+
                   >
                       <MenuItem value={1} primaryText="canceled" />
                       <MenuItem value={2} primaryText="blank" />
                       <MenuItem value={3} primaryText="spoiled" />
                   </SelectField>
+                  </div>
 
-                  <List style = {{width:"150px",height:'20px'}} className = "col-md-7">
-                    <ListItem  disableKeyboardFocus = {true} disabled={true} rightIcon={<ActionAndroid  style ={{top:'10px', right:"-100px"}} />} ><TextField
-                    hintText="Hint Text" style = {{width:"250px"}}/>
+                  {/*<List style = {{width:"150px",float: "left",marginLeft:"50px"}}>
+                    <ListItem  disableKeyboardFocus = {true} disabled={true} rightIcon={<FindIcon  style ={{top:'20px', right:"-130px"}} />} >
+                    <TextField  hintText="Search delegation" style = {{width:"250px",}}/>
                     </ListItem>
                   </List>
-                   </div> 
-
-                <TestBallot  style = {{marginTop:'5px'}} />
+              </div>*/}
+                <TestBallot  style={{position:"absolute"}} />
 
                 </div> )
         break;
