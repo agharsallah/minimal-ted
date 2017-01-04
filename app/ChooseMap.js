@@ -16,7 +16,7 @@ import TextField from 'material-ui/TextField';
 export default class ChooseMap extends Component{
   constructor(props) {
     super(props);
-    this.state={lat:35.00,lng:9.90,value:1} ;
+    this.state={lat:35.00,lng:9.90,value:"canceled"} ;
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -51,12 +51,12 @@ export default class ChooseMap extends Component{
                     onChange={this.handleChange}
                     style = {{width:"150px",marginLeft:"10px",float:"right"}}
                     floatingLabelStyle  ={{color:"#03a9f4"}}
-                    labelStyle = {{color:"#b53f6f"}}
+                    labelStyle = {{color:"#ff5722",fontSize:"x-large"}}
 
                   >
-                      <MenuItem value={1} primaryText="canceled" />
-                      <MenuItem value={2} primaryText="blank" />
-                      <MenuItem value={3} primaryText="spoiled" />
+                      <MenuItem value={"canceled"} primaryText="canceled" />
+                      <MenuItem value={"blank"} primaryText="blank" />
+                      <MenuItem value={"spoiled"} primaryText="spoiled" />
                   </SelectField>
                   </div>
 
@@ -66,7 +66,7 @@ export default class ChooseMap extends Component{
                     </ListItem>
                   </List>
               </div>*/}
-                <TestBallot  style={{position:"absolute"}} />
+                <TestBallot  style={{position:"absolute"}} value={this.state.value} />
 
                 </div> )
         break;
