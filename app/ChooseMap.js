@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LeafletMap from './LeafletMap';
 import PreByGender from './presMap/PreByGender';
 import TestBallot from './presMap/TestBallot';
+import BallotState from './presMap/BallotState';
 import TestDraw from './presMap/TestDraw';
 import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
 import Layout from './Layout';
@@ -26,21 +27,14 @@ export default class ChooseMap extends Component{
      switch(this.props.param.mapId) {
     case 'full':
         return <LeafletMap/> 
-        break; 
-    case 'Blank-ballots-by-delegation':
-        return (<div>
-                  <button onClick={()=>this.setState({lat:40, lng:-74})} >hi</button>
-                  <BlankBallotsDelegation lat={this.state.lat} lng={this.state.lng} />
-              </div>
-        ) 
-        break;       
+        break;   
     case "comparingM-Vs-B":
         return <Highchart/> 
         break;
     case "pre-by-gender":
         return <PreByGender test='maleTurnout'/> 
         break;
-    case "turnout-by-age":
+    case "Blank-ballots-by-delegation":
         return (<div style={{position:"relative"}}>
                 {/*<div style={{width: '800px',overflow: "hidden",height:"80px"}} >*/}
                     
@@ -67,6 +61,30 @@ export default class ChooseMap extends Component{
                   </List>
               </div>*/}
                 <TestBallot  style={{position:"absolute"}} value={this.state.value} />
+
+                </div> )
+        break;
+    case "All-Blank-ballots-by-delegation":
+        return (<div style={{position:"relative"}}>
+                {/*<div style={{width: '800px',overflow: "hidden",height:"80px"}} >*/}
+                    
+{/*                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",float:"right",width:"100%",marginLeft:"-11px"}}>
+                    <SelectField
+                    floatingLabelText="choose parameter"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                    style = {{width:"150px",marginLeft:"10px",float:"right"}}
+                    floatingLabelStyle  ={{color:"#03a9f4"}}
+                    labelStyle = {{color:"#ff5722",fontSize:"x-large"}}
+
+                  >
+                      <MenuItem value={"canceled"} primaryText="canceled" />
+                      <MenuItem value={"blank"} primaryText="blank" />
+                      <MenuItem value={"spoiled"} primaryText="spoiled" />
+                  </SelectField>
+                  </div>*/}
+
+                <BallotState  style={{position:"absolute"}} value={this.state.value} />
 
                 </div> )
         break;

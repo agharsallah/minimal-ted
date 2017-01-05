@@ -52,9 +52,10 @@ module.exports = {
       ScanceledBallot:'Visualizing cancelled ballots',
       TCandidate:'Result By Candidate',
   		SComparing:'Comparing Moncef Marzouki and Beji Caid Essebsi results',
-      TBlankByDelegation:'Blank ballots by delegation',
-      SBlankByDelegation:'Visualizing the Blank ballots during Tunisia Parliamentary elections and presidential elections round 1',
-
+      TBlankByDelegation:'Blank | Spoiled | Canceled - by delegation',
+      SBlankByDelegation:'Visualizing the ballots during Tunisia Parliamentary elections and presidential elections round 1',
+      TballotState:'Ballot state - by delegation ',
+      STballotState:'Visualizing Blank,Spoiled,canceled & counted ballots during Tunisia Parliamentary elections and presidential elections round 1 in the same map',
   	},
       par2014:{
       Tfull:'Full Results',

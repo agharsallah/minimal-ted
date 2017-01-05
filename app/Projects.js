@@ -55,6 +55,9 @@ class Projects extends Component{
 		const TBlankByDelegation = <Translate type="text" content="pred2014.TBlankByDelegation"/>
 		const SBlankByDelegation = <Translate type="text" content="pred2014.SBlankByDelegation"/>
 		
+		const TballotState = <Translate type="text" content="pred2014.TballotState"/>
+		const STballotState = <Translate type="text" content="pred2014.STballotState"/>
+		
 		const elecType = 'Presedential'
 		const elecYear = '2014'
 		const link = '/Projects/par14/'
@@ -64,6 +67,7 @@ class Projects extends Component{
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
 					<Widget title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+					<Widget title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 					</div>
 					<div className='col-md-12' >
 					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"   elecType={elecType} elecYear={elecYear} link={link}/>

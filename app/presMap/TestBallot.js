@@ -16,7 +16,7 @@ class TestBallot extends Component{
 		this.mymap.remove()
 		console.log(parameter);
 	
-	this.mymap = L.map(this.refs.map).setView([35.00, 9.90], 7);
+	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
@@ -76,8 +76,7 @@ class TestBallot extends Component{
 
     		info.update = function (props) {
 		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'+
- 				<Highchart />
+		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'
 		        : 'Hover over a state');
 		    if (props) {
 		    			var percentage = parameter+'Percentage' // create a variable to match the prtoperty in the geojson
@@ -192,7 +191,7 @@ class TestBallot extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map).setView([35.00, 9.90], 7);
+	this.mymap = L.map(this.refs.map).setView([35.00, 11.70], 7);
 	
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
