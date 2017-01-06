@@ -106,7 +106,7 @@ class BallotState extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
+		    this._div.innerHTML = '<h4>invalid Ballots</h4>' +  (props ?
 		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' invalid Ballot'+
  				<Highchart />
 		        : 'Hover over a state');
@@ -206,7 +206,7 @@ class BallotState extends Component{
 	        grades = [0, 1, 4, 7, 10],
 	        labels = [];
 
-	    div.innerHTML +='<p>Canceled ballots Percentage </p>'
+	    div.innerHTML +='<p>invalid ballots Percentage </p>'
 	    // loop through our canceled intervals and generate a label with a colored square for each interval
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=

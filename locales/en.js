@@ -56,6 +56,8 @@ module.exports = {
       SBlankByDelegation:'Visualizing the ballots during Tunisia Parliamentary elections and presidential elections round 1',
       TballotState:'Ballot state - by delegation ',
       STballotState:'Visualizing Blank,Spoiled,canceled & counted ballots during Tunisia Parliamentary elections and presidential elections round 1 in the same map',
+      TAgeTurnoutDelegation:'Age Turnout - by delegation ',
+      SAgeTurnoutDelegation:'Visualizing Turnout level per age during ...',
   	},
       par2014:{
       Tfull:'Full Results',

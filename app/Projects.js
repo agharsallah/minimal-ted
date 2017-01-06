@@ -58,6 +58,9 @@ class Projects extends Component{
 		const TballotState = <Translate type="text" content="pred2014.TballotState"/>
 		const STballotState = <Translate type="text" content="pred2014.STballotState"/>
 		
+		const TAgeTurnoutDelegation = <Translate type="text" content="pred2014.TAgeTurnoutDelegation"/>
+		const SAgeTurnoutDelegation = <Translate type="text" content="pred2014.SAgeTurnoutDelegation"/>
+		
 		const elecType = 'Presedential'
 		const elecYear = '2014'
 		const link = '/Projects/par14/'
@@ -68,6 +71,7 @@ class Projects extends Component{
 					<div className='col-md-12' >
 					<Widget title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 					<Widget title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+					<Widget title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 					</div>
 					<div className='col-md-12' >
 					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"   elecType={elecType} elecYear={elecYear} link={link}/>

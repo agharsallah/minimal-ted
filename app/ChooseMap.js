@@ -5,6 +5,7 @@ import TestBallot from './presMap/TestBallot';
 import BallotState from './presMap/BallotState';
 import TestDraw from './presMap/TestDraw';
 import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
+import AgeTurnoutDelegation from './presMap/AgeTurnoutDelegation';
 import Layout from './Layout';
 import Highchart from './Highchart';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -17,11 +18,12 @@ import TextField from 'material-ui/TextField';
 export default class ChooseMap extends Component{
   constructor(props) {
     super(props);
-    this.state={lat:35.00,lng:9.90,value:"canceled"} ;
+    this.state={lat:35.00,lng:9.90,value:"canceled",ageturnout:"_18_21"} ;
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange (event, index, value){this.setState({value})};
+  handleChange (event, index, ageturnout){this.setState({ageturnout})};
 
   render(){
      switch(this.props.param.mapId) {
@@ -65,28 +67,30 @@ export default class ChooseMap extends Component{
                 </div> )
         break;
     case "All-Blank-ballots-by-delegation":
-        return (<div style={{position:"relative"}}>
-                {/*<div style={{width: '800px',overflow: "hidden",height:"80px"}} >*/}
-                    
-{/*                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",float:"right",width:"100%",marginLeft:"-11px"}}>
+        return (<BallotState />)
+        break;
+    case "Age-Turnout-by-delegation":
+        return (<div style={{position:"relative"}}>                    
+                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",float:"right",width:"100%",marginLeft:"-11px"}}>
                     <SelectField
                     floatingLabelText="choose parameter"
-                    value={this.state.value}
+                    value={this.state.ageturnout}
                     onChange={this.handleChange}
                     style = {{width:"150px",marginLeft:"10px",float:"right"}}
                     floatingLabelStyle  ={{color:"#03a9f4"}}
                     labelStyle = {{color:"#ff5722",fontSize:"x-large"}}
-
                   >
-                      <MenuItem value={"canceled"} primaryText="canceled" />
-                      <MenuItem value={"blank"} primaryText="blank" />
-                      <MenuItem value={"spoiled"} primaryText="spoiled" />
+                      <MenuItem value={"_18_21"} primaryText="18-21" />
+                      <MenuItem value={"_22_30"} primaryText="22-30" />
+                      <MenuItem value={"_31_40"} primaryText="31-40" />
+                      <MenuItem value={"_41_50"} primaryText="41-50" />
+                      <MenuItem value={"_51_60"} primaryText="51-60" />
+                      <MenuItem value={"_61_70"} primaryText="61-70" />
+                      <MenuItem value={"plus70"} primaryText="+ 70" />
                   </SelectField>
-                  </div>*/}
-
-                <BallotState  style={{position:"absolute"}} value={this.state.value} />
-
-                </div> )
+                  </div>
+                <AgeTurnoutDelegation  style={{position:"absolute"}} value={this.state.ageturnout} />
+                </div> )        
         break;
     case "turnout-by-age2":
         return <TestDraw/> 
