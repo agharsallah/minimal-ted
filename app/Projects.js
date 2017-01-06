@@ -61,6 +61,15 @@ class Projects extends Component{
 		const TAgeTurnoutDelegation = <Translate type="text" content="pred2014.TAgeTurnoutDelegation"/>
 		const SAgeTurnoutDelegation = <Translate type="text" content="pred2014.SAgeTurnoutDelegation"/>
 		
+		const TAgeTurnoutDelegationAll = <Translate type="text" content="pred2014.TAgeTurnoutDelegationAll"/>
+		const SAgeTurnoutDelegationAll = <Translate type="text" content="pred2014.SAgeTurnoutDelegationAll"/>
+		
+		const TTurnoutGender = <Translate type="text" content="pred2014.TTurnoutGender"/>
+		const STurnoutGender = <Translate type="text" content="pred2014.STurnoutGender"/>
+		
+		const TTurnoutPresedential = <Translate type="text" content="pred2014.TTurnoutPresedential"/>
+		const STurnoutPresedential = <Translate type="text" content="pred2014.STurnoutPresedential"/>
+		
 		const elecType = 'Presedential'
 		const elecYear = '2014'
 		const link = '/Projects/par14/'
@@ -69,19 +78,24 @@ class Projects extends Component{
 			<Layout SendToFather={this.handleSend} type='Presedential'/>
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
-					<Widget title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-					<Widget title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-					<Widget title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 					</div>
 					<div className='col-md-12' >
-					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-					<Widget title ={Tturnoutbyage} subtitle={Sturnoutbyage} imgsrc="turnout-by-age.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-					<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TAgeTurnoutDelegationAll} subtitle={SAgeTurnoutDelegationAll} imgsrc="All-Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TTurnoutGender} subtitle={STurnoutGender} imgsrc="Gender-turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TTurnoutPresedential} subtitle={STurnoutPresedential} imgsrc="Presdential-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 					</div>
 					<div className='col-md-12' >
-					<Widget title ={Tbejir2} subtitle={Sbejir2} imgsrc="Beji-R2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-					<Widget title ={Tmarzoukir2} subtitle={Smarzoukir2} imgsrc="marzouki-r2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-					<Widget title ={Tbejir1} subtitle={Sbejir1} imgsrc="beji-r1.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+						<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={Tturnoutbyage} subtitle={Sturnoutbyage} imgsrc="turnout-by-age.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+						<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
+					</div>
+					<div className='col-md-12' >
+						<Widget title ={Tbejir2} subtitle={Sbejir2} imgsrc="Beji-R2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+						<Widget title ={Tmarzoukir2} subtitle={Smarzoukir2} imgsrc="marzouki-r2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+						<Widget title ={Tbejir1} subtitle={Sbejir1} imgsrc="beji-r1.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					
 					<div className='col-md-12'>

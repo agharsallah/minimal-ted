@@ -6,6 +6,8 @@ import BallotState from './presMap/BallotState';
 import TestDraw from './presMap/TestDraw';
 import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
 import AgeTurnoutDelegation from './presMap/AgeTurnoutDelegation';
+import AllAgeTurnoutDelegation from './presMap/AllAgeTurnoutDelegation';
+import TurnoutGender from './presMap/TurnoutGender';
 import Layout from './Layout';
 import Highchart from './Highchart';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,16 +16,22 @@ import MenuItem from 'material-ui/MenuItem';
 import FindIcon from 'material-ui/svg-icons/action/find-in-page';
 import {List, ListItem} from 'material-ui/List';
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class ChooseMap extends Component{
   constructor(props) {
     super(props);
-    this.state={lat:35.00,lng:9.90,value:"canceled",ageturnout:"_18_21"} ;
+    this.state={lat:35.00,lng:9.90,value:"canceled",ageturnout:"_18_21",genderturnout:"male"} ;
     this.handleChange = this.handleChange.bind(this);
+    this.handleAgeturnout = this.handleAgeturnout.bind(this);
+    this.handlegendermale = this.handlegendermale.bind(this);
+    this.handlegenderfemale = this.handlegenderfemale.bind(this);
   }
 
   handleChange (event, index, value){this.setState({value})};
-  handleChange (event, index, ageturnout){this.setState({ageturnout})};
+  handleAgeturnout (event, index, ageturnout){this.setState({ageturnout})};
+  handlegendermale (event){this.setState({genderturnout:"maleTurnout"})};
+  handlegenderfemale (event){this.setState({genderturnout:"womenTurnout"})};
 
   render(){
      switch(this.props.param.mapId) {
@@ -75,7 +83,7 @@ export default class ChooseMap extends Component{
                     <SelectField
                     floatingLabelText="choose parameter"
                     value={this.state.ageturnout}
-                    onChange={this.handleChange}
+                    onChange={this.handleAgeturnout}
                     style = {{width:"150px",marginLeft:"10px",float:"right"}}
                     floatingLabelStyle  ={{color:"#03a9f4"}}
                     labelStyle = {{color:"#ff5722",fontSize:"x-large"}}
@@ -90,6 +98,19 @@ export default class ChooseMap extends Component{
                   </SelectField>
                   </div>
                 <AgeTurnoutDelegation  style={{position:"absolute"}} value={this.state.ageturnout} />
+                </div> )        
+        break;
+    case "All-Age-Turnout-by-delegation":
+        return (<AllAgeTurnoutDelegation />)
+        break;
+    case "Gender-turnout-by-delegation":
+        return (<div style={{position:"relative"}}>                    
+                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",float:"right",width:"100%",marginLeft:"-11px"}}>
+                    <RaisedButton label="Male" primary={true} onTouchTap={this.handlegendermale} />
+                    <RaisedButton label="Female" secondary={true} onTouchTap={this.handlegenderfemale} />
+                    
+                  </div>
+                <TurnoutGender  style={{position:"absolute"}} value={this.state.genderturnout} />
                 </div> )        
         break;
     case "turnout-by-age2":

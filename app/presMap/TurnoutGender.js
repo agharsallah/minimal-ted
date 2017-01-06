@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
 
-class AgeTurnoutDelegation extends Component{
+class TurnoutGender extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
 
@@ -51,10 +51,10 @@ class AgeTurnoutDelegation extends Component{
 	    };
 	}	
 	function getColor(d) {
-	    return d > 20 ? '#462066' :
-	           d > 15  ? '#FFB85F' :
-	           d > 10  ? '#FF7A5A' :
-	           d > 5  ? '#00AAA0' :
+	    return d > 70 ? '#FF7A5A' :
+	           d > 60? '#FFB85F' :
+	           d > 50  ? '#462066' :
+	           d > 40 ? '#00AAA0' :
 	           d == 'inexistant'? '#FFFFFF' :
 	                      '#CC99CC';
 	}
@@ -162,7 +162,7 @@ class AgeTurnoutDelegation extends Component{
 		legend.onAdd = function (map) {
 
 	    var div = L.DomUtil.create('div', 'infoLeg legend'),
-	        grades = [0, 5, 10, 15, 20],
+	        grades = [30, 40, 50, 60,70],
 	        labels = [];
 
 	    div.innerHTML +="<p>"+parameter+' ballots</p>'
@@ -181,6 +181,7 @@ class AgeTurnoutDelegation extends Component{
 	
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
+	
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map).setView([35.00, 11.70], 7);
 	
@@ -190,10 +191,10 @@ class AgeTurnoutDelegation extends Component{
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 20 ? '#462066' :
-	           d > 15? '#FFB85F' :
-	           d > 10  ? '#FF7A5A' :
-	           d > 5  ? '#00AAA0' :
+	    return d > 70 ? '#FF7A5A' :
+	           d > 60? '#FFB85F' :
+	           d > 50  ? '#462066' :
+	           d > 40 ? '#00AAA0' :
 	           d == 'inexistant'? '#FFFFFF' :
 	                      '#CC99CC';
 	}
@@ -223,7 +224,7 @@ class AgeTurnoutDelegation extends Component{
 	//--------Style of the map
 	function style(feature) {
 	    return {
-	        fillColor: getColor(feature.properties._18_21),
+	        fillColor: getColor(feature.properties.maleTurnout),
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
@@ -234,7 +235,7 @@ class AgeTurnoutDelegation extends Component{
 	
 	//------------onEachfeature
 	function onEachFeature(feature, layer) {
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties._18_21+' percent');
+		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties.maleTurnout+' percent');
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
@@ -274,8 +275,8 @@ class AgeTurnoutDelegation extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h4>18-21 Turnout</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props._18_21 + ' %'+
+		    this._div.innerHTML = '<h4>male Turnout</h4>' +  (props ?
+		        '<b>' + props.NAME_EN + '</b><br />' + props.maleTurnout + ' %'+
  				<Highchart />
 		        : 'Hover over a state');
 		    if (props) {
@@ -297,7 +298,7 @@ class AgeTurnoutDelegation extends Component{
                     enabled: true,
                     formatter:function() 
 					{
-                              return  props._18_21 +' % '
+                              return  props.maleTurnout +' % '
                         
 					}
                 }
@@ -324,7 +325,7 @@ class AgeTurnoutDelegation extends Component{
         },
         series: [{
             name: 'canceled',
-            data: [props._18_21]
+            data: [props.maleTurnout]
         }],
         credits: false
     })
@@ -340,10 +341,10 @@ class AgeTurnoutDelegation extends Component{
 		legend.onAdd = function (map) {
 
 	    var div = L.DomUtil.create('div', 'infoLeg legend'),
-	        grades = [0, 5, 10, 15,20],
+	        grades = [30, 40, 50, 60,70],
 	        labels = [];
 
-	    div.innerHTML +='<p>Canceled ballots Percentage </p>'
+	    div.innerHTML +='<p>Male Turnout Percentage </p>'
 	    // loop through our canceled intervals and generate a label with a colored square for each interval
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
@@ -366,4 +367,4 @@ class AgeTurnoutDelegation extends Component{
 	}
 };
 
-export default AgeTurnoutDelegation
+export default TurnoutGender
