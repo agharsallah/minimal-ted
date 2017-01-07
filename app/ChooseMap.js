@@ -48,7 +48,7 @@ export default class ChooseMap extends Component{
         return (<div style={{position:"relative"}}>
                 {/*<div style={{width: '800px',overflow: "hidden",height:"80px"}} >*/}
                     
-                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",float:"right",width:"100%",marginLeft:"-11px"}}>
+                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px"}}>
                     <SelectField
                     floatingLabelText="choose parameter"
                     value={this.state.value}
@@ -70,7 +70,7 @@ export default class ChooseMap extends Component{
                     </ListItem>
                   </List>
               </div>*/}
-                <TestBallot  style={{position:"absolute"}} value={this.state.value} />
+                <BlankBallotsDelegation  style={{position:"absolute"}} value={this.state.value} />
 
                 </div> )
         break;

@@ -14,7 +14,7 @@ class TestBallot extends Component{
 		var parameter = nextProps.value;
 		var stringGeojson = 'feature.properties.'+parameter ;
 		this.mymap.remove()
-		console.log(parameter);
+		//console.log(parameter);
 	
 	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
@@ -41,7 +41,7 @@ class TestBallot extends Component{
 	}
 	function style(feature) {
 	    return {
-	        fillColor: getColor(feature.properties[parameter]),
+	        fillColor: getColor(feature.properties[parameter+"Percentage"]),
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
@@ -50,10 +50,10 @@ class TestBallot extends Component{
 	    };
 	}	
 	function getColor(d) {
-	    return d > 1000 ? '#462066' :
-	           d > 500  ? '#FFB85F' :
-	           d > 200  ? '#FF7A5A' :
-	           d > 100  ? '#00AAA0' :
+	    return d > 10 ? '#462066' :
+	           d > 7  ? '#FFB85F' :
+	           d > 4  ? '#FF7A5A' :
+	           d > 1  ? '#00AAA0' :
 	           d == 'inexistant'? '#FFFFFF' :
 	                      '#CC99CC';
 	}
@@ -171,7 +171,7 @@ class TestBallot extends Component{
 		legend.onAdd = function (map) {
 
 	    var div = L.DomUtil.create('div', 'infoLeg legend'),
-	        grades = [0, 100, 200, 500, 1100],
+	        grades = [0, 1, 4, 7, 10],
 	        labels = [];
 
 	    div.innerHTML +="<p>"+parameter+' ballots</p>'
@@ -179,7 +179,7 @@ class TestBallot extends Component{
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
 	    }
 
 	    return div;
