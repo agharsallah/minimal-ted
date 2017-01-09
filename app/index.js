@@ -6,9 +6,7 @@ import Projects from './Projects'
 import MapComp from './MapComp'
 import Parlamantary from './Parlamantary'
 import Nca from './Nca'
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import { Router, Route, browserHistory } from 'react-router';
 
 render((

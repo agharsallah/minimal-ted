@@ -4,20 +4,21 @@ import {Link} from 'react-router';
 export default class Widget extends Component{
 	
 	render(){
-		var imgsrc = '/ted/img/' +this.props.imgsrc;
+		const imgsrc = '/ted/img/' +this.props.imgsrc;
 		/*get the map id*/
-		var linkk = '/ted/Projects/pre14/'+ this.props.imgsrc.match(/.+?(?=\.)/g)+'/';
+
+		const linkk = this.props.link+ this.props.imgsrc.match(/.+?(?=\.)/g)+"/";
 		//console.log(linkk)
 		
 		/*get the direction style as prop whether r-t-l or l-t-r*/
 		const direction = this.props.direction + ' p-a' 
 		return(
-			<div className="col-xs-6 col-sm-12 col-md-3 col-0">
+			<div className="col-xs-6 col-sm-12 col-md-4 col-0">
 				<div className="box">
 					<div className="item">
 						<div className="item-overlay active p-a">
-							<span className="pull-right label dark-white text-color"><i className="fa fa-envelope-open fa-fw"></i> 2014</span>
-							<a href className="pull-left text-u-c label label-md info">Presidential</a>
+							<span className="pull-right label dark-white text-color"><i className="fa fa-envelope-open fa-fw"></i> {this.props.elecYear}</span>
+							<a href className="pull-left text-u-c label label-md info">{this.props.elecType}</a>
 						</div>
 						<img src={imgsrc} className="w-full"/>
 					</div>

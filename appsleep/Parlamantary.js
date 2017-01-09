@@ -1,7 +1,7 @@
 /*this component contains the layout and the widgets for parlamantary Projects */
 import React, { Component } from 'react';
 import Layout from './Layout';
-import Widget from './ParlamantaryWidget'
+import Widget from './Widget'
 import Translate from 'react-translate-component';
 
 class Parlamantary extends Component{
@@ -37,18 +37,22 @@ class Parlamantary extends Component{
 		const TPartyUpl = <Translate type="text" content="par2014.TPartyUpl"/>
 		const SPartyUpl = <Translate type="text" content="par2014.SPartyUpl"/>
 
+		//we define the props for the widget
+		const elecType = 'Parlamentary';
+		const elecYear = '2014';
+		const link = '/ted/Projects/par14/';
 		return(
 			<div>
 			<Layout SendToFather={this.handleSend} type='Parlamentary'/>
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
-					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"  />
-					<Widget title ={TGender} subtitle={SGender} imgsrc="par-by-gender.png"  direction={this.state.direction}/>
-					<Widget title ={TPartyNahdha} subtitle={SPartyNahdha} imgsrc='par-nahdha-res.png' direction={this.state.direction}/>					
-					<Widget title ={TPartyNida} subtitle={SPartyNida} imgsrc="par-nida-res.png"  direction={this.state.direction}/>					
+					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"  elecType={elecType} elecYear={elecYear} link={link} />
+					<Widget title ={TGender} subtitle={SGender} imgsrc="par-by-gender.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
+					<Widget title ={TPartyNahdha} subtitle={SPartyNahdha} imgsrc='par-nahdha-res.png' direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+					<Widget title ={TPartyNida} subtitle={SPartyNida} imgsrc="par-nida-res.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					<div className='col-md-12' >
-					<Widget title ={TPartyUpl} subtitle={SPartyUpl} imgsrc="par-upl-res.png"  direction={this.state.direction}/>
+					<Widget title ={TPartyUpl} subtitle={SPartyUpl} imgsrc="par-upl-res.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
 					</div>
 		</div>
 		);
