@@ -15,10 +15,12 @@ class TurnoutGender extends Component{
 		var parameter = nextProps.value;
 		var stringGeojson = 'feature.properties.'+parameter ;
 		this.mymap.remove()
-		var otherparameter="";
+		var otherparameter,color,oppcolor="";
+		var color="";
+
 		//we search for other parameter so we can show it allong side in the highchart
-		if (parameter=="womenTurnout") {otherparameter = "maleTurnout"}else{
-			otherparameter = "womenTurnout"
+		if (parameter=="womenTurnout") {otherparameter = "maleTurnout";color ="rgb(255, 64, 129)";oppcolor ="rgb(0, 188, 212)"}else{
+			otherparameter = "womenTurnout";color ="rgb(0, 188, 212)";oppcolor ="rgb(255, 64, 129)";
 		}
 	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
@@ -90,7 +92,7 @@ class TurnoutGender extends Component{
 			            type: 'bar'
 			        },
 			        title: {
-			            text: ' Turnout percentage in '+ props.NAME_EN+' for people between '+parameter
+			            text: ' Turnout percentage in '+ props.NAME_EN+' by gender'
 			        },
 			        labels: {
 			             overflow: 'justify'
@@ -101,9 +103,16 @@ class TurnoutGender extends Component{
 			                    enabled: true,
 			                    formatter:function() 
 								{
-	
-			                            return  props[parameter] +' %';
-
+									pntr++;
+									switch(pntr){
+			                        	case 1 :
+			                              return  props.maleTurnout +' % '
+			                        	break;
+			                        	case 2 :
+			                              return  props.womenTurnout +' % '
+			                        	break;
+			                        }
+			                        
 								}
 			                }
 			            }
@@ -129,10 +138,11 @@ class TurnoutGender extends Component{
 			        },
 			        series: [{
 			            name: parameter,
-			            color:"rgb(255, 64, 129)",
+			            color:color,//ce color is pinc if parameter is women go up 
 			            data: [props[parameter]]
 			        },{
 			            name: otherparameter,
+			            color:oppcolor,
 			            data: [props[otherparameter]]
 			        }],
 			        credits: false
@@ -287,14 +297,14 @@ class TurnoutGender extends Component{
  				<Highchart />
 		        : 'Hover over a state');
 		    if (props) {
-		    var cnt = 1; // Count of the array should be here
+		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;
 		   	return(Highcharts.chart(this._div, {
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Turnout Percentage in '+ props.NAME_EN + "for people between 18-21"
+            text: 'Turnout Percentage in '+ props.NAME_EN + " by gender"
         },
         labels: {
              overflow: 'justify'
@@ -305,7 +315,15 @@ class TurnoutGender extends Component{
                     enabled: true,
                     formatter:function() 
 					{
+						pntr++;
+						switch(pntr){
+                        	case 1 :
                               return  props.maleTurnout +' % '
+                        	break;
+                        	case 2 :
+                              return  props.womenTurnout +' % '
+                        	break;
+                        }
                         
 					}
                 }
