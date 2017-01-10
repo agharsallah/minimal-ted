@@ -15,11 +15,13 @@ class TurnoutGender extends Component{
 		var parameter = nextProps.value;
 		var stringGeojson = 'feature.properties.'+parameter ;
 		this.mymap.remove()
-		/*extracting gender*/
-		var regex = /(.*?)Turnout/g
-		var gender=parameter.replace(/Turnout/i, "");
-		console.log(gender);
-	
+		var otherparameter,color,oppcolor="";
+		var color="";
+
+		//we search for other parameter so we can show it allong side in the highchart
+		if (parameter=="womenTurnout") {otherparameter = "maleTurnout";color ="rgb(255, 64, 129)";oppcolor ="rgb(0, 188, 212)"}else{
+			otherparameter = "womenTurnout";color ="rgb(0, 188, 212)";oppcolor ="rgb(255, 64, 129)";
+		}
 	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
@@ -54,12 +56,12 @@ class TurnoutGender extends Component{
 	    };
 	}	
 	function getColor(d) {
-	    return d > 70 ? '#FF7A5A' :
-	           d > 60? '#FFB85F' :
-	           d > 50  ? '#462066' :
-	           d > 40 ? '#00AAA0' :
+	    return d > 70 ? '#CDDC39' :
+	           d > 60? '#4CAF50' :
+	           d > 50  ? '#FFFF00' :
+	           d > 40 ? '#FF6F00' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CC99CC';
+	                      '#f60707';
 	}
 	function onEachFeature(feature, layer) {
 		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+' %' );
@@ -79,7 +81,7 @@ class TurnoutGender extends Component{
     /*--custom legend on hover*/
 
     		info.update = function (props) {
-		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
+		    this._div.innerHTML = '<h4>Gender Turnout Level</h4>' +  (props ?
 		        '<b>' + props.NAME_EN + '</b><br />' + props[parameter] + ' Canceled Ballot'
 		        : 'Hover over a state');
 		    if (props) {
@@ -90,7 +92,7 @@ class TurnoutGender extends Component{
 			            type: 'bar'
 			        },
 			        title: {
-			            text: ' Turnout percentage in '+ props.NAME_EN+' for '+gender
+			            text: ' Turnout percentage in '+ props.NAME_EN+' by gender'
 			        },
 			        labels: {
 			             overflow: 'justify'
@@ -101,9 +103,16 @@ class TurnoutGender extends Component{
 			                    enabled: true,
 			                    formatter:function() 
 								{
-	
-			                            return  props[parameter] +' %';
-
+									pntr++;
+									switch(pntr){
+			                        	case 1 :
+			                              return  props.maleTurnout +' % '
+			                        	break;
+			                        	case 2 :
+			                              return  props.womenTurnout +' % '
+			                        	break;
+			                        }
+			                        
 								}
 			                }
 			            }
@@ -113,7 +122,7 @@ class TurnoutGender extends Component{
 			            align: 'right',
 			            verticalAlign: 'top',
 			            x: -40,
-			            y: 80,
+			            y: 40,
 			            floating: true,
 			            borderWidth: 1,
 			            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
@@ -129,7 +138,12 @@ class TurnoutGender extends Component{
 			        },
 			        series: [{
 			            name: parameter,
+			            color:color,//ce color is pinc if parameter is women go up 
 			            data: [props[parameter]]
+			        },{
+			            name: otherparameter,
+			            color:oppcolor,
+			            data: [props[otherparameter]]
 			        }],
 			        credits: false
 			    })
@@ -194,12 +208,12 @@ class TurnoutGender extends Component{
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 70 ? '#FF7A5A' :
-	           d > 60? '#FFB85F' :
-	           d > 50  ? '#462066' :
-	           d > 40 ? '#00AAA0' :
+	    return d > 70 ? '#CDDC39' :
+	           d > 60? '#4CAF50' :
+	           d > 50  ? '#FFFF00' :
+	           d > 40 ? '#FF6F00' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CC99CC';
+	                      '#f60707';
 	}
 
 	//--------style applied when mouse hover
@@ -283,14 +297,14 @@ class TurnoutGender extends Component{
  				<Highchart />
 		        : 'Hover over a state');
 		    if (props) {
-		    var cnt = 1; // Count of the array should be here
+		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;
 		   	return(Highcharts.chart(this._div, {
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Turnout Percentage in '+ props.NAME_EN + "for male"
+            text: 'Turnout Percentage in '+ props.NAME_EN + " by gender"
         },
         labels: {
              overflow: 'justify'
@@ -301,7 +315,15 @@ class TurnoutGender extends Component{
                     enabled: true,
                     formatter:function() 
 					{
+						pntr++;
+						switch(pntr){
+                        	case 1 :
                               return  props.maleTurnout +' % '
+                        	break;
+                        	case 2 :
+                              return  props.womenTurnout +' % '
+                        	break;
+                        }
                         
 					}
                 }
@@ -311,8 +333,8 @@ class TurnoutGender extends Component{
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'top',
-            x: -40,
-            y: 80,
+            x: -10,
+            y: 40,
             floating: true,
             borderWidth: 1,
             backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
@@ -327,8 +349,13 @@ class TurnoutGender extends Component{
             }
         },
         series: [{
-            name: 'canceled',
+            name: 'men Turnout',
             data: [props.maleTurnout]
+        },
+        {
+            name: 'female Turnout',
+            color:"rgb(255, 64, 129)",
+            data: [props.womenTurnout]
         }],
         credits: false
     })

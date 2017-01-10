@@ -21,12 +21,12 @@ class BallotState extends Component{
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 10 ? '#462066' :
-	           d > 7  ? '#FFB85F' :
-	           d > 4  ? '#FF7A5A' :
-	           d > 1  ? '#00AAA0' :
+	    return d > 10 ? '#f60707' :
+	           d > 7  ? '#FF6F00' :
+	           d > 4  ? '#FFFF00' :
+	           d > 1  ? '#4CAF50' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CC99CC';
+	                      '#CDDC39';
 	}
 
 	//--------style applied when mouse hover
@@ -53,8 +53,10 @@ class BallotState extends Component{
 
 	//--------Style of the map
 	function style(feature) {
+		 var invalidPercentage = feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage ;
+		 if ( isNaN(invalidPercentage)) {invalidPercentage="inexistant"}
 	    return {
-	        fillColor: getColor(feature.properties.canceledPercentage),
+	        fillColor: getColor(invalidPercentage),
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
@@ -111,7 +113,7 @@ class BallotState extends Component{
  				<Highchart />
 		        : 'Hover over a state');
 		    if (props) {
-		    var cnt = 4; // Count of the array should be here
+		    var cnt = 11; // Count of the array should be here
 			var pntr = 0;
 		   	return(Highcharts.chart(this._div, {
         chart: {
@@ -131,21 +133,21 @@ class BallotState extends Component{
 					{
                         pntr++;
                         var invalid =  props.canceled + props.blank + props.spoiled ;
-                        var invalidPercentage = props.canceledPercentage + props.blankPercentage + props.spoiledPercentage ;
+                        var invalidPercentage = (props.canceledPercentage + props.blankPercentage + props.spoiledPercentage).toFixed(2) ;
                         switch(pntr){
                         	case 1 :
                         	return props.canceled +' canceled ballot which represents '+props.canceledPercentage+'%';
                         	break;
-                        	case 2 :
-                        	return props.blank +' canceled ballot which represents '+props.blankPercentage+'%';
+                        	case 5 :
+                        	return props.blank +' blank ballot which represents '+props.blankPercentage+'%';
                         	break;
                         	case 3 :
-                        	return props.spoiled +' canceled ballot which represents '+props.spoiledPercentage+'%';
+                        	return props.spoiled +' spoiled ballot which represents '+props.spoiledPercentage+'%';
                         	break;
-                        	case 4 :
-                        	return invalid +' canceled ballot which represents '+invalidPercentage+'%';
+                        	case 8 :
+                        	return invalid +' invalid ballot which represents '+invalidPercentage+'%';
                         	break;
-                        	default:
+                        	case 10:
                         	return props.SigningVoters
                         }
 
@@ -157,15 +159,16 @@ class BallotState extends Component{
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'top',
-            x: -40,
-            y: 80,
+            x: -80,
+            y: 110,
+            height:200,
             floating: true,
             borderWidth: 1,
             backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
             shadow: true
         },
         xAxis: {
-            categories: ['Votes']
+            categories: ['Votes','invalid']
         },
         yAxis: {
             title: {
@@ -174,20 +177,20 @@ class BallotState extends Component{
         },
         series: [{
             name: 'canceled',
-            data: [props.canceled]
-        },
-        {	name: 'blank',
-            data: [props.blank]
+            data: [props.canceled,0]
         },
         {	name: 'spoiled',
-            data: [props.spoiled]
+            data: [props.spoiled,0]
+        },
+        {	name: 'blank',
+            data: [props.blank,0]
         },
         {	name: 'invalid',
-            data: [props.canceled+props.blank+props.spoiled]
+            data: [0,props.canceled+props.blank+props.spoiled]
         },
         {
             name: 'Total',
-            data: [props.SigningVoters]
+            data: [0,props.SigningVoters]
         }],
         credits: false
     })

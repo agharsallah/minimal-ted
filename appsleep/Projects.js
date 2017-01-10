@@ -70,7 +70,7 @@ class Projects extends Component{
 		const TTurnoutPresedential = <Translate type="text" content="pred2014.TTurnoutPresedential"/>
 		const STurnoutPresedential = <Translate type="text" content="pred2014.STurnoutPresedential"/>
 		
-		const elecType = 'Presedential'
+		const elecType = 'Presidential'
 		const elecYear = '2014'
 		const link = '/ted/Projects/par14/'
 		return(
