@@ -161,6 +161,7 @@ class BallotState extends Component{
             verticalAlign: 'top',
             x: -80,
             y: 110,
+            height:200,
             floating: true,
             borderWidth: 1,
             backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),

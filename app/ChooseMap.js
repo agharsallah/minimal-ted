@@ -55,7 +55,7 @@ export default class ChooseMap extends Component{
                     onChange={this.handleChange}
                     style = {{width:"150px",marginLeft:"10px",float:"right"}}
                     floatingLabelStyle  ={{color:"#03a9f4"}}
-                    labelStyle = {{color:"#ff5722",fontSize:"x-large"}}
+                    labelStyle = {{color:"#ff5722",fontSize:"xx-large"}}
 
                   >
                       <MenuItem value={"canceled"} primaryText="canceled" />
@@ -79,14 +79,14 @@ export default class ChooseMap extends Component{
         break;
     case "Age-Turnout-by-delegation":
         return (<div style={{position:"relative"}}>                    
-                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",float:"right",width:"100%",marginLeft:"-11px"}}>
+                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px"}}>
                     <SelectField
                     floatingLabelText="choose parameter"
                     value={this.state.ageturnout}
                     onChange={this.handleAgeturnout}
                     style = {{width:"150px",marginLeft:"10px",float:"right"}}
                     floatingLabelStyle  ={{color:"#03a9f4"}}
-                    labelStyle = {{color:"#ff5722",fontSize:"x-large"}}
+                    labelStyle = {{color:"#ff5722",fontSize:"xx-large"}}
                   >
                       <MenuItem value={"_18_21"} primaryText="18-21" />
                       <MenuItem value={"_22_30"} primaryText="22-30" />
@@ -105,7 +105,7 @@ export default class ChooseMap extends Component{
         break;
     case "Gender-turnout-by-delegation":
         return (<div style={{position:"relative"}}>                    
-                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",float:"right",width:"100%",marginLeft:"-11px"}}>
+                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px"}}>
                     <RaisedButton label="Male" primary={true} onTouchTap={this.handlegendermale} />
                     <RaisedButton label="Female" secondary={true} onTouchTap={this.handlegenderfemale} />
                     

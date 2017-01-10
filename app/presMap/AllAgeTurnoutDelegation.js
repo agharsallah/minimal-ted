@@ -143,7 +143,9 @@ class AllAgeTurnoutDelegation extends Component{
             colorByPoint: true,
             data: [{
                 name: "18-21",
-                y: props._18_21
+                y: props._18_21,
+                selected: true,
+                sliced: true
             }, {
                 name: '22-30',
                 y: props._22_30

@@ -51,12 +51,12 @@ class AgeTurnoutDelegation extends Component{
 	    };
 	}	
 	function getColor(d) {
-	    return d > 20 ? '#f60707' :
-	           d > 15  ? '#FF6F00' :
+	    return d > 20 ? '#CDDC39' :
+	           d > 15  ? '#4CAF50' :
 	           d > 10  ? '#FFFF00' :
-	           d > 5  ? '#4CAF50' :
+	           d > 5  ? '#FF6F00' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CDDC39';
+	                      '#f60707';
 	}
 	function onEachFeature(feature, layer) {
 		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+' %' );
@@ -76,62 +76,62 @@ class AgeTurnoutDelegation extends Component{
     /*--custom legend on hover*/
 
     		info.update = function (props) {
-		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props[parameter] + ' Canceled Ballot'
+		    this._div.innerHTML = '<h2>Turnout Level</h2>' +  (props ?
+		        '<b>' + props.NAME_EN + '</b><br /><h1>' + props[parameter] + ' % </h1>'
 		        : 'Hover over a state');
-		    if (props) {
-					    var cnt = 2; // Count of the array should be here
-						var pntr = 0;
-					   	return(Highcharts.chart(this._div, {
-			        chart: {
-			            type: 'bar'
-			        },
-			        title: {
-			            text: ' Turnout percentage in '+ props.NAME_EN+' for people between '+parameter
-			        },
-			        labels: {
-			             overflow: 'justify'
-			        },
-			        plotOptions: {
-			            bar: {
-			                dataLabels: {
-			                    enabled: true,
-			                    formatter:function() 
-								{
+		 //    if (props) {
+			// 		    var cnt = 2; // Count of the array should be here
+			// 			var pntr = 0;
+			// 		   	return(Highcharts.chart(this._div, {
+			//         chart: {
+			//             type: 'bar'
+			//         },
+			//         title: {
+			//             text: ' Turnout percentage in '+ props.NAME_EN+' for people between '+parameter
+			//         },
+			//         labels: {
+			//              overflow: 'justify'
+			//         },
+			//         plotOptions: {
+			//             bar: {
+			//                 dataLabels: {
+			//                     enabled: true,
+			//                     formatter:function() 
+			// 					{
 	
-			                            return  props[parameter] +' %';
+			//                             return  props[parameter] +' %';
 
-								}
-			                }
-			            }
-			        },
-			        legend: {
-			            layout: 'vertical',
-			            align: 'right',
-			            verticalAlign: 'top',
-			            x: -40,
-			            y: 80,
-			            floating: true,
-			            borderWidth: 1,
-			            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-			            shadow: true
-			        },
-			        xAxis: {
-			            categories: ['Votes']
-			        },
-			        yAxis: {
-			            title: {
-			                text: 'Percentage'
-			            }
-			        },
-			        series: [{
-			            name: parameter,
-			            data: [props[parameter]]
-			        }],
-			        credits: false
-			    })
-			)
-			}
+			// 					}
+			//                 }
+			//             }
+			//         },
+			//         legend: {
+			//             layout: 'vertical',
+			//             align: 'right',
+			//             verticalAlign: 'top',
+			//             x: -40,
+			//             y: 80,
+			//             floating: true,
+			//             borderWidth: 1,
+			//             backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+			//             shadow: true
+			//         },
+			//         xAxis: {
+			//             categories: ['Votes']
+			//         },
+			//         yAxis: {
+			//             title: {
+			//                 text: 'Percentage'
+			//             }
+			//         },
+			//         series: [{
+			//             name: parameter,
+			//             data: [props[parameter]]
+			//         }],
+			//         credits: false
+			//     })
+			// )
+			// }
 
 		};
 		info.addTo(this.mymap);
@@ -190,12 +190,12 @@ class AgeTurnoutDelegation extends Component{
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 20 ? '#f60707' :
-	           d > 15? '#FF6F00' :
+	    return d > 20 ? '#CDDC39' :
+	           d > 15  ? '#4CAF50' :
 	           d > 10  ? '#FFFF00' :
-	           d > 5  ? '#4CAF50' :
+	           d > 5  ? '#FF6F00' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CDDC39';
+	                      '#f60707';
 	}
 
 	//--------style applied when mouse hover
@@ -274,62 +274,61 @@ class AgeTurnoutDelegation extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h4>18-21 Turnout</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props._18_21 + ' %'+
- 				<Highchart />
+		    this._div.innerHTML = '<h3>18-21 Turnout Level</h3>' +  (props ?
+		        '<b>' + props.NAME_EN + '</b><br /><h1>' + props._18_21 + ' %</h1>'
 		        : 'Hover over a state');
-		    if (props) {
-		    var cnt = 1; // Count of the array should be here
-			var pntr = 0;
-		   	return(Highcharts.chart(this._div, {
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Turnout Percentage in '+ props.NAME_EN + "for people between 18-21"
-        },
-        labels: {
-             overflow: 'justify'
-        },
-        plotOptions: {
-            bar: {
-                dataLabels: {
-                    enabled: true,
-                    formatter:function() 
-					{
-                              return  props._18_21 +' % '
+// 		    if (props) {
+// 		    var cnt = 1; // Count of the array should be here
+// 			var pntr = 0;
+// 		   	return(Highcharts.chart(this._div, {
+//         chart: {
+//             type: 'bar'
+//         },
+//         title: {
+//             text: 'Turnout Percentage in '+ props.NAME_EN + "for people between 18-21"
+//         },
+//         labels: {
+//              overflow: 'justify'
+//         },
+//         plotOptions: {
+//             bar: {
+//                 dataLabels: {
+//                     enabled: true,
+//                     formatter:function() 
+// 					{
+//                               return  props._18_21 +' % '
                         
-					}
-                }
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            x: -40,
-            y: 80,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-            shadow: true
-        },
-        xAxis: {
-            categories: ['Votes']
-        },
-        yAxis: {
-            title: {
-                text: 'Percentage'
-            }
-        },
-        series: [{
-            name: 'canceled',
-            data: [props._18_21]
-        }],
-        credits: false
-    })
-)
-}
+// 					}
+//                 }
+//             }
+//         },
+//         legend: {
+//             layout: 'vertical',
+//             align: 'right',
+//             verticalAlign: 'top',
+//             x: -40,
+//             y: 80,
+//             floating: true,
+//             borderWidth: 1,
+//             backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+//             shadow: true
+//         },
+//         xAxis: {
+//             categories: ['Votes']
+//         },
+//         yAxis: {
+//             title: {
+//                 text: 'Percentage'
+//             }
+//         },
+//         series: [{
+//             name: 'canceled',
+//             data: [props._18_21]
+//         }],
+//         credits: false
+//     })
+// )
+// }
 
 		};
 

@@ -11,7 +11,7 @@ module.exports = {
    	navbar:{
    		home:'Home',
     	projects:'Projects',
-      Presedential:'Presedential 2014',
+      Presedential:'Presidential 2014',
       Parlamentary:'Parlamentary 2014',
       NCA:'NCA 2011',
     	about:'About',
