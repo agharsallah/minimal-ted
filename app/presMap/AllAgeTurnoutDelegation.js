@@ -21,12 +21,12 @@ class AllAgeTurnoutDelegation extends Component{
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 70 ? '#FF7A5A' :
-	           d > 60? '#FFB85F' :
-	           d > 50  ? '#462066' :
-	           d > 40 ? '#00AAA0' :
+	    return d > 70 ? '#f60707' :
+	           d > 60? '#FF6F00' :
+	           d > 50  ? '#FFFF00' :
+	           d > 40 ? '#4CAF50' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CC99CC';
+	                      '#CDDC39';
 	}
 
 	//--------style applied when mouse hover

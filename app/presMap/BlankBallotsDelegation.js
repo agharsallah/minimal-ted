@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
-
+import { getColor} from './mutual/fun';
 class BlankBallotsDelegation extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -49,14 +49,7 @@ class BlankBallotsDelegation extends Component{
 	        fillOpacity: 0.5
 	    };
 	}	
-	function getColor(d) {
-	    return d > 10 ? '#462066' :
-	           d > 7  ? '#FFB85F' :
-	           d > 4  ? '#FF7A5A' :
-	           d > 1  ? '#00AAA0' :
-	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CC99CC';
-	}
+
 	function onEachFeature(feature, layer) {
 		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+" "+parameter+' ballot'+'</br>'+feature.properties.canceledPercentage+'% canceled of total voters' );
 	    layer.on({
@@ -198,14 +191,7 @@ class BlankBallotsDelegation extends Component{
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
 
-	function getColor(d) {
-	    return d > 10 ? '#462066' :
-	           d > 7  ? '#FFB85F' :
-	           d > 4  ? '#FF7A5A' :
-	           d > 1  ? '#00AAA0' :
-	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CC99CC';
-	}
+
 
 	//--------style applied when mouse hover
 	function highlightFeature(e) {
