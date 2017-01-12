@@ -40,19 +40,21 @@ class Parlamantary extends Component{
 		//we define the props for the widget
 		const elecType = 'Parlamentary';
 		const elecYear = '2014';
-		const link = '/Projects/par14/';
+		const link = '/result/par14/';
 		return(
 			<div>
-			<Layout SendToFather={this.handleSend} type='Parlamentary'/>
-					{/*the widget component accepts the title  sub img link and map link */}
+{/*			<Layout SendToFather={this.handleSend} type='Parlamentary'/>
+*/}					{/*the widget component accepts the title  sub img link and map link */}
+					
 					<div className='col-md-12' >
 					<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"  elecType={elecType} elecYear={elecYear} link={link} />
 					<Widget title ={TGender} subtitle={SGender} imgsrc="par-by-gender.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
 					<Widget title ={TPartyNahdha} subtitle={SPartyNahdha} imgsrc='par-nahdha-res.png' direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-					<Widget title ={TPartyNida} subtitle={SPartyNida} imgsrc="par-nida-res.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					<div className='col-md-12' >
 					<Widget title ={TPartyUpl} subtitle={SPartyUpl} imgsrc="par-upl-res.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
+					<Widget title ={TPartyNida} subtitle={SPartyNida} imgsrc="par-nida-res.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+
 					</div>
 		</div>
 		);

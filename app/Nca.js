@@ -24,7 +24,7 @@ class Nca extends Component{
 		//we define the props for the widget
 		const elecType = 'NCA'
 		const elecYear = '2011'
-		const link = '/Projects/nca11/'
+		const link = '/result/nca11/'
 		//we get the title nd subtitle of the widget from the localTranslate file
 		const TNahdha = <Translate type="text" content="nca2011.TNahdha"/>
 		const SNahdha = <Translate type="text" content="nca2011.SNahdha"/>
@@ -64,25 +64,28 @@ class Nca extends Component{
 
 		return(
 			<div>
-			<Layout SendToFather={this.handleSend} type='NCA'/>
-					{/*the widget component accepts the title  sub img link and map link */}
+{/*			<Layout SendToFather={this.handleSend} type='NCA'/>
+*/}					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
 						<Widget title ={TNahdha} subtitle={SNahdha} imgsrc="nahdha.png"  elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={TCPR} subtitle={SCPR} imgsrc='cpr.png' direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 						<Widget title ={TAridha} subtitle={SAridha} imgsrc="aridaa.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
-						<Widget title ={TTakatol} subtitle={STakatol} imgsrc="ETTAKATOL.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					<div className='col-md-12' >
+						<Widget title ={TTakatol} subtitle={STakatol} imgsrc="ETTAKATOL.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>											
 						<Widget title ={TPDP} subtitle={SPDP} imgsrc="PDP.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={TAfek} subtitle={SAfek} imgsrc="afek.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-						<Widget title ={TTurnoutElg} subtitle={TSurnoutElg} imgsrc="turnout.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-						<Widget title ={TRegistered} subtitle={SRegistered} imgsrc="eligible.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					<div className='col-md-12'>
+						<Widget title ={TTurnoutElg} subtitle={TSurnoutElg} imgsrc="turnout.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+						<Widget title ={TRegistered} subtitle={SRegistered} imgsrc="eligible.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 						<Widget title ={TTurnoutReg} subtitle={TSurnoutReg} imgsrc="active.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+					</div>
+					<div className='col-md-12'>
 						<Widget title ={TPassive} subtitle={SPassive} imgsrc="passive.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={TCoalition} subtitle={SCoalition} imgsrc="wasted.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 						<Widget title ={TBallots} subtitle={SBallots} imgsrc="blanc.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+
 					</div>
 			</div>
 		);

@@ -9,7 +9,7 @@ const MapComp = (props)=>{
   return(
 
    		<div style={{height:'auto'}}>
-
+   		{console.log(props.params)}
    			<Layout/>
    			<MuiThemeProvider>
    			<ChooseMap param={props.params}/>

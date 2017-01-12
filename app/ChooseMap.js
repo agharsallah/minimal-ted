@@ -53,10 +53,10 @@ export default class ChooseMap extends Component{
                     floatingLabelText="choose parameter"
                     value={this.state.value}
                     onChange={this.handleChange}
-                    style = {{width:"150px",marginLeft:"10px",float:"right"}}
-                    floatingLabelStyle  ={{color:"#03a9f4"}}
+                    style = {{width:"200px",marginLeft:"10px",float:"right"}}
+                    floatingLabelStyle  ={{color:"#03a9f4",fontSize:"x-large",top:"25px"}}
                     labelStyle = {{color:"#ff5722",fontSize:"xx-large"}}
-
+                    iconStyle ={{fill:"#03a9f4",top:"10px",height:"47px",width:"65px"}}
                   >
                       <MenuItem value={"canceled"} primaryText="canceled" />
                       <MenuItem value={"blank"} primaryText="blank" />
@@ -84,10 +84,10 @@ export default class ChooseMap extends Component{
                     floatingLabelText="choose parameter"
                     value={this.state.ageturnout}
                     onChange={this.handleAgeturnout}
-                    style = {{width:"150px",marginLeft:"10px",float:"right"}}
-                    floatingLabelStyle  ={{color:"#03a9f4"}}
+                    style = {{width:"200px",marginLeft:"10px",float:"right"}}
+                    floatingLabelStyle  ={{color:"#03a9f4",fontSize:"x-large",top:"25px"}}
                     labelStyle = {{color:"#ff5722",fontSize:"xx-large"}}
-                  >
+                    iconStyle ={{fill:"#03a9f4",top:"10px",height:"47px",width:"65px"}}                  >
                       <MenuItem value={"_18_21"} primaryText="18-21" />
                       <MenuItem value={"_22_30"} primaryText="22-30" />
                       <MenuItem value={"_31_40"} primaryText="31-40" />

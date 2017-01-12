@@ -72,12 +72,12 @@ class Projects extends Component{
 		
 		const elecType = 'Presidential'
 		const elecYear = '2014'
-		const link = '/Projects/par14/'
+		const link = '/result/par14/'
 		return(
 			<div>
-			<Layout SendToFather={this.handleSend} type='Presedential'/>
-					{/*the widget component accepts the title  sub img link and map link */}
-					<div className='col-md-12' >
+{/*			<Layout SendToFather={this.handleSend} type='Presedential'/>
+*/}					{/*the widget component accepts the title  sub img link and map link */}
+{/*					<div className='col-md-12' >
 						<Widget title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
@@ -86,7 +86,7 @@ class Projects extends Component{
 						<Widget title ={TAgeTurnoutDelegationAll} subtitle={SAgeTurnoutDelegationAll} imgsrc="All-Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={TTurnoutGender} subtitle={STurnoutGender} imgsrc="Gender-turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={TTurnoutPresedential} subtitle={STurnoutPresedential} imgsrc="Presdential-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-					</div>
+					</div>*/}
 					<div className='col-md-12' >
 						<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={Tturnoutbyage} subtitle={Sturnoutbyage} imgsrc="turnout-by-age.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					

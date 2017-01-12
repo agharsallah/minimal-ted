@@ -182,16 +182,17 @@ class TurnoutGender extends Component{
 	        grades = [30, 40, 50, 60,70],
 	        labels = [];
 
-	    div.innerHTML +="<p>"+parameter+' ballots</p>'
+	    div.innerHTML +='<p>Male Turnout Percentage </p>'
 	    // loop through our canceled intervals and generate a label with a colored square for each interval
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
 	    }
 
 	    return div;
 	};
+
 
 	legend.addTo(this.mymap);
 	}

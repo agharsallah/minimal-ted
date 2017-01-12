@@ -13,6 +13,8 @@ module.exports = {
     	projects:'Projects',
       Presedential:'Presidential 2014',
       Parlamentary:'Parlamentary 2014',
+      electoral_result:"Electoral Result",
+      electoral_data:"Electoral Data",      
       NCA:'NCA 2011',
     	about:'About',
     	en: 'Anglais',

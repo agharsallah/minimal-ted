@@ -77,7 +77,7 @@ class AgeTurnoutDelegation extends Component{
 
     		info.update = function (props) {
 		    this._div.innerHTML = '<h2>Turnout Level</h2>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br /><h1>' + props[parameter] + ' % </h1>'
+		        '<b>' + props.NAME_EN + '</b><h1>' + props[parameter] + ' % </h1>'
 		        : 'Hover over a state');
 		 //    if (props) {
 			// 		    var cnt = 2; // Count of the array should be here
@@ -162,15 +162,15 @@ class AgeTurnoutDelegation extends Component{
 		legend.onAdd = function (map) {
 
 	    var div = L.DomUtil.create('div', 'infoLeg legend'),
-	        grades = [0, 5, 10, 15, 20],
+	        grades = [0, 5, 10, 15,20],
 	        labels = [];
 
-	    div.innerHTML +="<p>"+parameter+' ballots</p>'
+	    div.innerHTML +='<p>Canceled ballots Percentage </p>'
 	    // loop through our canceled intervals and generate a label with a colored square for each interval
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
 	    }
 
 	    return div;
@@ -275,7 +275,7 @@ class AgeTurnoutDelegation extends Component{
 
 		info.update = function (props) {
 		    this._div.innerHTML = '<h3>18-21 Turnout Level</h3>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br /><h1>' + props._18_21 + ' %</h1>'
+		        '<b>' + props.NAME_EN + '</b><h1>' + props._18_21 + ' %</h1>'
 		        : 'Hover over a state');
 // 		    if (props) {
 // 		    var cnt = 1; // Count of the array should be here

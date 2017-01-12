@@ -37,10 +37,13 @@ export default class Layout extends Component{
 		const fr = <Translate type="text" content="navbar.fr"/>
 		const ar = <Translate type="text" content="navbar.ar"/>
 
-		const Presedential = <Translate type="text" content="navbar.Presedential"/>
+
+		const electoral_data = <Translate type="text" content="navbar.electoral_data"/>
+		const electoral_result = <Translate type="text" content="navbar.electoral_result"/>
+/*		const Presedential = <Translate type="text" content="navbar.Presedential"/>
 		const Parlamentary = <Translate type="text" content="navbar.Parlamentary"/>
 		const NCA = <Translate type="text" content="navbar.NCA"/>
-		return(
+*/		return(
 			<div>
 
 		<div className="navbar navbar-info">
@@ -57,10 +60,14 @@ export default class Layout extends Component{
 		      <ul className="nav navbar-nav">
 		        <li><Link to={'/'} activeClassName="activeN">{home}</Link></li>
 		        <li>
-		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
+{/*		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
 			          <MenuItem value={'Presedential'} label='projects' primaryText={Presedential} containerElement={<Link to="/Projects" />}/>
 			          <MenuItem value={'Parlamentary'} primaryText={Parlamentary} containerElement={<Link to="/Parlamantary" />}/>
 			          <MenuItem value={'NCA'} primaryText={NCA} containerElement={<Link to="/Nca" />}/>
+			    </DropDownMenu>*/}
+			 	<DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
+			          <MenuItem value={'electoral_data'} label={"data"} primaryText={electoral_data} containerElement={<Link to="/data" />}/>
+			          <MenuItem value={'electoral_result'} primaryText={electoral_result} containerElement={<Link to="/result" />}/>
 			    </DropDownMenu>
 		        </li>
 		        
@@ -85,5 +92,5 @@ export default class Layout extends Component{
 	}
 };
 	Layout.defaultProps = {
-	  type: 'Presedential'
+	  type: 'electoral_data'
 	};
