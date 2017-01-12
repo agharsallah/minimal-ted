@@ -22,7 +22,7 @@ export default class Widget extends Component{
 					<div className="item">
 						<div className="item-overlay active p-a">
 							<span className="pull-right label dark-white text-color"><i className="fa fa-envelope-open fa-fw"></i> {this.props.elecYear}</span>
-							<a href className={clasnam}>{this.props.elecType}</a>
+							<a  className={clasnam}>{this.props.elecType}</a>
 						</div>
 						<img src={imgsrc} className="w-full"/>
 					</div>

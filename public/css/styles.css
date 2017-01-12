@@ -247,13 +247,33 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   .infoLegend {
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
-/*     background: white;
-background: rgba(255,255,255,0.8);
-box-shadow: 0 0 15px rgba(0,0,0,0.2);
-border-radius: 5px; */
+
     height: 380px;
 }
 .infoLegend h4 {
     margin: 0 0 5px;
+    color: #777;
+}
+
+/* Style for the 2 charts next to each other */
+  .infoLegend1 {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    height: 190px;        margin-top: 200px
+
+}
+.infoLegend1 h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+  .infoLegend2 {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    height: 190px;
+        margin-top: 200px
+
+}
+.infoLegend2 h4 {
+    margin-left: :10px;
     color: #777;
 }

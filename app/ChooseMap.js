@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
 import LeafletMap from './LeafletMap';
-import PreByGender from './presMap/PreByGender';
-import TestBallot from './presMap/TestBallot';
-import BallotState from './presMap/BallotState';
-import TestDraw from './presMap/TestDraw';
-import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
-import AgeTurnoutDelegation from './presMap/AgeTurnoutDelegation';
-import AllAgeTurnoutDelegation from './presMap/AllAgeTurnoutDelegation';
-import TurnoutGender from './presMap/TurnoutGender';
 import Layout from './Layout';
 import Highchart from './Highchart';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -17,7 +9,15 @@ import FindIcon from 'material-ui/svg-icons/action/find-in-page';
 import {List, ListItem} from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-
+import PreByGender from './presMap/PreByGender';
+import TestBallot from './presMap/TestBallot';
+import BallotState from './presMap/BallotState';
+import TestDraw from './presMap/TestDraw';
+import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
+import AgeTurnoutDelegation from './presMap/AgeTurnoutDelegation';
+import AllAgeTurnoutDelegation from './presMap/AllAgeTurnoutDelegation';
+import TurnoutGender from './presMap/TurnoutGender';
+import CommMarker from './presMap/CommMarker';
 export default class ChooseMap extends Component{
   constructor(props) {
     super(props);
@@ -115,6 +115,9 @@ export default class ChooseMap extends Component{
         break;
     case "turnout-by-age2":
         return <TestDraw/> 
+        break;  
+    case "comm-marker":
+        return <CommMarker/> 
         break;    
     
     default:

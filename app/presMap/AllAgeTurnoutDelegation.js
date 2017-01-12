@@ -120,7 +120,7 @@ class AllAgeTurnoutDelegation extends Component{
             type: 'pie'
         },
         title: {
-            text: 'Turnout Level Percentage per Age '
+            text: 'Turnout Level Percentage per Age in '+props.NAME_EN
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

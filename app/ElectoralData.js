@@ -56,7 +56,7 @@ class ElectoralData extends Component{
 					<div className='col-md-12' >
 						<Widget title ={TAgeTurnoutDelegationAll} subtitle={SAgeTurnoutDelegationAll} imgsrc="All-Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 						<Widget title ={TTurnoutGender} subtitle={STurnoutGender} imgsrc="Gender-turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-						<Widget title ={TTurnoutPresedential} subtitle={STurnoutPresedential} imgsrc="Presdential-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TTurnoutPresedential} subtitle={STurnoutPresedential} imgsrc="comm-marker.png"   elecType={elecType} elecYear={elecYear} link={link}/>
 					</div>
 		</div>
 		);
