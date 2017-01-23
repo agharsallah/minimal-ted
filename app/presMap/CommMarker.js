@@ -52,33 +52,6 @@ class CommMarker extends Component{
     return div;
 };
 
-//legend.addTo(mymap);
-	
-	/*const jsx = (
-      <MuiThemeProvider>
-       <Paper style = {{height :'100px',width : '220px' }}>
-           <RadioButtonGroup name="type" onChange={this.handleChange} defaultSelected="women">
-      <RadioButton
-        value="women"
-        label="women_turnout"
-      />
-      <RadioButton
-        value="men"
-        label="men_turnout"
-      />
-      </RadioButtonGroup>
-       </Paper>
-       </MuiThemeProvider>
-      
-    );*/
-	
-/*	var legendControl = L.control();
-	legendControl.onAdd = function (map) {
-		let div = L.DomUtil.create('div', '');
-      ReactDOM.render(jsx, div);
-      return div;
-	};
-	legendControl.addTo(mymap);*/
 		
 		function getColor (d)  {
    		 	return d < 20 ? '#f7f4f9' :

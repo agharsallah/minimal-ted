@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import App from './App'
 import About from './About'
+import Municipalities from './Municipalities'
 import Projects from './Projects'
 import ElectoralResult from './ElectoralResult'
 import ElectoralData from './ElectoralData'
@@ -16,6 +17,7 @@ render((
     <Router history={ browserHistory }>
         <Route path="/" component={App}/>
         <Route path="/About" component={About}/>
+        <Route path="/Municipalities" component={Municipalities}/>
         
         <Route path="/data" component={ElectoralData}/>
         <Route path="/data/par14/:mapId" component={MapComp}/>

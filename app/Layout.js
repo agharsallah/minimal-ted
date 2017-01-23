@@ -31,6 +31,7 @@ export default class Layout extends Component{
 	render(){
 		/*this config is set to allow navbar language transtlation*/
 		const home = <Translate type="text" content="navbar.home"/>
+		const municipalities = <Translate type="text" content="navbar.municipalities"/>
 		const projects = <Translate type="text" content="navbar.projects"/>
 		const about = <Translate type="text" content="navbar.about"/>
 		const en = <Translate type="text" content="navbar.en"/>
@@ -71,6 +72,7 @@ export default class Layout extends Component{
 			    </DropDownMenu>
 		        </li>
 		        
+		        <li ><Link to={'/Municipalities'} activeClassName="activeN">{municipalities}</Link></li>
 		        <li ><Link to={'/About'} activeClassName="activeN">{about}</Link></li>
 		        <li>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>

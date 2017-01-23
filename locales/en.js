@@ -9,7 +9,8 @@ module.exports = {
   },
 
    	navbar:{
-   		home:'Home',
+      home:'Home',
+      municipalities:'municipalities',
     	projects:'Projects',
       Presedential:'Presidential 2014',
       Parlamentary:'Parlamentary 2014',
