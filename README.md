@@ -16,6 +16,7 @@ git clone git@github.com:hunter-x/minimal-ted.git
 ```
 npm install
 bower install
+move the bower_component to public
 ```
 
 **Start the application in development mode**

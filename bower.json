@@ -1,0 +1,21 @@
+{
+  "name": "react-app-boilerplate",
+  "description": "React application boilerplate",
+  "main": "",
+  "authors": [
+    "Cássio Zen"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0"
+  }
+}
