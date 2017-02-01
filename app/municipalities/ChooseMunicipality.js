@@ -13,12 +13,12 @@ export default class ChooseMunicipality extends Component{
 	}
 	
 	handleMunState (event){ 
-    console.log(event.target.value);let value =event.target.value; this.setState({munstate:value})};
+    let value =event.target.value; this.setState({munstate:value})};
 	render(){
 		return(
 			<div style={{position:"relative"}}>                    
                 <div style={{position:"absolute",zIndex: "2",marginTop:"100px",width:'60px'}}>
-                	<RadioButtonGroup onChange={this.handleMunState}  name="etatmun" defaultSelected="new">
+                	<RadioButtonGroup onChange={this.handleMunState}  name="etatmun" defaultSelected="all">
 				    	<RadioButton
 				      	labelStyle={{color:'black'}}
 				        value="all"
