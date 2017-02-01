@@ -11,7 +11,7 @@ class MunicipalityMap extends Component{
 	
 	//this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([37.15, 10.15], 10);
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
 				{maxZoom:11,minZoom:10,dragging:false}
@@ -66,13 +66,14 @@ class MunicipalityMap extends Component{
 	
 	//------------onEachfeature
 	function onEachFeature(feature, layer) {
-		layer.bindPopup(feature.properties.seats +'</h4></br>'+feature.properties.name_en+' percent');
+		//control what happens on click
+		layer.bindPopup(feature.properties.seats +'</h4></br>'+feature.properties.name_en);
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
 	    });
 	}
-    var featuresLayer = new L.GeoJSON(ariana, {
+    var featuresLayer = new L.GeoJSON(kairouan, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -90,8 +91,8 @@ draggable.disable();
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h3>municipality information</h3>' +  (props ?
-		        '<b>' + props.name_en + '</b><h1>' + props.seats + ' %</h1>'
+		    this._div.innerHTML = '<h2>Kairouan municipality information</h2>' +  (props ?
+		        '<h4><b>' + props.name_en + '</b> have : </h4></br><h4>' + props.seats + ' seats</h4>'+ '</br><h4>' + props.citizens + ' citizen</h4>'+ '</br><h4>' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
 		    };
 

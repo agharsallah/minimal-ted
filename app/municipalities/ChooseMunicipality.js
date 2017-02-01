@@ -30,6 +30,9 @@ export default class ChooseMunicipality extends Component{
 				        label="new"
 				      />
 				    </RadioButtonGroup>
+                </div>	
+                <div style={{position:"absolute",zIndex: "2",marginTop:"400px",float: 'right !important',width:'100%'}}>
+                	<img src="../img/kairouan.png" alt="kairouan" style={{float:'right',width:'10%'}} />
                 </div>
                 <MunicipalityMap  style={{position:"absolute"}} value={this.state.munstate} />
                 </div> 
