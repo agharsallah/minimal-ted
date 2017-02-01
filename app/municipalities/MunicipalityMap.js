@@ -11,16 +11,17 @@ class MunicipalityMap extends Component{
 	
 	//this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map).setView([37.10, 10.20], 10);
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([37.15, 10.15], 10);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-				{maxZoom:11,dragging:false}
+				{maxZoom:11,minZoom:10,dragging:false}
 				).addTo(this.mymap);
 	
 	//desactivating zoom
 	    this.mymap.dragging.disable();
+	//delete boxzoom
+		this.mymap.boxZoom.disable();
 
-		
 		function getColor(d) {
 	    return d > 20 ? '#CDDC39' :
 	           d > 15  ? '#4CAF50' :
@@ -89,32 +90,13 @@ draggable.disable();
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h3>18-21 Turnout Level</h3>' +  (props ?
+		    this._div.innerHTML = '<h3>municipality information</h3>' +  (props ?
 		        '<b>' + props.name_en + '</b><h1>' + props.seats + ' %</h1>'
 		        : 'Hover over a state');
 		    };
 
 		info.addTo(this.mymap);
-		 //----------Legend control feature;
-    var legend = L.control({position: 'bottomright'});
-		legend.onAdd = function (map) {
 
-	    var div = L.DomUtil.create('div', 'infoLeg legend'),
-	        grades = [0, 5, 10, 15,20],
-	        labels = [];
-
-	    div.innerHTML +='<p>Canceled ballots Percentage </p>'
-	    // loop through our canceled intervals and generate a label with a colored square for each interval
-	    for (var i = 0; i < grades.length; i++) {
-	        div.innerHTML +=
-	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
-	    }
-
-	    return div;
-	};
-
-	legend.addTo(this.mymap);
 	
 	}//end component did mount
 
@@ -122,7 +104,7 @@ draggable.disable();
 	render(){
 		return(
 			<div>
-			<div id="mymap" ref="map" style ={{height:'650px'}} />
+			<div id="mymap" ref="map" style ={{height:'700px'}} />
 			</div>
 		);
 	}
