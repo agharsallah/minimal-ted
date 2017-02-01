@@ -12,14 +12,15 @@ import Nca from './Nca'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Router, Route, browserHistory } from 'react-router';
 import MunicipalityMap from './municipalities/MunicipalityMap';
+import ChooseMunicipality from './municipalities/ChooseMunicipality';
 
 render((
     <MuiThemeProvider>
     <Router history={ browserHistory }>
-        <Route path="/" component={App}/>
+        <Route path="/" component={App}/> 
         <Route path="/About" component={About}/>
         <Route path="/Municipalities" component={Municipalities}/>
-        <Route path="/Municipalities/:municipalitymap" component={MunicipalityMap}/>
+        <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>
         
         <Route path="/data" component={ElectoralData}/>
         <Route path="/data/par14/:mapId" component={MapComp}/>

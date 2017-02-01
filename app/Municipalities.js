@@ -3,7 +3,6 @@ import Layout from './Layout';
 import Translate from 'react-translate-component';
 import Paper from 'material-ui/Paper';
 import AutoComplete from 'material-ui/AutoComplete';
-import MunicipalityMap from './municipalities/MunicipalityMap';
 import {Link} from 'react-router';
 import {browserHistory} from 'react-router';
 
@@ -37,7 +36,6 @@ class Municipalities extends Component{
 				      onNewRequest	={this.changetomap}
 				    />
 			</div>
-			<MunicipalityMap name=''/>
 		</div>
 		);
 	}
