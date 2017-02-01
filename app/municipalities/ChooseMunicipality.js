@@ -19,6 +19,11 @@ export default class ChooseMunicipality extends Component{
 			<div style={{position:"relative"}}>                    
                 <div style={{position:"absolute",zIndex: "2",marginTop:"100px",width:'60px'}}>
                 	<RadioButtonGroup onChange={this.handleMunState}  name="etatmun" defaultSelected="new">
+				    	<RadioButton
+				      	labelStyle={{color:'black'}}
+				        value="all"
+				        label="all"
+				      />
 				      <RadioButton
 				      	labelStyle={{color:'blue'}}
 				        value="old"
@@ -28,6 +33,11 @@ export default class ChooseMunicipality extends Component{
 				      	labelStyle={{color:'green'}}
 				        value="new"
 				        label="new"
+				      />
+				      	<RadioButton
+				      	labelStyle={{color:'orange'}}
+				        value="extended"
+				        label="extended"
 				      />
 				    </RadioButtonGroup>
                 </div>	

@@ -23,12 +23,10 @@ class MunicipalityMap extends Component{
 		this.mymap.boxZoom.disable();
 
 		function getColor(d) {
-	    return d > 20 ? '#CDDC39' :
-	           d > 15  ? '#4CAF50' :
-	           d > 10  ? '#FFFF00' :
-	           d > 5  ? '#FF6F00' :
-	           d == 'inexistant'? '#FFFFFF' :
-	                      '#f60707';
+	    return d == "old"  ? '#2900ff' :
+	           d == "new" ? '#008000' :
+	           d == "extended" ? '#ffa500' :
+	                      'red';
 	}	
     //--------style applied when mouse hover
 	function highlightFeature(e) {
@@ -54,12 +52,13 @@ class MunicipalityMap extends Component{
 
 	//--------Style of the map
 	function style(feature) {
+		console.log(feature.properties.etat)
 	    return {
-	        fillColor: getColor(feature.properties._name_en),
+	        fillColor: getColor(feature.properties.etat),
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
-	        dashArray: '3',
+	        dashArray: '5',
 	        fillOpacity: 0.5
 	    };
 	}	
@@ -67,7 +66,7 @@ class MunicipalityMap extends Component{
 	//------------onEachfeature
 	function onEachFeature(feature, layer) {
 		//control what happens on click
-		layer.bindPopup(feature.properties.seats +'</h4></br>'+feature.properties.name_en);
+		layer.bindPopup('</h4></br>'+feature.properties.name_en);
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
