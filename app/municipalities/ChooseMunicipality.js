@@ -17,8 +17,8 @@ export default class ChooseMunicipality extends Component{
 	render(){
 		return(
 			<div style={{position:"relative"}}>                    
-                <div style={{position:"absolute",zIndex: "2",marginTop:"100px",width:'60px'}}>
-                	<RadioButtonGroup onChange={this.handleMunState}  name="etatmun" defaultSelected="all">
+                <div style={{position:"absolute",zIndex: "2",marginTop:"100px",width:'100px',marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
+                	<RadioButtonGroup onChange={this.handleMunState}  name="etatmun" defaultSelected="all" style={{height:'55px !important'}} >
 				    	<RadioButton
 				      	labelStyle={{color:'black'}}
 				        value="all"
@@ -45,7 +45,7 @@ export default class ChooseMunicipality extends Component{
                 	<img src="../img/kairouan.png" alt="kairouan" style={{float:'right',width:'10%'}} />
                 </div>
                 <MunicipalityMap  style={{position:"absolute"}} value={this.state.munstate} />
-                </div> 
+            </div> 
 		);
 	}
 }

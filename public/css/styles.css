@@ -299,3 +299,18 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     label {
 color: #ff5722 ;
 }
+.mapInfoText{
+
+  font-family: "Lucida Grande", Tahoma;
+    font-size: 20px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    color: black !important;
+          margin-top: 10px;
+    text-align: center!important;
+    letter-spacing: 0.3em;
+}
+.leaflet-container {
+  background: rgba(69, 177, 25, 0) !important;
+  }

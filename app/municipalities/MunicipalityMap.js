@@ -18,10 +18,11 @@ class MunicipalityMap extends Component{
 					{maxZoom:11,minZoom:10,dragging:false}
 					).addTo(this.mymap);
 		
-		//desactivating zoom
-		    this.mymap.dragging.disable();
-		//delete boxzoom
-			this.mymap.boxZoom.disable();
+		this.mymap.dragging.disable();
+	    this.mymap.scrollWheelZoom.disable();
+	    this.mymap.keyboard.disable();
+	    this.mymap.doubleClickZoom.disable();
+		this.mymap.boxZoom.disable();
 
 			function getColor(d) {
 				console.log('here')
@@ -31,20 +32,19 @@ class MunicipalityMap extends Component{
 		                    '#555';	 
 			        break;
 			        case 'new':
-			        return d == "new"  ? '#008000' :
-		                    '#555';	
-			        break;
+				        return d == "new"  ? '#008000' :
+			                   '#555';	
+				        break;
 			        case 'extended':
-			        return d == "extended"  ? '#ffa500' :
-		                    '#555';	
-			        break;
+				        return d == "extended"  ? '#ffa500' :
+			                   '#555';	
+				        break;
 			        default :
-			        	return d == "all"  ? '#2900ff' :
-		           d == "new" ? '#008000' :
-		           d == "extended" ? '#ffa500' :
-		                      '#555';
+			        	return d == "old"  ? '#2900ff' :
+					           d == "new" ? '#008000' :
+					           d == "extended" ? '#ffa500' :
+					           '#555';
 				}
-
 
 		}	
 	    //--------style applied when mouse hover
@@ -127,8 +127,12 @@ class MunicipalityMap extends Component{
 				{maxZoom:11,minZoom:10,dragging:false}
 				).addTo(this.mymap);
 	
-	//desactivating zoom
+	//desactivating dragging
 	    this.mymap.dragging.disable();
+	//desactivating scrolzoom
+	    this.mymap.scrollWheelZoom.disable();
+	    this.mymap.keyboard.disable();
+	    this.mymap.doubleClickZoom.disable();
 	//delete boxzoom
 		this.mymap.boxZoom.disable();
 
@@ -177,20 +181,23 @@ class MunicipalityMap extends Component{
 	function onEachFeature(feature, layer) {
 		//control what happens on click
 		layer.bindPopup('</h4></br>'+feature.properties.name_en);
+	var label = new L.Tooltip();
+        label.setLatLng(layer.getBounds().getCenter());
+        /*adding permanent label { permanent: true }*/
+        layer.bindTooltip(feature.properties.name_en).openTooltip(label);
+	    
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
 	    });
 	}
+
     var featuresLayer = new L.GeoJSON(kairouan, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
-    var draggable = new L.Draggable(this.mymap);
-draggable.disable();
-   
-    var info = L.control();
 
+    	var info = L.control();
 		info.onAdd = function (map) {
 		    this._div = L.DomUtil.create('div', 'infoLegend'); // create a div with a class "info"
 		    this.update();
@@ -201,7 +208,7 @@ draggable.disable();
 
 		info.update = function (props) {
 		    this._div.innerHTML = '<h2>Kairouan municipality information</h2>' +  (props ?
-		        '<h4><b>' + props.name_en + '</b> have : </h4></br><h4>' + props.seats + ' seats</h4>'+ '</br><h4>' + props.citizens + ' citizen</h4>'+ '</br><h4>' + props.area + ' km² of area</h4>'
+		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
 		    };
 
