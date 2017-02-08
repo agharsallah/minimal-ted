@@ -2,7 +2,6 @@ import React from 'react'
 import { render } from 'react-dom'
 import App from './App'
 import About from './About'
-import Municipalities from './Municipalities'
 import Projects from './Projects'
 import ElectoralResult from './ElectoralResult'
 import ElectoralData from './ElectoralData'
@@ -11,15 +10,19 @@ import Parlamantary from './Parlamantary'
 import Nca from './Nca'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Router, Route, browserHistory } from 'react-router';
-import MunicipalityMap from './municipalities/MunicipalityMap';
+
+import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';
+import AllMunicipalities from './municipalities/AllMunicipalities.js';
 
 render((
     <MuiThemeProvider>
     <Router history={ browserHistory }>
         <Route path="/" component={App}/> 
         <Route path="/About" component={About}/>
+        
         <Route path="/Municipalities" component={Municipalities}/>
+        <Route path="/all" component={AllMunicipalities}/>
         <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>
         
         <Route path="/data" component={ElectoralData}/>

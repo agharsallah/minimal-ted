@@ -25,7 +25,6 @@ class MunicipalityMap extends Component{
 		this.mymap.boxZoom.disable();
 
 			function getColor(d) {
-				console.log('here')
 				switch(selectedetat){
 					case 'old':
 			        return d == "old"  ? '#2900ff' :
@@ -166,7 +165,6 @@ class MunicipalityMap extends Component{
 
 	//--------Style of the map
 	function style(feature) {
-		console.log(feature.properties.etat)
 	    return {
 	        fillColor: getColor(feature.properties.etat),
 	        weight: 2,
@@ -184,7 +182,7 @@ class MunicipalityMap extends Component{
 	var label = new L.Tooltip();
         label.setLatLng(layer.getBounds().getCenter());
         /*adding permanent label { permanent: true }*/
-        layer.bindTooltip(feature.properties.name_en).openTooltip(label);
+        layer.bindTooltip(feature.properties.name_en,{ permanent: true }).openTooltip(label);
 	    
 	    layer.on({
 	        mouseover: highlightFeature,
