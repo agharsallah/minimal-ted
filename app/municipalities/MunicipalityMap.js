@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
+import {browserHistory} from 'react-router';
 
 class MunicipalityMap extends Component{
 	//this will define whether the component should render or not 
@@ -166,7 +167,15 @@ class MunicipalityMap extends Component{
     	featuresLayer.resetStyle(e.target);
     	 info.update();
 	}
-
+	function clickfeature(e) {
+		var layer = e.target;
+		var map = layer._map
+		console.log(layer)
+		var point = new L.Tooltip();
+        point.setLatLng(layer.getBounds().getCenter());
+        console.log(point)
+		map.fitBounds(point._latlng);
+	}
 	//--------Style of the map
 	function style(feature) {
 	    return {
@@ -180,12 +189,18 @@ class MunicipalityMap extends Component{
 	}	
 	
 	//------------onEachfeature
+
+
 	function onEachFeature(feature, layer) {
 		//control what happens on click
 		layer.bindPopup('</h4></br>'+feature.properties.name_en);
-		
 		layer.on('click', function(e) {
-            map.fitBounds(e.layer.getBounds());
+				var map = e.target._map
+				console.log(map)
+				map.fitBounds(layer.getBounds(),{animate:true	});
+					var link='/Municipalities/'+feature.properties.name_en;
+ 					browserHistory.push('/Municipalities/all');
+ 					console.log(link)
         });
 		
 		var label = new L.Tooltip();
@@ -195,7 +210,7 @@ class MunicipalityMap extends Component{
 	    
 	    layer.on({
 	        mouseover: highlightFeature,
-	        mouseout: resetHighlight
+	        mouseout: resetHighlight,
 	    });
 	}
 
