@@ -12,7 +12,7 @@ class AllMunicipalities extends Component{
 	componentWillReceiveProps(nextProps) {
 		var selectedetat=nextProps.value;
 		this.mymap.remove()
-		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
+		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.50, 11.00], 7);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 15,
@@ -20,26 +20,26 @@ class AllMunicipalities extends Component{
 	}).addTo(this.mymap);
 		
 
-
+	
 			function getColor(d) {
 				console.log('here')
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#deebf7' :
+			        return d == "old"  ? '#874E12' :
 		                    '#555';	 
 			        break;
 			        case 'new':
-				        return d == "new"  ? '#08519c' :
+				        return d == "new"  ? '#F9F181' :
 			                   '#555';	
 				        break;
 			        case 'extended':
-				        return d == "extended"  ? '#6baed6' :
+				        return d == "extended"  ? '#E6AA09' :
 			                   '#555';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#deebf7' :
-					           d == "new" ? '#08519c' :
-					           d == "extended" ? '#6baed6' :
+			        	return d == "old"  ? '#874E12' :
+					           (d == "new" || d =="new2015") ? '#F9F181' :
+					           d == "extended" ? '#E6AA09' :
 					           '#555';
 				}
 
@@ -67,15 +67,15 @@ class AllMunicipalities extends Component{
 		}
 
 		//--------Style of the map
-		function style(feature) {
-		    return {
+		function stylemunicipality(feature) {
+			    return {
 		        fillColor: getColor(feature.properties.etat),
-		        weight: 2,
+		        weight: 0.5,
 		        opacity: 1,
-		        color: 'white',
+		        color: 'blue',
 		        dashArray: '5',
 		        fillOpacity: 0.5
-		    };
+			    };
 		}	
 		
 		//------------onEachfeature
@@ -87,12 +87,24 @@ class AllMunicipalities extends Component{
 		        mouseout: resetHighlight
 		    });
 		}
+		var featuresLayer = new L.GeoJSON(districts, {
+				style: style
+
+		}).addTo(this.mymap);
 	    var featuresLayer = new L.GeoJSON(all, {
-	    		style: style,
+	    		style: stylemunicipality,
 				onEachFeature:onEachFeature
 			}).addTo(this.mymap);
-	    var draggable = new L.Draggable(this.mymap);
-	draggable.disable();
+
+
+		function style(feature) {
+			    return {
+			        weight: 2,
+			        color: 'black',
+			        dashArray: '5',
+			        fillOpacity: 0
+			    };
+		}
 	   
 	    var info = L.control();
 
@@ -105,9 +117,9 @@ class AllMunicipalities extends Component{
 		// -------method that we will use to update the control based on feature properties passed
 
 			info.update = function (props) {
-			    this._div.innerHTML = '<h2>Kairouan municipality information</h2>' +  (props ?
-			        '<h4><b>' + props.name_en + '</b> have : </h4></br><h4>' + props.seats + ' seats</h4>'+ '</br><h4>' + props.citizens + ' citizen</h4>'+ '</br><h4>' + props.area + ' km² of area</h4>'
-			        : 'Hover over a state');
+			    this._div.innerHTML =  (props ?
+			        '<p class="mapInfoText" style="margin-top:150px"  >'+props.name_en +'<p/>'
+			        : '');
 			    };
 
 			info.addTo(this.mymap);
@@ -118,38 +130,40 @@ class AllMunicipalities extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-			this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 15,
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
+	
 	var featuresLayer = new L.GeoJSON(all, {
-	style: stylemunicipality
-
+	style: stylemunicipality,
 	}).addTo(this.mymap);
+	
 	var featuresLayer = new L.GeoJSON(districts, {
 				style: style
 
 	}).addTo(this.mymap);
-		function style(feature) {
+	
+	function style(feature) {
 		    return {
 		        weight: 2,
 		        color: 'black',
 		        dashArray: '5',
 		        fillOpacity: 0
-		        
 		    };
-		}	
-				function stylemunicipality(feature) {
+	}	
+	
+	function stylemunicipality(feature) {
 		    return {
 		        weight: 1,
 		        color: 'blue',
 		        fillOpacity: 0
-		        
 		    };
-		}	
-	}//end component did mount
+	}	
 
+
+	}//end component did mount
     
 	render(){
 		return(
@@ -159,5 +173,4 @@ class AllMunicipalities extends Component{
 		);
 	}
 };
-
 export default AllMunicipalities

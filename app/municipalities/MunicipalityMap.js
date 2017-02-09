@@ -121,9 +121,13 @@ class MunicipalityMap extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
+	
+	var map = this.mymap ;
+	map.createPane('labels');
+	map.getPane('labels').style.zIndex = 650;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-				{maxZoom:11,minZoom:10,dragging:false}
+				{maxZoom:11,minZoom:10,dragging:false,pane: 'labels'}
 				).addTo(this.mymap);
 	
 	//desactivating dragging
@@ -179,10 +183,15 @@ class MunicipalityMap extends Component{
 	function onEachFeature(feature, layer) {
 		//control what happens on click
 		layer.bindPopup('</h4></br>'+feature.properties.name_en);
-	var label = new L.Tooltip();
+		
+		layer.on('click', function(e) {
+            map.fitBounds(e.layer.getBounds());
+        });
+		
+		var label = new L.Tooltip();
         label.setLatLng(layer.getBounds().getCenter());
         /*adding permanent label { permanent: true }*/
-        layer.bindTooltip(feature.properties.name_en,{ permanent: true }).openTooltip(label);
+        layer.bindTooltip(feature.properties.name_en,{ permanent: false }).openTooltip(label);
 	    
 	    layer.on({
 	        mouseover: highlightFeature,

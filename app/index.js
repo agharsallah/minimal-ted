@@ -13,7 +13,6 @@ import { Router, Route, browserHistory } from 'react-router';
 
 import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';
-import AllMunicipalities from './municipalities/AllMunicipalities.js';
 
 render((
     <MuiThemeProvider>
@@ -22,7 +21,6 @@ render((
         <Route path="/About" component={About}/>
         
         <Route path="/Municipalities" component={Municipalities}/>
-        <Route path="/all" component={AllMunicipalities}/>
         <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>
         
         <Route path="/data" component={ElectoralData}/>
