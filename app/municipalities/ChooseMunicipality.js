@@ -3,6 +3,7 @@ import MunicipalityMap from './MunicipalityMap';
 import RaisedButton from 'material-ui/RaisedButton';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import AllMunicipalities from './AllMunicipalities.js';
+import NameList from './NameList.js';
 	
 export default class ChooseMunicipality extends Component{
 
@@ -28,24 +29,24 @@ export default class ChooseMunicipality extends Component{
 					        label="all"
 					      />
 					      <RadioButton
-					      	labelStyle={{color:'#874E12'}}
+					      	labelStyle={{color:'#F9F181'}}
 					        value="old"
 					        label="old"				        
 					      />
 					      <RadioButton
-					      	labelStyle={{color:'#EBD792'}}
-					        value="new"
-					        label="new"
-					      />
-					      	<RadioButton
 					      	labelStyle={{color:'#E6AA09'}}
 					        value="extended"
 					        label="extended"
 					      />
+					      <RadioButton
+					      	labelStyle={{color:'#874E12'}}
+					        value="new"
+					        label="new"
+					      />
 					    </RadioButtonGroup>
 	                </div>	
-	                <div style={{position:"absolute",zIndex: "2",marginTop:"50px",float: 'right !important',width:'100%'}}>
-	                	<h1 style={{float:'right',width:'40%'}} className="municipalityTitle" >State Representation Of Tunisian Municipalities  </h1>
+	                <div style={{position:"absolute",zIndex: "2",marginTop:"50px",width:"40%",right:"2%"}}>
+	                	<h1 style={{float:'right'}} className="municipalityTitle" >State Representation Of Tunisian Municipalities  </h1>
 	                </div>
 	                <AllMunicipalities  style={{position:"absolute"}} value={this.state.munstate} />
 	            </div> 
@@ -63,12 +64,12 @@ export default class ChooseMunicipality extends Component{
 						        label="all"
 						      />
 						      <RadioButton
-						      	labelStyle={{color:'#874E12'}}
+						      	labelStyle={{color:'#F9F181'}}
 						        value="old"
 						        label="old"				        
 						      />
 						      <RadioButton
-						      	labelStyle={{color:'#F9F181'}}
+						      	labelStyle={{color:'#874E12'}}
 						        value="new"
 						        label="new"
 						      />
@@ -78,7 +79,11 @@ export default class ChooseMunicipality extends Component{
 						        label="extended"
 						      />
 						    </RadioButtonGroup>
-		                </div>	
+		                </div>
+						<div style={{position:"absolute",zIndex: "3",marginTop:"250px",width:'300px',marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
+							<p>list here</p>
+							<NameList Gouvernorate_name = {this.props.params.municipalitymap}/>
+						</div>
 		                <div style={{position:"absolute",zIndex: "2",marginTop:"400px",float: 'right !important',width:'100%'}}>
 		                	<img src="../img/kairouan.png" alt="kairouan" style={{float:'right',width:'10%'}} />
 		                </div>

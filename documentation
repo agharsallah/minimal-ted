@@ -12,5 +12,10 @@ we have Index father of all Router .. who have these 3 childrens
 		+ChooseMap (where I can choose on link changes than load map X )
 			-LeafletMap
 			-BlankBallotsDelegation (I will represent blank votes in a google maps choropleth map)
+	
+	* Municipalities
+		+Layout (navbar)
+		
+
 	*About
 		+Layout (navbar)

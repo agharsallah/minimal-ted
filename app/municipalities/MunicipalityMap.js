@@ -28,11 +28,11 @@ class MunicipalityMap extends Component{
 			function getColor(d) {
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#2900ff' :
+			        return d == "old"  ? '#F9F181' :
 		                    '#555';	 
 			        break;
 			        case 'new':
-				        return d == "new"  ? '#008000' :
+				        return d == "new"  ? '#874E12' :
 			                   '#555';	
 				        break;
 			        case 'extended':
@@ -40,8 +40,8 @@ class MunicipalityMap extends Component{
 			                   '#555';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#2900ff' :
-					           d == "new" ? '#008000' :
+			        	return d == "old"  ? '#F9F181' :
+					           d == "new" ? '#874E12' :
 					           d == "extended" ? '#ffa500' :
 					           '#555';
 				}
@@ -107,11 +107,11 @@ class MunicipalityMap extends Component{
 
 		// -------method that we will use to update the control based on feature properties passed
 
-			info.update = function (props) {
-			    this._div.innerHTML = '<h2>Kairouan municipality information</h2>' +  (props ?
-			        '<h4><b>' + props.name_en + '</b> have : </h4></br><h4>' + props.seats + ' seats</h4>'+ '</br><h4>' + props.citizens + ' citizen</h4>'+ '</br><h4>' + props.area + ' km² of area</h4>'
-			        : 'Hover over a state');
-			    };
+		info.update = function (props) {
+		    this._div.innerHTML = '<h2>Kairouan municipalities information</h2>' +  (props ?
+		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
+		        : 'Hover over a state');
+		    };
 
 			info.addTo(this.mymap);
 
@@ -128,7 +128,7 @@ class MunicipalityMap extends Component{
 	map.getPane('labels').style.zIndex = 650;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-				{maxZoom:11,minZoom:10,dragging:false,pane: 'labels'}
+				{maxZoom:10,minZoom:10,dragging:false,pane: 'labels'}
 				).addTo(this.mymap);
 	
 	//desactivating dragging
@@ -139,10 +139,24 @@ class MunicipalityMap extends Component{
 	    this.mymap.doubleClickZoom.disable();
 	//delete boxzoom
 		this.mymap.boxZoom.disable();
-
+		(function() {
+	var control = new L.Control({position:'topright'});
+	control.onAdd = function(map) {
+			var azoom = L.DomUtil.create('a','resetzoom');
+			azoom.innerHTML = "[Reset Zoom]";
+			L.DomEvent
+				.disableClickPropagation(azoom)
+				.addListener(azoom, 'click', function() {
+					map.setView(map.options.center, map.options.zoom);
+				},azoom);
+			return azoom;
+		};
+	return control;
+}())
+.addTo(this.mymap);
 		function getColor(d) {
-	    return d == "old"  ? '#2900ff' :
-	           d == "new" ? '#008000' :
+	    return d == "old"  ? '#F9F181' :
+	           d == "new" ? '#874E12' :
 	           d == "extended" ? '#ffa500' :
 	                      'red';
 	}	
@@ -193,14 +207,12 @@ class MunicipalityMap extends Component{
 
 	function onEachFeature(feature, layer) {
 		//control what happens on click
-		layer.bindPopup('</h4></br>'+feature.properties.name_en);
+		//layer.bindPopup('</h4></br>'+feature.properties.name_en);
 		layer.on('click', function(e) {
 				var map = e.target._map
-				console.log(map)
-				map.fitBounds(layer.getBounds(),{animate:true	});
+				map.fitBounds(layer.getBounds(),{animate:true});
 					var link='/Municipalities/'+feature.properties.name_en;
- 					browserHistory.push('/Municipalities/all');
- 					console.log(link)
+ 					//browserHistory.push('/Municipalities/all');
         });
 		
 		var label = new L.Tooltip();

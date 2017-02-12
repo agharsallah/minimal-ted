@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
+import {browserHistory} from 'react-router';
 
 class AllMunicipalities extends Component{
 	//this will define whether the component should render or not 
@@ -12,7 +13,7 @@ class AllMunicipalities extends Component{
 	componentWillReceiveProps(nextProps) {
 		var selectedetat=nextProps.value;
 		this.mymap.remove()
-		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.50, 11.00], 7);
+		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 15,
@@ -25,22 +26,22 @@ class AllMunicipalities extends Component{
 				console.log('here')
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#874E12' :
-		                    '#555';	 
+			        return d == "old"  ? '#F9F181' :
+		                    '#c8cec9';	 
 			        break;
 			        case 'new':
-				        return d == "new"  ? '#F9F181' :
-			                   '#555';	
+				        return d == "new"  ? '#874E12' :
+			                   '#c8cec9';	
 				        break;
 			        case 'extended':
 				        return d == "extended"  ? '#E6AA09' :
-			                   '#555';	
+			                   '#c8cec9';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#874E12' :
-					           (d == "new" || d =="new2015") ? '#F9F181' :
+			        	return d == "old"  ? '#F9F181' :
+					           (d == "new" || d =="new2015") ? '#874E12' :
 					           d == "extended" ? '#E6AA09' :
-					           '#555';
+					           '#c8cec9';
 				}
 
 		}	
@@ -73,8 +74,7 @@ class AllMunicipalities extends Component{
 		        weight: 0.5,
 		        opacity: 1,
 		        color: 'blue',
-		        dashArray: '5',
-		        fillOpacity: 0.5
+		        fillOpacity: 0.6
 			    };
 		}	
 		
@@ -82,6 +82,14 @@ class AllMunicipalities extends Component{
 		function onEachFeature(feature, layer) {
 			//control what happens on click
 			layer.bindPopup('</h4></br>'+feature.properties.name_en);
+
+			layer.on('click', function(e) {
+				var map = e.target._map
+				map.fitBounds(layer.getBounds(),{animate:true	});
+				var link='/Municipalities/'+feature.properties.circ;
+ 				browserHistory.push(link);
+        	});
+		    
 		    layer.on({
 		        mouseover: highlightFeature,
 		        mouseout: resetHighlight
@@ -131,7 +139,7 @@ class AllMunicipalities extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
-	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
+	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/hpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 15,
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
