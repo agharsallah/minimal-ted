@@ -4,5 +4,6 @@ npm-debug.log
 dist
 side
 public/bower_components
+app/nesma
 extracting_data
 extract data

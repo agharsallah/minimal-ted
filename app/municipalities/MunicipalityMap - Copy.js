@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import {browserHistory} from 'react-router';
 
-class MunicipalityMap extends Component{
+class AllMunicipalities extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
 
@@ -26,13 +25,14 @@ class MunicipalityMap extends Component{
 		this.mymap.boxZoom.disable();
 
 			function getColor(d) {
+				console.log('here')
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#F9F181' :
+			        return d == "old"  ? '#2900ff' :
 		                    '#555';	 
 			        break;
 			        case 'new':
-				        return d == "new"  ? '#874E12' :
+				        return d == "new"  ? '#008000' :
 			                   '#555';	
 				        break;
 			        case 'extended':
@@ -40,8 +40,8 @@ class MunicipalityMap extends Component{
 			                   '#555';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#F9F181' :
-					           d == "new" ? '#874E12' :
+			        	return d == "old"  ? '#2900ff' :
+					           d == "new" ? '#008000' :
 					           d == "extended" ? '#ffa500' :
 					           '#555';
 				}
@@ -107,11 +107,11 @@ class MunicipalityMap extends Component{
 
 		// -------method that we will use to update the control based on feature properties passed
 
-		info.update = function (props) {
-		    this._div.innerHTML = '<h2>Kairouan municipalities information</h2>' +  (props ?
-		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
-		        : 'Hover over a state');
-		    };
+			info.update = function (props) {
+			    this._div.innerHTML = '<h2>Kairouan municipality information</h2>' +  (props ?
+			        '<h4><b>' + props.name_en + '</b> have : </h4></br><h4>' + props.seats + ' seats</h4>'+ '</br><h4>' + props.citizens + ' citizen</h4>'+ '</br><h4>' + props.area + ' km² of area</h4>'
+			        : 'Hover over a state');
+			    };
 
 			info.addTo(this.mymap);
 
@@ -121,14 +121,11 @@ class MunicipalityMap extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
+	console.log(kairouan);
 	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
-	
-	var map = this.mymap ;
-	map.createPane('labels');
-	map.getPane('labels').style.zIndex = 650;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-				{maxZoom:10,minZoom:10,dragging:false,pane: 'labels'}
+				{maxZoom:11,minZoom:10,dragging:false}
 				).addTo(this.mymap);
 	
 	//desactivating dragging
@@ -141,8 +138,8 @@ class MunicipalityMap extends Component{
 		this.mymap.boxZoom.disable();
 
 		function getColor(d) {
-	    return d == "old"  ? '#F9F181' :
-	           d == "new" ? '#874E12' :
+	    return d == "old"  ? '#2900ff' :
+	           d == "new" ? '#008000' :
 	           d == "extended" ? '#ffa500' :
 	                      'red';
 	}	
@@ -167,17 +164,10 @@ class MunicipalityMap extends Component{
     	featuresLayer.resetStyle(e.target);
     	 info.update();
 	}
-	function clickfeature(e) {
-		var layer = e.target;
-		var map = layer._map
-		console.log(layer)
-		var point = new L.Tooltip();
-        point.setLatLng(layer.getBounds().getCenter());
-        console.log(point)
-		map.fitBounds(point._latlng);
-	}
+
 	//--------Style of the map
 	function style(feature) {
+		console.log(feature.properties.etat)
 	    return {
 	        fillColor: getColor(feature.properties.etat),
 	        weight: 2,
@@ -189,26 +179,17 @@ class MunicipalityMap extends Component{
 	}	
 	
 	//------------onEachfeature
-
-
 	function onEachFeature(feature, layer) {
 		//control what happens on click
-		//layer.bindPopup('</h4></br>'+feature.properties.name_en);
-		layer.on('click', function(e) {
-				var map = e.target._map
-				map.fitBounds(layer.getBounds(),{animate:true});
-					var link='/Municipalities/'+feature.properties.name_en;
- 					//browserHistory.push('/Municipalities/all');
-        });
-		
-		var label = new L.Tooltip();
+		layer.bindPopup('</h4></br>'+feature.properties.name_en);
+	var label = new L.Tooltip();
         label.setLatLng(layer.getBounds().getCenter());
         /*adding permanent label { permanent: true }*/
-        layer.bindTooltip(feature.properties.name_en,{ permanent: false }).openTooltip(label);
+        layer.bindTooltip(feature.properties.name_en,{ permanent: true }).openTooltip(label);
 	    
 	    layer.on({
 	        mouseover: highlightFeature,
-	        mouseout: resetHighlight,
+	        mouseout: resetHighlight
 	    });
 	}
 
@@ -247,4 +228,4 @@ class MunicipalityMap extends Component{
 	}
 };
 
-export default MunicipalityMap
+export default AllMunicipalities

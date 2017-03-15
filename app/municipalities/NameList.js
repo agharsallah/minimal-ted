@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 
 const NameList = (props)=>{
 	var city = props.Gouvernorate_name ;
-  	
-
   	return(
    		<div>
-  	<ul>{namesJson.map(function(object, i){
+  	<ul className="list-group">{namesJson.map(function(object, i){
   		        if (object.circ==city) {
-  		   			return <li  key={i}>{object.name_en}</li>
+  		   			return <li className="list-group-item"  key={i}>{object.name_en}</li>
 
   		   		}
   	    })}</ul>

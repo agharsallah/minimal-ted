@@ -51,12 +51,12 @@ class AgeTurnoutDelegation extends Component{
 	    };
 	}	
 	function getColor(d) {
-	    return d > 20 ? '#CDDC39' :
-	           d > 15  ? '#4CAF50' :
-	           d > 10  ? '#FFFF00' :
-	           d > 5  ? '#FF6F00' :
+	    return d > 20 ? '#0E4A61' :
+	           d > 15  ? '#10618F' :
+	           d > 10  ? '#1774B9' :
+	           d > 5  ? '#369AD5' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#f60707';
+	                      '#93D4F6';
 	}
 	function onEachFeature(feature, layer) {
 		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+' %' );
@@ -190,12 +190,12 @@ class AgeTurnoutDelegation extends Component{
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 20 ? '#CDDC39' :
-	           d > 15  ? '#4CAF50' :
-	           d > 10  ? '#FFFF00' :
-	           d > 5  ? '#FF6F00' :
+	    return d > 20 ? '#0E4A61' :
+	           d > 15  ? '#10618F' :
+	           d > 10  ? '#1774B9' :
+	           d > 5  ? '#369AD5' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#f60707';
+	                      '#93D4F6';
 	}
 
 	//--------style applied when mouse hover

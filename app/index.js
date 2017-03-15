@@ -2,6 +2,9 @@ import React from 'react'
 import { render } from 'react-dom'
 import App from './App'
 import About from './About'
+import Test from './Test'
+import Mother from './nesma/Mother.js'
+import TreeContainer from './test_viz/TreeContainer.js'
 import Projects from './Projects'
 import ElectoralResult from './ElectoralResult'
 import ElectoralData from './ElectoralData'
@@ -19,6 +22,9 @@ render((
     <Router history={ browserHistory }>
         <Route path="/" component={App}/> 
         <Route path="/About" component={About}/>
+        <Route path="/test" component={Test}/>
+       {/* <Route path="/ddj" component={Mother}/>*/}
+        <Route path="/test1" component={TreeContainer}/>
         
         <Route path="/Municipalities" component={Municipalities}/>
         <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>

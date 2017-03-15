@@ -1,5 +1,6 @@
 body {
 font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+background: rgba(221, 221, 221, 0.17)
 }
 #root {
   height: 100%;
@@ -160,6 +161,7 @@ font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 /* fixing bug of distance betwin navbar and map */
 .navbar{
   margin-bottom: 0px;
+  background: white
 }
 
 /* public UI */

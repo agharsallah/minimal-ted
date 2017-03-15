@@ -30,7 +30,7 @@ class AllMunicipalities extends Component{
 		                    '#c8cec9';	 
 			        break;
 			        case 'new':
-				        return d == "new"  ? '#874E12' :
+				        return (d == "new" || d =="new2015")  ? '#874E12' :
 			                   '#c8cec9';	
 				        break;
 			        case 'extended':
@@ -107,7 +107,7 @@ class AllMunicipalities extends Component{
 
 		function style(feature) {
 			    return {
-			        weight: 2,
+			        weight: 2.5,
 			        color: 'black',
 			        dashArray: '5',
 			        fillOpacity: 0

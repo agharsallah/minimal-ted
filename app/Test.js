@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {render} from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
 import Layout from './Layout';
 import ParallaxPic from './ParallaxPic'
+import Paper from 'material-ui/Paper';
+import HomeWidget from './HomeWidget';
 
-/*import Counter from './Counter';
-import Greeter  from './Greeter';*/
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //setting language support
@@ -39,9 +37,17 @@ export default class App extends Component {
       <MuiThemeProvider>
       <Layout SendToFather={this.handleSend} type='electoral_data'/>
       </MuiThemeProvider>
-      <ParallaxPic height='500px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/MohamedMessaraEPA.jpg)"/>      
-      <ParallaxPic height='500px' header="home.second" subheader="home.secondSub" classname="backgrGirl" url = "url(img/tunisias-first-presidentialPhotobyAPHasseneDridi.jpg)" />      
+      <div >
+      <ParallaxPic height='250px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/MohamedMessaraEPA.jpg)"/>      
+      </div>
 
+         <div className='col-md-12' style = {{marginBottom:'20px',marginTop:'50px'}}>
+              <section className="tiles col-md-12" >
+                  <HomeWidget name="Local Elections" description="Giving insight about municipality election" idd='Municipalities' styles='style1' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
+                  <HomeWidget name="Election Data" description="Presenting 2011-2014 election result from delegation overview" idd='data' styles='style2' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
+                  <HomeWidget name="Election Results" description="2011-2014 election results" idd='result' styles='style3' links='/img/MohamedMessaraEPA.jpg' width='col-md-4'/>
+              </section>
+          </div>
      </div>
     );
   }
