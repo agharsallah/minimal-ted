@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
 import LeafletMap from './LeafletMap';
-import PreByGender from './presMap/PreByGender';
-import TestBallot from './presMap/TestBallot';
-import BallotState from './presMap/BallotState';
-import TestDraw from './presMap/TestDraw';
-import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
-import AgeTurnoutDelegation from './presMap/AgeTurnoutDelegation';
-import AllAgeTurnoutDelegation from './presMap/AllAgeTurnoutDelegation';
-import TurnoutGender from './presMap/TurnoutGender';
 import Layout from './Layout';
 import Highchart from './Highchart';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -17,7 +9,15 @@ import FindIcon from 'material-ui/svg-icons/action/find-in-page';
 import {List, ListItem} from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-
+import PreByGender from './presMap/PreByGender';
+import TestBallot from './presMap/TestBallot';
+import BallotState from './presMap/BallotState';
+import TestDraw from './presMap/TestDraw';
+import BlankBallotsDelegation from './presMap/BlankBallotsDelegation';
+import AgeTurnoutDelegation from './presMap/AgeTurnoutDelegation';
+import AllAgeTurnoutDelegation from './presMap/AllAgeTurnoutDelegation';
+import TurnoutGender from './presMap/TurnoutGender';
+import CommMarker from './presMap/CommMarker';
 export default class ChooseMap extends Component{
   constructor(props) {
     super(props);
@@ -53,10 +53,10 @@ export default class ChooseMap extends Component{
                     floatingLabelText="choose parameter"
                     value={this.state.value}
                     onChange={this.handleChange}
-                    style = {{width:"150px",marginLeft:"10px",float:"right"}}
-                    floatingLabelStyle  ={{color:"#03a9f4"}}
+                    style = {{width:"200px",marginLeft:"10px",float:"right"}}
+                    floatingLabelStyle  ={{color:"#03a9f4",fontSize:"x-large",top:"25px"}}
                     labelStyle = {{color:"#ff5722",fontSize:"xx-large"}}
-
+                    iconStyle ={{fill:"#03a9f4",top:"10px",height:"47px",width:"65px"}}
                   >
                       <MenuItem value={"canceled"} primaryText="canceled" />
                       <MenuItem value={"blank"} primaryText="blank" />
@@ -84,10 +84,10 @@ export default class ChooseMap extends Component{
                     floatingLabelText="choose parameter"
                     value={this.state.ageturnout}
                     onChange={this.handleAgeturnout}
-                    style = {{width:"150px",marginLeft:"10px",float:"right"}}
-                    floatingLabelStyle  ={{color:"#03a9f4"}}
+                    style = {{width:"200px",marginLeft:"10px",float:"right"}}
+                    floatingLabelStyle  ={{color:"#03a9f4",fontSize:"x-large",top:"25px"}}
                     labelStyle = {{color:"#ff5722",fontSize:"xx-large"}}
-                  >
+                    iconStyle ={{fill:"#03a9f4",top:"10px",height:"47px",width:"65px"}}                  >
                       <MenuItem value={"_18_21"} primaryText="18-21" />
                       <MenuItem value={"_22_30"} primaryText="22-30" />
                       <MenuItem value={"_31_40"} primaryText="31-40" />
@@ -115,6 +115,9 @@ export default class ChooseMap extends Component{
         break;
     case "turnout-by-age2":
         return <TestDraw/> 
+        break;  
+    case "comm-marker":
+        return <CommMarker/> 
         break;    
     
     default:
@@ -129,11 +132,11 @@ export default class ChooseMap extends Component{
  
   return(
 
-      <div style={{height:'auto'}}>
+   		<div style={{height:'auto'}}>
 
-        <Layout/>
+   			<Layout/>
 
-      </div>
+   		</div>
   );
 
 }*/

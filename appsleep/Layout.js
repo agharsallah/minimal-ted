@@ -9,6 +9,7 @@ import counterpart  from 'counterpart';
 import Translate from 'react-translate-component';
 
 export default class Layout extends Component{
+
 	constructor(props) {
     super(props);
     this.state = {
@@ -23,11 +24,14 @@ export default class Layout extends Component{
 	   this.setState({value})
 	   counterpart.setLocale(value);
 	   this.props.SendToFather(value)
-	};
+	};	
+
+
 
 	render(){
 		/*this config is set to allow navbar language transtlation*/
 		const home = <Translate type="text" content="navbar.home"/>
+		const municipalities = <Translate type="text" content="navbar.municipalities"/>
 		const projects = <Translate type="text" content="navbar.projects"/>
 		const about = <Translate type="text" content="navbar.about"/>
 		const en = <Translate type="text" content="navbar.en"/>
@@ -35,13 +39,15 @@ export default class Layout extends Component{
 		const ar = <Translate type="text" content="navbar.ar"/>
 
 
-		const Presedential = <Translate type="text" content="navbar.Presedential"/>
+		const electoral_data = <Translate type="text" content="navbar.electoral_data"/>
+		const electoral_result = <Translate type="text" content="navbar.electoral_result"/>
+/*		const Presedential = <Translate type="text" content="navbar.Presedential"/>
 		const Parlamentary = <Translate type="text" content="navbar.Parlamentary"/>
 		const NCA = <Translate type="text" content="navbar.NCA"/>
-		return(
+*/		return(
 			<div>
 
-		<div className="navbar navbar-info">
+		<div className="navbar">
 		  <div className="container-fluid">
 		    <div className="navbar-header">
 		      <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -53,15 +59,21 @@ export default class Layout extends Component{
 		    </div>
 		    <div className="navbar-collapse collapse navbar-responsive-collapse">
 		      <ul className="nav navbar-nav">
-		        <li><Link to={'/ted/'} 		 activeClassName="activeN">{home}</Link></li>
+		        <li><Link to={'/ted/'} activeClassName="activeN">{home}</Link></li>
 		        <li>
-			        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
-				          <MenuItem value={'Presedential'} label='projects' primaryText={Presedential} containerElement={<Link to="/ted/Projects/" />}/>
-				          <MenuItem value={'Parlamentary'} primaryText={Parlamentary} containerElement={<Link to="/ted/Parlamantary/" />}/>
-				          <MenuItem value={'NCA'} primaryText={NCA} containerElement={<Link to="/ted/Nca/" />}/>
-				    </DropDownMenu>
+{/*		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
+			          <MenuItem value={'Presedential'} label='projects' primaryText={Presedential} containerElement={<Link to="/Projects" />}/>
+			          <MenuItem value={'Parlamentary'} primaryText={Parlamentary} containerElement={<Link to="/Parlamantary" />}/>
+			          <MenuItem value={'NCA'} primaryText={NCA} containerElement={<Link to="/Nca" />}/>
+			    </DropDownMenu>*/}
+			 	<DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
+			          <MenuItem value={'electoral_data'} label={"data"} primaryText={electoral_data} containerElement={<Link to="/ted/data/" />}/>
+			          <MenuItem value={'electoral_result'} primaryText={electoral_result} containerElement={<Link to="/ted/result/" />}/>
+			    </DropDownMenu>
 		        </li>
-		        <li ><Link to={'/ted/About/'} 	 activeClassName="activeN">{about}</Link></li>
+		        
+		        <li ><Link to={'/ted/Municipalities/'} activeClassName="activeN">{municipalities}</Link></li>
+		        <li ><Link to={'/ted/About/'} activeClassName="activeN">{about}</Link></li>
 		        <li>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>
 			          <MenuItem value={'en'} primaryText={en} />
@@ -82,5 +94,5 @@ export default class Layout extends Component{
 	}
 };
 	Layout.defaultProps = {
-	  type: 'Presedential'
+	  type: 'electoral_data'
 	};

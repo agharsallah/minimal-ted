@@ -30,7 +30,8 @@ class Highchart extends Component{
         }, {
             name: 'John',
             data: [5, 7, 3]
-        }]
+        }],
+        credits: false
     });
 
 	

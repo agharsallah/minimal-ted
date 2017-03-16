@@ -20,9 +20,9 @@ import ChooseMunicipality from './municipalities/ChooseMunicipality';
 render((
     <MuiThemeProvider>
     <Router history={ browserHistory }>
-        <Route path="/" component={App}/> 
+        <Route path="/" component={Test}/> 
         <Route path="/About" component={About}/>
-        <Route path="/test" component={Test}/>
+        <Route path="/test" component={App}/>
        {/* <Route path="/ddj" component={Mother}/>*/}
         <Route path="/test1" component={TreeContainer}/>
         
