@@ -78,7 +78,7 @@ class LeafletMap extends Component{
 	    });
 	}
 
-    var geojson = L.geoJson(statesData, {style: style,onEachFeature: onEachFeature}).addTo(mymap);
+    var geojson = L.geoJson(mariageData, {style: style,onEachFeature: onEachFeature}).addTo(mymap);
     
     var info = L.control();
 

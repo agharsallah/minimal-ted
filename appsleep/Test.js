@@ -43,9 +43,9 @@ export default class App extends Component {
 
          <div className='col-md-12' style = {{marginBottom:'20px',marginTop:'50px'}}>
               <section className="tiles col-md-12" >
-                  <HomeWidget name="Local Elections" description="Giving insight about municipality election" navlink='Municipalities' styles='style1' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
-                  <HomeWidget name="Election Data" description="2011-2014 election results  delegation overview" navlink='data' styles='style2' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
-                  <HomeWidget name="Election Results" description="2011-2014 election results" navlink='result' styles='style3' links='/img/MohamedMessaraEPA.jpg' width='col-md-4'/>
+                  <HomeWidget name="Local Elections" description="Giving insight about municipality election" idd='Municipalities' styles='style1' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
+                  <HomeWidget name="Election Data" description="Presenting 2011-2014 election result from delegation overview" idd='data' styles='style2' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
+                  <HomeWidget name="Election Results" description="2011-2014 election results" idd='result' styles='style3' links='/img/MohamedMessaraEPA.jpg' width='col-md-4'/>
               </section>
           </div>
      </div>

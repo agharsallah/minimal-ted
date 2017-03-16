@@ -18,14 +18,29 @@ counterpart.registerTranslations('fr',require('./../locales/fr'));
 counterpart.registerTranslations('ar',require('./../locales/ar'));
 
 export default class App extends Component {
-  render() {
+    constructor(props) {
+    super(props);
+    this.state = {
+      direction : 'left-to-right'
+    };
+    this.handleSend= this.handleSend.bind(this);
+  }
+    /*need to know which language is chosen to send to son widget 'rtl' or 'ltr' */
+    handleSend(value){
+      if (value == 'ar') {
+         this.setState({direction : 'right-to-left'});
+      }else{
+         this.setState({direction : 'left-to-right'});
+      }
+    }
+ render() {
     return (
       <div>
       <MuiThemeProvider>
-        <Layout/>
+      <Layout SendToFather={this.handleSend} type='electoral_data'/>
       </MuiThemeProvider>
-      <ParallaxPic header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/MohamedMessaraEPA.jpg)"/>      
-      <ParallaxPic header="home.second" subheader="home.secondSub" classname="backgrGirl" url = "url(img/tunisias-first-presidentialPhotobyAPHasseneDridi.jpg)" />      
+      <ParallaxPic height='500px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/MohamedMessaraEPA.jpg)"/>      
+      <ParallaxPic height='500px' header="home.second" subheader="home.secondSub" classname="backgrGirl" url = "url(img/tunisias-first-presidentialPhotobyAPHasseneDridi.jpg)" />      
 
      </div>
     );

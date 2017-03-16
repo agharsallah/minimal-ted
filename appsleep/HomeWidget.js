@@ -12,7 +12,7 @@ export default class HomeWidget extends Component{
 	                  <span className="image">
 	                    <img src={this.props.links} alt="" />
 	                  </span>
-	                  <Link to={this.props.navlink}>
+	                  <Link to={this.props.idd}>
 	                    <h1>{this.props.name}</h1>
 	                    <div className="content">
 	                      <h3>{this.props.description}</h3>

@@ -86,7 +86,7 @@ class AllMunicipalities extends Component{
 			layer.on('click', function(e) {
 				var map = e.target._map
 				map.fitBounds(layer.getBounds(),{animate:true	});
-				var link='/ted/Municipalities/'+feature.properties.circ+'/';
+				var link='/Municipalities/'+feature.properties.circ;
  				browserHistory.push(link);
         	});
 		    
