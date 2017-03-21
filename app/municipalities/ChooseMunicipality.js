@@ -3,16 +3,16 @@ import MunicipalityMap from './MunicipalityMap';
 import RaisedButton from 'material-ui/RaisedButton';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import AllMunicipalities from './AllMunicipalities.js';
-import NameList from './NameList.js';
+import Radio_state from './Radiobutton_state.js';
 import Layout from './../Layout';
-	
+import namesJson from'./data/mun_names'
+	console.log(namesJson);
 export default class ChooseMunicipality extends Component{
 
 	constructor(props){
 		super(props);
 		this.state={munstate:'all'}
 		this.handleMunState = this.handleMunState.bind(this);
-
 	}
 	
 	handleMunState (event){ 
@@ -29,31 +29,8 @@ export default class ChooseMunicipality extends Component{
         	case 'all':
         	return(
 				<div style={{position:"relative"}}>  
-	                
-	                <div style={{position:"absolute",zIndex: "3",marginTop:"100px",width:'100px',marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
-	                	<RadioButtonGroup onChange={this.handleMunState}  name="etatmun" defaultSelected="all" style={{height:'55px !important'}} >
-					    	<RadioButton
-					      	labelStyle={{color:'black'}}
-					        value="all"
-					        label="all"
-					      />
-					      <RadioButton
-					      	labelStyle={{color:'#F9F181'}}
-					        value="old"
-					        label="old"				        
-					      />
-					      <RadioButton
-					      	labelStyle={{color:'#E6AA09'}}
-					        value="extended"
-					        label="extended"
-					      />
-					      <RadioButton
-					      	labelStyle={{color:'#874E12'}}
-					        value="new"
-					        label="new"
-					      />
-					    </RadioButtonGroup>
-	                </div>	
+	                <Layout/>
+									<Radio_state handleMunState={this.handleMunState} style="allmunradio"/>
 	                <div style={{position:"absolute",zIndex: "2",marginTop:"50px",width:"40%",right:"2%"}}>
 	                	<h1 style={{float:'right'}} className="municipalityTitle" >State Representation Of Tunisian Municipalities  </h1>
 	                </div>
@@ -66,32 +43,9 @@ export default class ChooseMunicipality extends Component{
         		return(
 					<div style={{position:"relative"}}>  
 		               <Layout/>
-		                <div style={{position:"absolute",zIndex: "9000",marginTop:"300px",right:'15%',fontSize:'25px',fontFamily:'Georgia'}}>
-		                	<RadioButtonGroup onChange={this.handleMunState}  name="etatmun" defaultSelected="all" style={{height:'55px !important'}} >
-						    	<RadioButton
-						      	labelStyle={{color:'black'}}
-						        value="all"
-						        label="all"
-						      />
-						      <RadioButton
-						      	labelStyle={{color:'#F9F181'}}
-						        value="old"
-						        label="old"				        
-						      />
-						      <RadioButton
-						      	labelStyle={{color:'#874E12'}}
-						        value="new"
-						        label="new"
-						      />
-						      	<RadioButton
-						      	labelStyle={{color:'#E6AA09'}}
-						        value="extended"
-						        label="extended"
-						      />
-						    </RadioButtonGroup>
-		                </div>
+									<Radio_state handleMunState={this.handleMunState} style="munradio"/>
+
 						<div style={{position:"absolute",zIndex: "3",marginTop:"20px",width:'300px',marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
-							{/*<NameList Gouvernorate_name = {this.props.params.municipalitymap}/>*/}
    							<div>
 							  	<ul className="list-group">{namesJson.map(function(object, i){
 							  		        if (munstate == 'all' ) {
@@ -107,9 +61,7 @@ export default class ChooseMunicipality extends Component{
 							  	})}</ul>
 					   		</div>
 						</div>
-{/*		                <div style={{position:"absolute",zIndex: "2",marginTop:"400px",float: 'right !important',width:'100%'}}>
-		                	<img src="../img/kairouan.png" alt="kairouan" style={{float:'right',width:'10%'}} />
-		                </div>*/}
+
 		                <MunicipalityMap  style={{position:"absolute"}} value={this.state.munstate} />
 		            </div> 
 			);
