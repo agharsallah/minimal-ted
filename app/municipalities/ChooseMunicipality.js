@@ -6,7 +6,6 @@ import AllMunicipalities from './AllMunicipalities.js';
 import Radio_state from './Radiobutton_state.js';
 import Layout from './../Layout';
 import namesJson from'./data/mun_names'
-	console.log(namesJson);
 export default class ChooseMunicipality extends Component{
 
 	constructor(props){
@@ -25,10 +24,10 @@ export default class ChooseMunicipality extends Component{
 	render(){
 		let munstate = this.state.munstate;
 		let city = this.props.params.municipalitymap;
-        switch (city){
-        	case 'all':
+      switch (city){
+        case 'all':
         	return(
-				<div style={{position:"relative"}}>  
+							<div style={{position:"relative"}}>  
 	                <Layout/>
 									<Radio_state handleMunState={this.handleMunState} style="allmunradio"/>
 	                <div style={{position:"absolute",zIndex: "2",marginTop:"50px",width:"40%",right:"2%"}}>
@@ -36,7 +35,7 @@ export default class ChooseMunicipality extends Component{
 	                </div>
 	                <AllMunicipalities  style={{position:"absolute"}} value={this.state.munstate} />
 	            </div> 
-			);
+					);
 			break; 
 
 			default:
@@ -47,7 +46,8 @@ export default class ChooseMunicipality extends Component{
 
 						<div style={{position:"absolute",zIndex: "3",marginTop:"20px",width:'300px',marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
    							<div>
-							  	<ul className="list-group">{namesJson.map(function(object, i){
+							  	<ul className="list-group">
+											{namesJson.map(function(object, i){
 							  		        if (munstate == 'all' ) {
 							  		   		 	if(object.circ==city){
 							  		   		 		let munname = object.name_en
@@ -61,8 +61,7 @@ export default class ChooseMunicipality extends Component{
 							  	})}</ul>
 					   		</div>
 						</div>
-
-		                <MunicipalityMap  style={{position:"absolute"}} value={this.state.munstate} />
+		                <MunicipalityMap  style={{position:"absolute"}} value={this.state.munstate} munname={city} />
 		            </div> 
 			);
         }/*end switch*/
