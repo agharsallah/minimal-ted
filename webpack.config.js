@@ -18,12 +18,18 @@ var config = {
               'css-loader',
               'sass-loader'
             ]
-          },
+          },{
+      test: /\.css$/,
+      loaders: [
+        "style-loader",
+        "css-loader"
+      ]
+    },
           {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel',
-      query: {
+      query: {compact: false,
         presets: ['es2015','react']
       }
     }

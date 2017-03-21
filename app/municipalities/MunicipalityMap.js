@@ -123,7 +123,7 @@ class MunicipalityMap extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	console.log(this.props.munname)
-	console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+	let governourate_name=this.props.munname
 	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
 	
 	var map = this.mymap ;
@@ -215,7 +215,7 @@ class MunicipalityMap extends Component{
 	    });
 	}
 
-    var featuresLayer = new L.GeoJSON(shapes[this.props.munname], {
+    var featuresLayer = new L.GeoJSON(shapes[governourate_name], {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -228,18 +228,13 @@ class MunicipalityMap extends Component{
 		};
 
 	// -------method that we will use to update the control based on feature properties passed
-
 		info.update = function (props) {
-		    this._div.innerHTML = '<h2>Kairouan municipality information</h2>' +  (props ?
+		    this._div.innerHTML =  (props ?
 		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
 		    };
-
 		info.addTo(this.mymap);
-
-	
 	}//end component did mount
-
     
 	render(){
 		return(
