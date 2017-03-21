@@ -1,4 +1,4 @@
-var namesJson= [
+module.exports =[
 {"name_en": "tameghza" ,"etat":"extended" ,"circ": "tozeur" },
 {"name_en": "deguech" ,"etat":"extended" ,"circ": "tozeur" },
 {"name_en": "tozeur" ,"etat":"extended" ,"circ": "tozeur" },

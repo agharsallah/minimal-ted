@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
-
+import gouvernorate_shape from "./data/gouvernorates_shape"
 class AllMunicipalitiesCopy extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -22,7 +22,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g
 	}).addTo(this.mymap);
 	
 	
-	var featuresLayer = new L.GeoJSON(districts, {
+	var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
 				style: style,
 				onEachFeature:onEachFeature
 
@@ -39,12 +39,12 @@ L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g
 	
 		function onEachFeature(feature, layer) {
 			//control what happens on click
-			layer.bindPopup('</h4></br>'+feature.properties.name_en);
+			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
 			console.log(feature.properties)
 			layer.on('click', function(e) {
 				var map = e.target._map
 				map.fitBounds(layer.getBounds(),{animate:true	});
-				var link='/Municipalities/'+feature.properties.NAME_EN;
+				var link='/Municipalities/'+feature.properties.NAME_1;
  				browserHistory.push(link);
         	});
 

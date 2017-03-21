@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
-
+/*The name of municipality shapefiles is defined in the index file*/
+import shapes from "./data/mun_shapes.js";
 class MunicipalityMap extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -90,7 +91,7 @@ class MunicipalityMap extends Component{
 		        mouseout: resetHighlight
 		    });
 		}
-	    var featuresLayer = new L.GeoJSON(kairouan, {
+	    var featuresLayer = new L.GeoJSON(shapes[this.props.munname], {
 	    		style: style,
 				onEachFeature:onEachFeature
 			}).addTo(this.mymap);
@@ -121,6 +122,8 @@ class MunicipalityMap extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
+	console.log(this.props.munname)
+	console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
 	
 	var map = this.mymap ;
@@ -212,7 +215,7 @@ class MunicipalityMap extends Component{
 	    });
 	}
 
-    var featuresLayer = new L.GeoJSON(kairouan, {
+    var featuresLayer = new L.GeoJSON(shapes[this.props.munname], {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);

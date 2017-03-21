@@ -316,3 +316,20 @@ color: #ff5722 ;
 .leaflet-container {
   background: rgba(69, 177, 25, 0) !important;
   }
+.allmunradio{
+  position: absolute;
+  z-Index: 3;
+  margin-top:100px;
+  width:100px;
+  margin-left:40px;
+  font-size:25px;
+  font-family:'Georgia';
+}
+.munradio{
+  position: absolute;
+  z-index: 9000;
+  margin-top:300px;
+  right:15%;
+  font-size:25px;
+  font-family:'Georgia';
+}
