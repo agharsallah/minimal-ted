@@ -91,7 +91,7 @@ class MunicipalityMap extends Component{
 		        mouseout: resetHighlight
 		    });
 		}
-	    var featuresLayer = new L.GeoJSON(kairouan, {
+	    var featuresLayer = new L.GeoJSON(shapes[this.props.munname], {
 	    		style: style,
 				onEachFeature:onEachFeature
 			}).addTo(this.mymap);
