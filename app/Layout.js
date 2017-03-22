@@ -1,7 +1,7 @@
 /*defining the navbar*/
 //and setting the language switcher here
 import React, { Component } from 'react';
-import {Link} from 'react-router';
+import {Link,IndexLink } from 'react-router';
 
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -29,6 +29,7 @@ export default class Layout extends Component{
 
 
 	render(){
+
 		/*this config is set to allow navbar language transtlation*/
 		const home = <Translate type="text" content="navbar.home"/>
 		const municipalities = <Translate type="text" content="navbar.municipalities"/>
@@ -67,12 +68,13 @@ export default class Layout extends Component{
 			          <MenuItem value={'NCA'} primaryText={NCA} containerElement={<Link to="/Nca" />}/>
 			    </DropDownMenu>*/}
 			 	<DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
-			          <MenuItem value={'electoral_data'} label={"data"} primaryText={electoral_data} containerElement={<Link to="/data" />}/>
-			          <MenuItem value={'electoral_result'} primaryText={electoral_result} containerElement={<Link to="/result" />}/>
+			          <MenuItem value={'electoral_data'} label={"data"} primaryText={electoral_data} containerElement={<Link to="/data" activeClassName="activeN" />}/>
+			          <MenuItem value={'electoral_result'} primaryText={electoral_result} containerElement={<Link to="/result" activeClassName="activeN"/>}/>
 			    </DropDownMenu>
 		        </li>
 		        
 		        <li ><Link to={'/Municipalities'} activeClassName="activeN">{municipalities}</Link></li>
+		        <li ><IndexLink to={'/betaViz'} activeClassName="activeN">beta viz</IndexLink></li>
 		        <li ><Link to={'/About'} activeClassName="activeN">{about}</Link></li>
 		        <li>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>

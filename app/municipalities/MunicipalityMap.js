@@ -210,7 +210,7 @@ class MunicipalityMap extends Component{
         /*adding permanent label { permanent: true }*/
         layer.bindTooltip(feature.properties.name_en,{ permanent: true,direction:"right" })
 	    
-	    layer.on({
+		layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight,
 	    });
