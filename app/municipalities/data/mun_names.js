@@ -49,6 +49,8 @@ module.exports =[
 {"name_en": "Kasserine" ,"etat":"extended" ,"circ": "Kasserine" },
 {"name_en": "bouzguam" ,"etat":"old" ,"circ": "Kasserine" },
 {"name_en": "errakhmet" ,"etat":"new" ,"circ": "Kasserine" },
+{"name_en": "ezzouhour" ,"etat":"new205" ,"circ": "Kasserine" },
+{"name_en": "ennour" ,"etat":"new2015" ,"circ": "Kasserine" },
 {"name_en": "khemairia" ,"etat":"extended" ,"circ": "Jendouba" },
 {"name_en": "ain draham" ,"etat":"extended" ,"circ": "Jendouba" },
 {"name_en": "beni mtir" ,"etat":"extended" ,"circ": "Jendouba" },

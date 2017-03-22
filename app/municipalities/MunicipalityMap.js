@@ -13,8 +13,9 @@ class MunicipalityMap extends Component{
 /*--------------------------------------------------WHEN WE RECEIVE PROPS-------------------------------*/
 	componentWillReceiveProps(nextProps) {
 		var selectedetat=nextProps.value;
+		const  zoom = nextProps.zoom;
 		this.mymap.remove()
-		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
+		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], zoom);
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
 					{maxZoom:11,minZoom:10,dragging:false}
@@ -123,8 +124,10 @@ class MunicipalityMap extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	console.log(this.props.munname)
+	const { zoom } = this.props
 	let governourate_name=this.props.munname
-	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], 9);
+	
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], zoom);
 	
 	var map = this.mymap ;
 	map.createPane('labels');

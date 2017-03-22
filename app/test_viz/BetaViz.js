@@ -7,8 +7,9 @@ class BetaViz extends Component {
             <div>
             <Layout/>    
                  <ul >
-		        <li><IndexLink to={'/betaViz/tree'} activeClassName="activeN">tree chart</IndexLink></li>
-		        <li><IndexLink to={'/betaViz/facebook'} activeClassName="activeN">facebook accounts in tunisia</IndexLink></li>
+		        <li><IndexLink to={'/betaViz/tree'} activeClassName="activeN">Tree chart</IndexLink></li>
+		        <li><IndexLink to={'/municipalities/all'} activeClassName="activeN">All municipalities</IndexLink></li>
+		        <li><IndexLink to={'/betaViz/mapevolution'} activeClassName="activeN">Shapes evolution</IndexLink></li>
                 </ul>
             </div>
         );
