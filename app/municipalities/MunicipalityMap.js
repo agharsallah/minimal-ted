@@ -109,7 +109,7 @@ class MunicipalityMap extends Component{
 		// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h2>Kairouan municipalities information</h2>' +  (props ?
+		    this._div.innerHTML = (props ?
 		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
 		    };
@@ -146,6 +146,7 @@ class MunicipalityMap extends Component{
 		function getColor(d) {
 	    return d == "old"  ? '#F9F181' :
 	           d == "new" ? '#874E12' :
+	           d == "new2015" ? '#874E12' :
 	           d == "extended" ? '#ffa500' :
 	                      'red';
 	}	
@@ -204,10 +205,10 @@ class MunicipalityMap extends Component{
  					//browserHistory.push('/Municipalities/all');
         });
 		
-		var label = new L.Tooltip();
-        label.setLatLng(layer.getBounds().getCenter());
+		/*var label = new L.Tooltip();
+        label.setLatLng(layer.getBounds().getCenter());*/
         /*adding permanent label { permanent: true }*/
-        layer.bindTooltip(feature.properties.name_en,{ permanent: false }).openTooltip(label);
+        layer.bindTooltip(feature.properties.name_en,{ permanent: true,direction:"right" })
 	    
 	    layer.on({
 	        mouseover: highlightFeature,

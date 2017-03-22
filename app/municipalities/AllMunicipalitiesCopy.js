@@ -15,13 +15,17 @@ class AllMunicipalitiesCopy extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 		var zoom = this.props.zoom
-	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([31.32, 11.50], zoom);
-L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 9.90], zoom);
+L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
 	
-	
+		this.mymap.dragging.disable();
+	    this.mymap.scrollWheelZoom.disable();
+	    this.mymap.keyboard.disable();
+	    this.mymap.doubleClickZoom.disable();
+		this.mymap.boxZoom.disable();
 	var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
 				style: style,
 				onEachFeature:onEachFeature
@@ -30,10 +34,11 @@ L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g
 	
 	function style(feature) {
 		    return {
+				fillColor:"grey",
 		        weight: 2,
 		        color: 'black',
 		        dashArray: '1',
-		        fillOpacity: 0
+		        fillOpacity: 0.3
 		    };
 	}	
 	
@@ -43,7 +48,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g
 			console.log(feature.properties)
 			layer.on('click', function(e) {
 				var map = e.target._map
-				map.fitBounds(layer.getBounds(),{animate:true	});
+				map.fitBounds(layer.getBounds(),{animate:true});
 				var link='/Municipalities/'+feature.properties.NAME_1;
  				browserHistory.push(link);
         	});
