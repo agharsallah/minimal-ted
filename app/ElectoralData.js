@@ -23,23 +23,23 @@ class ElectoralData extends Component{
 	render(){
 		//we get the title nd subtitle of the widget from the localTranslate file
 
-		const TBlankByDelegation = <Translate type="text" content="pred2014.TBlankByDelegation"/>
-		const SBlankByDelegation = <Translate type="text" content="pred2014.SBlankByDelegation"/>
+		const TBlankByDelegation = <Translate type="text" content="electiondata.TBlankByDelegation"/>
+		const SBlankByDelegation = <Translate type="text" content="electiondata.SBlankByDelegation"/>
 		
-		const TballotState = <Translate type="text" content="pred2014.TballotState"/>
-		const STballotState = <Translate type="text" content="pred2014.STballotState"/>
+		const TballotState = <Translate type="text" content="electiondata.TballotState"/>
+		const STballotState = <Translate type="text" content="electiondata.STballotState"/>
 		
-		const TAgeTurnoutDelegation = <Translate type="text" content="pred2014.TAgeTurnoutDelegation"/>
-		const SAgeTurnoutDelegation = <Translate type="text" content="pred2014.SAgeTurnoutDelegation"/>
+		const TAgeTurnoutDelegation = <Translate type="text" content="electiondata.TAgeTurnoutDelegation"/>
+		const SAgeTurnoutDelegation = <Translate type="text" content="electiondata.SAgeTurnoutDelegation"/>
 		
-		const TAgeTurnoutDelegationAll = <Translate type="text" content="pred2014.TAgeTurnoutDelegationAll"/>
-		const SAgeTurnoutDelegationAll = <Translate type="text" content="pred2014.SAgeTurnoutDelegationAll"/>
+		const TAgeTurnoutDelegationAll = <Translate type="text" content="electiondata.TAgeTurnoutDelegationAll"/>
+		const SAgeTurnoutDelegationAll = <Translate type="text" content="electiondata.SAgeTurnoutDelegationAll"/>
 		
-		const TTurnoutGender = <Translate type="text" content="pred2014.TTurnoutGender"/>
-		const STurnoutGender = <Translate type="text" content="pred2014.STurnoutGender"/>
+		const TTurnoutGender = <Translate type="text" content="electiondata.TTurnoutGender"/>
+		const STurnoutGender = <Translate type="text" content="electiondata.STurnoutGender"/>
 		
-		const TTurnoutPresedential = <Translate type="text" content="pred2014.TTurnoutPresedential"/>
-		const STurnoutPresedential = <Translate type="text" content="pred2014.STurnoutPresedential"/>
+		const TTurnoutPresedential = <Translate type="text" content="electiondata.TTurnoutPresedential"/>
+		const STurnoutPresedential = <Translate type="text" content="electiondata.STurnoutPresedential"/>
 		
 		const elecType = 'Presidential'
 		const elecYear = '2014'
@@ -49,14 +49,14 @@ class ElectoralData extends Component{
 			<Layout SendToFather={this.handleSend} type='electoral_data'/>
 					{/*the widget component accepts the title  sub img link and map link */}
 					<div className='col-md-12' >
-						<Widget title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-						<Widget title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-						<Widget title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="1"/>
+						<Widget title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="1"/>
+						<Widget title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="0.3"/>
 					</div>
 					<div className='col-md-12' >
-						<Widget title ={TAgeTurnoutDelegationAll} subtitle={SAgeTurnoutDelegationAll} imgsrc="All-Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-						<Widget title ={TTurnoutGender} subtitle={STurnoutGender} imgsrc="Gender-turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-						<Widget title ={TTurnoutPresedential} subtitle={STurnoutPresedential} imgsrc="comm-marker.png"   elecType={elecType} elecYear={elecYear} link={link}/>
+						<Widget title ={TAgeTurnoutDelegationAll} subtitle={SAgeTurnoutDelegationAll} imgsrc="All-Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="0.3"/>
+						<Widget title ={TTurnoutGender} subtitle={STurnoutGender} imgsrc="Gender-turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="0.3"/>
+						<Widget title ={TTurnoutPresedential} subtitle={STurnoutPresedential} imgsrc="comm-marker.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="0.3"/>
 					</div>
 		</div>
 		);

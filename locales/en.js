@@ -33,7 +33,20 @@ module.exports = {
   	p2:' with support from ',
   	p3:' and technical assistance from '
   },
-  
+    electiondata:{
+      TBlankByDelegation:'Blank | Spoiled | Canceled - by delegation',
+      SBlankByDelegation:'Visualizing the ballots during Tunisia Parliamentary elections and presidential elections round 1',
+      TballotState:'Invalid Ballot - by delegation ',
+      STballotState:'Visualizing blank,spoiled,and canceled ballots during Tunisia parliamentary elections and presidential elections round 1',
+      TAgeTurnoutDelegation:'Age Turnout -detailed- by delegation ',
+      SAgeTurnoutDelegation:'Visualizing Turnout level per age during ...',
+      TAgeTurnoutDelegationAll:'Age Turnout in one map - by delegation ',
+      SAgeTurnoutDelegationAll:'Visualizing Turnout level per age in one map during ...',
+      TTurnoutGender:'Turnout by Geneder - per delegation ',
+      STurnoutGender:'Visualizing Turnout level by Gender represented ontop of delegations during ...',
+  	  TTurnoutPresedential:'Presedential Turnout - by delegation ',
+      STurnoutPresedential:'Visualizing TGeneral Turnout percentage during Presedential election'
+    },
   	pred2014:{
   		Tfull:'Full Results',
   		Sfull:'Results By polling center',
@@ -61,18 +74,6 @@ module.exports = {
       ScanceledBallot:'Visualizing cancelled ballots',
       TCandidate:'Result By Candidate',
   		SComparing:'Comparing Moncef Marzouki and Beji Caid Essebsi results',
-      TBlankByDelegation:'Blank | Spoiled | Canceled - by delegation',
-      SBlankByDelegation:'Visualizing the ballots during Tunisia Parliamentary elections and presidential elections round 1',
-      TballotState:'Ballot state - by delegation ',
-      STballotState:'Visualizing Blank,Spoiled,canceled & counted ballots during Tunisia Parliamentary elections and presidential elections round 1 in the same map',
-      TAgeTurnoutDelegation:'Age Turnout-detailed- by delegation ',
-      SAgeTurnoutDelegation:'Visualizing Turnout level per age during ...',
-      TAgeTurnoutDelegationAll:'Age Turnout in one map - by delegation ',
-      SAgeTurnoutDelegationAll:'Visualizing Turnout level per age in one map during ...',
-      TTurnoutGender:'Turnout by Geneder - per delegation ',
-      STurnoutGender:'Visualizing Turnout level by Gender represented ontop of delegations during ...',
-  	  TTurnoutPresedential:'Presedential Turnout - by delegation ',
-      STurnoutPresedential:'Visualizing TGeneral Turnout percentage during Presedential election',
     },
       par2014:{
       Tfull:'Full Results',

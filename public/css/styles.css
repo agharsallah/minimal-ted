@@ -9,7 +9,8 @@ background: rgba(221, 221, 221, 0.17)
 	color: red
 }
 .activeN{
-	background-color:  #d3d3d3 !important
+	background-color:  #efefef !important;
+      border-bottom: 2px solid;
 }
 /* -------widget Style-------- */
 /* Item */
@@ -115,7 +116,8 @@ background: rgba(221, 221, 221, 0.17)
 .btn.btn-default,
 .btn.btn-secondary {
   border-color: rgba(120, 130, 140, 0.13);
-  margin-left: 100px;
+  margin-left: 40%;
+  margin-top: 5%;
 }
 .text{
   margin-top: 10px;
