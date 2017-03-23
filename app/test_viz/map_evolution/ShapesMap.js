@@ -22,12 +22,12 @@ class ShapesMap extends Component{
 
         var featuresLayer = new L.GeoJSON(nextProps.shape, {
                     style: style,
-                    onEachFeature:onEachFeature
         }).addTo(this.mymap);
 	
         function style(feature) {
+			var color=nextProps.color;
                 return {
-                    fillColor:"grey",
+                    fillColor:color,
                     weight: 2,
                     color: 'black',
                     dashArray: '1',
@@ -60,14 +60,12 @@ class ShapesMap extends Component{
 
         var featuresLayer = new L.GeoJSON(this.props.shape, {
                     style: style,
-                    onEachFeature:onEachFeature
         }).addTo(this.mymap);
 		
 	
         function style(feature) {
-			var color="green"
                 return {
-                    fillColor:color,
+                    fillColor:"white",
                     weight: 2,
                     color: 'black',
                     dashArray: '1',

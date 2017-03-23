@@ -276,7 +276,7 @@ background: rgba(221, 221, 221, 0.17)
 
 }
 .infoLegend2 h4 {
-    margin-left: :10px;
+    margin-left: 10px;
     color: #777;
 }
 /* title in municipalities corner */
@@ -340,3 +340,14 @@ color: #ff5722 ;
   line-height:1px;width:30px;
   height:15px;
 }
+.hometitle {
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    position: relative;
+    z-index: 10;
+    max-width: 1000px
+}
+

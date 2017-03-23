@@ -10,13 +10,13 @@ const ParallaxPic = (props)=>{
   const color = props.color;
   return(
   	/*background image check css file. each time diffrent class ==> image and config included */
-  	<div id="parallax-1" className={classname} style ={{  backgroundImage:url,height }} >
+  	<div id="parallax-1" className={classname} style ={{  height,backgroundColor:"rgb(223, 222, 227)" }} >
                   <div className="quoteWrap">
                     <div className="quote">
                               <div className="containerp">
                                     <div className="sixteen columns">
-                                        <span className="largePar"> <Translate content={header} />		</span>
-                                          <br/><span className="mediumPar"><Translate content={subheader} />	</span>
+                                        <h1 className="hometitle" style ={{color:"#212121"}} > <Translate content={header} />		</h1>
+                                          <br/><span className="mediumPar" style ={{color:"#212121"}}><Translate content={subheader} />	</span>
                                     </div>
                                 </div>  
                     </div>

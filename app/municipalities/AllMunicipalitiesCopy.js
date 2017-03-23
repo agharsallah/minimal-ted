@@ -1,3 +1,4 @@
+/*map of governorate municipality appears in http://localhost:8080/Municipalities*/
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';

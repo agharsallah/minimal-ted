@@ -1,3 +1,4 @@
+/*Map of municipality shape diffrent for each municipality*/
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
@@ -37,6 +38,7 @@ class MunicipalityMap extends Component{
 				        return d == "new"  ? '#874E12' :
 			                   '#555';	
 				        break;
+						
 			        case 'extended':
 				        return d == "extended"  ? '#ffa500' :
 			                   '#555';	
@@ -134,17 +136,14 @@ class MunicipalityMap extends Component{
 	map.getPane('labels').style.zIndex = 650;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-				{maxZoom:10,minZoom:10,dragging:false,pane: 'labels'}
+				{maxZoom:15,minZoom:6,dragging:false,pane: 'labels'}
 				).addTo(this.mymap);
 	
-	//desactivating dragging
-	    this.mymap.dragging.disable();
-	//desactivating scrolzoom
+/*	    this.mymap.dragging.disable();
 	    this.mymap.scrollWheelZoom.disable();
 	    this.mymap.keyboard.disable();
 	    this.mymap.doubleClickZoom.disable();
-	//delete boxzoom
-		this.mymap.boxZoom.disable();
+		this.mymap.boxZoom.disable();*/
 
 		function getColor(d) {
 	    return d == "old"  ? '#F9F181' :

@@ -38,14 +38,14 @@ export default class App extends Component {
       <Layout SendToFather={this.handleSend} type='electoral_data'/>
       </MuiThemeProvider>
       <div >
-      <ParallaxPic height='250px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/MohamedMessaraEPA.jpg)"/>      
+      <ParallaxPic height='250px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/white.png)"/>      
       </div>
 
          <div className='col-md-12' style = {{marginBottom:'20px',marginTop:'50px'}}>
               <section className="tiles col-md-12" >
-                  <HomeWidget name="Local Elections" description="Giving insight about municipality election" navlink='Municipalities' styles='style1' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
-                  <HomeWidget name="Election Data" description="2011-2014 election results  delegation overview" navlink='data' styles='style2' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
-                  <HomeWidget name="Election Results" description="2011-2014 election results" navlink='result' styles='style3' links='/img/MohamedMessaraEPA.jpg' width='col-md-4'/>
+                  <HomeWidget name="home.widget_title1" description="home.widget_subtitle1" navlink='Municipalities' styles='style1' links ='/img/MohamedMessaraEPA.jpg' width='col-md-4'  />
+                  <HomeWidget name="home.widget_title2" description="home.widget_subtitle2" navlink='data' styles='style2' links ='/img/election_data.jpg' width='col-md-4'  />
+                  <HomeWidget name="home.widget_title3" description="home.widget_subtitle3" navlink='result' styles='style3' links='/img/election_box.jpg' width='col-md-4'/>
               </section>
           </div>
      </div>

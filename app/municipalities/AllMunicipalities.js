@@ -1,10 +1,10 @@
+/*Maps of all Municipalities gathered : http://localhost:8080/municipalities/all*/
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
 
 class AllMunicipalities extends Component{
-	//this will define whether the component should render or not 
-	//this component should rerender only onetime
+
 
 	shouldComponentUpdate() {
 		return false;
@@ -109,7 +109,6 @@ class AllMunicipalities extends Component{
 			    return {
 			        weight: 2.5,
 			        color: 'black',
-			        dashArray: '5',
 			        fillOpacity: 0
 			    };
 		}

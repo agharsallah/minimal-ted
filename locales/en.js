@@ -2,10 +2,16 @@ module.exports = {
 
 
   home: {
-    first: 'Bringing Data to the People',
+    first: 'Bringing Data to  People',
     firstSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across government.',
     second: 'Bringing Data to the People',
-    secondSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across government.'
+    secondSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across government.',
+    widget_title1:'Local Elections',
+    widget_subtitle1:'Giving insight about municipality election',
+    widget_title2:'Election Data',
+    widget_subtitle2:'2011-2014 election results delegation level',
+    widget_title3:'Election Results',
+    widget_subtitle3:'2011-2014 election results'
   },
 
    	navbar:{
