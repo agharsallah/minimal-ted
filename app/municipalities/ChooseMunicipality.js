@@ -24,6 +24,9 @@ export default class ChooseMunicipality extends Component{
 	render(){
 		let munstate = this.state.munstate;
 		let city = this.props.params.municipalitymap;
+		if (city=="Kébili"||city=="Tataouine")
+			{var zoom = 8 }
+		else {var zoom = 9 }
       switch (city){
         case 'all':
         	return(
@@ -61,7 +64,7 @@ export default class ChooseMunicipality extends Component{
 							  	})}</ul>
 					   		</div>
 						</div>
-		                <MunicipalityMap  style={{position:"absolute"}} value={this.state.munstate} munname={city} />
+		                <MunicipalityMap  style={{position:"absolute"}} value={this.state.munstate} munname={city} zoom={zoom} />
 		            </div> 
 			);
         }/*end switch*/

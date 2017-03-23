@@ -4,7 +4,6 @@ import App from './App'
 import About from './About'
 import Test from './Test'
 import Mother from './nesma/Mother.js'
-import TreeContainer from './test_viz/TreeContainer.js'
 import Projects from './Projects'
 import ElectoralResult from './ElectoralResult'
 import ElectoralData from './ElectoralData'
@@ -17,6 +16,10 @@ import { Router, Route, browserHistory } from 'react-router';
 import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';
 
+import BetaViz from './test_viz/BetaViz'
+import TreeContainer from './test_viz/treechart/TreeContainer.js'
+import MapEvolution from './test_viz/map_evolution/MapEvolution.js'
+
 render((
     <MuiThemeProvider>
     <Router history={ browserHistory }>
@@ -24,7 +27,9 @@ render((
         <Route path="/About" component={About}/>
         <Route path="/test" component={App}/>
        {/* <Route path="/ddj" component={Mother}/>*/}
-        <Route path="/test1" component={TreeContainer}/>
+        <Route path="/betaViz" component={BetaViz}/>
+        <Route path="/betaViz/tree" component={TreeContainer}/>
+        <Route path="/betaViz/mapevolution" component={MapEvolution}/>
         
         <Route path="/Municipalities" component={Municipalities}/>
         <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>

@@ -9,7 +9,7 @@ background: rgba(221, 221, 221, 0.17)
 	color: red
 }
 .activeN{
-	background-color:  rgba(255, 255, 255, 0.3) !important
+	background-color:  #d3d3d3 !important
 }
 /* -------widget Style-------- */
 /* Item */
@@ -332,4 +332,11 @@ color: #ff5722 ;
   right:15%;
   font-size:25px;
   font-family:'Georgia';
+}
+.tooltiplabel{
+ background:transparent;
+  color:black;
+  font-size:16px;
+  line-height:1px;width:30px;
+  height:15px;
 }

@@ -22,13 +22,18 @@ class Municipalities extends Component{
 		<div>
 			<Layout />
 			<div style={{marginTop:"20px"}}>
-				<p className="municipalityTitle">Dive into the municipalities info</p>
+				<p className="municipalityTitle">Dive into the municipalities infos</p>
 				<p className="municipalitysubTitle">Choose your city</p>
 			</div>
-			<div style={{ marginLeft:"15%",marginTop:'40px'}}>
+			<div  className='col-md-2'></div>
+			<div className='col-md-5' style={{top:"50px"}} >
+				<AllMunicipalitiesCopy zoom={7}/>
+			</div>
+			<div className='col-md-5' style={{top:"180px"}} >
 				 <AutoComplete
-				 	style={{display: "inline-block",width:'250px',color:'red'}}
-				      floatingLabelText="Type a city name"
+				 animated={true}
+				 	textFieldStyle={{display: "inline-block",width:'350px',fontSize:'20px'}}
+				      floatingLabelText="Type a city name Or click on the map"
 				      filter={AutoComplete.fuzzyFilter}
 				      dataSource={city}
 				      maxSearchResults={5}
@@ -41,9 +46,7 @@ class Municipalities extends Component{
 								  		   										  		   		
 					})}</ul>
 				</div>*/}
-				<div className='col-md-12' >
-			<AllMunicipalitiesCopy zoom={6}/>
-			</div>
+
 		</div>
 		);
 	}

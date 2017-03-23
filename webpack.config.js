@@ -18,7 +18,13 @@ var config = {
               'css-loader',
               'sass-loader'
             ]
-          },
+          },{
+      test: /\.css$/,
+      loaders: [
+        "style-loader",
+        "css-loader"
+      ]
+    },
           {
       test: /\.jsx?$/,
       exclude: /node_modules/,
