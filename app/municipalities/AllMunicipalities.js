@@ -154,9 +154,8 @@ class AllMunicipalities extends Component{
 	
 	function style(feature) {
 		    return {
-		        weight: 2,
+		        weight: 2.5,
 		        color: 'black',
-		        dashArray: '5',
 		        fillOpacity: 0
 		    };
 	}	

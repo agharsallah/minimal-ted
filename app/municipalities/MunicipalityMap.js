@@ -31,23 +31,25 @@ class MunicipalityMap extends Component{
 			function getColor(d) {
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#F9F181' :
-		                    '#555';	 
+			        return d == "old"  ? '#274796' :
+		                    'rgba(51, 51, 51, 0.1)';	 
 			        break;
 			        case 'new':
-				        return d == "new"  ? '#874E12' :
-			                   '#555';	
+				        return d == "new"  ? '#E73F40' :
+								d == "new2015"  ? '#E73F40' :
+			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 						
 			        case 'extended':
-				        return d == "extended"  ? '#ffa500' :
-			                   '#555';	
+				        return d == "extended"  ? '#F5942F' :
+			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#F9F181' :
-					           d == "new" ? '#874E12' :
-					           d == "extended" ? '#ffa500' :
-					           '#555';
+			        	return d == "old"  ? '#274796' :
+					           d == "new" ? '#E73F40' :
+							   d == "new2015" ? '#E73F40' :
+					           d == "extended" ? '#F5942F' :
+					           'rgba(51, 51, 51, 0.1)';
 				}
 
 		}	
@@ -57,8 +59,7 @@ class MunicipalityMap extends Component{
 		    layer.setStyle({
 		        weight: 5,
 		        color: '#666',
-		        dashArray: '',
-		        fillOpacity: 0.7
+		        fillOpacity: 1
 		    });
 
 		    info.update(layer.feature.properties);
@@ -80,8 +81,7 @@ class MunicipalityMap extends Component{
 		        weight: 2,
 		        opacity: 1,
 		        color: 'white',
-		        dashArray: '5',
-		        fillOpacity: 0.5
+		        fillOpacity: 1
 		    };
 		}	
 		
@@ -146,10 +146,10 @@ class MunicipalityMap extends Component{
 		this.mymap.boxZoom.disable();*/
 
 		function getColor(d) {
-	    return d == "old"  ? '#F9F181' :
-	           d == "new" ? '#874E12' :
-	           d == "new2015" ? '#874E12' :
-	           d == "extended" ? '#ffa500' :
+	    return d == "old"  ? '#274796' :
+	           d == "new" ? '#E73F40' :
+	           d == "new2015" ? '#E73F40' :
+	           d == "extended" ? '#F5942F' :
 	                      'red';
 	}	
     //--------style applied when mouse hover
@@ -159,7 +159,7 @@ class MunicipalityMap extends Component{
 	        weight: 5,
 	        color: '#666',
 	        dashArray: '',
-	        fillOpacity: 0.7
+	        fillOpacity: 1
 	    });
 
 	    info.update(layer.feature.properties);
@@ -189,8 +189,7 @@ class MunicipalityMap extends Component{
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
-	        dashArray: '5',
-	        fillOpacity: 0.5
+	        fillOpacity: 1
 	    };
 	}	
 	
@@ -210,7 +209,7 @@ class MunicipalityMap extends Component{
 		/*var label = new L.Tooltip();
         label.setLatLng(layer.getBounds().getCenter());*/
         /*adding permanent label { permanent: true }*/
-        layer.bindTooltip(feature.properties.name_en,{ permanent: true,direction:"right" })
+        layer.bindTooltip(feature.properties.name_en,{ permanent: false,direction:"right" })
 	    
 		layer.on({
 	        mouseover: highlightFeature,

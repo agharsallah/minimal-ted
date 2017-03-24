@@ -21,13 +21,13 @@ export default class Widget extends Component{
 			<div className="col-xs-6 col-sm-12 col-md-4 col-0">
 				<div className="box">
 					<div className="item">
-						<div className="item-overlay active p-a">
+						<div className="item-overlay active p-a" style={{opacity:imageopacity}}>
 							<span className="pull-right label dark-white text-color"><i className="fa fa-envelope-open fa-fw"></i> {this.props.elecYear}</span>
 							<a  className={clasnam}>{this.props.elecType}</a>
 						</div>
 						<Link to={linkk}><img src={imgsrc} className="w-full" style={{opacity:imageopacity}}/></Link>	
 					</div>
-					<div className="left p-a">
+					<div className="left p-a" style={{opacity:imageopacity}}>
 						<div className="m-b h-2x"><Link href className="_800" to={linkk}>{this.props.title}</Link></div>
 						<p className="h-3x">{this.props.subtitle}</p>
 					<Link className="btn btn-xs white" to={linkk}>Read More</Link>

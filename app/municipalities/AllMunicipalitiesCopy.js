@@ -2,7 +2,9 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
-import gouvernorate_shape from "./data/gouvernorates_shape"
+import gouvernorate_shape from "./data/gouvernorates_shape";
+import municipalities_shape from "./data/municipalities_shape";
+
 class AllMunicipalitiesCopy extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -27,19 +29,29 @@ L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584g/ti
 	    this.mymap.keyboard.disable();
 	    this.mymap.doubleClickZoom.disable();
 		this.mymap.boxZoom.disable();
+	var featuresLayer = new L.GeoJSON(municipalities_shape, {
+				style: stylemunicipality,
+				onEachFeature:onEachFeature
+
+	}).addTo(this.mymap);
 	var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
 				style: style,
 				onEachFeature:onEachFeature
 
 	}).addTo(this.mymap);
-	
 	function style(feature) {
 		    return {
-				fillColor:"grey",
-		        weight: 2,
+		        weight: 2.5,
 		        color: 'black',
-		        dashArray: '1',
-		        fillOpacity: 0.3
+		        fillOpacity: 0
+		    };
+	}	
+	
+	function stylemunicipality(feature) {
+		    return {
+		        weight: 1,
+		        color: '#337ab7',
+		        fillOpacity: 0
 		    };
 	}	
 	

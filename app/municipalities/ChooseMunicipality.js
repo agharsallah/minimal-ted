@@ -45,7 +45,8 @@ export default class ChooseMunicipality extends Component{
         		return(
 					<div style={{position:"relative"}}>  
 		               <Layout/>
-									<Radio_state handleMunState={this.handleMunState} style="munradio"/>
+						
+						<Radio_state handleMunState={this.handleMunState} style="munradio"/>
 
 						<div style={{position:"absolute",zIndex: "3",marginTop:"20px",width:'300px',marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
    							<div>
