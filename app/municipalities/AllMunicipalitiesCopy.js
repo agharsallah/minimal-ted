@@ -18,7 +18,7 @@ class AllMunicipalitiesCopy extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 		var zoom = this.props.zoom
-	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 9.90], zoom);
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 9.90], 6.5);
 L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'

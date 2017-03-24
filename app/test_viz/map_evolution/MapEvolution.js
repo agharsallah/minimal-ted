@@ -30,12 +30,12 @@ class MapEvolution extends Component {
     changeshape(){ 
       var count= this.state.count
         if (count==3) {
-           this.setState({shape:level1,color:'#673AB7',text:'Gouvernorate Level'});
+           this.setState({shape:level1,color:'#274796',text:'Gouvernorate Level'});
         }else  if (count==4){
-           this.setState({shape:level2,color:'#2196F3',text:'Delegation Level'});
+           this.setState({shape:level2,color:'#7BCAE2',text:'Delegation Level'});
            console.log("levl 2")
         }else{
-            this.setState({shape:level3,color:'#00C853',text:'Municipality Level'});
+            this.setState({shape:level3,color:'#F5942F',text:'Municipality Level'});
            console.log("levl 3")
         } 
         var newc =count;

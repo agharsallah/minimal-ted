@@ -21,12 +21,12 @@ class BallotState extends Component{
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 10 ? '#f60707' :
-	           d > 7  ? '#FF6F00' :
-	           d > 4  ? '#FFFF00' :
-	           d > 1  ? '#4CAF50' :
+	    return d > 10 ? '#000000' :
+	           d > 7  ? '#2c7fb8' :
+	           d > 4  ? '#81D4FA' :
+	           d > 1  ? '#B3E5FC' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CDDC39';
+	                      '#B2DFDB';
 	}
 
 	//--------style applied when mouse hover
@@ -35,8 +35,7 @@ class BallotState extends Component{
 	    layer.setStyle({
 	        weight: 5,
 	        color: '#666',
-	        dashArray: '',
-	        fillOpacity: 0.7
+	        fillOpacity: 1
 	    });
 
 	    info.update(layer.feature.properties);
@@ -60,8 +59,7 @@ class BallotState extends Component{
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
-	        dashArray: '3',
-	        fillOpacity: 0.5
+	        fillOpacity: 1
 	    };
 	}	
 	

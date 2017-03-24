@@ -42,9 +42,9 @@ module.exports = {
       SAgeTurnoutDelegation:'Visualizing Turnout level per age during ...',
       TAgeTurnoutDelegationAll:'Age Turnout in one map - by delegation ',
       SAgeTurnoutDelegationAll:'Visualizing Turnout level per age in one map during ...',
-      TTurnoutGender:'Turnout by Geneder - per delegation ',
+      TTurnoutGender:'Turnout by Gender - per delegation ',
       STurnoutGender:'Visualizing Turnout level by Gender represented ontop of delegations during ...',
-  	  TTurnoutPresedential:'Presedential Turnout - by delegation ',
+  	  TTurnoutPresedential:'Presidential Turnout - by delegation ',
       STurnoutPresedential:'Visualizing TGeneral Turnout percentage during Presedential election'
     },
   	pred2014:{

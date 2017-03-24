@@ -27,7 +27,7 @@ class BlankBallotsDelegation extends Component{
 	        weight: 5,
 	        color: '#666',
 	        dashArray: '',
-	        fillOpacity: 0.7
+	        fillOpacity: 1
 	    });
     	info.update(layer.feature.properties);
 
@@ -46,12 +46,13 @@ class BlankBallotsDelegation extends Component{
 	        opacity: 1,
 	        color: 'white',
 	        dashArray: '3',
-	        fillOpacity: 0.5
+	        fillOpacity: 1
 	    };
 	}	
 
 	function onEachFeature(feature, layer) {
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+" "+parameter+' ballot'+'</br>'+feature.properties.canceledPercentage+'% canceled of total voters' );
+		console.log(feature.properties)
+		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+" "+parameter+' ballot');
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
@@ -200,7 +201,7 @@ class BlankBallotsDelegation extends Component{
 	        weight: 5,
 	        color: '#666',
 	        dashArray: '',
-	        fillOpacity: 0.7
+	        fillOpacity: 1
 	    });
 
 	    info.update(layer.feature.properties);
@@ -223,7 +224,7 @@ class BlankBallotsDelegation extends Component{
 	        opacity: 1,
 	        color: 'white',
 	        dashArray: '3',
-	        fillOpacity: 0.5
+	        fillOpacity: 1
 	    };
 	}	
 	

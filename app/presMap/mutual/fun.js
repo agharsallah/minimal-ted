@@ -1,10 +1,10 @@
 	function getColor(d) {
-	    return d > 10 ? '#f60707' :
-	           d > 7  ? '#FF6F00' :
-	           d > 4  ? '#FFFF00' :
-	           d > 1  ? '#4CAF50' :
+	    return d > 10 ? 'black' :
+	           d > 7  ? '#2c7fb8' :
+	           d > 4  ? '#81D4FA' :
+	           d > 1  ? '#B3E5FC' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CDDC39';
+	                      '#B2DFDB';
 	}
 	
 

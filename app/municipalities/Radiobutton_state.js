@@ -7,22 +7,22 @@ const Radio_state = (props)=>{
 					<RadioButton
 					labelStyle={{color:'black'}}
 					value="all"
-					label="all"
+					label="All"
 					 />
 					<RadioButton
 					labelStyle={{color:'#274796'}}
 					value="old"
-					label="old"				        
+					label="Old"				        
 					/>
 					<RadioButton
 					labelStyle={{color:'#F5942F'}}
 					value="extended"
-					label="extended"
+					label="Extended"
 					/>
 					<RadioButton
 					labelStyle={{color:'#E73F40'}}
 					value="new"
-					label="new"
+					label="New"
 					/>
 				</RadioButtonGroup>
 	        </div>	

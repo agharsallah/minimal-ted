@@ -28,8 +28,7 @@ class Municipalities extends Component{
 			</div>
 			<div className='col-md-5'  >
 				<div style={{marginTop:"70px"}}>
-					<p className="municipalityTitle">Dive into the municipalities infos</p>
-					<p className="municipalitysubTitle">Choose your city</p>
+					<p className="municipalityTitle">The 350 municipalities of Tunisia</p>
 				</div>
 				<div style={{top:"70px",marginLeft:"100px"}}>
 					<AutoComplete

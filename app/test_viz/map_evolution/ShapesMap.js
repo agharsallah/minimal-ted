@@ -30,8 +30,7 @@ class ShapesMap extends Component{
                     fillColor:color,
                     weight: 2,
                     color: 'black',
-                    dashArray: '1',
-                    fillOpacity: 0.3
+                    fillOpacity: .7
                 };
         }
 	
@@ -68,8 +67,7 @@ class ShapesMap extends Component{
                     fillColor:"white",
                     weight: 2,
                     color: 'black',
-                    dashArray: '1',
-                    fillOpacity: 0.3
+                    fillOpacity: 1
                 };
         }
 	
