@@ -16,8 +16,6 @@ class BallotState extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
-		 var stripes = new L.StripePattern();
-	  	stripes.addTo(this.mymap); 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
@@ -52,7 +50,6 @@ class BallotState extends Component{
     	featuresLayer.resetStyle(e.target);
     	 info.update();
 	}
-
 	//--------Style of the map
 	function style(feature) {
 		 var invalidPercentage = feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage ;
@@ -65,28 +62,7 @@ class BallotState extends Component{
 	        fillOpacity: 1
 	    };
 	}
-	//stripes
-	 var bigStripes = new L.StripePattern({
-            patternContentUnits: 'objectBoundingBox',
-            patternUnits: 'objectBoundingBox',
-            weight: 0.1,
-            spaceWeight: 0.1,
-            height: 0.2,
-            angle: 45,
-        });
-        bigStripes.addTo(this.mymap);
-		function styleinexistant(feature) {
-		 var invalidPercentage = feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage ;
-		 if ( isNaN(invalidPercentage)) {invalidPercentage="inexistant"}
-	    return {
-	        weight: 2,
-	        opacity: 1,
-	        color: 'white',
-	        fillOpacity: 1,
-			fillPattern: bigStripes
-	    };
-	}	
-	
+
 	//------------onEachfeature
 	function onEachFeature(feature, layer) {
 		let invalidPercentage = (feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage);
@@ -102,12 +78,7 @@ class BallotState extends Component{
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
-	    var featuresLayer = new L.GeoJSON(inexistant_delegation, {
-    		style: styleinexistant,
-			onEachFeature:onEachFeature
-		}).addTo(this.mymap);	
-    
-    //-------------search feature
+	//-------------search feature
     var searchControl = new L.Control.Search({
     	layer:featuresLayer,
 		propertyName: 'NAME_EN',
@@ -124,6 +95,68 @@ class BallotState extends Component{
 	})
 	this.mymap.addControl( searchControl );  //inizialize search control
     
+
+//--------------ALL stripes Logic ------------
+	 var bigStripes = new L.StripePattern({
+            patternContentUnits: 'objectBoundingBox',
+            patternUnits: 'objectBoundingBox',
+            weight: 0.1,
+            spaceWeight: 0.1,
+            height: 0.2,
+            angle: 45,
+        });
+        bigStripes.addTo(this.mymap);
+		function styleinexistant(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				fillOpacity: 1,
+				fillPattern: bigStripes
+			};
+		}	
+	//--------oneachfeaturefor inexistant
+		function onEachFeatureinex(feature, layer) {
+			layer.on({
+				mouseover: highlightFeatureinex,
+				mouseout: resetHighlightinex
+			});
+		}
+		function resetHighlightinex(e) {
+			featuresLayer2.resetStyle(e.target);
+			infoinex.update();
+		}
+		function highlightFeatureinex(e) {
+			var layer = e.target;
+			layer.setStyle({
+				weight: 3,
+				color: '#666',
+				fillOpacity: 1
+			});
+			infoinex.update(layer.feature.properties);
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+		}
+		var infoinex = L.control();
+
+		infoinex.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'infoinex'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		infoinex.update = function (props) {
+			this._div.innerHTML =  (props ?
+				'<b>' + props.NAME_EN + ': inexistant data</b>' 
+				: '');
+		};
+		infoinex.addTo(this.mymap);
+	    var featuresLayer2 = new L.GeoJSON(inexistant_delegation, {
+    		style: styleinexistant,
+			onEachFeature:onEachFeatureinex
+		}).addTo(this.mymap);	
+    
+ 
     //-----------Dynamic hover info
 		var info = L.control();
 

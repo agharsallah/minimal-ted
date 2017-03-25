@@ -352,4 +352,10 @@ color: #ff5722 ;
     z-index: 10;
     max-width: 1000px
 }
+/*classname for map info on hover */
+.infoinex {
+    padding: 6px 8px;
+    margin-top: 35px;
+    font-size: 15px
+}
 

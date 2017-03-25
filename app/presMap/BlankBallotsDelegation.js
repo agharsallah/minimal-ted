@@ -3,6 +3,8 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
 import { getColor} from './mutual/fun';
+import inexistant_delegation from'./data/inexistant_invalid_delegation_data'
+import existant_delegation from'./data/existant_invalid_delegation_data'
 class BlankBallotsDelegation extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -59,6 +61,66 @@ class BlankBallotsDelegation extends Component{
 	        mouseout: resetHighlight
 	    });
 	}
+	//--------------ALL stripes Logic ------------
+	 var bigStripes = new L.StripePattern({
+            patternContentUnits: 'objectBoundingBox',
+            patternUnits: 'objectBoundingBox',
+            weight: 0.1,
+            spaceWeight: 0.1,
+            height: 0.2,
+            angle: 45,
+        });
+        bigStripes.addTo(this.mymap);
+		function styleinexistant(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				fillOpacity: 1,
+				fillPattern: bigStripes
+			};
+		}	
+	//--------oneachfeaturefor inexistant
+		function onEachFeatureinex(feature, layer) {
+			layer.on({
+				mouseover: highlightFeatureinex,
+				mouseout: resetHighlightinex
+			});
+		}
+		function resetHighlightinex(e) {
+			featuresLayer2.resetStyle(e.target);
+			infoinex.update();
+		}
+		function highlightFeatureinex(e) {
+			var layer = e.target;
+			layer.setStyle({
+				weight: 3,
+				color: '#666',
+				fillOpacity: 1
+			});
+			infoinex.update(layer.feature.properties);
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+		}
+		var infoinex = L.control();
+
+		infoinex.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'infoinex'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		infoinex.update = function (props) {
+			this._div.innerHTML =  (props ?
+				'<b>' + props.NAME_EN + ': inexistant data</b>' 
+				: '');
+		};
+		infoinex.addTo(this.mymap);
+	    var featuresLayer2 = new L.GeoJSON(inexistant_delegation, {
+    		style: styleinexistant,
+			onEachFeature:onEachFeatureinex
+		}).addTo(this.mymap);	
+    
 	 //-----------Dynamic hover info
 		var info = L.control();
 
@@ -140,7 +202,7 @@ class BlankBallotsDelegation extends Component{
 		};
 		info.addTo(this.mymap);
 
-    var featuresLayer = new L.GeoJSON(OldDelegationData, {
+    var featuresLayer = new L.GeoJSON(existant_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -238,7 +300,7 @@ class BlankBallotsDelegation extends Component{
 	        mouseout: resetHighlight
 	    });
 	}
-    var featuresLayer = new L.GeoJSON(OldDelegationData, {
+    var featuresLayer = new L.GeoJSON(existant_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -259,6 +321,65 @@ class BlankBallotsDelegation extends Component{
 			e.layer.openPopup();
 	})
 	this.mymap.addControl( searchControl );  //inizialize search control
+    //--------------ALL stripes Logic ------------
+	 var bigStripes = new L.StripePattern({
+            patternContentUnits: 'objectBoundingBox',
+            patternUnits: 'objectBoundingBox',
+            weight: 0.1,
+            spaceWeight: 0.1,
+            height: 0.2,
+            angle: 45,
+        });
+        bigStripes.addTo(this.mymap);
+		function styleinexistant(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				fillOpacity: 1,
+				fillPattern: bigStripes
+			};
+		}	
+	//--------oneachfeaturefor inexistant
+		function onEachFeatureinex(feature, layer) {
+			layer.on({
+				mouseover: highlightFeatureinex,
+				mouseout: resetHighlightinex
+			});
+		}
+		function resetHighlightinex(e) {
+			featuresLayer2.resetStyle(e.target);
+			infoinex.update();
+		}
+		function highlightFeatureinex(e) {
+			var layer = e.target;
+			layer.setStyle({
+				weight: 3,
+				color: '#666',
+				fillOpacity: 1
+			});
+			infoinex.update(layer.feature.properties);
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+		}
+		var infoinex = L.control();
+
+		infoinex.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'infoinex'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		infoinex.update = function (props) {
+			this._div.innerHTML =  (props ?
+				'<b>' + props.NAME_EN + ': inexistant data</b>' 
+				: '');
+		};
+		infoinex.addTo(this.mymap);
+	    var featuresLayer2 = new L.GeoJSON(inexistant_delegation, {
+    		style: styleinexistant,
+			onEachFeature:onEachFeatureinex
+		}).addTo(this.mymap);	
     
     //-----------Dynamic hover info
 		var info = L.control();
