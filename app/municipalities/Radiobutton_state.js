@@ -10,17 +10,17 @@ const Radio_state = (props)=>{
 					label="All"
 					 />
 					<RadioButton
-					labelStyle={{color:'#274796'}}
+					labelStyle={{color:'#808080'}}
 					value="old"
 					label="Old"				        
 					/>
 					<RadioButton
-					labelStyle={{color:'#F5942F'}}
+					labelStyle={{color:'#21759b'}}
 					value="extended"
 					label="Extended"
 					/>
 					<RadioButton
-					labelStyle={{color:'#E73F40'}}
+					labelStyle={{color:'#3aaf85'}}
 					value="new"
 					label="New"
 					/>

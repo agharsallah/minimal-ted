@@ -22,33 +22,33 @@ class MunicipalityMap extends Component{
 					{maxZoom:11,minZoom:10,dragging:false}
 					).addTo(this.mymap);
 		
-		this.mymap.dragging.disable();
-	    this.mymap.scrollWheelZoom.disable();
-	    this.mymap.keyboard.disable();
-	    this.mymap.doubleClickZoom.disable();
-		this.mymap.boxZoom.disable();
+	/*		this.mymap.dragging.disable();
+			this.mymap.scrollWheelZoom.disable();
+			this.mymap.keyboard.disable();
+			this.mymap.doubleClickZoom.disable();
+			this.mymap.boxZoom.disable();*/
 
 			function getColor(d) {
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#274796' :
+			        return d == "old"  ? '#808080' :
 		                    'rgba(51, 51, 51, 0.1)';	 
 			        break;
 			        case 'new':
-				        return d == "new"  ? '#E73F40' :
-								d == "new2015"  ? '#E73F40' :
+				        return d == "new"  ? '#3aaf85' :
+								d == "new2015"  ? '#3aaf85' :
 			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 						
 			        case 'extended':
-				        return d == "extended"  ? '#F5942F' :
+				        return d == "extended"  ? '#21759b' :
 			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#274796' :
-					           d == "new" ? '#E73F40' :
-							   d == "new2015" ? '#E73F40' :
-					           d == "extended" ? '#F5942F' :
+			        	return d == "old"  ? '#808080' :
+					           d == "new" ? '#3aaf85' :
+							   d == "new2015" ? '#3aaf85' :
+					           d == "extended" ? '#21759b' :
 					           'rgba(51, 51, 51, 0.1)';
 				}
 
@@ -87,9 +87,9 @@ class MunicipalityMap extends Component{
 		
 		//------------onEachfeature
 		function onEachFeature(feature, layer) {
-			//control what happens on click
-			layer.bindPopup('</h4></br>'+feature.properties.name_en);
-		    layer.on({
+		let mun_name = feature.properties.name_en;
+        layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,direction:"right" })
+		layer.on({
 		        mouseover: highlightFeature,
 		        mouseout: resetHighlight
 		    });
@@ -197,19 +197,20 @@ class MunicipalityMap extends Component{
 
 
 	function onEachFeature(feature, layer) {
+		let mun_name = feature.properties.name_en;
 		//control what happens on click
 		//layer.bindPopup('</h4></br>'+feature.properties.name_en);
 		layer.on('click', function(e) {
 				var map = e.target._map
 				map.fitBounds(layer.getBounds(),{animate:true});
-					var link='/Municipalities/'+feature.properties.name_en;
+					var link='/Municipalities/'+mun_name;
  					//browserHistory.push('/Municipalities/all');
         });
 		
 		/*var label = new L.Tooltip();
         label.setLatLng(layer.getBounds().getCenter());*/
         /*adding permanent label { permanent: true }*/
-        layer.bindTooltip(feature.properties.name_en,{ permanent: false,direction:"right" })
+        layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,direction:"right" })
 	    
 		layer.on({
 	        mouseover: highlightFeature,
@@ -237,7 +238,7 @@ class MunicipalityMap extends Component{
 		    };
 		info.addTo(this.mymap);
 	}//end component did mount
-    
+
 	render(){
 		return(
 			<div>

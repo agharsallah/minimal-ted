@@ -45,12 +45,12 @@ export default class ChooseMunicipality extends Component{
         		return(
 					<div style={{position:"relative"}}>  
 		               <Layout/>
-						
+						<h2 className="hometitle"style={{marginTop:"10px",marginBottom:"10px"}} >Municipalities of {city} gouvernorate</h2>
 						<Radio_state handleMunState={this.handleMunState} style="munradio"/>
 
-						<div style={{position:"absolute",zIndex: "3",marginTop:"20px",width:'300px',marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
+						<div style={{position:"absolute",zIndex: "3",marginTop:"20px",marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
    							<div>
-							  	<ul className="list-group">
+							  	<ul className="list-group" style={{width:'105%'}} >
 											{namesJson.map(function(object, i){
 							  		        if (munstate == 'all' ) {
 							  		   		 	if(object.circ==city){

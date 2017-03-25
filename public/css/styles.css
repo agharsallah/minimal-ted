@@ -312,7 +312,7 @@ color: #ff5722 ;
     text-transform: uppercase;
     color: black !important;
           margin-top: 10px;
-    text-align: center!important;
+    text-align: justify!important;
     letter-spacing: 0.3em;
 }
 .leaflet-container {
@@ -330,8 +330,8 @@ color: #ff5722 ;
 .munradio{
   position: absolute;
   z-index: 9000;
-  margin-top:300px;
-  right:15%;
+  margin-top:220px;
+  right:10%;
   font-size:25px;
   font-family:'Georgia';
 }
@@ -343,7 +343,7 @@ color: #ff5722 ;
   height:15px;
 }
 .hometitle {
-    color: #fff;
+    color: rgb(33, 33, 33);
     text-align: center;
     margin: 0 auto;
     text-transform: uppercase;
