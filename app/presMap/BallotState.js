@@ -1,7 +1,9 @@
+/*All-Blank-ballots-by-delegation- All the Invalid*/
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
-
+import inexistant_delegation from'./data/inexistant_invalid_delegation_data'
+import existant_delegation from'./data/existant_invalid_delegation_data'
 class BallotState extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -14,7 +16,8 @@ class BallotState extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
-	
+		 var stripes = new L.StripePattern();
+	  	stripes.addTo(this.mymap); 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
@@ -61,21 +64,48 @@ class BallotState extends Component{
 	        color: 'white',
 	        fillOpacity: 1
 	    };
+	}
+	//stripes
+	 var bigStripes = new L.StripePattern({
+            patternContentUnits: 'objectBoundingBox',
+            patternUnits: 'objectBoundingBox',
+            weight: 0.1,
+            spaceWeight: 0.1,
+            height: 0.2,
+            angle: 45,
+        });
+        bigStripes.addTo(this.mymap);
+		function styleinexistant(feature) {
+		 var invalidPercentage = feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage ;
+		 if ( isNaN(invalidPercentage)) {invalidPercentage="inexistant"}
+	    return {
+	        weight: 2,
+	        opacity: 1,
+	        color: 'white',
+	        fillOpacity: 1,
+			fillPattern: bigStripes
+	    };
 	}	
 	
 	//------------onEachfeature
 	function onEachFeature(feature, layer) {
-		var invalid = feature.properties.canceled + feature.properties.blank + feature.properties.spoiled ;
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+invalid+' invalid ballot'+'</br>'+feature.properties.canceledPercentage+'% canceled of total voters' );
+		let invalidPercentage = (feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage);
+		invalidPercentage=Number(invalidPercentage).toFixed(2);
+		let invalid = feature.properties.canceled + feature.properties.blank + feature.properties.spoiled ;
+		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+invalid+' invalid (blank-spoiled-canceled) ballot'+'</br>'+invalidPercentage+'% invalid of total voters' );
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
 	    });
 	}
-    var featuresLayer = new L.GeoJSON(OldDelegationData, {
+    var featuresLayer = new L.GeoJSON(existant_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
+	    var featuresLayer = new L.GeoJSON(inexistant_delegation, {
+    		style: styleinexistant,
+			onEachFeature:onEachFeature
+		}).addTo(this.mymap);	
     
     //-------------search feature
     var searchControl = new L.Control.Search({
@@ -111,7 +141,7 @@ class BallotState extends Component{
  				<Highchart />
 		        : 'Hover over a state');
 		    if (props) {
-		    var cnt = 11; // Count of the array should be here
+		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;
 		   	return(Highcharts.chart(this._div, {
         chart: {
@@ -123,29 +153,30 @@ class BallotState extends Component{
         labels: {
              overflow: 'justify'
         },
+		colors: [
+            '#2c7fb8','#000'
+            ],
         plotOptions: {
             bar: {
                 dataLabels: {
+					style: {
+						color: '#525151',
+						fontWeight: 'bold',
+						fontSize:'14px',
+						fontStyle:'Helvetica'
+					},
                     enabled: true,
                     formatter:function() 
 					{
                         pntr++;
-                        var invalid =  props.canceled + props.blank + props.spoiled ;
-                        var invalidPercentage = (props.canceledPercentage + props.blankPercentage + props.spoiledPercentage).toFixed(2) ;
+                        let invalid =  props.canceled + props.blank + props.spoiled ;
+                        let invalidPercentage = (props.canceledPercentage + props.blankPercentage + props.spoiledPercentage).toFixed(2) ;
                         switch(pntr){
+
                         	case 1 :
-                        	return props.canceled +' canceled ballot which represents '+props.canceledPercentage+'%';
+                        	return invalid +' invalid ballot:  '+invalidPercentage+'%';
                         	break;
-                        	case 5 :
-                        	return props.blank +' blank ballot which represents '+props.blankPercentage+'%';
-                        	break;
-                        	case 3 :
-                        	return props.spoiled +' spoiled ballot which represents '+props.spoiledPercentage+'%';
-                        	break;
-                        	case 8 :
-                        	return invalid +' invalid ballot which represents '+invalidPercentage+'%';
-                        	break;
-                        	case 10:
+                        	case 2:
                         	return props.SigningVoters
                         }
 
@@ -158,7 +189,7 @@ class BallotState extends Component{
             align: 'right',
             verticalAlign: 'top',
             x: -80,
-            y: 110,
+            y: 60,
             height:200,
             floating: true,
             borderWidth: 1,
@@ -166,29 +197,20 @@ class BallotState extends Component{
             shadow: true
         },
         xAxis: {
-            categories: ['Votes','invalid']
+            categories: ['Invalid Votes']
         },
         yAxis: {
             title: {
-                text: 'Percentage'
+                text: 'value'
             }
         },
-        series: [{
-            name: 'canceled',
-            data: [props.canceled,0]
-        },
-        {	name: 'spoiled',
-            data: [props.spoiled,0]
-        },
-        {	name: 'blank',
-            data: [props.blank,0]
-        },
+        series: [
         {	name: 'invalid',
-            data: [0,props.canceled+props.blank+props.spoiled]
+            data: [props.canceled+props.blank+props.spoiled]
         },
         {
             name: 'Total',
-            data: [0,props.SigningVoters]
+            data: [props.SigningVoters]
         }],
         credits: false
     })
@@ -212,7 +234,7 @@ class BallotState extends Component{
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
+				 (grades[i + 1] ? grades[i]+'% &ndash; ' + grades[i + 1]+ ' % <br>' : '+'+grades[i]+'%');
 	    }
 
 	    return div;

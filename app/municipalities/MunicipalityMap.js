@@ -146,10 +146,10 @@ class MunicipalityMap extends Component{
 		this.mymap.boxZoom.disable();*/
 
 		function getColor(d) {
-	    return d == "old"  ? '#274796' :
-	           d == "new" ? '#E73F40' :
-	           d == "new2015" ? '#E73F40' :
-	           d == "extended" ? '#F5942F' :
+	    return d == "old"  ? '#808080' :
+	           d == "new" ? '#3aaf85' :
+	           d == "new2015" ? '#3aaf85' :
+	           d == "extended" ? '#21759b' :
 	                      'red';
 	}	
     //--------style applied when mouse hover

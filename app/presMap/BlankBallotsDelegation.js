@@ -1,3 +1,4 @@
+/* the blank - spoild - canceled aprt */
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
@@ -52,8 +53,8 @@ class BlankBallotsDelegation extends Component{
 
 	function onEachFeature(feature, layer) {
 		console.log(feature.properties)
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+" "+parameter+' ballot');
-	    layer.on({
+	    layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+' '+parameter+' ballot'+'</br>'+feature.properties[parameter+"Percentage"]+'% '+parameter+' of total voters' );
+		layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
 	    });
@@ -173,7 +174,7 @@ class BlankBallotsDelegation extends Component{
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
+				 (grades[i + 1] ? grades[i]+'% &ndash; ' + grades[i + 1]+ ' % <br>' : '+'+grades[i]+'%');
 	    }
 
 	    return div;
@@ -186,7 +187,8 @@ class BlankBallotsDelegation extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map).setView([35.00, 11.70], 7);
-	
+	 var stripes = new L.StripePattern(); stripes.addTo(this.mymap); 
+
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
@@ -321,7 +323,7 @@ class BlankBallotsDelegation extends Component{
         },
         yAxis: {
             title: {
-                text: 'Percentage'
+                text: 'number'
             }
         },
         series: [{
@@ -353,7 +355,8 @@ class BlankBallotsDelegation extends Component{
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
+
+				 (grades[i + 1] ? grades[i]+'% &ndash; ' + grades[i + 1]+ ' % <br>' : '+'+grades[i]+'%');
 	    }
 
 	    return div;
