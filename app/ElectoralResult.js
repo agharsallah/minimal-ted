@@ -26,9 +26,9 @@ class ElectoralResult extends Component{
 				<Layout SendToFather={this.handleSend} type='electoral_result'/>
 						<h2 className="lefttitle" > 2014 Presidential Elections</h2>
 				<Projects/>
-						<div ><h2 className="lefttitle"> 2014 Parliamentary  Elections</h2></div>
+						<div><h2 className="lefttitle"> 2014 Parliamentary Elections</h2></div>
 				<Parlamantary/>
-						<h2 className="lefttitle"> 2011 NCA  Elections</h2>
+						<h2 className="lefttitle"> 2011 NCA Elections</h2>
 					
 				<Nca/>
 			</div>

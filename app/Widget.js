@@ -17,8 +17,13 @@ export default class Widget extends Component{
 		if (this.props.elecType == "Presidential") {color="info2"}else if(this.props.elecType == "Parlamentary"){color="info3"}
 		const clasnam ="pull-left text-u-c label label-md "+color
 		/*get the direction style as prop whether r-t-l or l-t-r*/
+		if (this.props.position) {
+			var position = this.props.position;
+		}else{
+			 var position = "col-xs-6 col-sm-12 col-md-4 col-0";
+		}
 		return(
-			<div className="col-xs-6 col-sm-12 col-md-4 col-0">
+			<div className={position}>
 				<div className="box">
 					<div className="item">
 						<div className="item-overlay active p-a" style={{opacity:imageopacity}}>

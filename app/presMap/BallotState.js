@@ -101,7 +101,7 @@ class BallotState extends Component{
             patternContentUnits: 'objectBoundingBox',
             patternUnits: 'objectBoundingBox',
             weight: 0.1,
-            spaceWeight: 0.1,
+            spaceWeight: 1,
             height: 0.2,
             angle: 45,
         });

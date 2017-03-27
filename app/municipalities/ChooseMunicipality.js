@@ -55,6 +55,7 @@ export default class ChooseMunicipality extends Component{
 							  		        if (munstate == 'all' ) {
 							  		   		 	if(object.circ==city){
 							  		   		 		let munname = object.name_en
+														  console.log(object)
 							  		   		 		return <li className="list-group-item"  key={i}>{munname.charAt(0).toUpperCase() + munname.slice(1)}</li>
 							  		   		 	}
 							  		   		}else if (object.circ==city && object.etat==munstate ) {
