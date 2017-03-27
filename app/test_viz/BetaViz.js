@@ -10,6 +10,7 @@ class BetaViz extends Component {
 		        <li><IndexLink to={'/betaViz/tree'} activeClassName="activeN">Tree chart</IndexLink></li>
 		        <li><IndexLink to={'/municipalities/all'} activeClassName="activeN">All municipalities</IndexLink></li>
 		        <li><IndexLink to={'/betaViz/mapevolution'} activeClassName="activeN">Shapes evolution</IndexLink></li>
+		        <li><IndexLink to={'/betaViz/votingcenter'} activeClassName="activeN">Voting center of municipalities</IndexLink></li>
                 </ul>
             </div>
         );

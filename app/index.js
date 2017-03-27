@@ -19,6 +19,7 @@ import ChooseMunicipality from './municipalities/ChooseMunicipality';
 import BetaViz from './test_viz/BetaViz'
 import TreeContainer from './test_viz/treechart/TreeContainer.js'
 import MapEvolution from './test_viz/map_evolution/MapEvolution.js'
+import VotingCenter from './test_viz/voting_centers/VotingCenter.js'
 
 render((
     <MuiThemeProvider>
@@ -30,6 +31,7 @@ render((
         <Route path="/betaViz" component={BetaViz}/>
         <Route path="/betaViz/tree" component={TreeContainer}/>
         <Route path="/betaViz/mapevolution" component={MapEvolution}/>
+        <Route path="/betaViz/votingcenter" component={VotingCenter}/>
         
         <Route path="/Municipalities" component={Municipalities}/>
         <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>

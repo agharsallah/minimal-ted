@@ -11,7 +11,9 @@ module.exports = {
     widget_title2:'Election Data',
     widget_subtitle2:'2011-2014 election results delegation level',
     widget_title3:'Election Results',
-    widget_subtitle3:'2011-2014 election results'
+    widget_subtitle3:'2011-2014 election results',
+    widget_title4:'Web radar',
+    widget_subtitle4:'Analysis'
   },
 
    	navbar:{

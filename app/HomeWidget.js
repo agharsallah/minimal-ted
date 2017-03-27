@@ -12,7 +12,7 @@ export default class HomeWidget extends Component{
 				<div className={this.props.width} >
 					<article className="style4" style={{width:"100%"}}>
 	                  <span className="image">
-	                    <img src={this.props.links} alt="" style={{height:"250px"}}/>
+	                    <img src={this.props.links} alt="" style={{height:"260px"}}/>
 	                  </span>
 	                  <Link to={this.props.navlink}>
 	                    <h2 className="hometitle"><Translate content={WidgetTitle} /></h2>
