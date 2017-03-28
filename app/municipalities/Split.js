@@ -9,9 +9,9 @@ class Split extends Component {
                 <Layout/>
                 <div className="leftscreen">
                     <div className='leftCCon ts'>
-                        <Link to="/municipalities/all"><h1 style={{textAlign:"center"}}>Administrative Structure</h1></Link>
+                        <Link to="/Municipalities/all"><h1 style={{textAlign:"center"}}>Administrative Structure</h1></Link>
                         <div className='bborder'></div>
-                        <Link to="/municipalities/all"> 
+                        <Link to="/Municipalities/all"> 
                             <img className="splitimage" src="./img/split_administrative.png" width="260px"/> 
                         </Link>
                     </div>
@@ -19,9 +19,9 @@ class Split extends Component {
 
                 <div className="rightscreen">
                         <div className='leftCCon ts'>
-                            <Link to="/municipalities"><h1 style={{textAlign:"center"}}>Dive into municipalities </h1></Link>
+                            <Link to="/Municipalities"><h1 style={{textAlign:"center"}}>Dive into municipalities </h1></Link>
                             <div className='bborder'></div>
-                        <Link to="/municipalities"> 
+                        <Link to="/Municipalities"> 
                             <img className="splitimage" src="./img/split_municipalities.png" width="260"/> 
                         </Link>
                         </div>

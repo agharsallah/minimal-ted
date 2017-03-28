@@ -61,7 +61,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584g/ti
 			console.log(feature.properties)
 			layer.on('click', function(e) {
 				var map = e.target._map
-				map.fitBounds(layer.getBounds(),{animate:true});
 				var link='/Municipalities/'+feature.properties.NAME_1;
  				browserHistory.push(link);
         	});

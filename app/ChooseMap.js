@@ -36,14 +36,85 @@ export default class ChooseMap extends Component{
   render(){
      switch(this.props.param.mapId) {
     case 'full':
-        return <iframe width="100%" height="100%" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljno487p.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljno487p.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
         break;   
     case "comparingM-Vs-B":
-        return <Highchart/> 
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljnd3i6k.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
         break;
-    case "pre-by-gender":
-        return <PreByGender test='maleTurnout'/> 
+    case "turnout-r1vr2":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljnf75jo.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
         break;
+    case "turnout-r2":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljn1pb40.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break;
+    case "canceled-ballot":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljn2hbp2.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break;
+    case "marzouki-r1":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljn3f695.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break;
+     case "marzouki-r2":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljna5109.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break;       
+     case "Number-of-polling":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljmif17a.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break;       
+     case "beji-r1":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljn3ng0a.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break;       
+     case "Beji-R2":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljn4g779.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+         break;   
+    
+    case "par-by-gender":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.k73jc1n0.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
+        break; 
+    case "par-nahdha-res":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.k73ogne0.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
+    case "par-upl-res":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.k740b8f9.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
+    case "par-nida-res":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.k73m3p3b.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
+        break; 
+
+    case "nahdhar":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
+    case "cpr":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
+        break; 
+    case "aridaa":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
+    case "ETTAKATOL":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
+        case "PDP":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
+        break; 
+    case "afek":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
+    case "turnout":
+        return<iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
+        break; 
+    case "eligible":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
+        break; 
+        case "active":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
+    case "passive":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
+        break; 
+    case "wasted":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
+    case "blanc":
+        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        break; 
     case "Blank-ballots-by-delegation":
         return (<div style={{position:"relative"}}>
                 {/*<div style={{width: '800px',overflow: "hidden",height:"80px"}} >*/}
@@ -113,15 +184,10 @@ export default class ChooseMap extends Component{
                 <TurnoutGender  style={{position:"absolute"}} value={this.state.genderturnout} />
                 </div> )        
         break;
-    case "turnout-by-age2":
-        return <TestDraw/> 
-        break;  
-    case "comm-marker":
-        return <CommMarker/> 
-        break;    
+    
     
     default:
-        return(<h1>{console.log('err')}</h1>)
+        return(<h1>An error has occured</h1>)
 }
 
   }
