@@ -371,4 +371,44 @@ color: #ff5722 ;
   margin-top: 25px;
   overflow: hidden
 }
+/*split screen style*/
+.leftscreen, .rightscreen {
+	width: 50%;
+  display: block
+}
 
+.leftscreen {
+  background: rgba(119, 109, 109, 0.08);
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.rightscreen {
+	margin-left: 50%;
+  }
+.leftCCon {
+  padding: 15px 30px;
+}
+.leftCCon h1 {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 1.7em;
+  color: rgba(25, 36, 65, 0.7);
+}
+
+.ts .bborder {
+  border-bottom-color: #0fa7ea;
+}
+.bborder {
+    border-bottom: 3px solid #ff4c11;
+    margin-top: 10px;
+    width: 40%;
+    margin: 0 auto;
+
+} 
+.splitimage{
+  display: block;
+  margin: 0 auto;
+  margin-top:15px;
+}

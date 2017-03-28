@@ -15,6 +15,7 @@ import { Router, Route, browserHistory } from 'react-router';
 
 import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';
+import Split from './municipalities/Split';
 
 import BetaViz from './test_viz/BetaViz'
 import TreeContainer from './test_viz/treechart/TreeContainer.js'
@@ -33,6 +34,7 @@ render((
         <Route path="/betaViz/mapevolution" component={MapEvolution}/>
         <Route path="/betaViz/votingcenter" component={VotingCenter}/>
         
+        <Route path="/Mun" component={Split}/>
         <Route path="/Municipalities" component={Municipalities}/>
         <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>
         
