@@ -36,7 +36,7 @@ export default class ChooseMap extends Component{
   render(){
      switch(this.props.param.mapId) {
     case 'full':
-        return <LeafletMap/> 
+        return <iframe width="100%" height="100%" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljno487p.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
         break;   
     case "comparingM-Vs-B":
         return <Highchart/> 

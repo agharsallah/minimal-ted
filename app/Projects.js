@@ -89,13 +89,11 @@ class Projects extends Component{
 					</div>*/}
 					<div className='col-md-12' >
 						<Widget title ={Tfull} subtitle={Sfull} imgsrc="full.png"   elecType={elecType} elecYear={elecYear} link={link}/>
-						<Widget title ={Tturnoutbyage} subtitle={Sturnoutbyage} imgsrc="turnout-by-age.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
+{/*						<Widget title ={Tturnoutbyage} subtitle={Sturnoutbyage} imgsrc="turnout-by-age.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 						<Widget title ={TGender} subtitle={SGender} imgsrc="turnout-by-age2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
-					</div>
-					<div className='col-md-12' >
+*/}					
 						<Widget title ={Tbejir2} subtitle={Sbejir2} imgsrc="Beji-R2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 						<Widget title ={Tmarzoukir2} subtitle={Smarzoukir2} imgsrc="marzouki-r2.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
-						<Widget title ={Tbejir1} subtitle={Sbejir1} imgsrc="beji-r1.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					
 					<div className='col-md-12'>
@@ -109,7 +107,7 @@ class Projects extends Component{
 					<Widget title ={TnumberOfPollingcenter} subtitle={SnumberOfPollingcenter} imgsrc="Number-of-polling.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 					<div className='col-md-12'>
-					<Widget title ={Tstatistics} subtitle={Sstatistics} imgsrc="pre-by-gender.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>
+					<Widget title ={Tbejir1} subtitle={Sbejir1} imgsrc="beji-r1.png"  direction={this.state.direction} elecType={elecType} elecYear={elecYear} link={link}/>					
 					</div>
 		</div>
 		);

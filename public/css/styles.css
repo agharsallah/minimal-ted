@@ -88,10 +88,10 @@ background: rgba(221, 221, 221, 0.17)
   font-size: 20px;
    }
   .h-2x {
-  height: 3.5rem;
+  /*height: 3.5rem;*/
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+ /* -webkit-line-clamp: 2;*/
   -webkit-box-orient: vertical; }
 	.m-b {
     margin-bottom: 0.5rem !important;
@@ -379,13 +379,16 @@ color: #ff5722 ;
 
 .leftscreen {
   background: rgba(119, 109, 109, 0.08);
-  position: relative;
+  position: fixed;
   width: 50%;
   height: 100%;
 }
 
 .rightscreen {
 	margin-left: 50%;
+    position: fixed;
+  width: 50%;
+  height: 100%;
   }
 .leftCCon {
   padding: 15px 30px;
@@ -411,4 +414,7 @@ color: #ff5722 ;
   display: block;
   margin: 0 auto;
   margin-top:15px;
+}
+a:hover{
+    text-decoration: none;
 }

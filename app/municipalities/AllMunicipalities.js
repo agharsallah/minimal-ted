@@ -26,22 +26,22 @@ class AllMunicipalities extends Component{
 				console.log('here')
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#F9F181' :
-		                    '#c8cec9';	 
+			        return d == "old"  ? '#808080' :
+		                    'rgba(51, 51, 51, 0.1)';	 
 			        break;
 			        case 'new':
-				        return (d == "new" || d =="new2015")  ? '#874E12' :
-			                   '#c8cec9';	
+				        return (d == "new" || d =="new2015")  ? '#3aaf85' :
+			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 			        case 'extended':
-				        return d == "extended"  ? '#E6AA09' :
-			                   '#c8cec9';	
+				        return d == "extended"  ? '#21759b' :
+			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#F9F181' :
-					           (d == "new" || d =="new2015") ? '#874E12' :
-					           d == "extended" ? '#E6AA09' :
-					           '#c8cec9';
+			        	return d == "old"  ? '#808080' :
+					           (d == "new" || d =="new2015") ? '#3aaf85' :
+					           d == "extended" ? '#21759b' :
+					           'rgba(51, 51, 51, 0.1)';
 				}
 
 		}	
@@ -49,10 +49,9 @@ class AllMunicipalities extends Component{
 		function highlightFeature(e) {
 		    var layer = e.target;
 		    layer.setStyle({
-		        weight: 5,
-		        color: '#666',
-		        dashArray: '',
-		        fillOpacity: 0.7
+		        weight: 4,
+		        color: 'white',
+		        fillOpacity: 1
 		    });
 
 		    info.update(layer.feature.properties);
@@ -66,29 +65,18 @@ class AllMunicipalities extends Component{
 	    	featuresLayer.resetStyle(e.target);
 	    	 info.update();
 		}
-
-		//--------Style of the map
-		function stylemunicipality(feature) {
-			    return {
-		        fillColor: getColor(feature.properties.etat),
-		        weight: 0.5,
-		        opacity: 1,
-		        color: 'blue',
-		        fillOpacity: 0.6
-			    };
-		}	
 		
 		//------------onEachfeature
 		function onEachFeature(feature, layer) {
 			//control what happens on click
 			layer.bindPopup('</h4></br>'+feature.properties.name_en);
 
-			layer.on('click', function(e) {
+/*			layer.on('click', function(e) {
 				var map = e.target._map
 				map.fitBounds(layer.getBounds(),{animate:true	});
 				var link='/ted/Municipalities/'+feature.properties.circ+'/';
  				browserHistory.push(link);
-        	});
+        	});*/
 		    
 		    layer.on({
 		        mouseover: highlightFeature,
@@ -107,11 +95,21 @@ class AllMunicipalities extends Component{
 
 		function style(feature) {
 			    return {
-			        weight: 2.5,
-			        color: 'black',
+			        weight: 2,
+			        color: 'white',
 			        fillOpacity: 0
 			    };
 		}
+
+		function stylemunicipality(feature) {
+			    return {
+		        fillColor: getColor(feature.properties.etat),
+		        weight: 1,
+		        opacity: 0.8,
+		        color: 'black',
+		        fillOpacity: 0.8
+			    };
+		}	
 	   
 	    var info = L.control();
 
@@ -151,20 +149,28 @@ class AllMunicipalities extends Component{
 				style: style
 
 	}).addTo(this.mymap);
-	
+	function getColor(d) {
+	    return d == "old"  ? '#808080' :
+	           d == "new" ? '#3aaf85' :
+	           d == "new2015" ? '#3aaf85' :
+	           d == "extended" ? '#21759b' :
+	                      'red';
+	}	
 	function style(feature) {
 		    return {
-		        weight: 2.5,
-		        color: 'black',
+		        weight: 1.5,
+		        color: 'white',
 		        fillOpacity: 0
 		    };
 	}	
 	
 	function stylemunicipality(feature) {
 		    return {
+		        fillColor: getColor(feature.properties.etat),
 		        weight: 1,
-		        color: 'blue',
-		        fillOpacity: 0
+		        opacity: 0.8,
+		        color: 'black',
+		        fillOpacity: 0.8
 		    };
 	}	
 

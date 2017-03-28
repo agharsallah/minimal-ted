@@ -135,9 +135,9 @@ class MunicipalityMap extends Component{
 	map.createPane('labels');
 	map.getPane('labels').style.zIndex = 650;
 
-	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-				{maxZoom:15,minZoom:6,dragging:false,pane: 'labels'}
-				).addTo(this.mymap);
+		L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
+					{maxZoom:11,minZoom:10,dragging:false}
+					).addTo(this.mymap);
 	
 /*	    this.mymap.dragging.disable();
 	    this.mymap.scrollWheelZoom.disable();

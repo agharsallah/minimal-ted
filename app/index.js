@@ -34,8 +34,8 @@ render((
         <Route path="/betaViz/mapevolution" component={MapEvolution}/>
         <Route path="/betaViz/votingcenter" component={VotingCenter}/>
         
-        <Route path="/Mun" component={Split}/>
-        <Route path="/Municipalities" component={Municipalities}/>
+        <Route path="/Municipalitie" component={Split}/>
+         <Route path="/Municipalities" component={Municipalities}/>
         <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>
         
         <Route path="/data" component={ElectoralData}/>
