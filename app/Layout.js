@@ -32,8 +32,10 @@ export default class Layout extends Component{
 
 		/*this config is set to allow navbar language transtlation*/
 		const home = <Translate type="text" content="navbar.home"/>
-		const municipalities = <Translate type="text" content="navbar.municipalities"/>
-		const projects = <Translate type="text" content="navbar.projects"/>
+		const local_election = <Translate type="text" content="navbar.municipalities"/>
+		const election_data = <Translate type="text" content="navbar.electoral_data"/>
+		const election_result = <Translate type="text" content="navbar.electoral_result"/>
+		const web_radar = <Translate type="text" content="navbar.webradar"/>
 		const about = <Translate type="text" content="navbar.about"/>
 		const en = <Translate type="text" content="navbar.en"/>
 		const fr = <Translate type="text" content="navbar.fr"/>
@@ -56,28 +58,24 @@ export default class Layout extends Component{
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		      </button>
-		      <a className="navbar-brand" href="javascript:void(0)">Tun Elec Data</a>
+		      <a className="navbar-brand" style={{fontSize:'20px',marginRight:"15px"}} href="/">TunisieElection</a>
 		    </div>
 		    <div className="navbar-collapse collapse navbar-responsive-collapse">
-		      <ul className="nav navbar-nav">
+		      <ul className="nav navbar-nav navbar-style">
 		        <li><Link to={'/'} activeClassName="activeN">{home}</Link></li>
-		        <li>
-{/*		        <DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
-			          <MenuItem value={'Presedential'} label='projects' primaryText={Presedential} containerElement={<Link to="/Projects" />}/>
-			          <MenuItem value={'Parlamentary'} primaryText={Parlamentary} containerElement={<Link to="/Parlamantary" />}/>
-			          <MenuItem value={'NCA'} primaryText={NCA} containerElement={<Link to="/Nca" />}/>
-			    </DropDownMenu>*/}
-			 	<DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
+{/*		        <li>
+			 		<DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
 			          <MenuItem value={'electoral_data'} label={"data"} primaryText={electoral_data} containerElement={<Link to="/data" activeClassName="activeN" />}/>
 			          <MenuItem value={'electoral_result'} primaryText={electoral_result} containerElement={<Link to="/result" activeClassName="activeN"/>}/>
 			    </DropDownMenu>
-		        </li>
+		        </li>*/}
 		        
-		        <li ><Link to={'/Municipalities/all'} activeClassName="activeN">{municipalities}</Link></li>
-		        <li ><IndexLink to={'/betaViz'} activeClassName="activeN">beta viz</IndexLink></li>
-		        <li ><Link to={'/About'} activeClassName="activeN">{about}</Link></li>
-		        <li>      	
-		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange}>
+		        <li ><Link to={'/Municipalities/all'} activeClassName="activeN">{local_election}</Link></li>
+		        <li ><Link to={'/data'} activeClassName="activeN">{election_data}</Link></li>
+		        <li ><IndexLink to={'/result'} activeClassName="activeN">{election_result}</IndexLink></li>
+		        <li ><IndexLink to={'/'} activeClassName="activeN">{web_radar}</IndexLink></li>
+						<li style={{float:"right"}}>      	
+		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange} >
 			          <MenuItem value={'en'} primaryText={en} />
 			          <MenuItem value={'fr'} primaryText={fr} />
 			          <MenuItem value={'ar'} primaryText={ar} />

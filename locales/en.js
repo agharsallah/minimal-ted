@@ -18,12 +18,13 @@ module.exports = {
 
    	navbar:{
       home:'Home',
-      municipalities:'municipalities',
+      municipalities:'Local Election',
     	projects:'Projects',
+      webradar:'Webradar',
       Presedential:'Presidential 2014',
       Parlamentary:'Parlamentary 2014',
-      electoral_result:"Electoral Result",
-      electoral_data:"Electoral Data",      
+      electoral_result:"Election Result",
+      electoral_data:"Election Data",      
       NCA:'NCA 2011',
     	about:'About',
     	en: 'Anglais',

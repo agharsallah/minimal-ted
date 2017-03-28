@@ -165,6 +165,10 @@ background: rgba(221, 221, 221, 0.17)
   margin-bottom: 0px;
   background: white
 }
+.navbar-style{
+    font-size: 18px;
+    width: 85%;
+}
 
 /* public UI */
 /* parallalx */
