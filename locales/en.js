@@ -36,7 +36,7 @@ module.exports = {
   	p3:' and technical assistance from '
   },
     electiondata:{
-      TBlankByDelegation:'Blank | Spoiled | Canceled - by delegation',
+      TBlankByDelegation:'Blank  | Canceled - by delegation',
       SBlankByDelegation:'Visualizing the ballots during Tunisia Parliamentary elections and presidential elections round 1',
       TballotState:'Invalid Ballot - by delegation ',
       STballotState:'Visualizing blank,spoiled,and canceled ballots during Tunisia parliamentary elections and presidential elections round 1',

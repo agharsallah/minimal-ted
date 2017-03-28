@@ -19,7 +19,7 @@ class MunicipalityMap extends Component{
 		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], zoom);
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-					{maxZoom:11,minZoom:10,dragging:false}
+					{maxZoom:11,minZoom:6,dragging:false}
 					).addTo(this.mymap);
 		
 	/*		this.mymap.dragging.disable();
@@ -136,7 +136,7 @@ class MunicipalityMap extends Component{
 	map.getPane('labels').style.zIndex = 650;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-				{maxZoom:15,minZoom:6,dragging:false,pane: 'labels'}
+				{maxZoom:11,minZoom:3,dragging:false,pane: 'labels'}
 				).addTo(this.mymap);
 	
 /*	    this.mymap.dragging.disable();
@@ -233,7 +233,7 @@ class MunicipalityMap extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 		info.update = function (props) {
 		    this._div.innerHTML =  (props ?
-		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
+		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText" >' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
 		    };
 		info.addTo(this.mymap);

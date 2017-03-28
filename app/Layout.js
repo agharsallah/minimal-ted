@@ -73,7 +73,7 @@ export default class Layout extends Component{
 			    </DropDownMenu>
 		        </li>
 		        
-		        <li ><Link to={'/Municipalitie'} activeClassName="activeN">{municipalities}</Link></li>
+		        <li ><Link to={'/Municipalities/all'} activeClassName="activeN">{municipalities}</Link></li>
 		        <li ><IndexLink to={'/betaViz'} activeClassName="activeN">beta viz</IndexLink></li>
 		        <li ><Link to={'/About'} activeClassName="activeN">{about}</Link></li>
 		        <li>      	

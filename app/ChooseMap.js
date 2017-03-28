@@ -79,7 +79,7 @@ export default class ChooseMap extends Component{
         return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.k73m3p3b.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
         break; 
 
-    case "nahdhar":
+    case "nahdha":
         return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
         break; 
     case "cpr":

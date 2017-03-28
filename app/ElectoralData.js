@@ -41,7 +41,7 @@ class ElectoralData extends Component{
 		const TTurnoutPresedential = <Translate type="text" content="electiondata.TTurnoutPresedential"/>
 		const STurnoutPresedential = <Translate type="text" content="electiondata.STurnoutPresedential"/>
 		
-		const elecType = 'Presidential'
+		const elecType = 'Parlimentary'
 		const elecYear = '2014'
 		const link = '/data/par14/'
 		return(
@@ -51,17 +51,17 @@ class ElectoralData extends Component{
 
 					<div className='col-md-12' >
 						<h2 className="lefttitle" > Invalid Ballots</h2>
-						<Widget position='col-md-6' title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="1"/>
 						<Widget position='col-md-6' title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="1"/>					
+						<Widget position='col-md-6' title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="1"/>
 					</div>
 					<div className='col-md-12' >
 						<h2 className="lefttitle" > Age Turnout</h2>
-						<Widget position='col-md-6' title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="0.3"/>
-						<Widget position='col-md-6' title ={TAgeTurnoutDelegationAll} subtitle={SAgeTurnoutDelegationAll} imgsrc="All-Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="0.3"/>
+						<Widget position='col-md-6' title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link="#" imageopacity="0.3"/>
+						<Widget position='col-md-6' title ={TAgeTurnoutDelegationAll} subtitle={SAgeTurnoutDelegationAll} imgsrc="All-Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link="#" imageopacity="0.3"/>
 					</div>
 					<div className="col-md-12">
 						<h2  className="lefttitle" > Gender Turnout</h2>
-						<Widget position='col-md-6' title ={TTurnoutGender} subtitle={STurnoutGender} imgsrc="Gender-turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="0.3"/>
+						<Widget position='col-md-6' title ={TTurnoutGender} subtitle={STurnoutGender} imgsrc="Gender-turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link="#" imageopacity="0.3"/>
 					</div>
 		</div>
 		);

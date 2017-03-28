@@ -30,11 +30,14 @@ export default class ChooseMunicipality extends Component{
       switch (city){
         case 'all':
         	return(
-							<div style={{position:"relative"}}>  
+				<div style={{position:"relative"}}>  
 	                <Layout/>
-									<Radio_state handleMunState={this.handleMunState} style="allmunradio"/>
+					<Radio_state handleMunState={this.handleMunState} style="allmunradio"/>
 	                <div style={{position:"absolute",zIndex: "2",marginTop:"50px",width:"40%",right:"2%"}}>
 	                	<h1 style={{float:'right'}} className="municipalityTitle" >State Representation Of Tunisian Municipalities  </h1>
+	                </div>
+					<div style={{position:"absolute",zIndex: "2",marginTop:"250px",width:"40%",right:"2%"}}>
+						 <RaisedButton label="Download Pdf file" primary={true}  />
 	                </div>
 	                <AllMunicipalities  style={{position:"absolute"}} value={this.state.munstate} />
 	            </div> 

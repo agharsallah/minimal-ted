@@ -43,6 +43,7 @@ render((
        
         <Route path="/result" component={ElectoralResult}/>
         <Route path="/result/par14/:mapId" component={MapComp}/>
+        <Route path="/result/nca11/:mapId" component={MapComp}/>
 
 {/*        <Route path="/Projects" component={Projects}/>
         <Route path="/Projects/pre14/:mapId" component={MapComp}/>

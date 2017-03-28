@@ -2,7 +2,8 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
-
+import gouvernorate_shape from "./data/gouvernorates_shape";
+import municipalities_shape from "./data/municipalities_shape";
 class AllMunicipalities extends Component{
 
 
@@ -71,32 +72,33 @@ class AllMunicipalities extends Component{
 			//control what happens on click
 			layer.bindPopup('</h4></br>'+feature.properties.name_en);
 
-/*			layer.on('click', function(e) {
-				var map = e.target._map
-				map.fitBounds(layer.getBounds(),{animate:true	});
-				var link='/ted/Municipalities/'+feature.properties.circ+'/';
- 				browserHistory.push(link);
-        	});*/
+			layer.on('click', function(e) {
+					var map = e.target._map
+					map.fitBounds(layer.getBounds(),{animate:true});
+						var link='/Municipalities/'+mun_name;
+						//browserHistory.push('/Municipalities/all');
+			});
 		    
 		    layer.on({
 		        mouseover: highlightFeature,
 		        mouseout: resetHighlight
 		    });
 		}
-		var featuresLayer = new L.GeoJSON(districts, {
-				style: style
-
-		}).addTo(this.mymap);
-	    var featuresLayer = new L.GeoJSON(all, {
-	    		style: stylemunicipality,
+	var featuresLayer = new L.GeoJSON(municipalities_shape, {
+				style: stylemunicipality,
 				onEachFeature:onEachFeature
-			}).addTo(this.mymap);
+	}).addTo(this.mymap);
+	
+	var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
+				style: style,
+				onEachFeature:onEachFeature
+	}).addTo(this.mymap);
 
 
 		function style(feature) {
 			    return {
 			        weight: 2,
-			        color: 'white',
+			        color: 'black',
 			        fillOpacity: 0
 			    };
 		}
@@ -110,7 +112,17 @@ class AllMunicipalities extends Component{
 		        fillOpacity: 0.8
 			    };
 		}	
-	   
+	   		function onEachFeature(feature, layer) {
+			//control what happens on click
+			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
+			console.log(feature.properties)
+			layer.on('click', function(e) {
+				var map = e.target._map
+				var link='/Municipalities/'+feature.properties.NAME_1;
+ 				browserHistory.push(link);
+        	});
+
+		}
 	    var info = L.control();
 
 			info.onAdd = function (map) {
@@ -136,18 +148,19 @@ class AllMunicipalities extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
-	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/hpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
+	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 15,
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
 	
-	var featuresLayer = new L.GeoJSON(all, {
-	style: stylemunicipality,
+	var featuresLayer = new L.GeoJSON(municipalities_shape, {
+				style: stylemunicipality,
+				onEachFeature:onEachFeature
 	}).addTo(this.mymap);
 	
-	var featuresLayer = new L.GeoJSON(districts, {
-				style: style
-
+	var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
+				style: style,
+				onEachFeature:onEachFeature
 	}).addTo(this.mymap);
 	function getColor(d) {
 	    return d == "old"  ? '#808080' :
@@ -155,12 +168,23 @@ class AllMunicipalities extends Component{
 	           d == "new2015" ? '#3aaf85' :
 	           d == "extended" ? '#21759b' :
 	                      'red';
-	}	
+	}
+		function onEachFeature(feature, layer) {
+			//control what happens on click
+			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
+			console.log(feature.properties)
+			layer.on('click', function(e) {
+				var map = e.target._map
+				var link='/Municipalities/'+feature.properties.NAME_1;
+ 				browserHistory.push(link);
+        	});
+
+		}
 	function style(feature) {
 		    return {
-		        weight: 1.5,
-		        color: 'white',
-		        fillOpacity: 0
+			        weight: 2,
+			        color: 'black',
+			        fillOpacity: 0
 		    };
 	}	
 	
@@ -173,7 +197,25 @@ class AllMunicipalities extends Component{
 		        fillOpacity: 0.8
 		    };
 	}	
+			function highlightFeature(e) {
+		    var layer = e.target;
+		    layer.setStyle({
+		        weight: 4,
+		        color: 'white',
+		        fillOpacity: 1
+		    });
 
+		    info.update(layer.feature.properties);
+		    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+		        layer.bringToFront();
+		    }
+		}
+
+		//--------style applied when mouseout
+		function resetHighlight(e) {
+	    	featuresLayer.resetStyle(e.target);
+	    	 info.update();
+		}
 
 	}//end component did mount
     
