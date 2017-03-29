@@ -168,7 +168,7 @@
       }
 
       .tiles article.style4 > .image:before {
-        background-color: rgb(97, 130, 161);
+        background-color: rgba(147, 165, 182, 0.8);
       }
 
       .tiles article.style5 > .image:before {

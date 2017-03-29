@@ -51,7 +51,7 @@ export default class ChooseMunicipality extends Component{
 						<h2 className="hometitle"style={{color:'black',marginTop:"10px",marginBottom:"10px"}} >Municipalities of {city} gouvernorate</h2>
 						<Radio_state handleMunState={this.handleMunState} style="munradio"/>
 
-						<div style={{position:"absolute",zIndex: "3",marginTop:"20px",marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
+{/*						<div style={{position:"absolute",zIndex: "3",marginTop:"20px",marginLeft:'40px',fontSize:'25px',fontFamily:'Georgia'}}>
    							<div>
 							  	<ul className="list-group" style={{width:'105%'}} >
 											{namesJson.map(function(object, i){
@@ -68,7 +68,7 @@ export default class ChooseMunicipality extends Component{
 							  		   		
 							  	})}</ul>
 					   		</div>
-						</div>
+						</div>*/}
 		                <MunicipalityMap  style={{position:"absolute"}} value={this.state.munstate} munname={city} zoom={zoom} />
 		            </div> 
 			);

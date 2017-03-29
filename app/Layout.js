@@ -73,7 +73,7 @@ export default class Layout extends Component{
 		        <li ><Link to={'/Municipalities/all'} activeClassName="activeN">{local_election}</Link></li>
 		        <li ><Link to={'/data'} activeClassName="activeN">{election_data}</Link></li>
 		        <li ><IndexLink to={'/result'} activeClassName="activeN">{election_result}</IndexLink></li>
-		        <li ><IndexLink to={'/'} activeClassName="activeN">{web_radar}</IndexLink></li>
+		        <li ><IndexLink to={'/webradar'} activeClassName="activeN">{web_radar}</IndexLink></li>
 						<li style={{float:"right"}}>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange} >
 			          <MenuItem value={'en'} primaryText={en} />
