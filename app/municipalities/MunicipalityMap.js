@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
 /*The name of municipality shapefiles is defined in the index file*/
 import shapes from "./data/mun_shapes.js";
+import Translate from 'react-translate-component';
+
 class MunicipalityMap extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -87,8 +89,11 @@ class MunicipalityMap extends Component{
 		
 		//------------onEachfeature
 		function onEachFeature(feature, layer) {
-		let mun_name = feature.properties.name_en;
-        layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,direction:"right" })
+		//let mun_name = feature.properties.name_en;
+		let mun_name = feature.properties.name_ar;
+       //layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,direction:"right" })
+		 layer.bindTooltip(mun_name,{ permanent: false,direction:"right",className:"tooltipnamear" })
+
 		layer.on({
 		        mouseover: highlightFeature,
 		        mouseout: resetHighlight
@@ -111,10 +116,15 @@ class MunicipalityMap extends Component{
 
 		// -------method that we will use to update the control based on feature properties passed
 
-		info.update = function (props) {
+/*		info.update = function (props) {
 		    this._div.innerHTML = (props ?
 		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
+		    };*/
+					info.update = function (props) {
+		    this._div.innerHTML =  (props ?
+		        '<h4 class="mapInfoTextar"><b>' + props.name_ar + ':</b></h4></br><h4 class="mapInfoTextar"> '+props.seats +' مقعد</h4></br><h4 class="mapInfoTextar"> '+ props.citizens +' نسمة </h4></br><h4 class="mapInfoTextar" >' +props.area +' كم²  </h4>'
+		        : '');
 		    };
 
 			info.addTo(this.mymap);
@@ -125,11 +135,11 @@ class MunicipalityMap extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	console.log(this.props.munname)
+	console.log(this.props.MunAreaHover)
 	const { zoom } = this.props
 	let governourate_name=this.props.munname
 	
-	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], zoom);
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.20], zoom);
 	
 	var map = this.mymap ;
 	map.createPane('labels');
@@ -197,12 +207,13 @@ class MunicipalityMap extends Component{
 
 
 	function onEachFeature(feature, layer) {
-		let mun_name = feature.properties.name_en;
+/*		let mun_name = feature.properties.name_en;
+*/		let mun_name = feature.properties.name_ar;
 		//control what happens on click
 		//layer.bindPopup('</h4></br>'+feature.properties.name_en);
 		layer.on('click', function(e) {
 				var map = e.target._map
-				map.fitBounds(layer.getBounds(),{animate:true});
+				/*map.fitBounds(layer.getBounds(),{animate:true});*/
 					var link='/Municipalities/'+mun_name;
  					//browserHistory.push('/Municipalities/all');
         });
@@ -210,7 +221,8 @@ class MunicipalityMap extends Component{
 		/*var label = new L.Tooltip();
         label.setLatLng(layer.getBounds().getCenter());*/
         /*adding permanent label { permanent: true }*/
-        layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,direction:"right" })
+/*        layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,direction:"right" })
+*/        layer.bindTooltip(mun_name,{ permanent: false,direction:"right",className:"tooltipnamear" })
 	    
 		layer.on({
 	        mouseover: highlightFeature,
@@ -231,10 +243,15 @@ class MunicipalityMap extends Component{
 		};
 
 	// -------method that we will use to update the control based on feature properties passed
-		info.update = function (props) {
+/*		info.update = function (props) {
 		    this._div.innerHTML =  (props ?
 		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText" >' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
+		    };*/
+		info.update = function (props) {
+		    this._div.innerHTML =  (props ?
+		        '<h4 class="mapInfoTextar"><b>' + props.name_ar + ':</b></h4></br><h4 class="mapInfoTextar"> '+props.seats +' مقعد</h4></br><h4 class="mapInfoTextar"> '+ props.citizens +' نسمة </h4></br><h4 class="mapInfoTextar" >' +props.area +' كم²  </h4>'
+		        : '');
 		    };
 		info.addTo(this.mymap);
 	}//end component did mount

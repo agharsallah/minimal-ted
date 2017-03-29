@@ -19,16 +19,17 @@ export default class App extends Component {
     constructor(props) {
     super(props);
     this.state = {
-      direction : 'left-to-right'
+      direction : 'left-to-right',
+      arabicstyle:'hometitle'
     };
     this.handleSend= this.handleSend.bind(this);
   }
     /*need to know which language is chosen to send to son widget 'rtl' or 'ltr' */
     handleSend(value){
       if (value == 'ar') {
-         this.setState({direction : 'right-to-left'});
+         this.setState({direction : 'right-to-left',arabicstyle:"arabicstyle"});
       }else{
-         this.setState({direction : 'left-to-right'});
+         this.setState({direction : 'left-to-right',arabicstyle:"hometitle"});
       }
     }
  render() {
@@ -38,7 +39,7 @@ export default class App extends Component {
       <Layout SendToFather={this.handleSend} type='electoral_data'/>
       </MuiThemeProvider>
       <div >
-      <ParallaxPic height='260px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/elections-bg.jpg)"/>      
+      <ParallaxPic arabicstyle={this.state.arabicstyle} height='260px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/elections-bg.jpg)"/>      
       </div>
 
          <div className='col-md-12' style = {{marginBottom:'20px',marginTop:'50px'}}>

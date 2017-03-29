@@ -317,7 +317,18 @@ color: #ff5722 ;
     color: black !important;
           margin-top: 10px;
     text-align: justify!important;
-    letter-spacing: 0.3em;
+}
+.mapInfoTextar{
+
+  font-family: "Lucida Grande", Tahoma;
+    font-size: 20px;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: uppercase;
+    color: black !important;
+          margin-top: 10px;
+    text-align: justify!important;
+    direction: rtl
 }
 
 .leaflet-container {
@@ -327,7 +338,7 @@ color: #ff5722 ;
   position: absolute;
   z-Index: 3;
   margin-top:100px;
-  width:100px;
+  width:170px;
   margin-left:40px;
   font-size:25px;
   font-family:'Georgia';
@@ -336,9 +347,10 @@ color: #ff5722 ;
   position: absolute;
   z-index: 9000;
   margin-top:220px;
-  right:10%;
+  right:1px;
   font-size:25px;
   font-family:'Georgia';
+  width: 170px
 }
 .tooltiplabel{
  background:transparent;
@@ -356,6 +368,17 @@ color: #ff5722 ;
     position: relative;
     z-index: 10;
     max-width: 1000px
+}
+.arabicstyle{
+    color: "white";
+    text-align: center;
+    margin: 0 auto;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    font-size: 70px;
 }
 /*classname for map info on hover */
 .infoinex {
@@ -426,4 +449,7 @@ a:hover{
 .home-pic-backg{
         background-color: rgba(147, 165, 182, 0.78);
         display: inline-block;
+}
+.tooltipnamear{
+  font-size: 25px;
 }

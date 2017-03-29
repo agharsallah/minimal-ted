@@ -27,9 +27,9 @@ module.exports = {
       electoral_data:"Election Data",      
       NCA:'NCA 2011',
     	about:'About',
-    	en: 'Anglais',
+    	en: 'English',
       	fr: 'Français',
-      	ar: 'arabic'
+      	ar: 'عربية'
    	},
   about:{
   	paragraph:'Tunisia Election Data browser – created to collect, open, visualize, and analyze election-related data on an ongoing basis – is a project implemented by : ',
@@ -48,8 +48,16 @@ module.exports = {
       TTurnoutGender:'Turnout by Gender - per delegation ',
       STurnoutGender:'Visualizing Turnout level by Gender represented ontop of delegations during ...',
   	  TTurnoutPresedential:'Presidential Turnout - by delegation ',
-      STurnoutPresedential:'Visualizing TGeneral Turnout percentage during Presedential election'
-    },
+      STurnoutPresedential:'Visualizing TGeneral Turnout percentage during Presedential election',
+      invalidTitle:"Invalid Ballots",
+    ageturnTitle:"Age Turnout",
+    sexturnTitle:"Gender Turnout"
+  },
+  electionresult:{
+    pres:"2014 Presidential Elections",
+parl:"2014 Parliamentary Elections",
+nca:"2011 NCA Elections"
+  },
   	pred2014:{
   		Tfull:'Full Results',
   		Sfull:'Results By polling center',
@@ -117,13 +125,23 @@ module.exports = {
       SBallots:'Ballots cast and political representation'
     },
     map:{
-      invalid_title:"Invalid Ballot State",
+      invalid_title:"Invalid Ballot ",
       allcount:"350 Municipalities",
       oldcount:"75 Old Municipalities",
       extendedcount:"189 Extended Municipalities",
       newcount:"86 New Municipalities",
       canceled:"canceled ballots",
-      blank:"blank ballots"     
+      blank:"blank ballots",     
+      spoiled:"spoiled ballots",
+      "allMunTitle1":"Municipalities of",     
+      "allMunTitle2":"governorate",
+      "MunAreaHover":'</b> have : </h4></br><h4 class="mapInfoText">'
+  },
+    radioComp:{
+      all:"All",
+      old:"Old",
+      new:"New",
+      extended:"Extended",
     }
   
 

@@ -27,9 +27,9 @@
       webradar:'Webradar',
       NCA:'NCA 2011',
     	about:'About',
-    	en: 'Anglais',
+    	en: 'English',
       	fr: 'Français',
-      	ar: 'arabic'
+      	ar: 'عربية'
    	},
   about:{
   	paragraph:'Navigateur des données électorales en Tunisie – crée pour collecter, accéder, visualiser, et analyser des données liées aux élections en permanence – Il s\'agit d\'un projet réalisé par : ',
@@ -48,7 +48,10 @@
       TTurnoutGender:'Participation selon le genre - par délégation ',
       STurnoutGender:'Visualisation du niveau de participation par genre, représenté au dessus des délégations durant ...',
   	  TTurnoutPresedential:'Participation aux présidentielles- par délégation',
-      STurnoutPresedential:'Visualisation du pourcentage de la participation générale durant les élections présidentielles'
+      STurnoutPresedential:'Visualisation du pourcentage de la participation générale durant les élections présidentielles',
+      invalidTitle:"",
+      ageturnTitle:"",
+      sexturnTitle:""
     },
   	pred2014:{
   		Tfull:'Tous les résultats',
@@ -115,7 +118,16 @@
       SCoalition:'The votes that did not count',
       TBallots:'Visualisation de la proportion des votes blancs. ',
       SBallots:'Votes et représentation politique'
+    },
+      map:{
+      invalid_title:"Invalid Ballot State",
+      allcount:"350 Municipalities",
+      oldcount:"75 Old Municipalities",
+      extendedcount:"189 Extended Municipalities",
+      newcount:"86 New Municipalities",
+      canceled:"canceled ballots",
+      blank:"blank ballots",     
+      spoiled:"spoiled ballots"     
     }
-  
 
 }

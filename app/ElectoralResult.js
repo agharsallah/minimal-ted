@@ -3,6 +3,7 @@ import Layout from './Layout';
 import Parlamantary from './Parlamantary';
 import Projects from './Projects';
 import Nca from './Nca';
+import Translate from 'react-translate-component';
 
 class ElectoralResult extends Component{
 		constructor(props) {
@@ -24,11 +25,11 @@ class ElectoralResult extends Component{
 		return(
 			<div>
 				<Layout SendToFather={this.handleSend} type='electoral_result'/>
-						<h2 className="lefttitle" > 2014 Presidential Elections</h2>
+						<h2 className="lefttitle" ><Translate type="text" content="electionresult.pres"/> </h2>
 				<Projects/>
-						<div><h2 className="lefttitle"> 2014 Parliamentary Elections</h2></div>
+						<div><h2 className="lefttitle"><Translate type="text" content="electionresult.parl"/> </h2></div>
 				<Parlamantary/>
-						<h2 className="lefttitle"> 2011 NCA Elections</h2>
+						<h2 className="lefttitle"><Translate type="text" content="electionresult.nca"/></h2>
 					
 				<Nca/>
 			</div>

@@ -18,8 +18,9 @@ export default class Layout extends Component{
     this.handleChange = this.handleChange.bind(this);
   }
 	componentWillMount() {
-		counterpart.getLocale()
+		 		counterpart.getLocale();
 	}
+
 	handleChange (event, index, value) {
 	   this.setState({value})
 	   counterpart.setLocale(value);
@@ -29,7 +30,6 @@ export default class Layout extends Component{
 
 
 	render(){
-
 		/*this config is set to allow navbar language transtlation*/
 		const home = <Translate type="text" content="navbar.home"/>
 		const local_election = <Translate type="text" content="navbar.municipalities"/>
@@ -58,7 +58,7 @@ export default class Layout extends Component{
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		      </button>
-		      <a className="navbar-brand" style={{fontSize:'20px',marginRight:"15px"}} href="/">TunisieElection</a>
+		      <a className="navbar-brand" style={{fontSize:'20px',marginRight:"15px"}} href="#">TunisieElections</a>
 		    </div>
 		    <div className="navbar-collapse collapse navbar-responsive-collapse">
 		      <ul className="nav navbar-nav navbar-style">

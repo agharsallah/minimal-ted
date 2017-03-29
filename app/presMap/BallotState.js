@@ -68,7 +68,7 @@ class BallotState extends Component{
 		let invalidPercentage = (feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage);
 		invalidPercentage=Number(invalidPercentage).toFixed(2);
 		let invalid = feature.properties.canceled + feature.properties.blank + feature.properties.spoiled ;
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+invalid+' invalid (blank-spoiled-canceled) ballot'+'</br>'+invalidPercentage+'% invalid of total voters' );
+		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+invalid+' invalid (blank-canceled) ballot'+'</br>'+invalidPercentage+'% invalid of total voters' );
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
