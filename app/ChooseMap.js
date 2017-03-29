@@ -127,7 +127,7 @@ export default class ChooseMap extends Component{
                     </div>  
                   <div style={{position:"absolute",zIndex: "2",marginTop:"300px",marginLeft:"30px"}}>
                     <SelectField
-                    floatingLabelText="choose parameter"
+                    floatingLabelText={<Translate content="map.chooseParameter"/>}
                     value={this.state.value}
                     onChange={this.handleChange}
                     style = {{width:"200px",marginLeft:"10px",float:"right"}}
@@ -135,9 +135,9 @@ export default class ChooseMap extends Component{
                     labelStyle = {{color:"#ff5722",fontSize:"xx-large"}}
                     iconStyle ={{fill:"#03a9f4",top:"10px",height:"47px",width:"65px"}}
                   >
-                      <MenuItem value={"canceled"} primaryText="canceled" />
-                      <MenuItem value={"blank"} primaryText="blank" />
-                      <MenuItem value={"spoiled"} primaryText="spoiled" />
+                      <MenuItem value={"canceled"} primaryText={<Translate content="map.canceled"/>} />
+                      <MenuItem value={"blank"} primaryText={<Translate content="map.blank"/>} />
+                      <MenuItem value={"spoiled"} primaryText={<Translate content="map.spoiled"/>} />
                   </SelectField>
                   </div>
 

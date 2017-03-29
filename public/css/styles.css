@@ -160,6 +160,11 @@ background: rgba(221, 221, 221, 0.17)
   background-color: white;
   width: 300px;
 }
+.infoLegar {
+  background-color: white;
+  width: 150px;
+  direction: rtl;
+}
 /* fixing bug of distance betwin navbar and map */
 .navbar{
   margin-bottom: 0px;

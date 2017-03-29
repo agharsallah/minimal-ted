@@ -135,7 +135,8 @@ nca:"2011 NCA Elections"
       spoiled:"spoiled ballots",
       "allMunTitle1":"Municipalities of",     
       "allMunTitle2":"governorate",
-      "MunAreaHover":'</b> have : </h4></br><h4 class="mapInfoText">'
+      "MunAreaHover":'</b> have : </h4></br><h4 class="mapInfoText">',
+      chooseParameter:'choose paramater'
   },
     radioComp:{
       all:"All",

@@ -13,12 +13,14 @@ export default class Layout extends Component{
 	constructor(props) {
     super(props);
     this.state = {
-    	value: 'en'
+    	value: 'ar'
 	};
     this.handleChange = this.handleChange.bind(this);
   }
 	componentWillMount() {
-		 		counterpart.getLocale();
+		 		{/*counterpart.getLocale();*/}
+				 	   counterpart.setLocale("ar");
+
 	}
 
 	handleChange (event, index, value) {
@@ -76,8 +78,8 @@ export default class Layout extends Component{
 		        <li ><IndexLink to={'/webradar'} activeClassName="activeN">{web_radar}</IndexLink></li>
 						<li style={{float:"right"}}>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange} >
-			          <MenuItem value={'en'} primaryText={en} />
-			          <MenuItem value={'fr'} primaryText={fr} />
+			          {/*<MenuItem value={'en'} primaryText={en} />
+			          <MenuItem value={'fr'} primaryText={fr} />*/}
 			          <MenuItem value={'ar'} primaryText={ar} />
 			        </DropDownMenu>
 			    </li>

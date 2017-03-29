@@ -133,8 +133,8 @@ class BlankBallotsDelegation extends Component{
 
     		info.update = function (props) {
 		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'
-		        : 'Hover over a state');
+		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' '
+		        : '');
 		    if (props) {
 		    			var percentage = parameter+'Percentage' // create a variable to match the prtoperty in the geojson
 					    console.log(percentage)
@@ -227,7 +227,7 @@ class BlankBallotsDelegation extends Component{
     var legend = L.control({position: 'bottomright'});
 		legend.onAdd = function (map) {
 
-	    var div = L.DomUtil.create('div', 'infoLeg legend'),
+	    var div = L.DomUtil.create('div', 'infoLegar legend'),
 	        grades = [0, 1, 4, 7, 10],
 	        labels = [];
 
@@ -393,10 +393,10 @@ class BlankBallotsDelegation extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'+
+		    this._div.innerHTML = '<h4></h4>' +  (props ?
+		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ''+
  				<Highchart />
-		        : 'Hover over a state');
+		        : '');
 		    if (props) {
 		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;
@@ -467,7 +467,7 @@ class BlankBallotsDelegation extends Component{
     var legend = L.control({position: 'bottomright'});
 		legend.onAdd = function (map) {
 
-	    var div = L.DomUtil.create('div', 'infoLeg legend'),
+	    var div = L.DomUtil.create('div', 'infoLegar legend'),
 	        grades = [0, 1, 4, 7, 10],
 	        labels = [];
 

@@ -181,7 +181,7 @@ class BallotState extends Component{
             type: 'bar'
         },
         title: {
-            text: 'Votes Overview in '+ props.NAME_EN
+            text: "  نسبة اوراق الاقتراع الغير صالحة في "+ props.NAME_AR
         },
         labels: {
              overflow: 'justify'
@@ -193,10 +193,9 @@ class BallotState extends Component{
             bar: {
                 dataLabels: {
 					style: {
-						color: '#525151',
+						color: 'black',
 						fontWeight: 'bold',
-						fontSize:'14px',
-						fontStyle:'Helvetica'
+						fontSize:'18px'
 					},
                     enabled: true,
                     formatter:function() 
@@ -207,7 +206,7 @@ class BallotState extends Component{
                         switch(pntr){
 
                         	case 1 :
-                        	return invalid +' invalid ballot:  '+invalidPercentage+'%';
+                        	return  invalidPercentage +'%'+" - "+invalid;
                         	break;
                         	case 2:
                         	return props.SigningVoters
@@ -230,19 +229,19 @@ class BallotState extends Component{
             shadow: true
         },
         xAxis: {
-            categories: ['Invalid Votes']
+            categories: ['الأوراق الغير صالحة']
         },
         yAxis: {
             title: {
-                text: 'value'
+                text: 'عدد الأوراق '
             }
         },
         series: [
-        {	name: 'invalid',
+        {	name: 'الأوراق الغير صالحة',
             data: [props.canceled+props.blank]
         },
         {
-            name: 'Total',
+            name: 'المجموع',
             data: [props.SigningVoters]
         }],
         credits: false
@@ -258,11 +257,11 @@ class BallotState extends Component{
     var legend = L.control({position: 'bottomright'});
 		legend.onAdd = function (map) {
 
-	    var div = L.DomUtil.create('div', 'infoLeg legend'),
+	    var div = L.DomUtil.create('div', 'infoLegar legend'),
 	        grades = [0, 1, 4, 7, 10],
 	        labels = [];
 
-	    div.innerHTML +='<p>invalid ballots Percentage </p>'
+	    div.innerHTML +='<p>اوراق إقتراع غير صالحة </p>'
 	    // loop through our canceled intervals and generate a label with a colored square for each interval
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=

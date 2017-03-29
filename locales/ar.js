@@ -37,10 +37,10 @@ module.exports = {
     p3:' ومساعدة تقنية من '
   },
     electiondata:{
-      TBlankByDelegation:'ورقة بيضاء-الأصوات التالفة-الأصوات الملغات-حسب المعتمدية',
+      TBlankByDelegation:'الأصوات البيضاء-الأصوات التالفة-الأصوات الملغات-حسب المعتمدية',
       SBlankByDelegation:'اوراق الإقتراع للإنتخابات البرلمانية والرئاسية-الجولة الأولى',
-      TballotState:'بطاقات إقترع غير صالحة-حسب المعتمدية ',
-      STballotState:"الجولة الأولى -الأوراق اقتراع بيضاء،تالفةوالملغات في الإنتخابات التونسية البرلمانية والرئاسية", 
+      TballotState:'بطاقات إقتراع غير صالحة-حسب المعتمدية ',
+      STballotState:"اوراق الاقتراع البيضاء والملغات في الإنتخابات التونسية البرلمانية والرئاسية", 
       TAgeTurnoutDelegation:'نسبة المشاركة حسب السن-مفصلة-حسب المعتمدية ', 
       SAgeTurnoutDelegation:'نسبة المشاركة حسب السن في ...',
       TAgeTurnoutDelegationAll:'نسبة المشاركة حسب السن في خريطة واحدة-حسب المعتمدية',
@@ -48,9 +48,11 @@ module.exports = {
       STurnoutGender:'نسبة المشاركة حسب الجنس ممثلة في المعتمديات ',
       TTurnoutPresedential:'المشاركة في الإنتخابات الرئاسية ',
       STurnoutPresedential:'نسبة المشاركة العامة في الإنتخابات الرئاسية',
+      TTurnoutGender:"نسبة المشاركة حسب الجنس ممثلة في المعتمديات",
     invalidTitle:"اوراق الإقتراع الملغات ",
     ageturnTitle:"نسبة المشاركة",
-    sexturnTitle:" نسبة المشاركة حسب الجنس"
+    sexturnTitle:" نسبة المشاركة حسب الجنس",
+    readmore:"المزيد",
     },
   electionresult:{
       pres:"الانتخابات الرئاسية 2014",
@@ -131,9 +133,14 @@ module.exports = {
       newcount:"بلديات جديدة: 86 بلدية",
       canceled:"الأصوات الملغات",
       blank:"الأوراق البيضاء ",     
-      spoiled:"spoiled ballots" ,
+      spoiled:"الأوراق التالفة " ,
       "allMunTitle1":"بلديات ولاية",     
-      "allMunTitle2":"",    
+      "allMunTitle2":"", 
+      chooseParameter:'إختر المعطيات ',
+      canceled:"الملغات",
+      blank:"البيضاء",
+      spoiled:"التالفة"
+   
     },
     radioComp:{
       all:"كل البلديات",

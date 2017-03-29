@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import Translate from 'react-translate-component';
 
 export default class Widget extends Component{
 	
@@ -35,7 +36,7 @@ export default class Widget extends Component{
 					<div className="left p-a" style={{opacity:imageopacity}}>
 						<div className="m-b h-2x"><Link href className="_800" to={linkk}>{this.props.title}</Link></div>
 						<p className="h-3x">{this.props.subtitle}</p>
-					<Link className="btn btn-xs white" to={linkk}>Read More</Link>
+					<Link className="btn btn-xs white" to={linkk}><Translate type="text" content="electiondata.readmore"/>Read More</Link>
 					</div>
 				</div>
 			</div>
