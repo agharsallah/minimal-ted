@@ -115,6 +115,15 @@ module.exports = {
       SCoalition:'The votes that did not count',
       TBallots:'Visualizing the proportion of blank ballots cast',
       SBallots:'Ballots cast and political representation'
+    },
+    map:{
+      invalid_title:"Invalid Ballot State",
+      allcount:"350 Municipalities",
+      oldcount:"75 Old Municipalities",
+      extendedcount:"189 Extended Municipalities",
+      newcount:"86 New Municipalities",
+      canceled:"canceled ballots",
+      blank:"blank ballots"     
     }
   
 

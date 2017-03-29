@@ -19,7 +19,7 @@ class BlankBallotsDelegation extends Component{
 		this.mymap.remove()
 		//console.log(parameter);
 	
-	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
+	this.mymap = L.map(this.refs.map).setView([35.00, 10.90], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
@@ -248,7 +248,7 @@ class BlankBallotsDelegation extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map).setView([35.00, 11.70], 7);
+	this.mymap = L.map(this.refs.map).setView([35.00, 10.90], 7);
 	 var stripes = new L.StripePattern(); stripes.addTo(this.mymap); 
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {

@@ -15,7 +15,7 @@ class BallotState extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
+	this.mymap = L.map(this.refs.map).setView([35.00, 10.90], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
@@ -169,10 +169,10 @@ class BallotState extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h4>invalid Ballots</h4>' +  (props ?
+		    this._div.innerHTML =  (props ?
 		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' invalid Ballot'+
  				<Highchart />
-		        : 'Hover over a state');
+		        : '');
 		    if (props) {
 		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;

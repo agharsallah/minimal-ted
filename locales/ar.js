@@ -26,7 +26,13 @@ module.exports = {
   		SGender:'مشاهدة نسبة مشاركة الناخبين في مختلف مكاتب الإقتراع حسب الجنس ',
   		TCandidate:'Result By Candidate',
   		SComparing:'Comparing Moncef Marzouki and Beji Caid Essebsi results'
-  	}
-  
+  	},
+      map:{
+      invalid_title:"Invalid Ballot State",
+      allcount:"350 baladeya",
+      oldcount:"75 Old baladeya",
+      extendedcount:"189 Extended baladeya",
+      newcount:"86 New baladeya",      
+    }
 
 }

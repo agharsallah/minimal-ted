@@ -17,7 +17,7 @@ class AllMunicipalities extends Component{
 		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
-   				maxZoom: 15,
+   				maxZoom: 9,
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
 		
@@ -149,7 +149,7 @@ class AllMunicipalities extends Component{
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
-   				maxZoom: 15,
+   				maxZoom: 9,
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
 	

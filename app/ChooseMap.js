@@ -18,6 +18,9 @@ import AgeTurnoutDelegation from './presMap/AgeTurnoutDelegation';
 import AllAgeTurnoutDelegation from './presMap/AllAgeTurnoutDelegation';
 import TurnoutGender from './presMap/TurnoutGender';
 import CommMarker from './presMap/CommMarker';
+import Translate from 'react-translate-component';
+import {browserHistory} from 'react-router';
+
 export default class ChooseMap extends Component{
   constructor(props) {
     super(props);
@@ -34,9 +37,10 @@ export default class ChooseMap extends Component{
   handlegenderfemale (event){this.setState({genderturnout:"womenTurnout"})};
 
   render(){
+     const invalidTranslation= "map."+this.state.value;
      switch(this.props.param.mapId) {
     case 'full':
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljno487p.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
+        return  window.location.href="http://tunisiaelectiondata.com/#/stories/par/full" 
         break;   
     case "comparingM-Vs-B":
         return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/tunisia.ljnd3i6k.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
@@ -80,46 +84,48 @@ export default class ChooseMap extends Component{
         break; 
 
     case "nahdha":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/1" 
+                break; 
     case "cpr":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/4" 
+                break; 
     case "aridaa":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/2" 
+                break; 
     case "ETTAKATOL":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/3" 
+                break; 
         case "PDP":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/5" 
+                break; 
     case "afek":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
-        break; 
+        returnwindow.location.href="http://tunisiaelectiondata.com/#/stories/nca/51" 
+                break; 
     case "turnout":
-        return<iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
-        break; 
+        returwindow.location.href="http://tunisiaelectiondata.com/#/stories/nca/6" 
+                break; 
     case "eligible":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/7" 
+                break; 
         case "active":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/8" 
+                break; 
     case "passive":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe> 
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/9" 
+                break; 
     case "wasted":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/10" 
+                break; 
     case "blanc":
-        return <iframe width="100%" height="600px" frameBorder="0" src="http://a.tiles.mapbox.com/v4/undefined.html?access_token=pk.eyJ1IjoidHVuaXNpYSIsImEiOiJwelVyLW1JIn0.mBhvyh8Ui8NzOq8Bpzl83g"></iframe>
-        break; 
+        return window.location.href="http://tunisiaelectiondata.com/#/stories/nca/11" 
+                break; 
     case "Blank-ballots-by-delegation":
         return (<div style={{position:"relative"}}>
                 {/*<div style={{width: '800px',overflow: "hidden",height:"80px"}} >*/}
-                    
-                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px"}}>
+                    <div className="lefttitle" style={{position:"absolute",zIndex: "2",marginTop:"200px",marginLeft:"30px"}}>
+                        <h1><Translate content={invalidTranslation}/></h1>
+                    </div>  
+                  <div style={{position:"absolute",zIndex: "2",marginTop:"300px",marginLeft:"30px"}}>
                     <SelectField
                     floatingLabelText="choose parameter"
                     value={this.state.value}
@@ -146,7 +152,13 @@ export default class ChooseMap extends Component{
                 </div> )
         break;
     case "All-Blank-ballots-by-delegation":
-        return (<BallotState />)
+        return (<div>
+                    <div className="lefttitle" style={{position:"absolute",zIndex: "2",marginTop:"250px",marginLeft:"30px"}}>
+                    <h1><Translate content="map.invalid_title"/></h1>
+                    </div>
+                    <BallotState />
+            </div>
+            )
         break;
     case "Age-Turnout-by-delegation":
         return (<div style={{position:"relative"}}>                    
