@@ -52,7 +52,7 @@ class BallotState extends Component{
 	}
 	//--------Style of the map
 	function style(feature) {
-		 var invalidPercentage = feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage ;
+		 var invalidPercentage = feature.properties.canceledPercentage + feature.properties.blankPercentage ;
 		 if ( isNaN(invalidPercentage)) {invalidPercentage="inexistant"}
 	    return {
 	        fillColor: getColor(invalidPercentage),
@@ -202,8 +202,8 @@ class BallotState extends Component{
                     formatter:function() 
 					{
                         pntr++;
-                        let invalid =  props.canceled + props.blank + props.spoiled ;
-                        let invalidPercentage = (props.canceledPercentage + props.blankPercentage + props.spoiledPercentage).toFixed(2) ;
+                        let invalid =  props.canceled + props.blank  ;
+                        let invalidPercentage = (props.canceledPercentage + props.blankPercentage ).toFixed(2) ;
                         switch(pntr){
 
                         	case 1 :
@@ -239,7 +239,7 @@ class BallotState extends Component{
         },
         series: [
         {	name: 'invalid',
-            data: [props.canceled+props.blank+props.spoiled]
+            data: [props.canceled+props.blank]
         },
         {
             name: 'Total',
