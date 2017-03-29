@@ -24,6 +24,7 @@
       Parlamentary:'Parlementaires 2014',
       electoral_result:"Résultats électoraux",
       electoral_data:"Données électorales",      
+      webradar:'Webradar',
       NCA:'NCA 2011',
     	about:'About',
     	en: 'Anglais',

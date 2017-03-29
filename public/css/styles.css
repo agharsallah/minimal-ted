@@ -236,7 +236,7 @@ background: rgba(221, 221, 221, 0.17)
 /* image background parallalx */
   .backgrAirbaloon{
   height: 638px;
-  background-position: 48% -63.8px;
+  background-position: 48% -65.8px;
   background-size: 100% auto;
   max-width: 100%;
   background-repeat: no-repeat;
@@ -422,4 +422,8 @@ color: #ff5722 ;
 }
 a:hover{
     text-decoration: none;
+}
+.home-pic-backg{
+        background-color: rgba(147, 165, 182, 0.51);
+        display: inline-block;
 }
