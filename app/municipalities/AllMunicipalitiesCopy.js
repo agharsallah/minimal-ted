@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
 import gouvernorate_shape from "./data/gouvernorates_shape";
-import municipalities_shape from "./data/municipalities_shape";
+//import municipalities_shape from "../../public/mun_data/municipalities_shape";
 
 class AllMunicipalitiesCopy extends Component{
 	//this will define whether the component should render or not 
@@ -29,7 +29,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584g/ti
 	    this.mymap.keyboard.disable();
 	    this.mymap.doubleClickZoom.disable();
 		this.mymap.boxZoom.disable();
-	var featuresLayer = new L.GeoJSON(municipalities_shape, {
+	var featuresLayer = new L.GeoJSON(g_mun_shapes, {
 				style: stylemunicipality,
 				onEachFeature:onEachFeature
 

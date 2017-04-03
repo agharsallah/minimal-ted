@@ -1,3 +1,4 @@
+//load shapes from public/mun_data/shapes
 import kairouan from "./shapes/kairouan";
 import tataouine from "./shapes/tataouine";
 import sousse from "./shapes/sousse";

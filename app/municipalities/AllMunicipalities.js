@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
 import gouvernorate_shape from "./data/gouvernorates_shape";
-import municipalities_shape from "./data/municipalities_shape";
+//import municipalities_shape from "../../public/mun_data/municipalities_shape";
 class AllMunicipalities extends Component{
 
 
@@ -87,7 +87,7 @@ class AllMunicipalities extends Component{
 				onEachFeature:onEachFeature
 	}).addTo(this.mymap);
 	
-	var featuresLayer = new L.GeoJSON(municipalities_shape, {
+	var featuresLayer = new L.GeoJSON(g_mun_shapes, {
 				style: stylemunicipality,
 				onEachFeature:onEachFeature_mun
 	}).addTo(this.mymap);
@@ -155,7 +155,7 @@ class AllMunicipalities extends Component{
 				style: style,
 				onEachFeature:onEachFeature
 	}).addTo(this.mymap);
-	var featuresLayer = new L.GeoJSON(municipalities_shape, {
+	var featuresLayer = new L.GeoJSON(g_mun_shapes, {
 				style: stylemunicipality,
 				onEachFeature:onEachFeature_mun
 	}).addTo(this.mymap);
