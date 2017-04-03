@@ -16,6 +16,8 @@ import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';
 import Split from './municipalities/Split';
 
+import NotFound from './general_component/404';
+
 /*import BetaViz from './test_viz/BetaViz'
 import TreeContainer from './test_viz/treechart/TreeContainer.js'
 import VotingCenter from './test_viz/voting_centers/VotingCenter.js'*/
@@ -47,6 +49,7 @@ render((
         <Route path="/result/nca11/:mapId" component={MapComp}/>
 
         <Route path="/webradar" component={WebRadar}/>
+        <Route path='*' component={NotFound} />
 
 {/*        <Route path="/Projects" component={Projects}/>
         <Route path="/Projects/pre14/:mapId" component={MapComp}/>

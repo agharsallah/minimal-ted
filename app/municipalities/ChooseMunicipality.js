@@ -66,7 +66,7 @@ export default class ChooseMunicipality extends Component{
 			{var zoom = 10 }
 		}
 		else {var zoom = 9 }
-      switch (city){
+      	switch (city){
         case 'all':
         	return(
 				<div style={{position:"relative"}}>  
