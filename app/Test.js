@@ -39,7 +39,7 @@ export default class App extends Component {
       <Layout SendToFather={this.handleSend} type='electoral_data'/>
       </MuiThemeProvider>
       <div >
-      <ParallaxPic arabicstyle="arabicstyle" height='260px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/elections-bg.jpg)"/>      
+      <ParallaxPic arabicstyle="hometitle" height='260px' header="home.first" subheader="home.firstSub" classname="backgrAirbaloon" url = "url(img/elections-bg.jpg)"/>      
       </div>
 
          <div className='col-md-12' style = {{marginBottom:'20px',marginTop:'50px'}}>

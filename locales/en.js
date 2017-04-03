@@ -3,9 +3,9 @@ module.exports = {
 
   home: {
     first: 'Bringing Data to  People',
-    firstSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across government.',
+    firstSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across goverment.',
     second: 'Bringing Data to the People',
-    secondSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across government.',
+    secondSub:' Opening election data enfranchises new citizen-stakeholders in promoting accountability across goverment.',
     widget_title1:'Local Elections',
     widget_subtitle1:'Giving insight about municipality election',
     widget_title2:'Election Data',
@@ -51,7 +51,8 @@ module.exports = {
       STurnoutPresedential:'Visualizing TGeneral Turnout percentage during Presedential election',
       invalidTitle:"Invalid Ballots",
     ageturnTitle:"Age Turnout",
-    sexturnTitle:"Gender Turnout"
+    sexturnTitle:"Gender Turnout",
+        readmore:"readmore"
   },
   electionresult:{
     pres:"2014 Presidential Elections",
@@ -133,10 +134,14 @@ nca:"2011 NCA Elections"
       canceled:"canceled ballots",
       blank:"blank ballots",     
       spoiled:"spoiled ballots",
-      "allMunTitle1":"Municipalities of",     
-      "allMunTitle2":"governorate",
+      "allMunTitle1":"Municipalities of ",     
+      "allMunTitle2":" governorate",
       "MunAreaHover":'</b> have : </h4></br><h4 class="mapInfoText">',
-      chooseParameter:'choose paramater'
+      chooseParameter:'choose parameter',
+      canceledv:"canceled",
+      blankv:"blank",     
+      spoiledv:"spoiled",
+      fizzySearch:"Type a governorate name or Click on the map"
   },
     radioComp:{
       all:"All",

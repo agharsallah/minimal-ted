@@ -49,9 +49,11 @@
       STurnoutGender:'Visualisation du niveau de participation par genre, représenté au dessus des délégations durant ...',
   	  TTurnoutPresedential:'Participation aux présidentielles- par délégation',
       STurnoutPresedential:'Visualisation du pourcentage de la participation générale durant les élections présidentielles',
-      invalidTitle:"",
-      ageturnTitle:"",
-      sexturnTitle:""
+      invalidTitle:"Vote invalide",
+      ageturnTitle:"Participation par age",
+      sexturnTitle:"Participation par sexe",
+      readmore:"lire plus"
+
     },
   	pred2014:{
   		Tfull:'Tous les résultats',
@@ -120,14 +122,28 @@
       SBallots:'Votes et représentation politique'
     },
       map:{
-      invalid_title:"Invalid Ballot State",
-      allcount:"350 Municipalities",
-      oldcount:"75 Old Municipalities",
-      extendedcount:"189 Extended Municipalities",
-      newcount:"86 New Municipalities",
-      canceled:"canceled ballots",
-      blank:"blank ballots",     
-      spoiled:"spoiled ballots"     
+      invalid_title:"vote invalide",
+      allcount:"350 Municipalités",
+      oldcount:"75 ancien Municipalitées",
+      extendedcount:"189 Municipalitiées élargie",
+      newcount:"86 nouvel Municipalitiées",
+      canceled:"papier annulés",
+      blank:"papier vide",     
+      spoiled:"papier abîmé" ,
+       "allMunTitle1":"Municipalité de ",     
+      "allMunTitle2":"",
+      "MunAreaHover":'</b> have : </h4></br><h4 class="mapInfoText">',
+      chooseParameter:'Choisissez un paramètre',
+      canceledv:"annulés",
+      blankv:"vide",     
+      spoiledv:"abîmé",
+      fizzySearch:"Ecrire un nom de gouvernorat ou clicker sur la carte"    
+    },
+        radioComp:{
+      all:"Tous",
+      old:"Ancien",
+      new:"nouvelles",
+      extended:"élargie",
     }
 
 }

@@ -14,17 +14,17 @@ class AllMunicipalities extends Component{
 	componentWillReceiveProps(nextProps) {
 		var selectedetat=nextProps.value;
 		this.mymap.remove()
-		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
+		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 11.00], 7);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
-				id: 'mapbox.streets'
+				id: 'mapbox.streets',
+				attribution:'http://bit.ly/2nkCQoy'
 	}).addTo(this.mymap);
 		
 
 	
 			function getColor(d) {
-				console.log('here')
 				switch(selectedetat){
 					case 'old':
 			        return d == "old"  ? '#808080' :
@@ -70,28 +70,26 @@ class AllMunicipalities extends Component{
 		//------------onEachfeature
 		function onEachFeature(feature, layer) {
 			//control what happens on click
-			layer.bindPopup('</h4></br>'+feature.properties.name_en);
-
-			layer.on('click', function(e) {
-					var map = e.target._map
-					map.fitBounds(layer.getBounds(),{animate:true});
-						var link='/Municipalities/'+mun_name;
-						//browserHistory.push('/Municipalities/all');
-			});
-		    
-		    layer.on({
-		        mouseover: highlightFeature,
-		        mouseout: resetHighlight
-		    });
+			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
 		}
-	var featuresLayer = new L.GeoJSON(municipalities_shape, {
-				style: stylemunicipality,
-				onEachFeature:onEachFeature
-	}).addTo(this.mymap);
+		function onEachFeature_mun(feature, layer) {
+		let mun_name = feature.properties.name_en;
+       layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,className:"tooltipnamear" })
+					layer.on('click', function(e) {
+				var map = e.target._map
+				var link='/Municipalities/'+feature.properties.circ;
+ 				browserHistory.push(link);
+        	});
+		}
 	
 	var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
 				style: style,
 				onEachFeature:onEachFeature
+	}).addTo(this.mymap);
+	
+	var featuresLayer = new L.GeoJSON(municipalities_shape, {
+				style: stylemunicipality,
+				onEachFeature:onEachFeature_mun
 	}).addTo(this.mymap);
 
 
@@ -115,7 +113,6 @@ class AllMunicipalities extends Component{
 	   		function onEachFeature(feature, layer) {
 			//control what happens on click
 			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
-			console.log(feature.properties)
 			layer.on('click', function(e) {
 				var map = e.target._map
 				var link='/Municipalities/'+feature.properties.NAME_1;
@@ -147,21 +144,22 @@ class AllMunicipalities extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 11.00], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
-				id: 'mapbox.streets'
+				id: 'mapbox.streets',
+				attribution:'http://bit.ly/2nkCQoy'
 	}).addTo(this.mymap);
 	
-	var featuresLayer = new L.GeoJSON(municipalities_shape, {
-				style: stylemunicipality,
-				onEachFeature:onEachFeature
-	}).addTo(this.mymap);
-	
-	var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
+		var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
 				style: style,
 				onEachFeature:onEachFeature
 	}).addTo(this.mymap);
+	var featuresLayer = new L.GeoJSON(municipalities_shape, {
+				style: stylemunicipality,
+				onEachFeature:onEachFeature_mun
+	}).addTo(this.mymap);
+	
 	function getColor(d) {
 	    return d == "old"  ? '#808080' :
 	           d == "new" ? '#3aaf85' :
@@ -172,17 +170,20 @@ class AllMunicipalities extends Component{
 		function onEachFeature(feature, layer) {
 			//control what happens on click
 			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
-			console.log(feature.properties)
-			layer.on('click', function(e) {
+		}
+		function onEachFeature_mun(feature, layer) {
+			let mun_name = feature.properties.name_en;
+		layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,className:"tooltipnamear" })
+					layer.on('click', function(e) {
 				var map = e.target._map
-				var link='/Municipalities/'+feature.properties.NAME_1;
+				var link='/Municipalities/'+feature.properties.circ;
  				browserHistory.push(link);
         	});
+	}
 
-		}
 	function style(feature) {
 		    return {
-			        weight: 2,
+			        weight: 3,
 			        color: 'black',
 			        fillOpacity: 0
 		    };

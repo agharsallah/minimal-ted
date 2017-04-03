@@ -2,8 +2,8 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
-import inexistant_delegation from'./data/inexistant_invalid_delegation_data'
-import existant_delegation from'./data/existant_invalid_delegation_data'
+//import inexistant_delegation from'./data/inexistant_invalid_delegation_data'
+//import existant_delegation from'./data/existant_invalid_delegation_data'
 class BallotState extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -68,13 +68,13 @@ class BallotState extends Component{
 		let invalidPercentage = (feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage);
 		invalidPercentage=Number(invalidPercentage).toFixed(2);
 		let invalid = feature.properties.canceled + feature.properties.blank + feature.properties.spoiled ;
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+invalid+' invalid (blank-canceled) ballot'+'</br>'+invalidPercentage+'% invalid of total voters' );
+		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+invalid+' invalid (blank-spoiled-canceled) ballot'+'</br>'+invalidPercentage+'% invalid of total voters' );
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
 	    });
 	}
-    var featuresLayer = new L.GeoJSON(existant_delegation, {
+    var featuresLayer = new L.GeoJSON(g_existant_invalid_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -151,7 +151,7 @@ class BallotState extends Component{
 				: '');
 		};
 		infoinex.addTo(this.mymap);
-	    var featuresLayer2 = new L.GeoJSON(inexistant_delegation, {
+	    var featuresLayer2 = new L.GeoJSON(g_inexistant_invalid_delegation, {
     		style: styleinexistant,
 			onEachFeature:onEachFeatureinex
 		}).addTo(this.mymap);	
@@ -181,7 +181,7 @@ class BallotState extends Component{
             type: 'bar'
         },
         title: {
-            text: "  نسبة اوراق الاقتراع الغير صالحة في "+ props.NAME_AR
+            text: 'Votes Overview in '+ props.NAME_EN
         },
         labels: {
              overflow: 'justify'
@@ -193,9 +193,10 @@ class BallotState extends Component{
             bar: {
                 dataLabels: {
 					style: {
-						color: 'black',
+						color: '#525151',
 						fontWeight: 'bold',
-						fontSize:'18px'
+						fontSize:'14px',
+						fontStyle:'Helvetica'
 					},
                     enabled: true,
                     formatter:function() 
@@ -206,7 +207,7 @@ class BallotState extends Component{
                         switch(pntr){
 
                         	case 1 :
-                        	return  invalidPercentage +'%'+" - "+invalid;
+                        	return invalid +' invalid ballot:  '+invalidPercentage+'%';
                         	break;
                         	case 2:
                         	return props.SigningVoters
@@ -229,19 +230,19 @@ class BallotState extends Component{
             shadow: true
         },
         xAxis: {
-            categories: ['الأوراق الغير صالحة']
+            categories: ['Invalid Votes']
         },
         yAxis: {
             title: {
-                text: 'عدد الأوراق '
+                text: 'value'
             }
         },
         series: [
-        {	name: 'الأوراق الغير صالحة',
+        {	name: 'invalid',
             data: [props.canceled+props.blank]
         },
         {
-            name: 'المجموع',
+            name: 'Total',
             data: [props.SigningVoters]
         }],
         credits: false
@@ -257,11 +258,11 @@ class BallotState extends Component{
     var legend = L.control({position: 'bottomright'});
 		legend.onAdd = function (map) {
 
-	    var div = L.DomUtil.create('div', 'infoLegar legend'),
+	    var div = L.DomUtil.create('div', 'infoLeg legend'),
 	        grades = [0, 1, 4, 7, 10],
 	        labels = [];
 
-	    div.innerHTML +='<p>اوراق إقتراع غير صالحة </p>'
+	    div.innerHTML +='<p>invalid ballots Percentage </p>'
 	    // loop through our canceled intervals and generate a label with a colored square for each interval
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=

@@ -90,9 +90,9 @@ class MunicipalityMap extends Component{
 		//------------onEachfeature
 		function onEachFeature(feature, layer) {
 		//let mun_name = feature.properties.name_en;
-		let mun_name = feature.properties.name_ar;
-       //layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,direction:"right" })
-		 layer.bindTooltip(mun_name,{ permanent: false,direction:"right",className:"tooltipnamear" })
+		let mun_name = feature.properties.name_en;
+       layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,className:"tooltipnamear" })
+		//layer.bindTooltip(mun_name,{ permanent: false,direction:"right",className:"tooltipnamear" })
 
 		layer.on({
 		        mouseover: highlightFeature,
@@ -109,23 +109,23 @@ class MunicipalityMap extends Component{
 	    var info = L.control();
 
 			info.onAdd = function (map) {
-			    this._div = L.DomUtil.create('div', 'infoLegend'); // create a div with a class "info"
+			    this._div = L.DomUtil.create('div', 'mun_map_legend'); // create a div with a class "info"
 			    this.update();
 			    return this._div;
 			};
 
 		// -------method that we will use to update the control based on feature properties passed
 
-/*		info.update = function (props) {
+		info.update = function (props) {
 		    this._div.innerHTML = (props ?
 		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
-		    };*/
-					info.update = function (props) {
+		    };
+/*					info.update = function (props) {
 		    this._div.innerHTML =  (props ?
 		        '<h4 class="mapInfoTextar"><b>' + props.name_ar + ':</b></h4></br><h4 class="mapInfoTextar"> '+props.seats +' مقعد</h4></br><h4 class="mapInfoTextar"> '+ props.citizens +' نسمة </h4></br><h4 class="mapInfoTextar" >' +props.area +' كم²  </h4>'
 		        : '');
-		    };
+		    };*/
 
 			info.addTo(this.mymap);
 
@@ -135,11 +135,11 @@ class MunicipalityMap extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	console.log(this.props.MunAreaHover)
+	//console.log(this.props.MunAreaHover)
 	const { zoom } = this.props
 	let governourate_name=this.props.munname
 	
-	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.20], zoom);
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], zoom);
 	
 	var map = this.mymap ;
 	map.createPane('labels');
@@ -186,10 +186,10 @@ class MunicipalityMap extends Component{
 	function clickfeature(e) {
 		var layer = e.target;
 		var map = layer._map
-		console.log(layer)
+		//console.log(layer)
 		var point = new L.Tooltip();
         point.setLatLng(layer.getBounds().getCenter());
-        console.log(point)
+        //console.log(point)
 		map.fitBounds(point._latlng);
 	}
 	//--------Style of the map
@@ -207,8 +207,9 @@ class MunicipalityMap extends Component{
 
 
 	function onEachFeature(feature, layer) {
-/*		let mun_name = feature.properties.name_en;
-*/		let mun_name = feature.properties.name_ar;
+		let mun_name = feature.properties.name_en;
+		//let mun_name = feature.properties.name_ar;
+		
 		//control what happens on click
 		//layer.bindPopup('</h4></br>'+feature.properties.name_en);
 		layer.on('click', function(e) {
@@ -221,8 +222,8 @@ class MunicipalityMap extends Component{
 		/*var label = new L.Tooltip();
         label.setLatLng(layer.getBounds().getCenter());*/
         /*adding permanent label { permanent: true }*/
-/*        layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,direction:"right" })
-*/        layer.bindTooltip(mun_name,{ permanent: false,direction:"right",className:"tooltipnamear" })
+        layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,className:"tooltipnamear" })
+        //layer.bindTooltip(mun_name,{ permanent: false,direction:"right",className:"tooltipnamear" })
 	    
 		layer.on({
 	        mouseover: highlightFeature,
@@ -237,22 +238,22 @@ class MunicipalityMap extends Component{
 
     	var info = L.control();
 		info.onAdd = function (map) {
-		    this._div = L.DomUtil.create('div', 'infoLegend'); // create a div with a class "info"
+		    this._div = L.DomUtil.create('div', 'mun_map_legend'); // create a div with a class "info"
 		    this.update();
 		    return this._div;
 		};
 
 	// -------method that we will use to update the control based on feature properties passed
-/*		info.update = function (props) {
+		info.update = function (props) {
 		    this._div.innerHTML =  (props ?
 		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText" >' + props.area + ' km² of area</h4>'
-		        : 'Hover over a state');
-		    };*/
-		info.update = function (props) {
+		        : 'Hover over a municipality');
+		    };
+/*		info.update = function (props) {
 		    this._div.innerHTML =  (props ?
 		        '<h4 class="mapInfoTextar"><b>' + props.name_ar + ':</b></h4></br><h4 class="mapInfoTextar"> '+props.seats +' مقعد</h4></br><h4 class="mapInfoTextar"> '+ props.citizens +' نسمة </h4></br><h4 class="mapInfoTextar" >' +props.area +' كم²  </h4>'
 		        : '');
-		    };
+		    };*/
 		info.addTo(this.mymap);
 	}//end component did mount
 

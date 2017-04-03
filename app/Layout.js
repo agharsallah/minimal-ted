@@ -13,14 +13,12 @@ export default class Layout extends Component{
 	constructor(props) {
     super(props);
     this.state = {
-    	value: 'ar'
+    	value: 'en'
 	};
     this.handleChange = this.handleChange.bind(this);
   }
 	componentWillMount() {
-		 		{/*counterpart.getLocale();*/}
-				 	   counterpart.setLocale("ar");
-
+		 		counterpart.getLocale();
 	}
 
 	handleChange (event, index, value) {
@@ -46,10 +44,8 @@ export default class Layout extends Component{
 
 		const electoral_data = <Translate type="text" content="navbar.electoral_data"/>
 		const electoral_result = <Translate type="text" content="navbar.electoral_result"/>
-/*		const Presedential = <Translate type="text" content="navbar.Presedential"/>
-		const Parlamentary = <Translate type="text" content="navbar.Parlamentary"/>
-		const NCA = <Translate type="text" content="navbar.NCA"/>
-*/		return(
+
+		return(
 			<div>
 
 		<div className="navbar">
@@ -60,17 +56,12 @@ export default class Layout extends Component{
 		        <span className="icon-bar"></span>
 		        <span className="icon-bar"></span>
 		      </button>
-		      <a className="navbar-brand" style={{fontSize:'20px',marginRight:"15px"}} href="#">TunisieElections</a>
+		      <a className="navbar-brand" style={{fontSize:'20px',marginRight:"15px"}} href="#">TunisieElections<sub className="betastyle">Beta</sub></a>
 		    </div>
 		    <div className="navbar-collapse collapse navbar-responsive-collapse">
 		      <ul className="nav navbar-nav navbar-style">
 		        <li><Link to={'/'} activeClassName="activeN">{home}</Link></li>
-{/*		        <li>
-			 		<DropDownMenu labelStyle={{color:'inherit'}} value={this.props.type} >
-			          <MenuItem value={'electoral_data'} label={"data"} primaryText={electoral_data} containerElement={<Link to="/data" activeClassName="activeN" />}/>
-			          <MenuItem value={'electoral_result'} primaryText={electoral_result} containerElement={<Link to="/result" activeClassName="activeN"/>}/>
-			    </DropDownMenu>
-		        </li>*/}
+
 		        
 		        <li ><Link to={'/Municipalities/all'} activeClassName="activeN">{local_election}</Link></li>
 		        <li ><Link to={'/data'} activeClassName="activeN">{election_data}</Link></li>
@@ -78,8 +69,8 @@ export default class Layout extends Component{
 		        <li ><IndexLink to={'/webradar'} activeClassName="activeN">{web_radar}</IndexLink></li>
 						<li style={{float:"right"}}>      	
 		        	<DropDownMenu labelStyle={{color:'inherit'}} value={this.state.value} onChange={this.handleChange} >
-			          {/*<MenuItem value={'en'} primaryText={en} />
-			          <MenuItem value={'fr'} primaryText={fr} />*/}
+			          <MenuItem value={'en'} primaryText={en} />
+			          <MenuItem value={'fr'} primaryText={fr} />
 			          <MenuItem value={'ar'} primaryText={ar} />
 			        </DropDownMenu>
 			    </li>

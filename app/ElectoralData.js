@@ -50,17 +50,17 @@ class ElectoralData extends Component{
 					{/*the widget component accepts the title  sub img link and map link */}
 
 					<div className='col-md-12' >
-						<h2 className="lefttitle" ><Translate content="electiondata.invalidTitle"/> </h2>
+						<h2 className="lefttitle" style={{  marginLeft:'1.3%'}}><Translate content="electiondata.invalidTitle"/> </h2>
 						<Widget position='col-md-4' title ={TballotState} subtitle={STballotState} imgsrc="All-Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="1"/>					
 						<Widget position='col-md-4' title ={TBlankByDelegation} subtitle={SBlankByDelegation} imgsrc="Blank-ballots-by-delegation.png"   elecType={elecType} elecYear={elecYear} link={link} imageopacity="1"/>
 					</div>
 					<div className='col-md-12' >
-						<h2 className="lefttitle" ><Translate content="electiondata.ageturnTitle"/> </h2>
+						<h2 className="lefttitle" style={{  marginLeft:'1.3%'}}><Translate content="electiondata.ageturnTitle"/> </h2>
 						<Widget position='col-md-4' title ={TAgeTurnoutDelegation} subtitle={SAgeTurnoutDelegation} imgsrc="Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link="#" imageopacity="0.3"/>
 						<Widget position='col-md-4' title ={TAgeTurnoutDelegationAll} subtitle={SAgeTurnoutDelegationAll} imgsrc="All-Age-Turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link="#" imageopacity="0.3"/>
 					</div>
 					<div className="col-md-12">
-						<h2  className="lefttitle" ><Translate content="electiondata.sexturnTitle"/> </h2>
+						<h2  className="lefttitle" style={{  marginLeft:'1.3%'}}><Translate content="electiondata.sexturnTitle"/> </h2>
 						<Widget position='col-md-4' title ={TTurnoutGender} subtitle={STurnoutGender} imgsrc="Gender-turnout-by-delegation.png"   elecType={elecType} elecYear={elecYear} link="#" imageopacity="0.3"/>
 					</div>
 		</div>

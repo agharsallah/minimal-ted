@@ -134,12 +134,14 @@ module.exports = {
       canceled:"الأصوات الملغات",
       blank:"الأوراق البيضاء ",     
       spoiled:"الأوراق التالفة " ,
-      "allMunTitle1":"بلديات ولاية",     
+      "allMunTitle1":"",     
       "allMunTitle2":"", 
       chooseParameter:'إختر المعطيات ',
-      canceled:"الملغات",
-      blank:"البيضاء",
-      spoiled:"التالفة"
+      canceledv:"الملغات",
+      blankv:"البيضاء",
+      spoiledv:"التالفة",
+      fizzySearch:" إختر ولاية "
+
    
     },
     radioComp:{

@@ -3,8 +3,8 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
 import { getColor} from './mutual/fun';
-import inexistant_delegation from'./data/inexistant_invalid_delegation_data'
-import existant_delegation from'./data/existant_invalid_delegation_data'
+//import inexistant_delegation from'./data/inexistant_invalid_delegation_data'
+//import existant_delegation from'./data/existant_invalid_delegation_data'
 class BlankBallotsDelegation extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -116,7 +116,7 @@ class BlankBallotsDelegation extends Component{
 				: '');
 		};
 		infoinex.addTo(this.mymap);
-	    var featuresLayer2 = new L.GeoJSON(inexistant_delegation, {
+	    var featuresLayer2 = new L.GeoJSON(g_inexistant_invalid_delegation, {
     		style: styleinexistant,
 			onEachFeature:onEachFeatureinex
 		}).addTo(this.mymap);	
@@ -132,9 +132,9 @@ class BlankBallotsDelegation extends Component{
     /*--custom legend on hover*/
 
     		info.update = function (props) {
-		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' '
-		        : '');
+/*		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
+		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'
+		        : 'Hover over a state');*/
 		    if (props) {
 		    			var percentage = parameter+'Percentage' // create a variable to match the prtoperty in the geojson
 					    console.log(percentage)
@@ -202,7 +202,7 @@ class BlankBallotsDelegation extends Component{
 		};
 		info.addTo(this.mymap);
 
-    var featuresLayer = new L.GeoJSON(existant_delegation, {
+    var featuresLayer = new L.GeoJSON(g_existant_invalid_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -227,7 +227,7 @@ class BlankBallotsDelegation extends Component{
     var legend = L.control({position: 'bottomright'});
 		legend.onAdd = function (map) {
 
-	    var div = L.DomUtil.create('div', 'infoLegar legend'),
+	    var div = L.DomUtil.create('div', 'infoLeg legend'),
 	        grades = [0, 1, 4, 7, 10],
 	        labels = [];
 
@@ -300,7 +300,7 @@ class BlankBallotsDelegation extends Component{
 	        mouseout: resetHighlight
 	    });
 	}
-    var featuresLayer = new L.GeoJSON(existant_delegation, {
+    var featuresLayer = new L.GeoJSON(g_existant_invalid_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -376,7 +376,7 @@ class BlankBallotsDelegation extends Component{
 				: '');
 		};
 		infoinex.addTo(this.mymap);
-	    var featuresLayer2 = new L.GeoJSON(inexistant_delegation, {
+	    var featuresLayer2 = new L.GeoJSON(g_inexistant_invalid_delegation, {
     		style: styleinexistant,
 			onEachFeature:onEachFeatureinex
 		}).addTo(this.mymap);	
@@ -393,10 +393,10 @@ class BlankBallotsDelegation extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h4></h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ''+
+/*		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
+		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'+
  				<Highchart />
-		        : '');
+		        : 'Hover over a state');*/
 		    if (props) {
 		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;
@@ -467,7 +467,7 @@ class BlankBallotsDelegation extends Component{
     var legend = L.control({position: 'bottomright'});
 		legend.onAdd = function (map) {
 
-	    var div = L.DomUtil.create('div', 'infoLegar legend'),
+	    var div = L.DomUtil.create('div', 'infoLeg legend'),
 	        grades = [0, 1, 4, 7, 10],
 	        labels = [];
 

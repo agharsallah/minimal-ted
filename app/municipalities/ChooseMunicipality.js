@@ -7,6 +7,12 @@ import Radio_state from './Radiobutton_state.js';
 import Layout from './../Layout';
 import namesJson from'./data/mun_names';
 import Translate from 'react-translate-component';
+import fuzzycitysearch from'./data/city_list'
+import AutoComplete from 'material-ui/AutoComplete';
+
+import {Link} from 'react-router';
+import {browserHistory} from 'react-router';
+
 
 export default class ChooseMunicipality extends Component{
 
@@ -19,6 +25,13 @@ export default class ChooseMunicipality extends Component{
 					}
 		this.handleMunState = this.handleMunState.bind(this);
 		this.handleSend = this.handleSend.bind(this);
+		this.changetomap = this.changetomap.bind(this);
+		//this.handleclick = this.handleclick.bind(this);
+	}
+	
+	changetomap(chosenRequest){
+		var link='/Municipalities/'+chosenRequest;
+ 		browserHistory.push(link);
 	}
 	handleSend(value){
 		if (value == 'ar') {
@@ -33,7 +46,9 @@ export default class ChooseMunicipality extends Component{
   capitalizeFirstLetter(string) {
     	return string.charAt(0).toUpperCase() + string.slice(1);
 	}
-	
+/*	  handleclick(string) {
+		  window.location.href="https://drive.google.com/open?id=0B3qFHJ3bomMvRGk2a3hhUmNfeUlEdFdQYTE2bW9GVU0xQnBv"
+	}*/
 	render(){
 		let munstate = this.state.munstate;
 		let city = this.props.params.municipalitymap;
@@ -47,6 +62,9 @@ export default class ChooseMunicipality extends Component{
 		  		   		
 		if (city=="Kébili"||city=="Tataouine")
 			{var zoom = 8 }
+		else if(city=="Monastir"||city=="BenArous"||city=="BenArous"||city=="Tunis"||city=="Manouba"){
+			{var zoom = 10 }
+		}
 		else {var zoom = 9 }
       switch (city){
         case 'all':
@@ -54,27 +72,42 @@ export default class ChooseMunicipality extends Component{
 				<div style={{position:"relative"}}>  
 	                <Layout SendToFather={this.handleSend}/>
 					<Radio_state handleMunState={this.handleMunState} style="allmunradio"/>
-	                <div style={{position:"absolute",zIndex: "2",marginTop:"50px",width:"40%",right:"2%"}}>
+	                
+					<div style={{position:"absolute",zIndex: "2",marginTop:"50px",width:"40%",right:"5%"}}>
 	                	{
 						this.state.munstate=="all"?<h1 style={{float:'right'}} className="hometitle" ><Translate content="map.allcount"/></h1>:
 						this.state.munstate=="old"?<h1 style={{float:'right'}} className="hometitle" ><Translate content="map.oldcount"/></h1>:
 						(this.state.munstate=="extended")?<h1 style={{float:'right'}} className="hometitle" ><Translate content="map.extendedcount"/></h1>:
 						<h1 style={{float:'right'}} className="hometitle" ><Translate content="map.newcount"/> </h1>
 						}  
-	                </div>
-{/*					<div style={{position:"absolute",zIndex: "2",marginTop:"250px",width:"40%",right:"2%"}}>
-						 <RaisedButton label="Download Pdf file" primary={true}  />
+	                
+					<div style={{top:"250px !important"}}>
+						<AutoComplete
+							animated={true}
+							textFieldStyle={{display: "inline-block",width:'420px',fontSize:'18px',color:"red"}}
+							floatingLabelText={<Translate content="map.fizzySearch"/>}
+							filter={AutoComplete.fuzzyFilter}
+							dataSource={fuzzycitysearch}
+							maxSearchResults={5}
+							onNewRequest={this.changetomap}
+							floatingLabelStyle	={{color:"black"}}
+							style={{width: "65%",marginTop: "60px",marginLeft: "33%"}}
+						/>
+					</div>
+					</div>
+
+					{/* <div style={{position:"absolute",zIndex: "2",marginTop:"500px",right:"2%"}}>
+					 <RaisedButton onTouchTap={this.handleclick} label="Download Pdf file" primary={true} />		 
 	                </div>*/}
 	                <AllMunicipalities  style={{position:"absolute"}} value={this.state.munstate} />
-	            </div> 
-					);
+	            </div>);
 			break; 
 
 			default:
         		return(
 					<div style={{position:"relative"}}>  
 		               <Layout SendToFather={this.handleSend}/>
-						<h2 className="hometitle"style={{color:'black',marginTop:"10px",marginBottom:"10px"}} ><Translate content="map.allMunTitle1"/> {nameMunAr}<Translate content="map.allMunTitle2"/> </h2>
+						<h2 className="hometitle"style={{color:'black',marginTop:"10px",marginBottom:"10px"}} ><Translate content="map.allMunTitle1"/> {city}<Translate content="map.allMunTitle2"/> </h2>
 					<div >
 						<Radio_state handleMunState={this.handleMunState} style="munradio"/>
 	                </div>
