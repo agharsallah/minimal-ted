@@ -17,6 +17,7 @@ import ChooseMunicipality from './municipalities/ChooseMunicipality';
 import Split from './municipalities/Split';
 
 import NotFound from './general_component/404';
+import Home from './general_component/Home';
 
 /*import BetaViz from './test_viz/BetaViz'
 import TreeContainer from './test_viz/treechart/TreeContainer.js'
@@ -49,6 +50,8 @@ render((
         <Route path="/result/nca11/:mapId" component={MapComp}/>
 
         <Route path="/webradar" component={WebRadar}/>
+        <Route path='/Home' component={Home} />
+        
         <Route path='*' component={NotFound} />
 
 {/*        <Route path="/Projects" component={Projects}/>

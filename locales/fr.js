@@ -2,11 +2,11 @@
 
 
   home: {
-    first: 'Faire accéder le citoyen aux données',
-    firstSub:' Le libre accès aux données électorales facilite aux nouvelles parties prenantes citoyennes, la promotion de la responsabilité au sein du gouvernement.',
-    second: 'Faire accéder le citoyen aux données',
+    first: 'Plateforme Mourakiboun de données électorales en Tunisie',
+    firstSub:' ',
+    second: 'Faire accéder le citoyen aux données électorale',
     secondSub:'Le libre accès aux données électorales facilite, aux nouvelles parties prenantes citoyennes la promotion de la responsabilité au sein du gouvernement .',
-    widget_title1:'Local Elections',
+    widget_title1:'Élections Locales',
     widget_subtitle1:'Fourninr un aperçu sur les élections municipales.',
     widget_title2:'Données électorales',
     widget_subtitle2:'Résultats des élections 2011-2014 : à l\'échelle des délégations.',
@@ -18,7 +18,7 @@
 
    	navbar:{
       home:'Acceuil',
-      municipalities:'municipalités',
+      municipalities:'Municipalités',
     	projects:'Projets',
       Presedential:'Présidentielles 2014',
       Parlamentary:'Parlementaires 2014',
@@ -140,10 +140,10 @@
       fizzySearch:"Ecrire un nom de gouvernorat ou clicker sur la carte"    
     },
         radioComp:{
-      all:"Tous",
-      old:"Ancien",
-      new:"nouvelles",
-      extended:"élargie",
+      all:"Toutes",
+      old:"Anciennes",
+      new:"Nouvelles",
+      extended:"Élargies",
     }
 
 }
