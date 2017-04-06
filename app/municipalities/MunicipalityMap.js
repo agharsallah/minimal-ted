@@ -1,8 +1,11 @@
+/*Map of municipality shape diffrent for each municipality*/
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
 /*The name of municipality shapefiles is defined in the index file*/
 import shapes from "./data/mun_shapes.js";
+import Translate from 'react-translate-component';
+
 class MunicipalityMap extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -18,34 +21,37 @@ class MunicipalityMap extends Component{
 		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([35.50, 10.00], zoom);
 
 		L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-					{maxZoom:11,minZoom:10,dragging:false}
+					{maxZoom:11,minZoom:6,dragging:false}
 					).addTo(this.mymap);
 		
-		this.mymap.dragging.disable();
-	    this.mymap.scrollWheelZoom.disable();
-	    this.mymap.keyboard.disable();
-	    this.mymap.doubleClickZoom.disable();
-		this.mymap.boxZoom.disable();
+	/*		this.mymap.dragging.disable();
+			this.mymap.scrollWheelZoom.disable();
+			this.mymap.keyboard.disable();
+			this.mymap.doubleClickZoom.disable();
+			this.mymap.boxZoom.disable();*/
 
 			function getColor(d) {
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#F9F181' :
-		                    '#555';	 
+			        return d == "old"  ? '#808080' :
+		                    'rgba(51, 51, 51, 0.1)';	 
 			        break;
 			        case 'new':
-				        return d == "new"  ? '#874E12' :
-			                   '#555';	
+				        return d == "new"  ? '#3aaf85' :
+								d == "new2015"  ? '#3aaf85' :
+			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
+						
 			        case 'extended':
-				        return d == "extended"  ? '#ffa500' :
-			                   '#555';	
+				        return d == "extended"  ? '#21759b' :
+			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#F9F181' :
-					           d == "new" ? '#874E12' :
-					           d == "extended" ? '#ffa500' :
-					           '#555';
+			        	return d == "old"  ? '#808080' :
+					           d == "new" ? '#3aaf85' :
+							   d == "new2015" ? '#3aaf85' :
+					           d == "extended" ? '#21759b' :
+					           'rgba(51, 51, 51, 0.1)';
 				}
 
 		}	
@@ -55,8 +61,7 @@ class MunicipalityMap extends Component{
 		    layer.setStyle({
 		        weight: 5,
 		        color: '#666',
-		        dashArray: '',
-		        fillOpacity: 0.7
+		        fillOpacity: 1
 		    });
 
 		    info.update(layer.feature.properties);
@@ -78,16 +83,18 @@ class MunicipalityMap extends Component{
 		        weight: 2,
 		        opacity: 1,
 		        color: 'white',
-		        dashArray: '5',
-		        fillOpacity: 0.5
+		        fillOpacity: 1
 		    };
 		}	
 		
 		//------------onEachfeature
 		function onEachFeature(feature, layer) {
-			//control what happens on click
-			layer.bindPopup('</h4></br>'+feature.properties.name_en);
-		    layer.on({
+		//let mun_name = feature.properties.name_en;
+		let mun_name = feature.properties.name_en;
+       layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,className:"tooltipnamear" })
+		//layer.bindTooltip(mun_name,{ permanent: false,direction:"right",className:"tooltipnamear" })
+
+		layer.on({
 		        mouseover: highlightFeature,
 		        mouseout: resetHighlight
 		    });
@@ -102,7 +109,7 @@ class MunicipalityMap extends Component{
 	    var info = L.control();
 
 			info.onAdd = function (map) {
-			    this._div = L.DomUtil.create('div', 'infoLegend'); // create a div with a class "info"
+			    this._div = L.DomUtil.create('div', 'mun_map_legend'); // create a div with a class "info"
 			    this.update();
 			    return this._div;
 			};
@@ -114,6 +121,11 @@ class MunicipalityMap extends Component{
 		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
 		        : 'Hover over a state');
 		    };
+/*					info.update = function (props) {
+		    this._div.innerHTML =  (props ?
+		        '<h4 class="mapInfoTextar"><b>' + props.name_ar + ':</b></h4></br><h4 class="mapInfoTextar"> '+props.seats +' مقعد</h4></br><h4 class="mapInfoTextar"> '+ props.citizens +' نسمة </h4></br><h4 class="mapInfoTextar" >' +props.area +' كم²  </h4>'
+		        : '');
+		    };*/
 
 			info.addTo(this.mymap);
 
@@ -123,7 +135,7 @@ class MunicipalityMap extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	console.log(this.props.munname)
+	//console.log(this.props.MunAreaHover)
 	const { zoom } = this.props
 	let governourate_name=this.props.munname
 	
@@ -134,23 +146,20 @@ class MunicipalityMap extends Component{
 	map.getPane('labels').style.zIndex = 650;
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGlA',
-				{maxZoom:10,minZoom:10,dragging:false,pane: 'labels'}
+				{maxZoom:11,minZoom:3,dragging:false,pane: 'labels'}
 				).addTo(this.mymap);
 	
-	//desactivating dragging
-	    this.mymap.dragging.disable();
-	//desactivating scrolzoom
+/*	    this.mymap.dragging.disable();
 	    this.mymap.scrollWheelZoom.disable();
 	    this.mymap.keyboard.disable();
 	    this.mymap.doubleClickZoom.disable();
-	//delete boxzoom
-		this.mymap.boxZoom.disable();
+		this.mymap.boxZoom.disable();*/
 
 		function getColor(d) {
-	    return d == "old"  ? '#F9F181' :
-	           d == "new" ? '#874E12' :
-	           d == "new2015" ? '#874E12' :
-	           d == "extended" ? '#ffa500' :
+	    return d == "old"  ? '#808080' :
+	           d == "new" ? '#3aaf85' :
+	           d == "new2015" ? '#3aaf85' :
+	           d == "extended" ? '#21759b' :
 	                      'red';
 	}	
     //--------style applied when mouse hover
@@ -160,7 +169,7 @@ class MunicipalityMap extends Component{
 	        weight: 5,
 	        color: '#666',
 	        dashArray: '',
-	        fillOpacity: 0.7
+	        fillOpacity: 1
 	    });
 
 	    info.update(layer.feature.properties);
@@ -177,10 +186,10 @@ class MunicipalityMap extends Component{
 	function clickfeature(e) {
 		var layer = e.target;
 		var map = layer._map
-		console.log(layer)
+		//console.log(layer)
 		var point = new L.Tooltip();
         point.setLatLng(layer.getBounds().getCenter());
-        console.log(point)
+        //console.log(point)
 		map.fitBounds(point._latlng);
 	}
 	//--------Style of the map
@@ -190,8 +199,7 @@ class MunicipalityMap extends Component{
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
-	        dashArray: '5',
-	        fillOpacity: 0.5
+	        fillOpacity: 1
 	    };
 	}	
 	
@@ -199,19 +207,23 @@ class MunicipalityMap extends Component{
 
 
 	function onEachFeature(feature, layer) {
+		let mun_name = feature.properties.name_en;
+		//let mun_name = feature.properties.name_ar;
+		
 		//control what happens on click
 		//layer.bindPopup('</h4></br>'+feature.properties.name_en);
 		layer.on('click', function(e) {
 				var map = e.target._map
-				map.fitBounds(layer.getBounds(),{animate:true});
-					var link='/Municipalities/'+feature.properties.name_en;
+				/*map.fitBounds(layer.getBounds(),{animate:true});*/
+					var link='/Municipalities/'+mun_name;
  					//browserHistory.push('/Municipalities/all');
         });
 		
 		/*var label = new L.Tooltip();
         label.setLatLng(layer.getBounds().getCenter());*/
         /*adding permanent label { permanent: true }*/
-        layer.bindTooltip(feature.properties.name_en,{ permanent: true,direction:"right" })
+        layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,className:"tooltipnamear" })
+        //layer.bindTooltip(mun_name,{ permanent: false,direction:"right",className:"tooltipnamear" })
 	    
 		layer.on({
 	        mouseover: highlightFeature,
@@ -226,7 +238,7 @@ class MunicipalityMap extends Component{
 
     	var info = L.control();
 		info.onAdd = function (map) {
-		    this._div = L.DomUtil.create('div', 'infoLegend'); // create a div with a class "info"
+		    this._div = L.DomUtil.create('div', 'mun_map_legend'); // create a div with a class "info"
 		    this.update();
 		    return this._div;
 		};
@@ -234,12 +246,17 @@ class MunicipalityMap extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 		info.update = function (props) {
 		    this._div.innerHTML =  (props ?
-		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText">' + props.area + ' km² of area</h4>'
-		        : 'Hover over a state');
+		        '<h4 class="mapInfoText"><b>' + props.name_en + '</b> have : </h4></br><h4 class="mapInfoText">' + props.seats + ' seats</h4>'+ '</br><h4 class="mapInfoText">' + props.citizens + ' citizen</h4>'+ '</br><h4 class="mapInfoText" >' + props.area + ' km² of area</h4>'
+		        : 'Hover over a municipality');
 		    };
+/*		info.update = function (props) {
+		    this._div.innerHTML =  (props ?
+		        '<h4 class="mapInfoTextar"><b>' + props.name_ar + ':</b></h4></br><h4 class="mapInfoTextar"> '+props.seats +' مقعد</h4></br><h4 class="mapInfoTextar"> '+ props.citizens +' نسمة </h4></br><h4 class="mapInfoTextar" >' +props.area +' كم²  </h4>'
+		        : '');
+		    };*/
 		info.addTo(this.mymap);
 	}//end component did mount
-    
+
 	render(){
 		return(
 			<div>

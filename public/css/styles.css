@@ -9,7 +9,8 @@ background: rgba(221, 221, 221, 0.17)
 	color: red
 }
 .activeN{
-	background-color:  #d3d3d3 !important
+	background-color:  #efefef !important;
+      border-bottom: 2px solid;
 }
 /* -------widget Style-------- */
 /* Item */
@@ -83,14 +84,14 @@ background: rgba(221, 221, 221, 0.17)
   }
   ._800 {
   font-weight: 900 !important;
-  color: #FF8F00 !important;
+  color: #000 !important;
   font-size: 20px;
    }
   .h-2x {
-  height: 3.5rem;
+  /*height: 3.5rem;*/
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+ /* -webkit-line-clamp: 2;*/
   -webkit-box-orient: vertical; }
 	.m-b {
     margin-bottom: 0.5rem !important;
@@ -115,7 +116,8 @@ background: rgba(221, 221, 221, 0.17)
 .btn.btn-default,
 .btn.btn-secondary {
   border-color: rgba(120, 130, 140, 0.13);
-  margin-left: 100px;
+  margin-left: 40%;
+  margin-top: 5%;
 }
 .text{
   margin-top: 10px;
@@ -152,16 +154,25 @@ background: rgba(221, 221, 221, 0.17)
     height: 18px;
     float: left;
     margin-right: 8px;
-    opacity: 0.7;
+    opacity: 1;
 }
 .infoLeg {
   background-color: white;
   width: 300px;
 }
+.infoLegar {
+  background-color: white;
+  width: 150px;
+  direction: rtl;
+}
 /* fixing bug of distance betwin navbar and map */
 .navbar{
   margin-bottom: 0px;
   background: white
+}
+.navbar-style{
+    font-size: 18px;
+    width: 85%;
 }
 
 /* public UI */
@@ -230,7 +241,7 @@ background: rgba(221, 221, 221, 0.17)
 /* image background parallalx */
   .backgrAirbaloon{
   height: 638px;
-  background-position: 48% -63.8px;
+  background-position: 48% -65.8px;
   background-size: 100% auto;
   max-width: 100%;
   background-repeat: no-repeat;
@@ -276,13 +287,13 @@ background: rgba(221, 221, 221, 0.17)
 
 }
 .infoLegend2 h4 {
-    margin-left: :10px;
+    margin-left: 10px;
     color: #777;
 }
 /* title in municipalities corner */
         
 .municipalityTitle{font-family: Georgia, "Times New Roman", Times, serif;
-        font-size:45px;
+        font-size:35px;
          margin-top: 5px; margin-bottom: 0px;
          text-align: center;
         font-weight: normal;
@@ -305,14 +316,23 @@ color: #ff5722 ;
 
   font-family: "Lucida Grande", Tahoma;
     font-size: 20px;
+    text-transform: uppercase;
+    color: black !important;
+    text-align: right!important;
+}
+.mapInfoTextar{
+
+  font-family: "Lucida Grande", Tahoma;
+    font-size: 25px;
     font-weight: lighter;
     font-variant: normal;
     text-transform: uppercase;
     color: black !important;
-          margin-top: 10px;
-    text-align: center!important;
-    letter-spacing: 0.3em;
+    margin-top: 10px;
+    text-align: justify!important;
+    direction: rtl
 }
+
 .leaflet-container {
   background: rgba(69, 177, 25, 0) !important;
   }
@@ -320,7 +340,7 @@ color: #ff5722 ;
   position: absolute;
   z-Index: 3;
   margin-top:100px;
-  width:100px;
+  width:170px;
   margin-left:40px;
   font-size:25px;
   font-family:'Georgia';
@@ -328,10 +348,11 @@ color: #ff5722 ;
 .munradio{
   position: absolute;
   z-index: 9000;
-  margin-top:300px;
-  right:15%;
+  margin-top:270px;
+  right:25px;
   font-size:25px;
   font-family:'Georgia';
+  width: 170px
 }
 .tooltiplabel{
  background:transparent;
@@ -339,4 +360,143 @@ color: #ff5722 ;
   font-size:16px;
   line-height:1px;width:30px;
   height:15px;
+}
+.hometitle {
+    color: "white";
+    text-align: center;
+    margin: 0 auto;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    font-size: 30px;
+}
+.arabicstyle{
+    color: "white";
+    text-align: center;
+    margin: 0 auto;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    font-size: 70px;
+}
+/*classname for map info on hover */
+.infoinex {
+    padding: 6px 8px;
+    margin-top: 35px;
+    font-size: 15px
+}
+
+.lefttitle{
+  list-style: none;
+  font-size: 30px;
+  line-height: 1.7;
+  padding-bottom: 8px;
+    border-left: 5px solid #337ab7;
+  padding-left: 15px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  overflow: hidden
+}
+/*split screen style*/
+.leftscreen, .rightscreen {
+	width: 50%;
+  display: block
+}
+
+.leftscreen {
+  background: rgba(119, 109, 109, 0.08);
+  position: fixed;
+  width: 50%;
+  height: 100%;
+}
+
+.rightscreen {
+	margin-left: 50%;
+    position: fixed;
+  width: 50%;
+  height: 100%;
+  }
+.leftCCon {
+  padding: 15px 30px;
+}
+.leftCCon h1 {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 1.7em;
+  color: rgba(25, 36, 65, 0.7);
+}
+
+.ts .bborder {
+  border-bottom-color: #0fa7ea;
+}
+.bborder {
+    border-bottom: 3px solid #ff4c11;
+    margin-top: 10px;
+    width: 40%;
+    margin: 0 auto;
+
+} 
+.splitimage{
+  display: block;
+  margin: 0 auto;
+  margin-top:15px;
+}
+a:hover{
+    text-decoration: none;
+}
+.home-pic-backg{
+        background-color: rgba(109, 149, 187, 0.69);
+        display: inline-block;
+}
+.tooltipnamear{
+  font-size: 25px;
+}
+.betastyle{
+  top: 16px;
+    left: -14px;
+    font-family: initial;
+    color: red;
+}
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+
+}
+.loader2{
+    margin-left: "48%";
+    margin-top: "48%"
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+  .mun_map_legend {
+  font-size:22px;
+   margin-right:45px !important; 
+   margin-top: 25px !important;
+
+}
+.mun_map_legend h4 {
+    font-size:22px;
+      margin-top: -10px !important;
+    color: #777;
+}
+.warning-content {
+	position:absolute;
+  top:25%;
+  width:100%;
+  height:300px;
+  text-align:center;
+  margin:0;
+  
+  
 }

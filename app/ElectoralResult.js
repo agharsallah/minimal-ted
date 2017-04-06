@@ -3,6 +3,7 @@ import Layout from './Layout';
 import Parlamantary from './Parlamantary';
 import Projects from './Projects';
 import Nca from './Nca';
+import Translate from 'react-translate-component';
 
 class ElectoralResult extends Component{
 		constructor(props) {
@@ -24,8 +25,12 @@ class ElectoralResult extends Component{
 		return(
 			<div>
 				<Layout SendToFather={this.handleSend} type='electoral_result'/>
+						<h2 className="lefttitle" style={{  marginLeft:'2.3%'}} ><Translate type="text" content="electionresult.pres"/> </h2>
 				<Projects/>
+						<div><h2 className="lefttitle" style={{  marginLeft:'2.3%'}}><Translate type="text" content="electionresult.parl"/> </h2></div>
 				<Parlamantary/>
+						<h2 className="lefttitle" style={{  marginLeft:'2.3%'}}><Translate type="text" content="electionresult.nca"/></h2>
+					
 				<Nca/>
 			</div>
 		);

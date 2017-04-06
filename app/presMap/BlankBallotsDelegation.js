@@ -1,7 +1,10 @@
+/* the blank - spoild - canceled aprt */
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
 import { getColor} from './mutual/fun';
+//import inexistant_delegation from'./data/inexistant_invalid_delegation_data'
+//import existant_delegation from'./data/existant_invalid_delegation_data'
 class BlankBallotsDelegation extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -16,7 +19,7 @@ class BlankBallotsDelegation extends Component{
 		this.mymap.remove()
 		//console.log(parameter);
 	
-	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
+	this.mymap = L.map(this.refs.map).setView([35.00, 10.90], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
@@ -27,7 +30,7 @@ class BlankBallotsDelegation extends Component{
 	        weight: 5,
 	        color: '#666',
 	        dashArray: '',
-	        fillOpacity: 0.7
+	        fillOpacity: 1
 	    });
     	info.update(layer.feature.properties);
 
@@ -46,17 +49,78 @@ class BlankBallotsDelegation extends Component{
 	        opacity: 1,
 	        color: 'white',
 	        dashArray: '3',
-	        fillOpacity: 0.5
+	        fillOpacity: 1
 	    };
 	}	
 
 	function onEachFeature(feature, layer) {
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+" "+parameter+' ballot'+'</br>'+feature.properties.canceledPercentage+'% canceled of total voters' );
-	    layer.on({
+		console.log(feature.properties)
+	    layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+feature.properties[parameter]+' '+parameter+' ballot'+'</br>'+feature.properties[parameter+"Percentage"]+'% '+parameter+' of total voters' );
+		layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
 	    });
 	}
+	//--------------ALL stripes Logic ------------
+	 var bigStripes = new L.StripePattern({
+            patternContentUnits: 'objectBoundingBox',
+            patternUnits: 'objectBoundingBox',
+            weight: 0.1,
+            spaceWeight: 0.1,
+            height: 0.2,
+            angle: 45,
+        });
+        bigStripes.addTo(this.mymap);
+		function styleinexistant(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				fillOpacity: 1,
+				fillPattern: bigStripes
+			};
+		}	
+	//--------oneachfeaturefor inexistant
+		function onEachFeatureinex(feature, layer) {
+			layer.on({
+				mouseover: highlightFeatureinex,
+				mouseout: resetHighlightinex
+			});
+		}
+		function resetHighlightinex(e) {
+			featuresLayer2.resetStyle(e.target);
+			infoinex.update();
+		}
+		function highlightFeatureinex(e) {
+			var layer = e.target;
+			layer.setStyle({
+				weight: 3,
+				color: '#666',
+				fillOpacity: 1
+			});
+			infoinex.update(layer.feature.properties);
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+		}
+		var infoinex = L.control();
+
+		infoinex.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'infoinex'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		infoinex.update = function (props) {
+			this._div.innerHTML =  (props ?
+				'<b>' + props.NAME_EN + ': inexistant data</b>' 
+				: '');
+		};
+		infoinex.addTo(this.mymap);
+	    var featuresLayer2 = new L.GeoJSON(g_inexistant_invalid_delegation, {
+    		style: styleinexistant,
+			onEachFeature:onEachFeatureinex
+		}).addTo(this.mymap);	
+    
 	 //-----------Dynamic hover info
 		var info = L.control();
 
@@ -68,9 +132,9 @@ class BlankBallotsDelegation extends Component{
     /*--custom legend on hover*/
 
     		info.update = function (props) {
-		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
+/*		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
 		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'
-		        : 'Hover over a state');
+		        : 'Hover over a state');*/
 		    if (props) {
 		    			var percentage = parameter+'Percentage' // create a variable to match the prtoperty in the geojson
 					    console.log(percentage)
@@ -138,7 +202,7 @@ class BlankBallotsDelegation extends Component{
 		};
 		info.addTo(this.mymap);
 
-    var featuresLayer = new L.GeoJSON(OldDelegationData, {
+    var featuresLayer = new L.GeoJSON(g_existant_invalid_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -172,7 +236,7 @@ class BlankBallotsDelegation extends Component{
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
+				 (grades[i + 1] ? grades[i]+'% &ndash; ' + grades[i + 1]+ ' % <br>' : '+'+grades[i]+'%');
 	    }
 
 	    return div;
@@ -184,8 +248,9 @@ class BlankBallotsDelegation extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map).setView([35.00, 11.70], 7);
-	
+	this.mymap = L.map(this.refs.map).setView([35.00, 10.90], 7);
+	 var stripes = new L.StripePattern(); stripes.addTo(this.mymap); 
+
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
@@ -200,7 +265,7 @@ class BlankBallotsDelegation extends Component{
 	        weight: 5,
 	        color: '#666',
 	        dashArray: '',
-	        fillOpacity: 0.7
+	        fillOpacity: 1
 	    });
 
 	    info.update(layer.feature.properties);
@@ -223,7 +288,7 @@ class BlankBallotsDelegation extends Component{
 	        opacity: 1,
 	        color: 'white',
 	        dashArray: '3',
-	        fillOpacity: 0.5
+	        fillOpacity: 1
 	    };
 	}	
 	
@@ -235,7 +300,7 @@ class BlankBallotsDelegation extends Component{
 	        mouseout: resetHighlight
 	    });
 	}
-    var featuresLayer = new L.GeoJSON(OldDelegationData, {
+    var featuresLayer = new L.GeoJSON(g_existant_invalid_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
@@ -256,6 +321,65 @@ class BlankBallotsDelegation extends Component{
 			e.layer.openPopup();
 	})
 	this.mymap.addControl( searchControl );  //inizialize search control
+    //--------------ALL stripes Logic ------------
+	 var bigStripes = new L.StripePattern({
+            patternContentUnits: 'objectBoundingBox',
+            patternUnits: 'objectBoundingBox',
+            weight: 0.1,
+            spaceWeight: 0.1,
+            height: 0.2,
+            angle: 45,
+        });
+        bigStripes.addTo(this.mymap);
+		function styleinexistant(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				fillOpacity: 1,
+				fillPattern: bigStripes
+			};
+		}	
+	//--------oneachfeaturefor inexistant
+		function onEachFeatureinex(feature, layer) {
+			layer.on({
+				mouseover: highlightFeatureinex,
+				mouseout: resetHighlightinex
+			});
+		}
+		function resetHighlightinex(e) {
+			featuresLayer2.resetStyle(e.target);
+			infoinex.update();
+		}
+		function highlightFeatureinex(e) {
+			var layer = e.target;
+			layer.setStyle({
+				weight: 3,
+				color: '#666',
+				fillOpacity: 1
+			});
+			infoinex.update(layer.feature.properties);
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+		}
+		var infoinex = L.control();
+
+		infoinex.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'infoinex'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		infoinex.update = function (props) {
+			this._div.innerHTML =  (props ?
+				'<b>' + props.NAME_EN + ': inexistant data</b>' 
+				: '');
+		};
+		infoinex.addTo(this.mymap);
+	    var featuresLayer2 = new L.GeoJSON(g_inexistant_invalid_delegation, {
+    		style: styleinexistant,
+			onEachFeature:onEachFeatureinex
+		}).addTo(this.mymap);	
     
     //-----------Dynamic hover info
 		var info = L.control();
@@ -269,10 +393,10 @@ class BlankBallotsDelegation extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
+/*		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
 		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'+
  				<Highchart />
-		        : 'Hover over a state');
+		        : 'Hover over a state');*/
 		    if (props) {
 		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;
@@ -320,7 +444,7 @@ class BlankBallotsDelegation extends Component{
         },
         yAxis: {
             title: {
-                text: 'Percentage'
+                text: 'number'
             }
         },
         series: [{
@@ -352,7 +476,8 @@ class BlankBallotsDelegation extends Component{
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
+
+				 (grades[i + 1] ? grades[i]+'% &ndash; ' + grades[i + 1]+ ' % <br>' : '+'+grades[i]+'%');
 	    }
 
 	    return div;

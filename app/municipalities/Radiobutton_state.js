@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import Translate from 'react-translate-component';
+
 const Radio_state = (props)=>{
 	return(
 			<div className={props.style}>
@@ -7,22 +9,26 @@ const Radio_state = (props)=>{
 					<RadioButton
 					labelStyle={{color:'black'}}
 					value="all"
-					label="all"
+					label={<Translate content="radioComp.all"/>}
+					 style={{marginTop:"7px"}}
 					 />
 					<RadioButton
-					labelStyle={{color:'#F9F181'}}
+					labelStyle={{color:'#808080'}}
 					value="old"
-					label="old"				        
+					label={<Translate content="radioComp.old"/>}				        
+					style={{marginTop:"7px"}}
 					/>
 					<RadioButton
-					labelStyle={{color:'#E6AA09'}}
+					labelStyle={{color:'#21759b'}}
 					value="extended"
-					label="extended"
+					label={<Translate content="radioComp.extended"/>}
+					style={{marginTop:"7px"}}
 					/>
 					<RadioButton
-					labelStyle={{color:'#874E12'}}
+					labelStyle={{color:'#3aaf85'}}
 					value="new"
-					label="new"
+					label={<Translate content="radioComp.new"/>}
+					style={{marginTop:"7px"}}
 					/>
 				</RadioButtonGroup>
 	        </div>	

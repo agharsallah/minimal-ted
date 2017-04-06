@@ -1,10 +1,11 @@
+/*Maps of all Municipalities gathered : http://localhost:8080/municipalities/all*/
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
-
+import gouvernorate_shape from "./data/gouvernorates_shape";
+//import municipalities_shape from "../../public/mun_data/municipalities_shape";
 class AllMunicipalities extends Component{
-	//this will define whether the component should render or not 
-	//this component should rerender only onetime
+
 
 	shouldComponentUpdate() {
 		return false;
@@ -13,35 +14,35 @@ class AllMunicipalities extends Component{
 	componentWillReceiveProps(nextProps) {
 		var selectedetat=nextProps.value;
 		this.mymap.remove()
-		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
+		this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 11.00], 7);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
-   				maxZoom: 15,
-				id: 'mapbox.streets'
+   				maxZoom: 9,
+				id: 'mapbox.streets',
+				attribution:'http://bit.ly/2nkCQoy'
 	}).addTo(this.mymap);
 		
 
 	
 			function getColor(d) {
-				console.log('here')
 				switch(selectedetat){
 					case 'old':
-			        return d == "old"  ? '#F9F181' :
-		                    '#c8cec9';	 
+			        return d == "old"  ? '#808080' :
+		                    'rgba(51, 51, 51, 0.1)';	 
 			        break;
 			        case 'new':
-				        return (d == "new" || d =="new2015")  ? '#874E12' :
-			                   '#c8cec9';	
+				        return (d == "new" || d =="new2015")  ? '#3aaf85' :
+			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 			        case 'extended':
-				        return d == "extended"  ? '#E6AA09' :
-			                   '#c8cec9';	
+				        return d == "extended"  ? '#21759b' :
+			                   'rgba(51, 51, 51, 0.1)';	
 				        break;
 			        default :
-			        	return d == "old"  ? '#F9F181' :
-					           (d == "new" || d =="new2015") ? '#874E12' :
-					           d == "extended" ? '#E6AA09' :
-					           '#c8cec9';
+			        	return d == "old"  ? '#808080' :
+					           (d == "new" || d =="new2015") ? '#3aaf85' :
+					           d == "extended" ? '#21759b' :
+					           'rgba(51, 51, 51, 0.1)';
 				}
 
 		}	
@@ -49,10 +50,9 @@ class AllMunicipalities extends Component{
 		function highlightFeature(e) {
 		    var layer = e.target;
 		    layer.setStyle({
-		        weight: 5,
-		        color: '#666',
-		        dashArray: '',
-		        fillOpacity: 0.7
+		        weight: 4,
+		        color: 'white',
+		        fillOpacity: 1
 		    });
 
 		    info.update(layer.feature.properties);
@@ -66,54 +66,60 @@ class AllMunicipalities extends Component{
 	    	featuresLayer.resetStyle(e.target);
 	    	 info.update();
 		}
-
-		//--------Style of the map
-		function stylemunicipality(feature) {
-			    return {
-		        fillColor: getColor(feature.properties.etat),
-		        weight: 0.5,
-		        opacity: 1,
-		        color: 'blue',
-		        fillOpacity: 0.6
-			    };
-		}	
 		
 		//------------onEachfeature
 		function onEachFeature(feature, layer) {
 			//control what happens on click
-			layer.bindPopup('</h4></br>'+feature.properties.name_en);
-
-			layer.on('click', function(e) {
+			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
+		}
+		function onEachFeature_mun(feature, layer) {
+		let mun_name = feature.properties.name_en;
+       layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,className:"tooltipnamear" })
+					layer.on('click', function(e) {
 				var map = e.target._map
-				map.fitBounds(layer.getBounds(),{animate:true	});
-				var link='/ted/Municipalities/'+feature.properties.circ+'/';
+				var link='/Municipalities/'+feature.properties.circ;
  				browserHistory.push(link);
         	});
-		    
-		    layer.on({
-		        mouseover: highlightFeature,
-		        mouseout: resetHighlight
-		    });
 		}
-		var featuresLayer = new L.GeoJSON(districts, {
-				style: style
-
-		}).addTo(this.mymap);
-	    var featuresLayer = new L.GeoJSON(all, {
-	    		style: stylemunicipality,
+	
+	var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
+				style: style,
 				onEachFeature:onEachFeature
-			}).addTo(this.mymap);
+	}).addTo(this.mymap);
+	
+	var featuresLayer = new L.GeoJSON(g_mun_shapes, {
+				style: stylemunicipality,
+				onEachFeature:onEachFeature_mun
+	}).addTo(this.mymap);
 
 
 		function style(feature) {
 			    return {
-			        weight: 2.5,
+			        weight: 2,
 			        color: 'black',
-			        dashArray: '5',
 			        fillOpacity: 0
 			    };
 		}
-	   
+
+		function stylemunicipality(feature) {
+			    return {
+		        fillColor: getColor(feature.properties.etat),
+		        weight: 1,
+		        opacity: 0.8,
+		        color: 'black',
+		        fillOpacity: 0.8
+			    };
+		}	
+	   		function onEachFeature(feature, layer) {
+			//control what happens on click
+			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
+			layer.on('click', function(e) {
+				var map = e.target._map
+				var link='/Municipalities/'+feature.properties.NAME_1;
+ 				browserHistory.push(link);
+        	});
+
+		}
 	    var info = L.control();
 
 			info.onAdd = function (map) {
@@ -138,38 +144,79 @@ class AllMunicipalities extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 12.50], 7);
-	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/hpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
-   				maxZoom: 15,
-				id: 'mapbox.streets'
+	this.mymap = L.map(this.refs.map,{ zoomControl:false }).setView([34.32, 11.00], 7);
+	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
+   				maxZoom: 9,
+				id: 'mapbox.streets',
+				attribution:'http://bit.ly/2nkCQoy'
 	}).addTo(this.mymap);
 	
-	var featuresLayer = new L.GeoJSON(all, {
-	style: stylemunicipality,
+		var featuresLayer = new L.GeoJSON(gouvernorate_shape, {
+				style: style,
+				onEachFeature:onEachFeature
+	}).addTo(this.mymap);
+	var featuresLayer = new L.GeoJSON(g_mun_shapes, {
+				style: stylemunicipality,
+				onEachFeature:onEachFeature_mun
 	}).addTo(this.mymap);
 	
-	var featuresLayer = new L.GeoJSON(districts, {
-				style: style
+	function getColor(d) {
+	    return d == "old"  ? '#808080' :
+	           d == "new" ? '#3aaf85' :
+	           d == "new2015" ? '#3aaf85' :
+	           d == "extended" ? '#21759b' :
+	                      'red';
+	}
+		function onEachFeature(feature, layer) {
+			//control what happens on click
+			layer.bindPopup('</h4></br>'+feature.properties.NAME_1);
+		}
+		function onEachFeature_mun(feature, layer) {
+			let mun_name = feature.properties.name_en;
+		layer.bindTooltip(mun_name.charAt(0).toUpperCase()+ mun_name.slice(1),{ permanent: false,className:"tooltipnamear" })
+					layer.on('click', function(e) {
+				var map = e.target._map
+				var link='/Municipalities/'+feature.properties.circ;
+ 				browserHistory.push(link);
+        	});
+	}
 
-	}).addTo(this.mymap);
-	
 	function style(feature) {
 		    return {
-		        weight: 2,
-		        color: 'black',
-		        dashArray: '5',
-		        fillOpacity: 0
+			        weight: 3,
+			        color: 'black',
+			        fillOpacity: 0
 		    };
 	}	
 	
 	function stylemunicipality(feature) {
 		    return {
+		        fillColor: getColor(feature.properties.etat),
 		        weight: 1,
-		        color: 'blue',
-		        fillOpacity: 0
+		        opacity: 0.8,
+		        color: 'black',
+		        fillOpacity: 0.8
 		    };
 	}	
+			function highlightFeature(e) {
+		    var layer = e.target;
+		    layer.setStyle({
+		        weight: 4,
+		        color: 'white',
+		        fillOpacity: 1
+		    });
 
+		    info.update(layer.feature.properties);
+		    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+		        layer.bringToFront();
+		    }
+		}
+
+		//--------style applied when mouseout
+		function resetHighlight(e) {
+	    	featuresLayer.resetStyle(e.target);
+	    	 info.update();
+		}
 
 	}//end component did mount
     

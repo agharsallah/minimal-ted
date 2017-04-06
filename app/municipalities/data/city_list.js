@@ -1,7 +1,7 @@
 module.exports = [
 "Ariana",
 "Béja",
-"Ben Arous",
+"BenArous",
 "Bizerte",
 "Gabès",
 "Gafsa",

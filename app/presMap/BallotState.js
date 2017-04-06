@@ -1,7 +1,9 @@
+/*All-Blank-ballots-by-delegation- All the Invalid*/
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Highchart from '../Highchart';
-
+//import inexistant_delegation from'./data/inexistant_invalid_delegation_data'
+//import existant_delegation from'./data/existant_invalid_delegation_data'
 class BallotState extends Component{
 	//this will define whether the component should render or not 
 	//this component should rerender only onetime
@@ -13,20 +15,19 @@ class BallotState extends Component{
 	/*------------------------------------------WHAT FIRST LOADS IN THE MAP ---------------------------------------*/
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
-	this.mymap = L.map(this.refs.map).setView([35.00, 11.90], 7);
-	
+	this.mymap = L.map(this.refs.map).setView([35.00, 10.90], 7);
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
 				id: 'mapbox.streets'
 	}).addTo(this.mymap);
 
 	function getColor(d) {
-	    return d > 10 ? '#f60707' :
-	           d > 7  ? '#FF6F00' :
-	           d > 4  ? '#FFFF00' :
-	           d > 1  ? '#4CAF50' :
+	    return d > 10 ? '#000000' :
+	           d > 7  ? '#2c7fb8' :
+	           d > 4  ? '#81D4FA' :
+	           d > 1  ? '#B3E5FC' :
 	           d == 'inexistant'? '#FFFFFF' :
-	                      '#CDDC39';
+	                      '#B2DFDB';
 	}
 
 	//--------style applied when mouse hover
@@ -35,8 +36,7 @@ class BallotState extends Component{
 	    layer.setStyle({
 	        weight: 5,
 	        color: '#666',
-	        dashArray: '',
-	        fillOpacity: 0.7
+	        fillOpacity: 1
 	    });
 
 	    info.update(layer.feature.properties);
@@ -50,36 +50,35 @@ class BallotState extends Component{
     	featuresLayer.resetStyle(e.target);
     	 info.update();
 	}
-
 	//--------Style of the map
 	function style(feature) {
-		 var invalidPercentage = feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage ;
+		 var invalidPercentage = feature.properties.canceledPercentage + feature.properties.blankPercentage ;
 		 if ( isNaN(invalidPercentage)) {invalidPercentage="inexistant"}
 	    return {
 	        fillColor: getColor(invalidPercentage),
 	        weight: 2,
 	        opacity: 1,
 	        color: 'white',
-	        dashArray: '3',
-	        fillOpacity: 0.5
+	        fillOpacity: 1
 	    };
-	}	
-	
+	}
+
 	//------------onEachfeature
 	function onEachFeature(feature, layer) {
-		var invalid = feature.properties.canceled + feature.properties.blank + feature.properties.spoiled ;
-		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+invalid+' invalid ballot'+'</br>'+feature.properties.canceledPercentage+'% canceled of total voters' );
+		let invalidPercentage = (feature.properties.canceledPercentage + feature.properties.blankPercentage + feature.properties.spoiledPercentage);
+		invalidPercentage=Number(invalidPercentage).toFixed(2);
+		let invalid = feature.properties.canceled + feature.properties.blank + feature.properties.spoiled ;
+		layer.bindPopup(feature.properties.NAME_EN +'</h4></br>'+invalid+' invalid (blank-spoiled-canceled) ballot'+'</br>'+invalidPercentage+'% invalid of total voters' );
 	    layer.on({
 	        mouseover: highlightFeature,
 	        mouseout: resetHighlight
 	    });
 	}
-    var featuresLayer = new L.GeoJSON(OldDelegationData, {
+    var featuresLayer = new L.GeoJSON(g_existant_invalid_delegation, {
     		style: style,
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
-    
-    //-------------search feature
+	//-------------search feature
     var searchControl = new L.Control.Search({
     	layer:featuresLayer,
 		propertyName: 'NAME_EN',
@@ -96,6 +95,68 @@ class BallotState extends Component{
 	})
 	this.mymap.addControl( searchControl );  //inizialize search control
     
+
+//--------------ALL stripes Logic ------------
+	 var bigStripes = new L.StripePattern({
+            patternContentUnits: 'objectBoundingBox',
+            patternUnits: 'objectBoundingBox',
+            weight: 0.1,
+            spaceWeight: 1,
+            height: 0.2,
+            angle: 45,
+        });
+        bigStripes.addTo(this.mymap);
+		function styleinexistant(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				fillOpacity: 1,
+				fillPattern: bigStripes
+			};
+		}	
+	//--------oneachfeaturefor inexistant
+		function onEachFeatureinex(feature, layer) {
+			layer.on({
+				mouseover: highlightFeatureinex,
+				mouseout: resetHighlightinex
+			});
+		}
+		function resetHighlightinex(e) {
+			featuresLayer2.resetStyle(e.target);
+			infoinex.update();
+		}
+		function highlightFeatureinex(e) {
+			var layer = e.target;
+			layer.setStyle({
+				weight: 3,
+				color: '#666',
+				fillOpacity: 1
+			});
+			infoinex.update(layer.feature.properties);
+			if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+				layer.bringToFront();
+			}
+		}
+		var infoinex = L.control();
+
+		infoinex.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'infoinex'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		infoinex.update = function (props) {
+			this._div.innerHTML =  (props ?
+				'<b>' + props.NAME_EN + ': inexistant data</b>' 
+				: '');
+		};
+		infoinex.addTo(this.mymap);
+	    var featuresLayer2 = new L.GeoJSON(g_inexistant_invalid_delegation, {
+    		style: styleinexistant,
+			onEachFeature:onEachFeatureinex
+		}).addTo(this.mymap);	
+    
+ 
     //-----------Dynamic hover info
 		var info = L.control();
 
@@ -108,12 +169,12 @@ class BallotState extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-		    this._div.innerHTML = '<h4>invalid Ballots</h4>' +  (props ?
+		    this._div.innerHTML =  (props ?
 		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' invalid Ballot'+
  				<Highchart />
-		        : 'Hover over a state');
+		        : '');
 		    if (props) {
-		    var cnt = 11; // Count of the array should be here
+		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;
 		   	return(Highcharts.chart(this._div, {
         chart: {
@@ -125,29 +186,30 @@ class BallotState extends Component{
         labels: {
              overflow: 'justify'
         },
+		colors: [
+            '#2c7fb8','#000'
+            ],
         plotOptions: {
             bar: {
                 dataLabels: {
+					style: {
+						color: '#525151',
+						fontWeight: 'bold',
+						fontSize:'14px',
+						fontStyle:'Helvetica'
+					},
                     enabled: true,
                     formatter:function() 
 					{
                         pntr++;
-                        var invalid =  props.canceled + props.blank + props.spoiled ;
-                        var invalidPercentage = (props.canceledPercentage + props.blankPercentage + props.spoiledPercentage).toFixed(2) ;
+                        let invalid =  props.canceled + props.blank  ;
+                        let invalidPercentage = (props.canceledPercentage + props.blankPercentage ).toFixed(2) ;
                         switch(pntr){
+
                         	case 1 :
-                        	return props.canceled +' canceled ballot which represents '+props.canceledPercentage+'%';
+                        	return invalid +' invalid ballot:  '+invalidPercentage+'%';
                         	break;
-                        	case 5 :
-                        	return props.blank +' blank ballot which represents '+props.blankPercentage+'%';
-                        	break;
-                        	case 3 :
-                        	return props.spoiled +' spoiled ballot which represents '+props.spoiledPercentage+'%';
-                        	break;
-                        	case 8 :
-                        	return invalid +' invalid ballot which represents '+invalidPercentage+'%';
-                        	break;
-                        	case 10:
+                        	case 2:
                         	return props.SigningVoters
                         }
 
@@ -160,7 +222,7 @@ class BallotState extends Component{
             align: 'right',
             verticalAlign: 'top',
             x: -80,
-            y: 110,
+            y: 60,
             height:200,
             floating: true,
             borderWidth: 1,
@@ -168,29 +230,20 @@ class BallotState extends Component{
             shadow: true
         },
         xAxis: {
-            categories: ['Votes','invalid']
+            categories: ['Invalid Votes']
         },
         yAxis: {
             title: {
-                text: 'Percentage'
+                text: 'value'
             }
         },
-        series: [{
-            name: 'canceled',
-            data: [props.canceled,0]
-        },
-        {	name: 'spoiled',
-            data: [props.spoiled,0]
-        },
-        {	name: 'blank',
-            data: [props.blank,0]
-        },
+        series: [
         {	name: 'invalid',
-            data: [0,props.canceled+props.blank+props.spoiled]
+            data: [props.canceled+props.blank]
         },
         {
             name: 'Total',
-            data: [0,props.SigningVoters]
+            data: [props.SigningVoters]
         }],
         credits: false
     })
@@ -214,7 +267,7 @@ class BallotState extends Component{
 	    for (var i = 0; i < grades.length; i++) {
 	        div.innerHTML +=
 	            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-	            grades[i]+" %" + (grades[i + 1] ? ' &ndash; ' + grades[i + 1]+ ' % <br>' : '+');
+				 (grades[i + 1] ? grades[i]+'% &ndash; ' + grades[i + 1]+ ' % <br>' : '+'+grades[i]+'%');
 	    }
 
 	    return div;
