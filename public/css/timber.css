@@ -4855,7 +4855,7 @@ pre code{
 .color-hover-white:hover{color: #ffffff;}
 .color-grey{color: #666666;}
 .color-hover-grey:hover{color: #555555;}
-.color-grey-light{color: #999999;}
+.color-grey-light{color: #999999 !important;}
 .color-hover-grey-light:hover{color: #888888;}
 .color-grey-ultralight{color: #f4f4f4;}
 .color-hover-grey-ultralight:hover{color: #f1f1f1;}

@@ -795,6 +795,7 @@ body.boxed .header .header-inner{
 /* Logo Swap - when header background changes*/
 .header .logo a:first-child{
 	display: none;
+	top:30%;
 }
 .header .logo a:last-child{
 	display: table-cell;
@@ -1811,7 +1812,7 @@ only screen and (				min-resolution: 2dppx) {
 .feature-slider{
 	width: 100%;
 	height: 100%;
-	display: table;
+	/*display: table;*/
 	table-layout: fixed;
 }
 .feature-content-inner,
