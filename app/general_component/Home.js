@@ -127,6 +127,7 @@ class Home extends Component {
                 </header> 
                   </div>
                  </div>
+               <div class="content clearfix">
                  <section className="section-block fullscreen-section fullscreen-section no-overlay fullscreen-inner featured-media page-intro small tm-slider-parallax-container">
 					<div className="tm-slider-container full-width-slider" data-parallax data-parallax-fade-out data-animation="slide" data-scale-under="1140" data-scale-min-height="300">
 						<ul className="tms-slides">
@@ -136,7 +137,7 @@ class Home extends Component {
 										<div className="row">
 											<div className="column width-12">
 												<h1 className="tms-caption  inline"
-													data-animate-in="preset:slideInUpShort;duration:300ms;delay:10ms;easing:easeOut;"
+													data-animate-in="preset:slideInUpShort;duration:200ms;delay:1ms;easing:easeOut;"
 													data-no-scale
                                                     style={{color:"white"}}
                                                 >
@@ -155,19 +156,19 @@ class Home extends Component {
 				</section>
                 <section id="block-design" className="section-block feature-2">
 					<div className="row flex">
-						<div className="column width-6 push-6">
+						<div className="column width-4 push-7">
 							<div className="feature-image mb-mobile-50">
-								<div className="feature-image-inner center-on-mobile horizon"  data-animate-in="preset:slideInRightShort;duration:1000ms;delay:1500ms;easing:easeOut;" data-threshold="0.6">
-									<img width="100px" height="100" src="img/mun.jpg" alt="Sartre HTML Shop Grid Layou" title="Sartre Multipurpose HTML Template Shop Grid Layout" />
+								<div className="feature-image-inner center-on-mobile horizon"  data-animate-in="preset:slideInRightShort;duration:1000ms;delay:00ms;easing:easeOut;" data-threshold="0.6">
+									<img width="400" height="500" src="img/mun.jpg" alt="Sartre HTML Shop Grid Layou" title="Sartre Multipurpose HTML Template Shop Grid Layout" />
 								</div>
 							</div>
 						</div>
-						<div className="column width-5 pull-6 pull-1">
+						<div className="column width-5 pull-4 pull-1">
 							<div className="feature-content">
-								<div className="feature-content-inner horizon center-on-mobile" data-animate-in="preset:slideInUpShort;duration:1000ms;delay:1500ms;easing:easeOut;" data-threshold="0.6">
+								<div className="feature-content-inner horizon center-on-mobile" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-threshold="0.6">
 									<h2 className="mb-30">Local Elections</h2>
-									<p className="lead">Description about the Local elections</p>
-									<p>Description about what you can find in this section</p>
+									<p className="lead">Description about the Local elections Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti recusandae illo eum inventore quam maiores voluptatum totam laborum officia quo, ipsam dolore expedita iusto sequi cum dolorum? Impedit, possimus, molestiae.</p>
+									<p>Description about what you can find in this section Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae atque error autem! Aut, explicabo expedita ipsa aspernatur animi libero perferendis magnam veritatis qui iste, enim ea blanditiis iusto tempora cupiditate!</p>
 								</div>
 							</div>
 						</div>
@@ -193,6 +194,7 @@ class Home extends Component {
 						</div>
 					</div>
 				</section>
+            </div>
             <h1>test</h1>
             <h1>test</h1>
             <h1 style={{marginTop:'5000px'}} >test</h1>
