@@ -445,8 +445,8 @@ body,
 .fullscreen-section .fullscreen-inner,
 .pagination-2 .pagination-next,
 .row.xlarge{
-	padding-top: 11rem;
-	padding-bottom: 11rem;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
 }
 .replicable-content,
 .row.xlarge.replicable-content{
@@ -3849,3 +3849,24 @@ only screen and (				min-resolution: 2dppx) {
 		background-image: url(../images/generic/signup-1@2x.jpg);
 	}
 }
+/*added*/
+.noanimation{
+ /*CSS transitions*/
+ -o-transition-property: none !important;
+ -moz-transition-property: none !important;
+ -ms-transition-property: none !important;
+ -webkit-transition-property: none !important;
+ transition-property: none !important;
+ /*CSS transforms*/
+ -o-transform: none !important;
+ -moz-transform: none !important;
+ -ms-transform: none !important;
+ -webkit-transform: none !important;
+ transform: none !important;
+ /*CSS animations*/
+ -webkit-animation: none !important;
+ -moz-animation: none !important;
+ -o-animation: none !important;
+ -ms-animation: none !important;
+ animation: none !important;
+ }

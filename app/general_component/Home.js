@@ -154,18 +154,18 @@ class Home extends Component {
 						</ul>
 					</div>
 				</section>
-                <section id="block-design" className="section-block feature-2">
+                <section  className=" section-block feature-2 ">
 					<div className="row flex">
 						<div className="column width-4 push-7">
 							<div className="feature-image mb-mobile-50">
-								<div className="feature-image-inner center-on-mobile horizon"  data-animate-in="preset:slideInRightShort;duration:1000ms;delay:00ms;easing:easeOut;" data-threshold="0.6">
+								<div className=""  data-animate-in="preset:slideInRightShort;duration:500ms;easing:easeOut;" data-threshold="0.6">
 									<img width="400" height="500" src="img/mun.jpg" alt="Sartre HTML Shop Grid Layou" title="Sartre Multipurpose HTML Template Shop Grid Layout" />
 								</div>
 							</div>
 						</div>
 						<div className="column width-5 pull-4 pull-1">
 							<div className="feature-content">
-								<div className="feature-content-inner horizon center-on-mobile" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-threshold="0.6">
+								<div className="" data-animate-in="preset:slideInUpShort;duration:500ms;" data-threshold="0.6">
 									<h2 className="mb-30">Local Elections</h2>
 									<p className="lead">Description about the Local elections Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti recusandae illo eum inventore quam maiores voluptatum totam laborum officia quo, ipsam dolore expedita iusto sequi cum dolorum? Impedit, possimus, molestiae.</p>
 									<p>Description about what you can find in this section Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae atque error autem! Aut, explicabo expedita ipsa aspernatur animi libero perferendis magnam veritatis qui iste, enim ea blanditiis iusto tempora cupiditate!</p>
