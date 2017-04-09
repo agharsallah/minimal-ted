@@ -15,7 +15,7 @@ import { Router, Route, browserHistory } from 'react-router';
 import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';
 //import Split from './municipalities/Split';
-import Calendar from './municipalities/calendar/Calendar';
+import CalendarRoot from './municipalities/calendar/CalendarRoot';
 
 import NotFound from './general_component/404';
 import Home from './general_component/Home';
@@ -51,7 +51,7 @@ render((
         <Route path="/result/nca11/:mapId" component={MapComp}/>
 
         <Route path="/webradar" component={WebRadar}/>
-        <Route path="/calendar" component={Calendar}/>
+        <Route path="/calendar" component={CalendarRoot}/>
         <Route path='/Home' component={Home} />
         
         <Route path='*' component={NotFound} />
