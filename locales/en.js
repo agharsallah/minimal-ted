@@ -166,7 +166,7 @@ nca:"2011 NCA Elections"
       year3:"2017",
 
       title4:"Registration",
-      description4:"Electors registration starts ",
+      description4:"Electors registration starts, Operation will last 53 day ",
       date4:"Monday 19 june",
       year4:"2017",
       
@@ -174,6 +174,56 @@ nca:"2011 NCA Elections"
       description5:"Electors registration ends; the end of the 53 days of registration  ",
       date5:"Thursday 10 august",
       year5:"2017",
+      
+      title6:"Candidature Acceptance",
+      description6:"Candidature acceptance starts, which will last 8 days   ",
+      date6:"Tuesday 19 September",
+      year6:"2017",
+      
+      title7:"Candidature Acceptance",
+      description7:"Candidature acceptance stops; the end of the 8 days of candidature acceptance  ",
+      date7:"Tuesday 26 September",
+      year7:"2017",
+      
+      title8:"Electoral Campaign",
+      description8:"Electoral campaign starts; which will last 21 days  ",
+      date8:"Saturday 25 November",
+      year8:"2017",
+      
+      title9:"Electoral Campaign",
+      description9:"Electoral campaign ends; the end of the 21 days of campaign  ",
+      date9:"Friday 15 December",
+      year9:"2017",
+      
+      title10:"Election",
+      description10:"Election for Police and military; One day ",
+      date10:"Sunday 10 December",
+      year10:"2017",
+      
+       title11:"Election",
+     description11:"Election for citizens; One day ",
+      date11:"Sunday 17 December",
+      year11:"2017",
+      
+       title14:"Primary Results",
+      description14:"Earliest date of results announcement  ",
+      date14:"Thursday 17 December",
+      year14:"2017",
+      
+      title15:"Primary Results",
+      description15:"Late date of results announcement  ",
+      date15:"Wednesday 20 December",
+      year15:"2017",
+      
+      title16:"Final Results",
+      description16:"Earliest date of final results announcement  ",
+      date16:"Tuesday 23 January",
+      year16:"2018",
+      
+      title17:"Final Results",
+      description17:"Late date of final results announcement  ",
+      date17:"Wednesday 24 January",
+      year17:"2018",
     }
   
 
