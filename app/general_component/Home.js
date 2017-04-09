@@ -158,14 +158,14 @@ class Home extends Component {
 					<div className="row flex">
 						<div className="column width-4 push-7">
 							<div className="feature-image mb-mobile-50">
-								<div className=""  data-animate-in="preset:slideInRightShort;duration:500ms;easing:easeOut;" data-threshold="0.6">
+								<div className="feature-image-inner center-on-mobile "  data-animate-in="preset:slideInRightShort;duration:500ms;easing:easeOut;" data-threshold="0.6">
 									<img width="400" height="500" src="img/mun.jpg" alt="Sartre HTML Shop Grid Layou" title="Sartre Multipurpose HTML Template Shop Grid Layout" />
 								</div>
 							</div>
 						</div>
 						<div className="column width-5 pull-4 pull-1">
 							<div className="feature-content">
-								<div className="" data-animate-in="preset:slideInUpShort;duration:500ms;" data-threshold="0.6">
+								<div className="feature-image-inner center-on-mobile" data-animate-in="preset:slideInUpShort;duration:250ms;" data-threshold="0.6">
 									<h2 className="mb-30">Local Elections</h2>
 									<p className="lead">Description about the Local elections Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti recusandae illo eum inventore quam maiores voluptatum totam laborum officia quo, ipsam dolore expedita iusto sequi cum dolorum? Impedit, possimus, molestiae.</p>
 									<p>Description about what you can find in this section Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae atque error autem! Aut, explicabo expedita ipsa aspernatur animi libero perferendis magnam veritatis qui iste, enim ea blanditiis iusto tempora cupiditate!</p>
@@ -174,30 +174,48 @@ class Home extends Component {
 						</div>
 					</div>
 				</section>
-                <section className="section-block bkg-charcoal feature-2 right">
+                <section className="section-block pt-100 pb-100 bkg-charcoal feature-2 right ">
 					<div className="row flex">
-						<div className="column width-6">
-							<div className="feature-image mb-mobile-50">
-								<div className="feature-image-inner center-on-mobile horizon" data-animate-in="preset:slideInRightShort;duration:2000ms;delay:1000ms;" data-threshold="0.6">
-									<img src="images/generic/split_administrative.jpg" alt="Sartre HTML Off Canvas Navigation" title="Sartre Multipurpose HTML Off Canvas Navigation" />
+						<div className="col-md-7">
+							<div>
+								<div className="feature-image-inner center-on-mobile horizon" data-animate-in="preset:slideInRightShort;duration:1000ms;delay:500ms;" data-threshold="0.6">
+									<img width="400" height="500" src="img/home_data.jpg" alt="Sartre HTML Off Canvas Navigation" title="Sartre Multipurpose HTML Off Canvas Navigation" />
 								</div>
 							</div>
 						</div>
-						<div className="column width-5 push-1">
+						<div className="col-md-5">
 							<div className="feature-content">
-								<div className="feature-content-inner left center-on-mobile horizon" data-animate-in="preset:slideInUpShort;duration:2000ms;delay:1000ms;" data-threshold="0.6">
-									<h2 className="mb-30 color-white">Local Elections</h2>
-									<p className="lead color-grey-light">Description about the Local elections</p>
-									<p className="color-grey-light">Description about what you can find in this section</p>
+								<div className="feature-content-inner left center-on-mobile horizon" data-animate-in="preset:slideInUpShort;duration:1000ms;delay:500ms;" data-threshold="0.6">
+									<h2 className="mb-30 color-white">Election Data</h2>
+									<p className="lead color-grey-light">Description about data represented by delegation Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero inventore voluptatem nam eveniet eaque illum laborum, odit voluptatibus incidunt neque quod nesciunt? Reiciendis porro sit, sed praesentium error neque! </p>
+									<p className="color-grey-light">Description about what you can find in this section Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem temporibus vero non, quisquam sapiente ipsum velit, ratione iure a, fugit quasi repudiandae error voluptates esse possimus itaque nulla consequuntur quo.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+                 <section  className=" section-block feature-2 ">
+					<div className="row flex">
+						<div className="column width-4 push-7">
+							<div className="feature-image mb-mobile-50">
+								<div className="feature-image-inner center-on-mobile "  data-animate-in="preset:slideInRightShort;duration:500ms;easing:easeOut;" data-threshold="0.6">
+									<img width="400" height="500" src="img/pasve.png" alt="Sartre HTML Shop Grid Layou" title="Sartre Multipurpose HTML Template Shop Grid Layout" />
+								</div>
+							</div>
+						</div>
+						<div className="column width-5 pull-4 pull-1">
+							<div className="feature-content">
+								<div className="feature-image-inner center-on-mobile" data-animate-in="preset:slideInUpShort;duration:250ms;" data-threshold="0.6">
+									<h2 className="mb-30">Election Results</h2>
+									<p className="lead">Description about  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti recusandae illo eum inventore quam maiores voluptatum totam laborum officia quo, ipsam dolore expedita iusto sequi cum dolorum? Impedit, possimus, molestiae.</p>
+									<p>Description about what you can find in this section Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae atque error autem! Aut, explicabo expedita ipsa aspernatur animi libero perferendis magnam veritatis qui iste, enim ea blanditiis iusto tempora cupiditate!</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
             </div>
-            <h1>test</h1>
-            <h1>test</h1>
-            <h1 style={{marginTop:'5000px'}} >test</h1>
+
             </div>
         );
     }
