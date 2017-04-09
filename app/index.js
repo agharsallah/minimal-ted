@@ -14,7 +14,8 @@ import { Router, Route, browserHistory } from 'react-router';
 
 import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';
-import Split from './municipalities/Split';
+//import Split from './municipalities/Split';
+import Calendar from './municipalities/calendar/Calendar';
 
 import NotFound from './general_component/404';
 import Home from './general_component/Home';
@@ -38,7 +39,7 @@ render((
         */}
 
         
-        <Route path="/Municipalitie" component={Split}/>
+        {/*<Route path="/Municipalitie" component={Split}/>*/}
          <Route path="/Municipalities" component={Municipalities}/>
         <Route path="/Municipalities/:municipalitymap" component={ChooseMunicipality}/>
         
@@ -50,6 +51,7 @@ render((
         <Route path="/result/nca11/:mapId" component={MapComp}/>
 
         <Route path="/webradar" component={WebRadar}/>
+        <Route path="/calendar" component={Calendar}/>
         <Route path='/Home' component={Home} />
         
         <Route path='*' component={NotFound} />

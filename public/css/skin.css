@@ -45,8 +45,8 @@ Copyright: ThemeMountain
 body{
 	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 	letter-spacing: 0;
-	font-weight: 400;
-	font-size: 1.4rem;
+	font-weight: 300;
+	font-size: 1.5rem;
 	line-height: 1.8;
 	color: #666;
 }
@@ -57,19 +57,16 @@ h4,
 h5, 
 h6,
 input,
-button,
-.button,
 select,
 textarea,
 .project-title,
 .product-title,
 .project-description,
 .font-alt-1,
-.header .navigation > ul > li > a,
 .side-navigation > ul > li > a,
 .overlay-navigation > ul > li > a,
 .grid-filter-menu a{
-		font-family: 'Lato', 'Helvetica Neue', sans-serif;
+		font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
 /* Titles */
@@ -80,9 +77,9 @@ h4,
 h5,
 h6{
 	line-height: 1;
-	font-weight: 300;
+	font-weight: 400;
 	text-transform: none;
-	color: #000;
+	color: #666;
 }
 h1 a:hover,
 h2 a:hover,
@@ -90,10 +87,10 @@ h3 a:hover,
 h4 a:hover,
 h5 a:hover,
 h6 a:hover{
-	color: #0cbacf;
+	color: #27ccc0;
 }
 h1 {
-	font-size: 4.5rem !important;
+	font-size: 4.5rem;
 }
 h2{
 	font-size: 3.3rem;
@@ -114,34 +111,25 @@ h6{
 /* Widget Titles */
 .footer .widget-title, 
 .footer .widget-title a{
-	font-size: 1.3rem;
-	letter-spacing: 0.1rem;
-	font-weight: 700;
-	text-transform: uppercase;
+	font-size: 2rem;
+	letter-spacing: 0;
 	color: #fff;
-}
-.footer-light .widget-title, 
-.footer-light .widget-title a{
-	color: #000;
 }
 .sidebar .widget-title, 
 .sidebar .widget-title a{
-	font-size: 1.3rem;
-	letter-spacing: 0.1rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: #666;
+	font-size: 1.4rem;
 }
 .side-navigation-wrapper .widget-title, 
 .side-navigation-wrapper .widget-title a{
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	color: #fff;
 }
 .overlay-navigation-wrapper .widget-title, 
 .overlay-navigation-wrapper .widget-title a{
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	color: #999;
 }
+
 
 /* Link Colors */
 /*a, 
@@ -215,7 +203,7 @@ blockquote.large{
 	line-height: 1;
 }
 .title-small{
-	font-size: 1.1rem;
+	font-size: 2.1rem;
 	line-height: 1;
 }
 
@@ -258,12 +246,10 @@ blockquote.large{
 }
 
 @media only screen and (max-width: 768px){
-	h1,
-	.title-xlarge {
+	h1{
 		font-size: 4rem;
 	}
-	h2,
-	.title-large{
+	h2{
 		font-size: 2.8rem;
 	}
 	h3 {
@@ -277,6 +263,12 @@ blockquote.large{
 	}
 	h6{
 		font-size: 1.1rem;
+	}
+	.title-xlarge{
+		font-size: 5.5rem;
+	}
+	.title-large{
+		font-size: 4.2rem;
 	}
 	h5.tms-caption, 
 	.tmp-content h5{
@@ -564,7 +556,7 @@ body,
 .header .header-inner{
 	background-color: #fff;
 	border-bottom: none;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid transparent;
 }
 .header .header-inner > .nav-bar{
 	/*border-bottom: 1px solid #eee;*/
@@ -573,7 +565,7 @@ body,
 /* Transparent Header Initial & Active Nav Colors */
 .header-transparent .header-inner{
 	background-color: transparent;
-	border-bottom: 1px solid transparent;
+	/*border-bottom: 1px solid rgba(255,255,255, 0.2);*/
 }
 .header-transparent .header-inner > .nav-bar{
 	border-bottom: 1px solid rgba(255,255,255, 0.2);
@@ -3847,5 +3839,27 @@ only screen and (				min-resolution: 2dppx) {
 	/* Signup */
 	.signup-2-1{
 		background-image: url(../images/generic/signup-1@2x.jpg);
+	}
+}
+/* Timeline */
+.timeline.vertical-indication .timeline-title:after{
+	border: 2px solid #666;
+	background-color: #666;
+}
+.timeline.vertical-indication .timeline-description:before{
+	background-color: #666;
+}
+.timeline.vertical-indication .timeline-description:before{
+	width: 0.2rem;
+	left: 0.4rem;
+}
+@media only screen and (max-width: 768px) {
+	.timeline.vertical-indication .timeline-title:before{
+		background-color: #666;
+	}
+	.timeline.vertical-indication .timeline-description:before,
+	.timeline.vertical-indication .timeline-title:before{
+		width: 0.2rem;
+		left: 1.9rem;
 	}
 }

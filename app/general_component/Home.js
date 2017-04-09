@@ -127,7 +127,7 @@ class Home extends Component {
                 </header> 
                   </div>
                  </div>
-               <div class="content clearfix">
+               <div className="content clearfix">
                  <section className="section-block fullscreen-section fullscreen-section no-overlay fullscreen-inner featured-media page-intro small tm-slider-parallax-container">
 					<div className="tm-slider-container full-width-slider" data-parallax data-parallax-fade-out data-animation="slide" data-scale-under="1140" data-scale-min-height="300">
 						<ul className="tms-slides">

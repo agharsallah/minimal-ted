@@ -148,6 +148,32 @@ nca:"2011 NCA Elections"
       old:"Old",
       new:"New",
       extended:"Extended",
+    },
+    Calendar:{
+      title1:"Conditions",
+      description1:"Publishing electoral rules",
+      date1:"Friday 17 February ",
+      year1:"2017",
+      
+      title2:"Conditions",
+      description2:"Last day to change the municipality composition",
+      date2:"Monday 17 April",
+      year2:"2017",
+      
+      title3:"Conditions",
+      description3:"Last date for the Presidential order to be published inorder to invite electors",
+      date3:"Monday 18 September",
+      year3:"2017",
+
+      title4:"Registration",
+      description4:"Electors registration starts ",
+      date4:"Monday 19 june",
+      year4:"2017",
+      
+      title5:"Registration",
+      description5:"Electors registration ends; the end of the 53 days of registration  ",
+      date5:"Thursday 10 august",
+      year5:"2017",
     }
   
 
