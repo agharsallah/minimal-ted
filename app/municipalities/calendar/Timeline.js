@@ -45,14 +45,15 @@ class Timeline extends Component {
                 }else  if((counterpart(array[i].props.title))==="Final Results" && this.props.buttonclicked=="Final Results"){
                     timelinetorender.push(array[i]);
                 }else if(this.props.buttonclicked=="all") {
-
-                timelinetorender.push(array[i]);
+                    timelinetorender.push(array[i]);
             } 
 
         }
         return (
-                <ul className="timeline vertical-indication">
-                   {timelinetorender}
+                <ul className="timeline vertical-indication ">
+                    <div className="mb-50">&nbsp;</div>
+                        {timelinetorender}
+                    <div className="mb-50">&nbsp;</div>
                  </ul>
         );
 

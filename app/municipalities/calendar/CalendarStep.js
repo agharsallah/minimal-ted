@@ -12,7 +12,7 @@ const CalendarStep = (props)=>{
                 <div className="row">
                     <div className="timeline-title column width-6 right left-on-mobile">
                         <div  data-animate-in="preset:slideInLeftShort;duration:1000ms;">
-                            <h5 className="color-grey-light title-small text-uppercase no-margin-bottom"><Translate content={date}/></h5>
+                            <h5 className={` title-small text-uppercase no-margin-bottom ${color}`}><Translate content={date}/></h5>
                             <p><Translate content={year}/></p>
                         </div>
                     </div>

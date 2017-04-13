@@ -207,7 +207,7 @@ nca:"2011 NCA Elections"
       
        title14:"Primary Results",
       description14:"Earliest date of results announcement  ",
-      date14:"Thursday 17 December",
+      date14:"Sunday 17 December",
       year14:"2017",
       
       title15:"Primary Results",
