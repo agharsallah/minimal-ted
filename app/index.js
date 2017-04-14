@@ -20,6 +20,7 @@ import CalendarRoot from './municipalities/calendar/CalendarRoot';
 import NotFound from './general_component/404';
 import Home from './general_component/Home';
 
+import RootMapTabarka from './municipalities/tabarka/RootMapTabarka'
 /*import BetaViz from './test_viz/BetaViz'
 import TreeContainer from './test_viz/treechart/TreeContainer.js'
 import VotingCenter from './test_viz/voting_centers/VotingCenter.js'*/
@@ -53,6 +54,7 @@ render((
         <Route path="/webradar" component={WebRadar}/>
         <Route path="/calendar" component={CalendarRoot}/>
         <Route path='/Home' component={Home} />
+        <Route path='/Municipality/tabarka' component={RootMapTabarka} />
         
         <Route path='*' component={NotFound} />
 

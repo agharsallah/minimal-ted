@@ -215,8 +215,10 @@ class MunicipalityMap extends Component{
 		layer.on('click', function(e) {
 				var map = e.target._map
 				/*map.fitBounds(layer.getBounds(),{animate:true});*/
-					var link='/Municipalities/'+mun_name;
- 					//browserHistory.push('/Municipalities/all');
+					var link='/Municipality/'+mun_name;
+					if (mun_name=="tabarka") {
+						browserHistory.push(link);
+					}
         });
 		
 		/*var label = new L.Tooltip();
