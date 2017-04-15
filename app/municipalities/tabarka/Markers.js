@@ -27,7 +27,7 @@ class Markers extends Component {
             var type=allmarkers[i][2];
             var affectedmarker;
             if(type=="municipal") {affectedmarker=municipal}else{affectedmarker=party}
-            rows.push(<Marker position={[lat, long]} icon={affectedmarker} key={i}>
+            rows.push(<Marker position={[lat, long]} icon={affectedmarker} key={i+20}>
                             <Popup >
                             <Chart/>
                             </Popup>
@@ -35,11 +35,12 @@ class Markers extends Component {
                         )
         }
         this.setState({markers:rows});
+                console.log(rows)
+
     }
     componentWillReceiveProps(nextProps) {
         const chosenMarker = nextProps.selectedMarkers;
-        console.log(chosenMarker)
-        const allmarkers = [[36.955360, 8.749795,"municipal"],[36.9551, 8.789795,"party"],[36.94360, 8.749795,"municipal"],[36.955360, 8.89795,"party"]]
+        const allmarkers = [[36.955360, 8.749795,"municipal","Steg"],[36.9551, 8.789795,"party","Nahdha"],[36.94360, 8.749795,"municipal","Sonede"],[36.955360, 8.89795,"party","Al Tayar"]]
         const municipal = L.icon({
             iconUrl: 'http://localhost:8080/img/marker-municipal.png',
             iconSize: [40, 40],
@@ -56,19 +57,21 @@ class Markers extends Component {
             var lat=allmarkers[i][0];
             var long = allmarkers[i][1];
             var type=allmarkers[i][2];
+            var name=allmarkers[i][3];
             var affectedmarker;
             if((chosenMarker=="municipal")&&(type=="municipal")) {
-                  rows.push(<Marker position={[lat, long]} icon={municipal} key={i}><Popup ><Chart/> </Popup></Marker>)
+                  rows.push(<Marker position={[lat, long]} icon={municipal} key={i}><Popup ><p>{name}</p></Popup></Marker>)
                 }else if((chosenMarker=="party")&&(type=="party")){
-                  rows.push(<Marker position={[lat, long]} icon={party} key={i}><Popup ><Chart/> </Popup></Marker>)
+                  rows.push(<Marker position={[lat, long]} icon={party} key={i}><Popup ><p>{name}</p></Popup></Marker>)
                 }else if(chosenMarker=="all"){
                      if(type=="municipal") {affectedmarker=municipal}else{affectedmarker=party}
-                     rows.push(<Marker position={[lat, long]} icon={affectedmarker} key={i}><Popup ><Chart/> </Popup></Marker>)
+                     rows.push(<Marker position={[lat, long]} icon={affectedmarker} key={i}><Popup ><Chart/></Popup></Marker>)
                 }
 
 
         }
         this.setState({markers:rows});
+        console.log(rows)
     }
     
     
