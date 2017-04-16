@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Map, Popup, TileLayer, GeoJSON, FeatureGroup, Tooltip } from 'react-leaflet';
+import { Map, Popup, TileLayer, GeoJSON, FeatureGroup, Tooltip,LayersControl } from 'react-leaflet';
 import Markers from './Markers'
 import shapes from "./../data/mun_shapes.js";
+import Control from 'react-leaflet-control';
 
 class TabarkaMap extends Component {
     constructor(props){
@@ -27,16 +28,23 @@ class TabarkaMap extends Component {
 	}
     highlightFeature(e) {
 	    var layer = e.target;
+     this.setState({feature:layer.feature.properties.seats});
+    return layer.setStyle( {
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+	}
+    resetFeature(e) {
+	    var layer = e.target;
 	    layer.setStyle({
 	        weight: 5,
-	        color: '#666',
-	        fillOpacity: 1
+
 	    });
-        console.log(layer.feature.properties.seats)
-        this.setState({feature:layer.feature.properties.seats});
+        this.setState({feature:""});
 	}
     render() {
-
 	
         const position = [36.955360, 8.749795];
         return (
@@ -46,22 +54,27 @@ class TabarkaMap extends Component {
                     url='https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA'
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     />
-                <Markers selectedMarkers={this.props.selectedMarker}/>
+                    <Markers selectedMarkers={this.props.selectedMarker}/>
 
-<GeoJSON data= {shapes["Kairouan"]}   style={this.style.bind(this)}    
-        onEachFeature={
-            (feature, layer) => {
-                layer.bindPopup(feature.properties.name_en);
-                layer.on({mouseover: this.highlightFeature.bind(this)
-                })
-             }
-        }
-        
->
-          <Tooltip>
-            <span>{this.state.feature}</span>
-          </Tooltip>
-          </GeoJSON>
+                    <GeoJSON data= {shapes["Kairouan"]}   
+                            style={this.style.bind(this)}    
+                            onEachFeature={
+                                (feature, layer) => {
+                                    layer.bindPopup(feature.properties.name_en);
+                                    layer.on({mouseover: this.highlightFeature.bind(this)});
+                                    layer.on({mouseout: this.resetFeature.bind(this)});
+                                }
+                            }
+                    >
+                        <Tooltip>
+                            <span>{this.state.feature}</span>
+                        </Tooltip>
+                    </GeoJSON>
+                    <Control position="topright" >
+                        <p>
+                        {this.state.feature}
+                        </p>
+                    </Control>
                 </Map>
             </div>
         );
