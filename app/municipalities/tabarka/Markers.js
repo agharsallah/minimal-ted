@@ -28,7 +28,7 @@ class Markers extends Component {
             var affectedmarker;
             if(type=="municipal") {affectedmarker=municipal}else{affectedmarker=party}
             rows.push(<Marker position={[lat, long]} icon={affectedmarker} key={i+20}>
-                            <Popup >
+                            <Popup maxWidth="600">
                             <Chart/>
                             </Popup>
                         </Marker>
@@ -67,7 +67,6 @@ class Markers extends Component {
                      if(type=="municipal") {affectedmarker=municipal}else{affectedmarker=party}
                      rows.push(<Marker position={[lat, long]} icon={affectedmarker} key={i}><Popup ><Chart/></Popup></Marker>)
                 }
-
 
         }
         this.setState({markers:rows});

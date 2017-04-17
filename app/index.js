@@ -16,6 +16,7 @@ import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';
 //import Split from './municipalities/Split';
 import CalendarRoot from './municipalities/calendar/CalendarRoot';
+import BigCalendarIndex from './municipalities/bigcalendar/BigCalendarIndex';
 
 import NotFound from './general_component/404';
 import Home from './general_component/Home';
@@ -55,6 +56,7 @@ render((
         <Route path="/calendar" component={CalendarRoot}/>
         <Route path='/Home' component={Home} />
         <Route path='/Municipality/tabarka' component={RootMapTabarka} />
+        <Route path='/bigcalendar' component={BigCalendarIndex} />
         
         <Route path='*' component={NotFound} />
 

@@ -3,6 +3,8 @@ var webpack = require('webpack');
 /*
  * Default webpack configuration for development
  */
+var Autoprefixer = require('less-plugin-autoprefix');
+
 var config = {
   devtool: 'eval-source-map',
   entry:  __dirname + "/app/index.js",
@@ -32,8 +34,17 @@ var config = {
       query: {
         presets: ['es2015','react']
       }
-    }
+    },
+    { test: /\.less/, loader: 'style-loader!css-loader!postcss-loader!less-loader', exclude: /node_modules/ }
+
 ]
+  },
+    lessLoader: {
+    lessPlugins: [
+      new Autoprefixer({
+        browsers: ['last 2 versions', "ie >= 10"]
+      })
+    ]
   },
   devServer: {
     contentBase: "./public",
