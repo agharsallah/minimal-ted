@@ -62,7 +62,7 @@ class BlankBallotsDelegation extends Component{
 	    });
 	}
 	//--------------ALL stripes Logic ------------
-	 var bigStripes = new L.StripePattern({
+/*	 var bigStripes = new L.StripePattern({
             patternContentUnits: 'objectBoundingBox',
             patternUnits: 'objectBoundingBox',
             weight: 0.1,
@@ -70,14 +70,14 @@ class BlankBallotsDelegation extends Component{
             height: 0.2,
             angle: 45,
         });
-        bigStripes.addTo(this.mymap);
+        bigStripes.addTo(this.mymap);*/
 		function styleinexistant(feature) {
 			return {
 				weight: 2,
 				opacity: 1,
 				color: 'white',
 				fillOpacity: 1,
-				fillPattern: bigStripes
+				fillPattern: "white"
 			};
 		}	
 	//--------oneachfeaturefor inexistant
@@ -132,9 +132,7 @@ class BlankBallotsDelegation extends Component{
     /*--custom legend on hover*/
 
     		info.update = function (props) {
-/*		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'
-		        : 'Hover over a state');*/
+		    this._div.innerHTML = (props ?<Highchart /> : '');
 		    if (props) {
 		    			var percentage = parameter+'Percentage' // create a variable to match the prtoperty in the geojson
 					    console.log(percentage)
@@ -207,7 +205,7 @@ class BlankBallotsDelegation extends Component{
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
 
-       var searchControl = new L.Control.Search({
+/*       var searchControl = new L.Control.Search({
     	layer:featuresLayer,
 		propertyName: 'NAME_EN',
 		circleLocation: false,
@@ -221,7 +219,7 @@ class BlankBallotsDelegation extends Component{
 		if(e.layer._popup)
 			e.layer.openPopup();
 	})
-	this.mymap.addControl( searchControl );  //inizialize search control
+	this.mymap.addControl( searchControl );  //inizialize search control*/
     
     //Legend control feature;
     var legend = L.control({position: 'bottomright'});
@@ -249,7 +247,7 @@ class BlankBallotsDelegation extends Component{
 	//-------this is where we're going to insert the map to the dom
 	componentDidMount() {
 	this.mymap = L.map(this.refs.map).setView([35.00, 10.90], 7);
-	 var stripes = new L.StripePattern(); stripes.addTo(this.mymap); 
+	 /*var stripes = new L.StripePattern(); stripes.addTo(this.mymap); */
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA', {
    				maxZoom: 9,
@@ -277,6 +275,7 @@ class BlankBallotsDelegation extends Component{
 	//--------style applied when mouseout
 	function resetHighlight(e) {
     	featuresLayer.resetStyle(e.target);
+		console.log("ccccccccccccc")
     	 info.update();
 	}
 
@@ -306,7 +305,7 @@ class BlankBallotsDelegation extends Component{
 		}).addTo(this.mymap);
     
     //-------------search feature
-    var searchControl = new L.Control.Search({
+/*    var searchControl = new L.Control.Search({
     	layer:featuresLayer,
 		propertyName: 'NAME_EN',
 		circleLocation: false,
@@ -320,9 +319,9 @@ class BlankBallotsDelegation extends Component{
 		if(e.layer._popup)
 			e.layer.openPopup();
 	})
-	this.mymap.addControl( searchControl );  //inizialize search control
+	this.mymap.addControl( searchControl );  //inizialize search control*/
     //--------------ALL stripes Logic ------------
-	 var bigStripes = new L.StripePattern({
+/*	 var bigStripes = new L.StripePattern({
             patternContentUnits: 'objectBoundingBox',
             patternUnits: 'objectBoundingBox',
             weight: 0.1,
@@ -330,14 +329,14 @@ class BlankBallotsDelegation extends Component{
             height: 0.2,
             angle: 45,
         });
-        bigStripes.addTo(this.mymap);
+        bigStripes.addTo(this.mymap)*/;
 		function styleinexistant(feature) {
 			return {
 				weight: 2,
 				opacity: 1,
 				color: 'white',
 				fillOpacity: 1,
-				fillPattern: bigStripes
+				fillPattern: "white"
 			};
 		}	
 	//--------oneachfeaturefor inexistant
@@ -393,10 +392,7 @@ class BlankBallotsDelegation extends Component{
 	// -------method that we will use to update the control based on feature properties passed
 
 		info.update = function (props) {
-/*		    this._div.innerHTML = '<h4>Canceled Ballots</h4>' +  (props ?
-		        '<b>' + props.NAME_EN + '</b><br />' + props.canceled + ' Canceled Ballot'+
- 				<Highchart />
-		        : 'Hover over a state');*/
+		    this._div.innerHTML = (props ?<Highchart /> : '');
 		    if (props) {
 		    var cnt = 2; // Count of the array should be here
 			var pntr = 0;

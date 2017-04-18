@@ -79,7 +79,7 @@ class BallotState extends Component{
 			onEachFeature:onEachFeature
 		}).addTo(this.mymap);
 	//-------------search feature
-    var searchControl = new L.Control.Search({
+/*    var searchControl = new L.Control.Search({
     	layer:featuresLayer,
 		propertyName: 'NAME_EN',
 		circleLocation: false,
@@ -93,11 +93,11 @@ class BallotState extends Component{
 		if(e.layer._popup)
 			e.layer.openPopup();
 	})
-	this.mymap.addControl( searchControl );  //inizialize search control
+	this.mymap.addControl( searchControl );  //inizialize search control*/
     
 
 //--------------ALL stripes Logic ------------
-	 var bigStripes = new L.StripePattern({
+/*	 var bigStripes = new L.StripePattern({
             patternContentUnits: 'objectBoundingBox',
             patternUnits: 'objectBoundingBox',
             weight: 0.1,
@@ -105,14 +105,14 @@ class BallotState extends Component{
             height: 0.2,
             angle: 45,
         });
-        bigStripes.addTo(this.mymap);
+        bigStripes.addTo(this.mymap);*/
 		function styleinexistant(feature) {
 			return {
 				weight: 2,
 				opacity: 1,
 				color: 'white',
 				fillOpacity: 1,
-				fillPattern: bigStripes
+				fillPattern: "white"
 			};
 		}	
 	//--------oneachfeaturefor inexistant
