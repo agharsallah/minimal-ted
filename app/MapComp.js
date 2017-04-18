@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Translate from 'react-translate-component';
-import Layout from './Layout';
+import Layout from './general_component/Layout';
 import ChooseMap from './ChooseMap'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 

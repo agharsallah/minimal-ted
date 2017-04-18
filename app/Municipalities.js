@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Layout from './Layout';
+import Layout from './general_component/Layout';
 import Translate from 'react-translate-component';
 import Paper from 'material-ui/Paper';
 import AutoComplete from 'material-ui/AutoComplete';

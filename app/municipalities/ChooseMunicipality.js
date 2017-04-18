@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import AllMunicipalities from './AllMunicipalities.js';
 import Radio_state from './Radiobutton_state.js';
-import Layout from './../Layout';
+import Layout from './../general_component/Layout';
 import namesJson from'./data/mun_names';
 import Translate from 'react-translate-component';
 import fuzzycitysearch from'./data/city_list'

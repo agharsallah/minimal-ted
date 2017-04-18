@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Layout from './Layout';
+import Layout from './general_component/Layout';
 import Parlamantary from './Parlamantary';
 import Projects from './Projects';
 import Nca from './Nca';

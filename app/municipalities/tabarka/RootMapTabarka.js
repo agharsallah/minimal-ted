@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MenuDrawer from './MenuDrawer';
-import TabarkaMap from "./TabarkaMap"
+import TabarkaMap from "./TabarkaMap";
+import Layout from '../../general_component/Layout.js';
 class RootMapTabarka extends Component {
     constructor(props) {
         super(props);
@@ -13,6 +14,7 @@ class RootMapTabarka extends Component {
         console.log(this.state.buttonclicked)
         return (
             <div>
+                <Layout/>
                 <TabarkaMap selectedMarker={this.state.buttonclicked}/>
                 <MenuDrawer getclickedbuttons={this.getclickedbuttons.bind(this)}/>
             </div>

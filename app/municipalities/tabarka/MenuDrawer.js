@@ -19,7 +19,7 @@ class MenuDrawer extends Component {
                 label="Open Filter"
                 onTouchTap={this.handleToggle.bind(this)}
                 />
-                <Drawer width={300}  open={this.state.open}  onRequestChange={(open) => this.setState({open})}>
+                <Drawer width={300} containerStyle={{top:80}} open={this.state.open}  onRequestChange={(open) => this.setState({open})}>
                 <AppBar title="Menu" onLeftIconButtonTouchTap = { this.handleToggle.bind(this) }/>
                 <div className="mb-30">&nbsp;</div>
                 <div style={{marginLeft:"2rem"}}>

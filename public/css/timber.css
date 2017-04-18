@@ -542,7 +542,7 @@ body.boxed .wrapper-inner{
 }
 .navigation .dropdown-list.custom-content{
 	width: auto;
-	min-width: 25rem;
+	/*min-width: 25rem;*/
 	padding: 2rem;
 }
 

@@ -10,7 +10,7 @@ import MapComp from './MapComp'
 import Parlamantary from './Parlamantary'
 import Nca from './Nca'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory,IndexRoute  } from 'react-router';
 
 import Municipalities from './Municipalities'
 import ChooseMunicipality from './municipalities/ChooseMunicipality';

@@ -903,7 +903,7 @@ body.boxed .header .header-inner{
 }
 .header .cart + .sub-menu,
 .header .cart + .dropdown-list{
-	width: 30rem;
+	/*width: 7rem;*/
 	padding: 2rem;
 	margin-top: 0;
 	right: 0;
